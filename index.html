@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Let's Camel Tours</title>
+<style>
+  :root {
+    --navy: #003366;
+    --navy-dark: #001f3f;
+    --gold: #E07A3E;
+    --gold-light: #ea9868;
+    --white: #ffffff;
+    --off-white: #F8FAFC;
+    --text-gray: #5c6474;
+    --line: #e6e9ef;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body { font-family: 'Poppins', sans-serif; color: #1a1a1a; line-height: 1.6; }
+
+  a { text-decoration: none; color: inherit; }
+
+  ul { list-style: none; }
+
+  img { max-width: 100%; display: block; }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+
+  .section-label {
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .section-title {
+    font-size: clamp(32px, 4.4vw, 48px);
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+
+  .section-text {
+    color: var(--text-gray);
+    font-size: 15.5px;
+    max-width: 640px;
+  }
+
+  .section-head {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+  }
+
+  .btn-gold {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--white);
+    padding: 14px 30px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 14.5px;
+    letter-spacing: 0.02em;
+    border: none;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .btn-outline {
+    display: inline-block;
+    border: 1.5px solid var(--white);
+    color: var(--white);
+    padding: 13px 28px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 14.5px;
+    transition: background 0.25s ease;
+  }
+
+  .btn-outline:hover { background: rgba(255,255,255,0.1); }
+
+  .btn-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--navy);
+  }
+
+  .btn-arrow svg { width: 16px; height: 16px; transition: transform 0.2s ease; }
+  .btn-arrow:hover svg { transform: translateX(4px); }
+
+  .btn-arrow-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gold);
+    color: var(--white);
+    padding: 14px 30px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 14.5px;
+  }
+
+  .btn-arrow-gold svg { width: 16px; height: 16px; transition: transform 0.2s ease; }
+  .btn-arrow-gold:hover { background: var(--gold-light); }
+  .btn-arrow-gold:hover svg { transform: translateX(4px); }
+
+  .navbar {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    z-index: 200;
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+    transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+  }
+
+  .navbar.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  .nav-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 16px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo img { height: 46px; width: auto; }
+
+  .nav-menu { display: flex; align-items: center; gap: 30px; }
+
+  .nav-menu a {
+    color: var(--off-white);
+    font-size: 14.5px;
+    font-weight: 500;
+    transition: color 0.25s ease;
+  }
+
+  .navbar.scrolled .nav-menu a { color: var(--navy); }
+
+  .nav-menu a:hover { color: var(--gold); }
+
+  .nav-right { display: flex; align-items: center; gap: 18px; position: relative; }
+
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: 1px solid rgba(255,255,255,0.4);
+    color: var(--off-white);
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.25s ease, border-color 0.25s ease;
+  }
+
+  .lang-toggle svg { width: 15px; height: 15px; }
+
+  .navbar.scrolled .lang-toggle { color: var(--navy); border-color: var(--line); }
+
+  .lang-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: var(--white);
+    border-radius: 6px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    padding: 6px;
+    display: none;
+    min-width: 140px;
+  }
+
+  .lang-menu.open { display: block; }
+
+  .lang-option {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 9px 12px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--navy);
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .lang-option:hover { background: var(--off-white); }
+  .lang-option.active { color: var(--gold); font-weight: 700; }
+
+  .btn-book {
+    background: var(--gold);
+    color: var(--white);
+    padding: 11px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: background 0.25s ease;
+  }
+
+  .btn-book:hover { background: var(--gold-light); }
+
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(180deg, rgba(0,51,102,0.4) 0%, rgba(0,31,63,0.5) 100%), url("desert.jpg");
+    background-size: cover;
+    background-position: center 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 140px 24px 120px;
+  }
+
+  .hero-content {
+    max-width: 720px;
+    text-align: center;
+    color: var(--white);
+  }
+
+  .hero-title {
+    font-size: clamp(34px, 6vw, 60px);
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.15;
+  }
+
+  .hero-subtitle {
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--off-white);
+    margin-bottom: 34px;
+  }
+
+  .hero-btns { display: flex; gap: 14px; justify-content: center; margin-bottom: 60px; }
+
+  .search-bar {
+    position: absolute;
+    bottom: -42px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 92%;
+    max-width: 1000px;
+  }
+
+  .search-field { flex: 1; border-right: 1px solid var(--line); padding-right: 20px; }
+  .search-field:last-of-type { border-right: none; }
+
+  .search-field label {
+    display: block;
+    font-size: 11px;
+    color: var(--text-gray);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+  }
+
+  .search-field select,
+  .search-field input {
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #1a1a1a;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .btn-search {
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    padding: 15px 28px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 14.5px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.25s ease;
+  }
+
+  .btn-search:hover { background: var(--navy-dark); }
+
+  .why-us { padding: 130px 0 90px; background: var(--off-white); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .why-card {
+    background: var(--white);
+    padding: 34px 28px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    text-align: center;
+  }
+
+  .why-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,51,102,0.1); }
+
+  .why-icon {
+    width: 50px; height: 50px;
+    background: rgba(224,122,62,0.12);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 14px;
+  }
+
+  .why-icon svg { width: 24px; height: 24px; color: var(--gold); }
+
+  .why-card h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .why-card p { color: var(--text-gray); font-size: 14.5px; }
+
+  .about { padding: 100px 0; }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .about-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .about-images img {
+    border-radius: 10px;
+    height: 280px;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .about-images img:first-child { margin-top: 40px; }
+
+  .about-list { margin: 24px 0; }
+
+  .about-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+    color: var(--text-gray);
+    font-size: 15px;
+  }
+
+  .about-list li::before {
+    content: "";
+    width: 8px; height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+
+  .tours { padding: 100px 0; background: var(--off-white); }
+
+  .holidays {
+    padding: 34px 0;
+    background: var(--off-white);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .holidays-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .holidays-heading .section-label { margin-bottom: 2px; }
+  .holidays-heading h2 { font-size: 19px; font-weight: 700; color: var(--navy); }
+
+  .holiday-facts { display: flex; flex-wrap: wrap; gap: 26px; }
+
+  .holiday-fact .k {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+
+  .holiday-fact .v { font-size: 13.5px; font-weight: 700; color: var(--navy); }
+
+  .tours-list { margin-bottom: 40px; }
+
+  .tour-feature-card {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    margin-bottom: 24px;
+    transition: box-shadow 0.25s ease;
+  }
+
+  .tour-feature-card:hover { box-shadow: 0 18px 40px rgba(0,51,102,0.1); }
+
+  .tour-feature-image { background-size: cover; background-position: center; min-height: 100%; position: relative; }
+
+  .tour-feature-body { padding: 28px 30px; }
+
+  .tour-feature-top { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+
+  .tour-feature-duration {
+    font-size: 12px;
+    color: var(--text-gray);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .tour-feature-body h3 { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+
+  .tour-feature-route {
+    font-size: 12.5px;
+    color: var(--text-gray);
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+
+  .tour-feature-highlights { margin-bottom: 16px; }
+
+  .tour-feature-highlights li {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    font-size: 13.5px;
+    color: var(--text-gray);
+    margin-bottom: 7px;
+  }
+
+  .tour-feature-highlights li::before {
+    content: "";
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+
+  .inclusion-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(224,122,62,0.12);
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+
+  .inclusion-badge svg { width: 13px; height: 13px; }
+
+  .tour-feature-includes { font-size: 12.5px; color: var(--text-gray); margin-bottom: 18px; font-style: italic; }
+
+  .blog { padding: 100px 0; }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+
+  .blog-card {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .blog-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,51,102,0.12); }
+
+  .blog-image { height: 190px; background-size: cover; background-position: center; }
+
+  .blog-body { padding: 22px 22px 24px; }
+
+  .blog-meta {
+    display: flex;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 10px;
+  }
+
+  .blog-meta span:last-child { color: var(--text-gray); font-weight: 500; text-transform: none; letter-spacing: 0; }
+
+  .blog-body h3 { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 10px; line-height: 1.35; }
+  .blog-body p { font-size: 13.5px; color: var(--text-gray); margin-bottom: 16px; }
+
+
+  .tours-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+    margin-bottom: 46px;
+  }
+
+  .tour-card {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .tour-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,51,102,0.12); }
+
+  .tour-image {
+    height: 210px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+
+  .tour-tag {
+    position: absolute;
+    top: 14px; left: 14px;
+    background: var(--gold);
+    color: var(--white);
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .tour-body { padding: 22px 22px 24px; }
+
+  .tour-rating {
+    font-size: 13px;
+    color: var(--gold);
+    margin-bottom: 10px;
+    letter-spacing: 0.02em;
+  }
+
+  .tour-rating span { color: var(--text-gray); margin-left: 4px; }
+
+  .tour-body h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+
+  .tour-desc { color: var(--text-gray); font-size: 13.5px; margin-bottom: 14px; line-height: 1.6; }
+
+  .tour-price { font-size: 17px; font-weight: 700; color: var(--gold); margin-bottom: 16px; }
+
+  .tours-cta { text-align: center; }
+
+  .services { padding: 100px 0; }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 26px;
+  }
+
+  .service-card {
+    background: var(--white);
+    padding: 30px 26px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    text-align: center;
+  }
+
+  .service-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,51,102,0.1); }
+
+  .service-icon {
+    width: 50px; height: 50px;
+    background: rgba(224,122,62,0.12);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 14px;
+  }
+
+  .service-icon svg { width: 24px; height: 24px; color: var(--gold); }
+
+  .service-card h3 { font-size: 16.5px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .service-card p { color: var(--text-gray); font-size: 14px; }
+
+  .packages { padding: 100px 0; background: var(--off-white); }
+
+  .packages-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 26px;
+  }
+
+  .package-card {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+
+  .package-image { background-size: cover; background-position: center; min-height: 100%; }
+
+  .package-body { padding: 22px; }
+
+  .package-body h3 { font-size: 16.5px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .package-body .meta { font-size: 13px; color: var(--text-gray); margin-bottom: 10px; }
+  .package-body .price { font-size: 15px; font-weight: 700; color: var(--gold); margin-bottom: 12px; }
+
+  .testimonials { padding: 100px 0; }
+
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+
+  .testi-card {
+    background: var(--off-white);
+    padding: 30px 26px;
+    border-radius: 10px;
+    border-left: 3px solid var(--gold);
+  }
+
+  .testi-card p.quote {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.65;
+  }
+
+  .testi-who { font-size: 14px; color: var(--navy); font-weight: 700; }
+  .testi-who span { display: block; color: var(--text-gray); font-weight: 400; font-size: 12.5px; margin-top: 2px; }
+
+  .faq { padding: 100px 0; background: var(--off-white); }
+
+  .faq-list { max-width: 800px; margin: 0 auto; }
+
+  .faq-item { border-bottom: 1px solid var(--line); }
+
+  .faq-q {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 22px 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 16.5px;
+    color: var(--navy);
+    cursor: pointer;
+  }
+
+  .faq-q svg { width: 16px; height: 16px; flex-shrink: 0; transition: transform 0.25s ease; color: var(--gold); }
+  .faq-item.open .faq-q svg { transform: rotate(45deg); }
+
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+  .faq-a p { padding: 0 4px 22px; color: var(--text-gray); font-size: 14.5px; max-width: 70ch; }
+
+  .contact { padding: 100px 0; background: var(--navy); color: var(--white); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 60px;
+  }
+
+  .contact-info .section-title { color: var(--white); }
+  .contact-info p { color: var(--off-white); margin-bottom: 30px; font-size: 15px; max-width: 40ch; }
+
+  .contact-line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-size: 14.5px;
+    color: var(--off-white);
+  }
+
+  .contact-line svg { width: 18px; height: 18px; color: var(--gold); flex-shrink: 0; }
+
+  form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  form .full { grid-column: 1 / -1; }
+
+  form label {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--off-white);
+    margin-bottom: 7px;
+    font-weight: 600;
+  }
+
+  form input, form select, form textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--white);
+    padding: 13px 14px;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+  }
+
+  form textarea { min-height: 100px; resize: vertical; }
+
+  form input::placeholder, form textarea::placeholder { color: rgba(255,255,255,0.5); }
+
+  .footer { background: var(--navy-dark); color: var(--off-white); padding: 60px 0 24px; }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 44px;
+  }
+
+  .footer-logo img { height: 80px; margin-bottom: 16px; }
+  .footer-col p { font-size: 14px; color: rgba(248,250,252,0.7); max-width: 32ch; }
+
+  .footer-col h4 {
+    color: var(--white);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+
+  .footer-col li { margin-bottom: 10px; }
+  .footer-col a { font-size: 14px; color: rgba(248,250,252,0.8); transition: color 0.25s ease; }
+  .footer-col a:hover { color: var(--gold); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 22px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 12.5px;
+    color: rgba(248,250,252,0.5);
+  }
+
+  @media (max-width: 960px) {
+    .why-grid, .tours-grid, .testi-grid, .blog-grid { grid-template-columns: 1fr 1fr; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .tour-feature-card { grid-template-columns: 1fr; }
+    .tour-feature-image { height: 220px; }
+  }
+
+  @media (max-width: 768px) {
+    .nav-menu { display: none; }
+    .hero-title { font-size: 30px; }
+    .hero { padding-bottom: 60px; }
+    .search-bar {
+      position: relative;
+      bottom: 0;
+      left: 0;
+      transform: none;
+      margin: 30px auto 0;
+      flex-direction: column;
+    }
+    .search-field { border-right: none; width: 100%; }
+    .why-us { padding-top: 70px; }
+    .why-grid, .tours-grid, .services-grid, .testi-grid, .blog-grid { grid-template-columns: 1fr; }
+    form { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .holidays-inner { flex-direction: column; align-items: flex-start; }
+  }
+  .whatsapp-btn {
+    position: fixed;
+    bottom: 26px;
+    right: 26px;
+    z-index: 300;
+    width: 58px;
+    height: 58px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    transition: transform 0.2s ease;
+  }
+
+  .whatsapp-btn:hover { transform: scale(1.08); }
+
+  .whatsapp-btn svg { width: 30px; height: 30px; fill: #fff; }
+
+  @media (max-width: 768px) {
+    .whatsapp-btn { width: 52px; height: 52px; bottom: 18px; right: 18px; }
+    .whatsapp-btn svg { width: 26px; height: 26px; }
+  }
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="nav-container">
+    <a href="#" class="logo">
+      <img src="logo.png" alt="Let's Camel Tours">
+    </a>
+    <nav class="nav-menu">
+      <a href="#home"><span data-en="Home" data-fr="Accueil" data-es="Inicio" data-de="Startseite">Home</span></a>
+      <a href="#tours"><span data-en="Tours" data-fr="Circuits" data-es="Tours" data-de="Touren">Tours</span></a>
+      <a href="#desert-treks"><span data-en="Desert Treks" data-fr="Randonnées Désert" data-es="Trekking Desierto" data-de="Wüstentrekking">Desert Treks</span></a>
+      <a href="#about"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
+      <a href="#blog"><span data-en="Blog" data-fr="Blog" data-es="Blog" data-de="Blog">Blog</span></a>
+      <a href="#contact"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
+    </nav>
+    <div class="nav-right">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9z"/></svg>
+        <span id="lang-label">EN</span>
+      </button>
+      <div class="lang-menu" id="lang-menu">
+        <button class="lang-option active" data-lang="en">English</button>
+        <button class="lang-option" data-lang="fr">Français</button>
+        <button class="lang-option" data-lang="es">Español</button>
+        <button class="lang-option" data-lang="de">Deutsch</button>
+      </div>
+      <a href="#contact" class="btn-book"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1 class="hero-title"><span data-en="Let's Explore Morocco" data-fr="Explorons le Maroc" data-es="Exploremos Marruecos" data-de="Lasst uns Marokko Erkunden">Let's Explore Morocco</span></h1>
+    <p class="hero-subtitle"><span data-en="Let's experience the magic of Morocco with camel treks through golden dunes, luxury desert camps under the stars, and authentic Berber culture." data-fr="Vivons la magie du Maroc avec des treks à dos de chameau à travers les dunes dorées, des camps de luxe sous les étoiles et une culture berbère authentique." data-es="Vivamos la magia de Marruecos con paseos en camello por dunas doradas, campamentos de lujo bajo las estrellas y una auténtica cultura bereber." data-de="Erleben wir die Magie Marokkos mit Kamelritten durch goldene Dünen, luxuriösen Wüstencamps unter den Sternen und authentischer Berberkultur.">Let's experience the magic of Morocco with camel treks through golden dunes, luxury desert camps under the stars, and authentic Berber culture.</span></p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-gold"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+      <a href="#about" class="btn-outline"><span data-en="About Us" data-fr="À propos" data-es="Sobre Nosotros" data-de="Über Uns">About Us</span></a>
+    </div>
+  </div>
+  <div class="search-bar">
+    <div class="search-field">
+      <label><span data-en="Tour Type" data-fr="Type de circuit" data-es="Tipo de Tour" data-de="Tourart">Tour Type</span></label>
+      <select>
+        <option data-en="Select Your Tour" data-fr="Choisissez votre circuit" data-es="Elige tu Tour" data-de="Tour Auswählen">Select Your Tour</option>
+        <option data-en="Sahara Desert Tour" data-fr="Circuit désert du Sahara" data-es="Tour al Desierto del Sahara" data-de="Sahara-Wüstentour">Sahara Desert Tour</option>
+        <option data-en="Historical Tour" data-fr="Circuit historique" data-es="Tour Histórico" data-de="Historische Tour">Historical Tour</option>
+        <option data-en="Family Tour" data-fr="Circuit familial" data-es="Tour Familiar" data-de="Familientour">Family Tour</option>
+        <option data-en="Camel Trekking" data-fr="Trek à dos de chameau" data-es="Trekking en Camello" data-de="Kameltrekking">Camel Trekking</option>
+      </select>
+    </div>
+    <div class="search-field">
+      <label><span data-en="Arrival Date" data-fr="Date d'arrivée" data-es="Fecha de Llegada" data-de="Ankunftsdatum">Arrival Date</span></label>
+      <input type="date">
+    </div>
+    <div class="search-field">
+      <label><span data-en="Departure Date" data-fr="Date de départ" data-es="Fecha de Salida" data-de="Abreisedatum">Departure Date</span></label>
+      <input type="date">
+    </div>
+    <div class="search-field">
+      <label><span data-en="Passengers" data-fr="Voyageurs" data-es="Pasajeros" data-de="Reisende">Passengers</span></label>
+      <select>
+        <option data-en="1 Passenger" data-fr="1 Voyageur" data-es="1 Pasajero" data-de="1 Reisender">1 Passenger</option>
+        <option data-en="2 Passengers" data-fr="2 Voyageurs" data-es="2 Pasajeros" data-de="2 Reisende">2 Passengers</option>
+        <option data-en="3 Passengers" data-fr="3 Voyageurs" data-es="3 Pasajeros" data-de="3 Reisende">3 Passengers</option>
+        <option data-en="4 Passengers" data-fr="4 Voyageurs" data-es="4 Pasajeros" data-de="4 Reisende">4 Passengers</option>
+      </select>
+    </div>
+    <button class="btn-search"><span data-en="Search" data-fr="Rechercher" data-es="Buscar" data-de="Suchen">Search</span></button>
+  </div>
+</section>
+
+<section class="why-us" id="why-us">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label"><span data-en="Why Choose Us" data-fr="Pourquoi Nous Choisir" data-es="Por Qué Elegirnos" data-de="Warum Uns Wählen">Why Choose Us</span></span>
+      <h2 class="section-title"><span data-en="Why Travel with Let's Camel" data-fr="Pourquoi Voyager avec Let's Camel" data-es="Por Qué Viajar con Let's Camel" data-de="Warum mit Let's Camel Reisen">Why Travel with Let's Camel</span></h2>
+      <p class="section-text" style="margin: 0 auto;"><span data-en="We specialize in authentic Moroccan adventures guided by local Berber experts, with carefully designed itineraries and personalized service on every journey." data-fr="Nous sommes spécialisés dans les aventures marocaines authentiques guidées par des experts berbères locaux, avec des itinéraires soigneusement conçus et un service personnalisé à chaque voyage." data-es="Nos especializamos en aventuras marroquíes auténticas guiadas por expertos bereberes locales, con itinerarios cuidadosamente diseñados y un servicio personalizado en cada viaje." data-de="Wir sind spezialisiert auf authentische marokkanische Abenteuer, geführt von lokalen Berberexperten, mit sorgfältig gestalteten Reiserouten und persönlichem Service bei jeder Reise.">We specialize in authentic Moroccan adventures guided by local Berber experts, with carefully designed itineraries and personalized service on every journey.</span></p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+        <h3><span data-en="Local Berber Guides" data-fr="Guides Berbères Locaux" data-es="Guías Bereberes Locales" data-de="Lokale Berberführer">Local Berber Guides</span></h3>
+        <p><span data-en="Travel with knowledgeable guides who share Morocco's hidden treasures and traditions along every route." data-fr="Voyagez avec des guides expérimentés qui partagent les trésors cachés et les traditions du Maroc tout au long du parcours." data-es="Viaja con guías experimentados que comparten los tesoros ocultos y las tradiciones de Marruecos en cada ruta." data-de="Reisen Sie mit erfahrenen Guides, die auf jeder Route Marokkos verborgene Schätze und Traditionen teilen.">Travel with knowledgeable guides who share Morocco's hidden treasures and traditions along every route.</span></p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10l9-7 9 7v10a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></svg></div>
+        <h3><span data-en="Authentic Desert Camps" data-fr="Camps Authentiques" data-es="Campamentos Auténticos" data-de="Authentische Wüstencamps">Authentic Desert Camps</span></h3>
+        <p><span data-en="Stay in handpicked camps and riads that reflect Morocco's heritage while offering real comfort." data-fr="Séjournez dans des camps et riads sélectionnés qui reflètent le patrimoine marocain tout en offrant un vrai confort." data-es="Alójate en campamentos y riads seleccionados que reflejan el patrimonio marroquí ofreciendo verdadera comodidad." data-de="Übernachten Sie in handverlesenen Camps und Riads, die marokkanisches Erbe mit echtem Komfort verbinden.">Stay in handpicked camps and riads that reflect Morocco's heritage while offering real comfort.</span></p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l2.5 6.5L21 11l-6.5 2.5L12 20l-2.5-6.5L3 11l6.5-2.5z"/></svg></div>
+        <h3><span data-en="Highly Rated Journeys" data-fr="Voyages Très Bien Notés" data-es="Viajes Muy Bien Valorados" data-de="Hoch Bewertete Reisen">Highly Rated Journeys</span></h3>
+        <p><span data-en="Recommended by travelers worldwide, with top ratings for exceptional guiding and service." data-fr="Recommandés par des voyageurs du monde entier, avec d'excellentes notes pour un guidage et un service exceptionnels." data-es="Recomendados por viajeros de todo el mundo, con las mejores valoraciones en guía y servicio." data-de="Von Reisenden weltweit empfohlen, mit Bestbewertungen für außergewöhnliche Führung und Service.">Recommended by travelers worldwide, with top ratings for exceptional guiding and service.</span></p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 9h16M9 4v16"/></svg></div>
+        <h3><span data-en="Tailor-Made Tours" data-fr="Circuits Sur Mesure" data-es="Tours a Medida" data-de="Maßgeschneiderte Touren">Tailor-Made Tours</span></h3>
+        <p><span data-en="Flexible itineraries designed around your interests, travel style, and budget." data-fr="Itinéraires flexibles conçus selon vos intérêts, votre style de voyage et votre budget." data-es="Itinerarios flexibles diseñados según tus intereses, estilo de viaje y presupuesto." data-de="Flexible Reiserouten, abgestimmt auf Ihre Interessen, Ihren Reisestil und Ihr Budget.">Flexible itineraries designed around your interests, travel style, and budget.</span></p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3><span data-en="Safe & Secure Travel" data-fr="Voyage Sûr et Sécurisé" data-es="Viaje Seguro" data-de="Sichere Reise">Safe & Secure Travel</span></h3>
+        <p><span data-en="Experienced local drivers and guides ensure a smooth, secure journey from start to finish." data-fr="Des chauffeurs et guides locaux expérimentés assurent un voyage fluide et sécurisé du début à la fin." data-es="Conductores y guías locales experimentados garantizan un viaje fluido y seguro de principio a fin." data-de="Erfahrene lokale Fahrer und Guides sorgen für eine reibungslose und sichere Reise von Anfang bis Ende.">Experienced local drivers and guides ensure a smooth, secure journey from start to finish.</span></p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21C7 17 3 13.5 3 9a5 5 0 019-3 5 5 0 019 3c0 4.5-4 8-9 12z"/></svg></div>
+        <h3><span data-en="Fair, Transparent Prices" data-fr="Prix Justes et Transparents" data-es="Precios Justos y Transparentes" data-de="Faire, Transparente Preise">Fair, Transparent Prices</span></h3>
+        <p><span data-en="Premium desert tours and authentic experiences at honest prices, with no hidden fees." data-fr="Des circuits désert haut de gamme et des expériences authentiques à prix honnêtes, sans frais cachés." data-es="Tours de desierto premium y experiencias auténticas a precios honestos, sin cargos ocultos." data-de="Premium-Wüstentouren und authentische Erlebnisse zu fairen Preisen, ohne versteckte Kosten.">Premium desert tours and authentic experiences at honest prices, with no hidden fees.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-images">
+      <img src="about-1.jpg" alt="Travelers in Morocco">
+      <img src="about-2.jpg" alt="Chefchaouen blue city">
+    </div>
+    <div class="about-content">
+      <span class="section-label"><span data-en="About Us" data-fr="À Propos" data-es="Sobre Nosotros" data-de="Über Uns">About Us</span></span>
+      <h2 class="section-title"><span data-en="Let's Turn Your Desert Adventure Dreams Into Reality" data-fr="Transformons Vos Rêves d'Aventure en Réalité" data-es="Hagamos Realidad Tus Sueños de Aventura en el Desierto" data-de="Lasst uns Ihre Wüstenabenteuer-Träume Wahr Werden Lassen">Let's Turn Your Desert Adventure Dreams Into Reality</span></h2>
+      <p class="section-text"><span data-en="At Let's Camel Tours, we craft unforgettable journeys across Morocco's deserts and cultural landscapes, from the golden dunes of Merzouga to the vibrant streets of Marrakech, blending adventure, comfort, and authenticity." data-fr="Chez Let's Camel Tours, nous créons des voyages inoubliables à travers les déserts et paysages culturels du Maroc, des dunes dorées de Merzouga aux rues animées de Marrakech, en alliant aventure, confort et authenticité." data-es="En Let's Camel Tours, creamos viajes inolvidables por los desiertos y paisajes culturales de Marruecos, desde las dunas doradas de Merzouga hasta las vibrantes calles de Marrakech, combinando aventura, comodidad y autenticidad." data-de="Bei Let's Camel Tours gestalten wir unvergessliche Reisen durch Marokkos Wüsten und Kulturlandschaften, von den goldenen Dünen Merzougas bis zu den lebendigen Straßen Marrakeschs, und verbinden Abenteuer, Komfort und Authentizität.">At Let's Camel Tours, we craft unforgettable journeys across Morocco's deserts and cultural landscapes, from the golden dunes of Merzouga to the vibrant streets of Marrakech, blending adventure, comfort, and authenticity.</span></p>
+      <ul class="about-list">
+        <li><span data-en="Authentic camel trekking experiences across the Sahara Desert" data-fr="Des expériences authentiques de trek à dos de chameau à travers le Sahara" data-es="Experiencias auténticas de trekking en camello por el desierto del Sahara" data-de="Authentische Kameltrekking-Erlebnisse durch die Sahara-Wüste">Authentic camel trekking experiences across the Sahara Desert</span></li>
+        <li><span data-en="Expert local guides with deep knowledge of Moroccan culture and history" data-fr="Des guides locaux experts, avec une connaissance approfondie de la culture et de l'histoire marocaines" data-es="Guías locales expertos con un profundo conocimiento de la cultura y la historia marroquí" data-de="Erfahrene lokale Guides mit tiefem Wissen über marokkanische Kultur und Geschichte">Expert local guides with deep knowledge of Moroccan culture and history</span></li>
+        <li><span data-en="Customizable itineraries designed around your preferences and schedule" data-fr="Des itinéraires personnalisables conçus selon vos préférences et votre emploi du temps" data-es="Itinerarios personalizables diseñados según tus preferencias y horario" data-de="Anpassbare Reiserouten nach Ihren Vorlieben und Ihrem Zeitplan">Customizable itineraries designed around your preferences and schedule</span></li>
+      </ul>
+      <a href="#tours" class="btn-gold"><span data-en="Discover More" data-fr="Découvrir Plus" data-es="Descubre Más" data-de="Mehr Entdecken">Discover More</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="holidays" id="holidays">
+  <div class="container holidays-inner">
+    <div class="holidays-heading">
+      <span class="section-label"><span data-en="Discover Morocco" data-fr="Découvrir le Maroc" data-es="Descubre Marruecos" data-de="Marokko Entdecken">Discover Morocco</span></span>
+      <h2><span data-en="Holidays in Morocco" data-fr="Vacances au Maroc" data-es="Vacaciones en Marruecos" data-de="Urlaub in Marokko">Holidays in Morocco</span></h2>
+    </div>
+    <div class="holiday-facts">
+      <div class="holiday-fact">
+        <div class="k"><span data-en="Capital" data-fr="Capitale" data-es="Capital" data-de="Hauptstadt">Capital</span></div>
+        <div class="v">Rabat</div>
+      </div>
+      <div class="holiday-fact">
+        <div class="k"><span data-en="Population" data-fr="Population" data-es="Población" data-de="Bevölkerung">Population</span></div>
+        <div class="v">37.8M</div>
+      </div>
+      <div class="holiday-fact">
+        <div class="k"><span data-en="Currency" data-fr="Monnaie" data-es="Moneda" data-de="Währung">Currency</span></div>
+        <div class="v"><span data-en="Dirham (MAD)" data-fr="Dirham (MAD)" data-es="Dirham (MAD)" data-de="Dirham (MAD)">Dirham (MAD)</span></div>
+      </div>
+      <div class="holiday-fact">
+        <div class="k"><span data-en="Time Zone" data-fr="Décalage Horaire" data-es="Zona Horaria" data-de="Zeitzone">Time Zone</span></div>
+        <div class="v">GMT+1</div>
+      </div>
+      <div class="holiday-fact">
+        <div class="k"><span data-en="Best Time to Visit" data-fr="Meilleure Saison" data-es="Mejor Época" data-de="Beste Reisezeit">Best Time to Visit</span></div>
+        <div class="v"><span data-en="Sept – May" data-fr="Sept. – Mai" data-es="Sept. – Mayo" data-de="Sept. – Mai">Sept – May</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tours" id="tours">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label"><span data-en="Featured Tours" data-fr="Circuits Vedettes" data-es="Tours Destacados" data-de="Top-Touren">Featured Tours</span></span>
+      <h2 class="section-title"><span data-en="Let's Explore Our Top Tours & Experiences" data-fr="Explorons Nos Meilleurs Circuits et Expériences" data-es="Exploremos Nuestros Mejores Tours y Experiencias" data-de="Entdecken Wir Unsere Top-Touren und Erlebnisse">Let's Explore Our Top Tours & Experiences</span></h2>
+      <p class="section-text" style="margin: 0 auto;"><span data-en="Handpicked itineraries covering Morocco's imperial cities, mountains, and desert — each one fully private and customizable." data-fr="Des itinéraires sélectionnés couvrant les villes impériales, les montagnes et le désert du Maroc — chacun 100% privé et personnalisable." data-es="Itinerarios seleccionados que recorren las ciudades imperiales, montañas y desierto de Marruecos — cada uno 100% privado y personalizable." data-de="Handverlesene Reiserouten durch Marokkos Kaiserstädte, Berge und Wüste — jede vollständig privat und individuell anpassbar.">Handpicked itineraries covering Morocco's imperial cities, mountains, and desert — each one fully private and customizable.</span></p>
+    </div>
+    <div class="tours-grid">
+
+      <div class="tour-card">
+        <div class="tour-image" style="background-image:url('tour-1.jpg');"><span class="tour-tag"><span data-en="Bestseller" data-fr="Meilleure Vente" data-es="Más Vendido" data-de="Bestseller">Bestseller</span></span></div>
+        <div class="tour-body">
+          <div class="tour-feature-duration"><span data-en="8 Days / 7 Nights" data-fr="8 Jours / 7 Nuits" data-es="8 Días / 7 Noches" data-de="8 Tage / 7 Nächte">8 Days / 7 Nights</span></div>
+          <h3><span data-en="Grand Morocco Tour: North to South" data-fr="Grand Tour du Maroc : Nord au Sud" data-es="Gran Tour de Marruecos: Norte a Sur" data-de="Große Marokko-Tour: Norden bis Süden">Grand Morocco Tour: North to South</span></h3>
+          <ul class="tour-feature-highlights">
+            <li><span data-en="Blue Pearl streets of Chefchaouen" data-fr="Ruelles de la Perle Bleue" data-es="Calles de la Perla Azul" data-de="Gassen der Blauen Perle">Blue Pearl streets of Chefchaouen</span></li>
+            <li><span data-en="Camel trek & luxury desert camp" data-fr="Trek à dos de chameau et camp de luxe" data-es="Paseo en camello y campamento de lujo" data-de="Kameltrekking & Luxus-Wüstencamp">Camel trek & luxury desert camp</span></li>
+            <li><span data-en="Vibrant Marrakech souks" data-fr="Souks animés de Marrakech" data-es="Vibrantes zocos de Marrakech" data-de="Lebendige Souks von Marrakesch">Vibrant Marrakech souks</span></li>
+          </ul>
+          <span class="inclusion-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> <span data-en="Free Airport Pickup" data-fr="Transfert Aéroport Gratuit" data-es="Traslado del Aeropuerto Gratis" data-de="Kostenloser Flughafentransfer">Free Airport Pickup</span></span>
+          <p class="tour-feature-includes"><span data-en="Includes: private 4x4/minivan with English-speaking driver, breakfasts & desert dinners." data-fr="Inclus : 4x4/minibus privé avec chauffeur anglophone, petits-déjeuners et dîners au désert." data-es="Incluye: 4x4/minivan privado con conductor de habla inglesa, desayunos y cenas en el desierto." data-de="Inklusive: Privater 4x4/Minivan mit englischsprachigem Fahrer, Frühstück & Wüstenabendessen.">Includes: private 4x4/minivan with English-speaking driver, breakfasts & desert dinners.</span></p>
+          <a href="tour-1.html" class="btn-arrow-gold"><span data-en="View Details & Book" data-fr="Voir les Détails & Réserver" data-es="Ver Detalles y Reservar" data-de="Details Ansehen & Buchen">View Details & Book</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+
+      <div class="tour-card">
+        <div class="tour-image" style="background-image:url('tour-2.jpg');"><span class="tour-tag"><span data-en="Most Popular" data-fr="Le Plus Populaire" data-es="Más Popular" data-de="Am Beliebtesten">Most Popular</span></span></div>
+        <div class="tour-body">
+          <div class="tour-feature-duration"><span data-en="7 Days / 6 Nights" data-fr="7 Jours / 6 Nuits" data-es="7 Días / 6 Noches" data-de="7 Tage / 6 Nächte">7 Days / 6 Nights</span></div>
+          <h3><span data-en="Classic Desert Adventure: Marrakech to Fes" data-fr="Aventure Désert Classique : Marrakech à Fès" data-es="Aventura Clásica en el Desierto: Marrakech a Fez" data-de="Klassisches Wüstenabenteuer: Marrakesch bis Fès">Classic Desert Adventure: Marrakech to Fes</span></h3>
+          <ul class="tour-feature-highlights">
+            <li><span data-en="Tizi n'Tichka mountain pass" data-fr="Col de Tizi n'Tichka" data-es="Puerto de Tizi n'Tichka" data-de="Tizi-n'-Tichka-Pass">Tizi n'Tichka mountain pass</span></li>
+            <li><span data-en="Night under the stars in Merzouga" data-fr="Nuit sous les étoiles à Merzouga" data-es="Noche bajo las estrellas en Merzouga" data-de="Nacht unter den Sternen in Merzouga">Night under the stars in Merzouga</span></li>
+            <li><span data-en="Dades Gorges scenic drive" data-fr="Route des Gorges du Dadès" data-es="Ruta por las Gargantas del Dades" data-de="Fahrt durch die Dadès-Schluchten">Dades Gorges scenic drive</span></li>
+          </ul>
+          <span class="inclusion-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> <span data-en="Private Transport Included" data-fr="Transport Privé Inclus" data-es="Transporte Privado Incluido" data-de="Privater Transport Inklusive">Private Transport Included</span></span>
+          <p class="tour-feature-includes"><span data-en="Includes: camel ride, luxury desert camp, local Berber guides." data-fr="Inclus : balade à dos de chameau, camp de luxe, guides berbères locaux." data-es="Incluye: paseo en camello, campamento de lujo, guías bereberes locales." data-de="Inklusive: Kamelritt, Luxus-Wüstencamp, lokale Berberguides.">Includes: camel ride, luxury desert camp, local Berber guides.</span></p>
+          <a href="tour-2.html" class="btn-arrow-gold"><span data-en="View Details & Book" data-fr="Voir les Détails & Réserver" data-es="Ver Detalles y Reservar" data-de="Details Ansehen & Buchen">View Details & Book</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+
+      <div class="tour-card">
+        <div class="tour-image" style="background-image:url('tour-3.jpg');"><span class="tour-tag"><span data-en="Cultural Highlight" data-fr="Temps Fort Culturel" data-es="Highlight Cultural" data-de="Kulturelles Highlight">Cultural Highlight</span></span></div>
+        <div class="tour-body">
+          <div class="tour-feature-duration"><span data-en="6 Days / 5 Nights" data-fr="6 Jours / 5 Nuits" data-es="6 Días / 5 Noches" data-de="6 Tage / 5 Nächte">6 Days / 5 Nights</span></div>
+          <h3><span data-en="Imperial Cities & Coastal Pearl" data-fr="Villes Impériales & Perle Côtière" data-es="Ciudades Imperiales y Perla Costera" data-de="Kaiserstädte & Küstenperle">Imperial Cities & Coastal Pearl</span></h3>
+          <ul class="tour-feature-highlights">
+            <li><span data-en="Hassan II Mosque" data-fr="Mosquée Hassan II" data-es="Mezquita Hasan II" data-de="Hassan-II-Moschee">Hassan II Mosque</span></li>
+            <li><span data-en="Volubilis Roman ruins" data-fr="Ruines romaines de Volubilis" data-es="Ruinas romanas de Volubilis" data-de="Römische Ruinen von Volubilis">Volubilis Roman ruins</span></li>
+            <li><span data-en="Fes traditional tanneries" data-fr="Tanneries de Fès" data-es="Curtidurías de Fez" data-de="Gerbereien von Fès">Fes traditional tanneries</span></li>
+          </ul>
+          <span class="inclusion-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> <span data-en="Guided City Tours Included" data-fr="Visites Guidées Incluses" data-es="Visitas Guiadas Incluidas" data-de="Geführte Stadttouren Inklusive">Guided City Tours Included</span></span>
+          <p class="tour-feature-includes"><span data-en="Includes: private transfers, airport pickup & drop-off." data-fr="Inclus : transferts privés, prise en charge et dépose à l'aéroport." data-es="Incluye: traslados privados, recogida y salida del aeropuerto." data-de="Inklusive: Private Transfers, Flughafenabholung & -Rückgabe.">Includes: private transfers, airport pickup & drop-off.</span></p>
+          <a href="tour-3.html" class="btn-arrow-gold"><span data-en="View Details & Book" data-fr="Voir les Détails & Réserver" data-es="Ver Detalles y Reservar" data-de="Details Ansehen & Buchen">View Details & Book</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="services" id="desert-treks">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label"><span data-en="Our Promise" data-fr="Notre Engagement" data-es="Nuestra Promesa" data-de="Unser Versprechen">Our Promise</span></span>
+      <h2 class="section-title"><span data-en="What Makes Us Different" data-fr="Ce Qui Nous Distingue" data-es="Qué Nos Hace Diferentes" data-de="Was Uns Anders Macht">What Makes Us Different</span></h2>
+      <p class="section-text" style="margin: 0 auto;"><span data-en="Trusted by travelers exploring Morocco's deserts and beyond." data-fr="La confiance des voyageurs qui explorent les déserts du Maroc et au-delà." data-es="La confianza de viajeros que exploran los desiertos de Marruecos y más allá." data-de="Vertraut von Reisenden, die Marokkos Wüsten und mehr erkunden.">Trusted by travelers exploring Morocco's deserts and beyond.</span></p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+        <h3><span data-en="Born-and-Raised Guides" data-fr="Guides Nés au Pays" data-es="Guías Nacidos y Criados Aquí" data-de="Einheimische Guides">Born-and-Raised Guides</span></h3>
+        <p><span data-en="Our guides grew up in the Atlas Mountains and Sahara Desert, sharing their homeland with genuine warmth and local knowledge." data-fr="Nos guides ont grandi dans l'Atlas et le Sahara, et partagent leur pays natal avec une chaleur et une connaissance authentiques." data-es="Nuestros guías crecieron en el Atlas y el Sahara, compartiendo su tierra natal con calidez genuina y conocimiento local." data-de="Unsere Guides sind im Atlasgebirge und der Sahara aufgewachsen und teilen ihre Heimat mit echter Wärme und lokalem Wissen.">Our guides grew up in the Atlas Mountains and Sahara Desert, sharing their homeland with genuine warmth and local knowledge.</span></p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 9h16M9 4v16"/></svg></div>
+        <h3><span data-en="100% Flexible Itineraries" data-fr="Itinéraires 100% Flexibles" data-es="Itinerarios 100% Flexibles" data-de="100% Flexible Reiserouten">100% Flexible Itineraries</span></h3>
+        <p><span data-en="Every tour is tailor-made — change stops, extend stays, or add unique experiences at any time." data-fr="Chaque circuit est sur mesure — changez les étapes, prolongez votre séjour ou ajoutez des expériences à tout moment." data-es="Cada tour está hecho a medida — cambia paradas, extiende tu estancia o añade experiencias únicas en cualquier momento." data-de="Jede Tour ist maßgeschneidert — ändern Sie Stopps, verlängern Sie Ihren Aufenthalt oder fügen Sie jederzeit einzigartige Erlebnisse hinzu.">Every tour is tailor-made — change stops, extend stays, or add unique experiences at any time.</span></p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10l9-7 9 7v10a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></svg></div>
+        <h3><span data-en="Luxury Desert Camps" data-fr="Camps de Luxe" data-es="Campamentos de Lujo" data-de="Luxus-Wüstencamps">Luxury Desert Camps</span></h3>
+        <p><span data-en="Sleep under the stars in premium camps with hot showers, traditional dinners, and campfire nights." data-fr="Dormez sous les étoiles dans des camps haut de gamme avec douches chaudes, dîners traditionnels et soirées autour du feu." data-es="Duerme bajo las estrellas en campamentos premium con duchas de agua caliente, cenas tradicionales y noches junto al fuego." data-de="Schlafen Sie unter den Sternen in Premium-Camps mit heißen Duschen, traditionellen Abendessen und Lagerfeuerabenden.">Sleep under the stars in premium camps with hot showers, traditional dinners, and campfire nights.</span></p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3><span data-en="No-Risk Booking" data-fr="Réservation Sans Risque" data-es="Reserva Sin Riesgo" data-de="Risikofreie Buchung">No-Risk Booking</span></h3>
+        <p><span data-en="Free cancellation up to 4 days before departure, instant confirmation, and a best-price guarantee." data-fr="Annulation gratuite jusqu'à 4 jours avant le départ, confirmation immédiate et meilleur prix garanti." data-es="Cancelación gratuita hasta 4 días antes de la salida, confirmación instantánea y el mejor precio garantizado." data-de="Kostenlose Stornierung bis 4 Tage vor Abreise, sofortige Bestätigung und Bestpreisgarantie.">Free cancellation up to 4 days before departure, instant confirmation, and a best-price guarantee.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label"><span data-en="Testimonials" data-fr="Témoignages" data-es="Testimonios" data-de="Erfahrungsberichte">Testimonials</span></span>
+      <h2 class="section-title"><span data-en="Let's See What Our Travelers Say" data-fr="Découvrons Ce Que Disent Nos Voyageurs" data-es="Veamos Lo Que Dicen Nuestros Viajeros" data-de="Sehen Wir, Was Unsere Reisenden Sagen">Let's See What Our Travelers Say</span></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <p class="quote"><span data-en="Our two-day tour from Marrakech to Merzouga was fantastic for our family. Our guide was knowledgeable and answered all our questions. The whole trip exceeded our expectations." data-fr="Notre circuit de deux jours de Marrakech à Merzouga était fantastique pour notre famille. Notre guide était compétent et a répondu à toutes nos questions. Le voyage a dépassé nos attentes." data-es="Nuestro tour de dos días de Marrakech a Merzouga fue fantástico para nuestra familia. Nuestro guía tenía mucho conocimiento y respondió todas nuestras preguntas. Todo el viaje superó nuestras expectativas." data-de="Unsere zweitägige Tour von Marrakesch nach Merzouga war fantastisch für unsere Familie. Unser Guide war kompetent und beantwortete all unsere Fragen. Die ganze Reise übertraf unsere Erwartungen.">Our two-day tour from Marrakech to Merzouga was fantastic for our family. Our guide was knowledgeable and answered all our questions. The whole trip exceeded our expectations.</span></p>
+        <div class="testi-who">Kelsey S. <span>Livingston, Montana</span></div>
+      </div>
+      <div class="testi-card">
+        <p class="quote"><span data-en="Our custom 12-day tour was crafted around our interests, with great hotels and local guides. Free time was built in and changes were made along the way. An awesome experience overall." data-fr="Notre circuit sur mesure de 12 jours a été conçu selon nos intérêts, avec de superbes hôtels et guides locaux. Du temps libre était prévu et des ajustements ont été faits en cours de route. Une expérience géniale." data-es="Nuestro tour personalizado de 12 días fue diseñado según nuestros intereses, con excelentes hoteles y guías locales. Se incluyó tiempo libre y se hicieron cambios sobre la marcha. Una experiencia increíble en general." data-de="Unsere individuelle 12-tägige Tour wurde ganz nach unseren Interessen gestaltet, mit tollen Hotels und lokalen Guides. Freizeit war eingeplant und Änderungen wurden unterwegs vorgenommen. Insgesamt ein großartiges Erlebnis.">Our custom 12-day tour was crafted around our interests, with great hotels and local guides. Free time was built in and changes were made along the way. An awesome experience overall.</span></p>
+        <div class="testi-who">Manish S. <span>Los Angeles, CA</span></div>
+      </div>
+      <div class="testi-card">
+        <p class="quote"><span data-en="The riads and desert camp were lovely, and the camel ride through the Sahara was memorable and truly once in a lifetime. Our guide was phenomenal from start to finish." data-fr="Les riads et le camp désert étaient magnifiques, et la balade à dos de chameau dans le Sahara était mémorable, une expérience unique. Notre guide était exceptionnel du début à la fin." data-es="Los riads y el campamento del desierto fueron encantadores, y el paseo en camello por el Sahara fue memorable y verdaderamente único en la vida. Nuestro guía fue excepcional de principio a fin." data-de="Die Riads und das Wüstencamp waren wunderschön, und der Kamelritt durch die Sahara war unvergesslich und wirklich einmalig. Unser Guide war von Anfang bis Ende hervorragend.">The riads and desert camp were lovely, and the camel ride through the Sahara was memorable and truly once in a lifetime. Our guide was phenomenal from start to finish.</span></p>
+        <div class="testi-who">Christine B. <span>Kendal, United Kingdom</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blog" id="blog">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label"><span data-en="From the Blog" data-fr="Depuis le Blog" data-es="Desde el Blog" data-de="Vom Blog">From the Blog</span></span>
+      <h2 class="section-title"><span data-en="Let's Read & Explore" data-fr="Lisons & Explorons" data-es="Leamos y Exploremos" data-de="Lasst uns Lesen & Entdecken">Let's Read & Explore</span></h2>
+      <p class="section-text" style="margin: 0 auto;"><span data-en="Travel tips, stories, and guides to help you plan the perfect Morocco trip." data-fr="Conseils de voyage, récits et guides pour préparer le voyage parfait au Maroc." data-es="Consejos de viaje, historias y guías para planear el viaje perfecto a Marruecos." data-de="Reisetipps, Geschichten und Guides für die perfekte Marokko-Reise.">Travel tips, stories, and guides to help you plan the perfect Morocco trip.</span></p>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card">
+        <div class="blog-image" style="background-image:url('blog-1.jpg');"></div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span><span data-en="Desert Travel" data-fr="Voyage Désert" data-es="Viaje al Desierto" data-de="Wüstenreise">Desert Travel</span></span>
+            <span>July 2026</span>
+          </div>
+          <h3><span data-en="10 Things to Know Before Visiting the Sahara" data-fr="10 Choses à Savoir Avant de Visiter le Sahara" data-es="10 Cosas que Saber Antes de Visitar el Sahara" data-de="10 Dinge, die Man Vor dem Sahara-Besuch Wissen Sollte">10 Things to Know Before Visiting the Sahara</span></h3>
+          <p><span data-en="From what to pack to when to go, here's everything first-time desert travelers should know before setting off." data-fr="De ce qu'il faut emporter au meilleur moment pour partir, voici tout ce que les voyageurs doivent savoir avant le départ." data-es="Desde qué llevar hasta cuándo ir, esto es todo lo que los viajeros primerizos deben saber antes de partir." data-de="Von der Packliste bis zur besten Reisezeit — alles, was Erstbesucher der Wüste wissen sollten.">From what to pack to when to go, here's everything first-time desert travelers should know before setting off.</span></p>
+          <a href="#" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-image" style="background-image:url('blog-2.jpg');"></div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span><span data-en="City Guide" data-fr="Guide de Ville" data-es="Guía de Ciudad" data-de="Stadtführer">City Guide</span></span>
+            <span>June 2026</span>
+          </div>
+          <h3><span data-en="A Local's Guide to Marrakech's Medina" data-fr="Le Guide Local de la Médina de Marrakech" data-es="Guía Local de la Medina de Marrakech" data-de="Ein Lokaler Guide durch die Medina von Marrakesch">A Local's Guide to Marrakech's Medina</span></h3>
+          <p><span data-en="Navigate the souks like a local, from hidden riads to the best spots for mint tea and street food." data-fr="Explorez les souks comme un habitant, entre riads cachés et meilleures adresses pour le thé à la menthe." data-es="Recorre los zocos como un local, entre riads escondidos y los mejores lugares para el té de menta." data-de="Erkunden Sie die Souks wie ein Einheimischer, zwischen versteckten Riads und den besten Orten für Minztee.">Navigate the souks like a local, from hidden riads to the best spots for mint tea and street food.</span></p>
+          <a href="#" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-image" style="background-image:url('blog-3.jpg');"></div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span><span data-en="Travel Tips" data-fr="Conseils Voyage" data-es="Consejos de Viaje" data-de="Reisetipps">Travel Tips</span></span>
+            <span>May 2026</span>
+          </div>
+          <h3><span data-en="Best Time to Visit Morocco: A Season-by-Season Guide" data-fr="Meilleure Période pour Visiter le Maroc : Saison par Saison" data-es="Mejor Época para Visitar Marruecos: Guía Estación por Estación" data-de="Beste Reisezeit für Marokko: Ein Saisonführer">Best Time to Visit Morocco: A Season-by-Season Guide</span></h3>
+          <p><span data-en="Spring bloom, summer coast, or winter desert skies — here's how to pick the right season for your trip." data-fr="Floraison printanière, côte estivale ou ciel désertique hivernal — comment choisir la bonne saison pour votre voyage." data-es="Floración primaveral, costa en verano o cielos desérticos en invierno — cómo elegir la temporada ideal para tu viaje." data-de="Frühlingsblüte, Sommerküste oder Winterhimmel in der Wüste — so finden Sie die richtige Saison für Ihre Reise.">Spring bloom, summer coast, or winter desert skies — here's how to pick the right season for your trip.</span></p>
+          <a href="#" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label"><span data-en="FAQ" data-fr="FAQ" data-es="Preguntas Frecuentes" data-de="FAQ">FAQ</span></span>
+      <h2 class="section-title"><span data-en="Morocco Desert Tours FAQ" data-fr="FAQ Circuits Désert au Maroc" data-es="Preguntas Frecuentes sobre Tours al Desierto" data-de="FAQ zu Marokko-Wüstentouren">Morocco Desert Tours FAQ</span></h2>
+      <p class="section-text" style="margin: 0 auto;"><span data-en="Everything you need to know before booking your Sahara adventure." data-fr="Tout ce qu'il faut savoir avant de réserver votre aventure au Sahara." data-es="Todo lo que necesitas saber antes de reservar tu aventura en el Sahara." data-de="Alles, was Sie vor der Buchung Ihres Sahara-Abenteuers wissen müssen.">Everything you need to know before booking your Sahara adventure.</span></p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q"><span data-en="How many days do you need for a Morocco desert tour?" data-fr="Combien de jours faut-il pour un circuit désert au Maroc ?" data-es="¿Cuántos días se necesitan para un tour al desierto en Marruecos?" data-de="Wie viele Tage braucht man für eine Marokko-Wüstentour?">How many days do you need for a Morocco desert tour?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><p><span data-en="Most travelers spend 2 to 4 days on a desert tour, enough time to reach Merzouga or Zagora, ride camels into the dunes, and sleep in a desert camp. Longer circuits of 7 to 10 days combine the desert with imperial cities." data-fr="La plupart des voyageurs passent 2 à 4 jours sur un circuit désert, assez de temps pour rejoindre Merzouga ou Zagora, monter à dos de chameau dans les dunes et dormir dans un camp. Des circuits plus longs de 7 à 10 jours combinent le désert avec les villes impériales." data-es="La mayoría de los viajeros pasan de 2 a 4 días en un tour al desierto, tiempo suficiente para llegar a Merzouga o Zagora, montar en camello por las dunas y dormir en un campamento. Circuitos más largos de 7 a 10 días combinan el desierto con las ciudades imperiales." data-de="Die meisten Reisenden verbringen 2 bis 4 Tage auf einer Wüstentour, genug Zeit, um Merzouga oder Zagora zu erreichen, mit Kamelen durch die Dünen zu reiten und in einem Wüstencamp zu übernachten. Längere Touren von 7 bis 10 Tagen kombinieren die Wüste mit den Kaiserstädten.">Most travelers spend 2 to 4 days on a desert tour, enough time to reach Merzouga or Zagora, ride camels into the dunes, and sleep in a desert camp. Longer circuits of 7 to 10 days combine the desert with imperial cities.</span></p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span data-en="Which desert is best: Merzouga or Zagora?" data-fr="Quel désert choisir : Merzouga ou Zagora ?" data-es="¿Qué desierto es mejor: Merzouga o Zagora?" data-de="Welche Wüste ist besser: Merzouga oder Zagora?">Which desert is best: Merzouga or Zagora?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><p><span data-en="Merzouga has the tallest dunes and the most classic Sahara scenery, ideal if you have 3 or more days. Zagora is closer to Marrakech and better suited to shorter 2-day trips." data-fr="Merzouga possède les dunes les plus hautes et le paysage saharien le plus classique, idéal si vous avez 3 jours ou plus. Zagora est plus proche de Marrakech et mieux adaptée aux séjours de 2 jours." data-es="Merzouga tiene las dunas más altas y el paisaje sahariano más clásico, ideal si tienes 3 días o más. Zagora está más cerca de Marrakech y es mejor para viajes cortos de 2 días." data-de="Merzouga hat die höchsten Dünen und die klassischste Sahara-Landschaft, ideal bei 3 oder mehr Tagen. Zagora liegt näher an Marrakesch und eignet sich besser für kürzere 2-Tages-Ausflüge.">Merzouga has the tallest dunes and the most classic Sahara scenery, ideal if you have 3 or more days. Zagora is closer to Marrakech and better suited to shorter 2-day trips.</span></p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span data-en="When is the best time to visit the Sahara?" data-fr="Quelle est la meilleure période pour visiter le Sahara ?" data-es="¿Cuál es la mejor época para visitar el Sahara?" data-de="Wann ist die beste Zeit, um die Sahara zu besuchen?">When is the best time to visit the Sahara?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><p><span data-en="October to April offers the most comfortable temperatures, with cool nights and warm days. Summer months can be very hot during the day but nights remain pleasant in the desert." data-fr="D'octobre à avril offre les températures les plus agréables, avec des nuits fraîches et des journées douces. Les mois d'été peuvent être très chauds en journée mais les nuits restent agréables dans le désert." data-es="De octubre a abril ofrece las temperaturas más agradables, con noches frescas y días cálidos. Los meses de verano pueden ser muy calurosos durante el día, pero las noches siguen siendo agradables en el desierto." data-de="Oktober bis April bietet die angenehmsten Temperaturen mit kühlen Nächten und warmen Tagen. Die Sommermonate können tagsüber sehr heiß sein, aber die Nächte bleiben in der Wüste angenehm.">October to April offers the most comfortable temperatures, with cool nights and warm days. Summer months can be very hot during the day but nights remain pleasant in the desert.</span></p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span data-en="How far is the Sahara Desert from Marrakech?" data-fr="À quelle distance se trouve le Sahara de Marrakech ?" data-es="¿A qué distancia está el desierto del Sahara desde Marrakech?" data-de="Wie weit ist die Sahara-Wüste von Marrakesch entfernt?">How far is the Sahara Desert from Marrakech?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><p><span data-en="Merzouga is roughly 9 to 10 hours by road from Marrakech, while Zagora is closer at around 6 hours. Most tours break up the drive with stops at kasbahs, gorges, and mountain passes." data-fr="Merzouga se trouve à environ 9 à 10 heures de route de Marrakech, tandis que Zagora est plus proche, à environ 6 heures. La plupart des circuits fractionnent le trajet avec des arrêts aux kasbahs, gorges et cols de montagne." data-es="Merzouga está a unas 9-10 horas en coche desde Marrakech, mientras que Zagora está más cerca, a unas 6 horas. La mayoría de los tours dividen el trayecto con paradas en kasbahs, gargantas y puertos de montaña." data-de="Merzouga ist etwa 9 bis 10 Autostunden von Marrakesch entfernt, während Zagora mit etwa 6 Stunden näher liegt. Die meisten Touren unterteilen die Fahrt mit Stopps an Kasbahs, Schluchten und Gebirgspässen.">Merzouga is roughly 9 to 10 hours by road from Marrakech, while Zagora is closer at around 6 hours. Most tours break up the drive with stops at kasbahs, gorges, and mountain passes.</span></p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span data-en="What's included in a desert tour?" data-fr="Qu'est-ce qui est inclus dans un circuit désert ?" data-es="¿Qué incluye un tour al desierto?" data-de="Was ist in einer Wüstentour enthalten?">What's included in a desert tour?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><p><span data-en="Transport, an English-speaking driver-guide, accommodation, a camel trek at sunset, and dinner and breakfast in the desert camp are typically included. Lunches and personal expenses are usually extra." data-fr="Le transport, un chauffeur-guide francophone/anglophone, l'hébergement, une balade à dos de chameau au coucher du soleil, ainsi que le dîner et le petit-déjeuner au camp sont généralement inclus. Les déjeuners et dépenses personnelles sont généralement en supplément." data-es="El transporte, un chófer-guía de habla inglesa, alojamiento, un paseo en camello al atardecer, y la cena y el desayuno en el campamento suelen estar incluidos. Los almuerzos y gastos personales suelen ser aparte." data-de="Transport, ein englischsprachiger Fahrer-Guide, Unterkunft, ein Kamelritt bei Sonnenuntergang sowie Abendessen und Frühstück im Wüstencamp sind in der Regel enthalten. Mittagessen und persönliche Ausgaben sind meist zusätzlich.">Transport, an English-speaking driver-guide, accommodation, a camel trek at sunset, and dinner and breakfast in the desert camp are typically included. Lunches and personal expenses are usually extra.</span></p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span data-en="Are Morocco desert tours safe?" data-fr="Les circuits désert au Maroc sont-ils sûrs ?" data-es="¿Son seguros los tours al desierto en Marruecos?" data-de="Sind Marokko-Wüstentouren sicher?">Are Morocco desert tours safe?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><p><span data-en="Yes. Our drivers and guides are experienced professionals who know the routes well, and desert camps are set up with safety and comfort in mind for travelers of all ages." data-fr="Oui. Nos chauffeurs et guides sont des professionnels expérimentés qui connaissent bien les itinéraires, et les camps désert sont aménagés en pensant à la sécurité et au confort de tous les voyageurs." data-es="Sí. Nuestros conductores y guías son profesionales experimentados que conocen bien las rutas, y los campamentos del desierto están preparados pensando en la seguridad y comodidad de viajeros de todas las edades." data-de="Ja. Unsere Fahrer und Guides sind erfahrene Profis, die die Routen gut kennen, und die Wüstencamps sind mit Blick auf Sicherheit und Komfort für Reisende jeden Alters gestaltet.">Yes. Our drivers and guides are experienced professionals who know the routes well, and desert camps are set up with safety and comfort in mind for travelers of all ages.</span></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div class="contact-info">
+      <span class="section-label"><span data-en="Contact & Booking" data-fr="Contact & Réservation" data-es="Contacto y Reservas" data-de="Kontakt & Buchung">Contact & Booking</span></span>
+      <h2 class="section-title"><span data-en="Let's Connect" data-fr="Connectons-nous" data-es="Conectemos" data-de="Lasst uns Verbinden">Let's Connect</span></h2>
+      <p><span data-en="Tell us about your dream trip and our team will get back to you within 24 hours with a tailored itinerary." data-fr="Parlez-nous de votre voyage de rêve et notre équipe vous répondra sous 24h avec un itinéraire personnalisé." data-es="Cuéntanos sobre tu viaje soñado y nuestro equipo te responderá en 24 horas con un itinerario personalizado." data-de="Erzählen Sie uns von Ihrer Traumreise, und unser Team meldet sich innerhalb von 24 Stunden mit einer maßgeschneiderten Reiseroute.">Tell us about your dream trip and our team will get back to you within 24 hours with a tailored itinerary.</span></p>
+      <div class="contact-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span data-en="Marrakech, Morocco" data-fr="Marrakech, Maroc" data-es="Marrakech, Marruecos" data-de="Marrakesch, Marokko">Marrakech, Morocco</span>
+      </div>
+      <div class="contact-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.5 2.1L8 9.7a16 16 0 006.3 6.3l1.2-1.2a2 2 0 012.1-.5c.9.3 1.8.5 2.7.6a2 2 0 011.7 2.1z"/></svg>
+        +212 6 00 00 00 00
+      </div>
+      <div class="contact-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg>
+        contact@letscameltours.ma
+      </div>
+    </div>
+    <form onsubmit="event.preventDefault();">
+      <div>
+        <label><span data-en="Full Name" data-fr="Nom Complet" data-es="Nombre Completo" data-de="Vollständiger Name">Full Name</span></label>
+        <input type="text" data-en-ph="Your name" data-fr-ph="Votre nom" data-es-ph="Tu nombre" data-de-ph="Ihr Name" placeholder="Your name" required>
+      </div>
+      <div>
+        <label><span data-en="Email" data-fr="E-mail" data-es="Correo Electrónico" data-de="E-Mail">Email</span></label>
+        <input type="email" data-en-ph="you@email.com" data-fr-ph="vous@email.com" data-es-ph="tu@email.com" data-de-ph="sie@email.com" placeholder="you@email.com" required>
+      </div>
+      <div>
+        <label><span data-en="Tour Interest" data-fr="Circuit Souhaité" data-es="Tour de Interés" data-de="Interessierte Tour">Tour Interest</span></label>
+        <select>
+          <option data-en="Merzouga Camel Trek" data-fr="Trek Chameau Merzouga" data-es="Trekking en Camello Merzouga" data-de="Kameltrekking Merzouga">Merzouga Camel Trek</option>
+          <option data-en="Desert Tour from Marrakech" data-fr="Circuit Désert depuis Marrakech" data-es="Tour al Desierto desde Marrakech" data-de="Wüstentour ab Marrakesch">Desert Tour from Marrakech</option>
+          <option data-en="Luxury Desert Camp" data-fr="Camp Désert de Luxe" data-es="Campamento de Lujo" data-de="Luxus-Wüstencamp">Luxury Desert Camp</option>
+          <option data-en="Custom Itinerary" data-fr="Itinéraire Personnalisé" data-es="Itinerario Personalizado" data-de="Individuelle Reiseroute">Custom Itinerary</option>
+        </select>
+      </div>
+      <div>
+        <label><span data-en="Travelers" data-fr="Voyageurs" data-es="Viajeros" data-de="Reisende">Travelers</span></label>
+        <input type="number" min="1" value="2">
+      </div>
+      <div class="full">
+        <label><span data-en="Message" data-fr="Message" data-es="Mensaje" data-de="Nachricht">Message</span></label>
+        <textarea data-en-ph="Tell us about your dream trip..." data-fr-ph="Parlez-nous de votre voyage de rêve..." data-es-ph="Cuéntanos sobre tu viaje soñado..." data-de-ph="Erzählen Sie uns von Ihrer Traumreise..." placeholder="Tell us about your dream trip..."></textarea>
+      </div>
+      <div class="full">
+        <button type="submit" class="btn-gold"><span data-en="Send Request" data-fr="Envoyer la Demande" data-es="Enviar Solicitud" data-de="Anfrage Senden">Send Request</span></button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<a href="https://wa.me/212600000000" class="whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.7 4.61 1.905 6.48L4 29l7.72-1.858A11.94 11.94 0 0016.001 27C22.63 27 28 21.627 28 15S22.63 3 16.001 3zm6.997 16.63c-.29.816-1.68 1.56-2.32 1.646-.593.08-1.34.114-2.16-.135-.498-.15-1.137-.362-1.958-.71-3.447-1.488-5.699-4.94-5.874-5.17-.174-.23-1.41-1.874-1.41-3.575 0-1.7.89-2.535 1.207-2.883.318-.348.694-.435.926-.435.232 0 .464.002.667.012.213.01.5-.081.782.596.29.696.986 2.4 1.073 2.574.087.174.145.377.03.608-.116.232-.174.377-.348.58-.174.203-.365.453-.522.608-.174.174-.355.363-.153.71.203.348.902 1.487 1.936 2.408 1.33 1.186 2.452 1.554 2.8 1.728.348.174.55.145.754-.087.203-.232.87-1.015 1.102-1.363.232-.348.464-.29.783-.174.319.116 2.02.952 2.367 1.125.348.174.58.26.667.406.087.145.087.841-.203 1.657z"/></svg>
+</a>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo"><img src="logo.png" alt="Let's Camel Tours"></div>
+        <p><span data-en="Let's Camel Tours offers unforgettable desert adventures, tailor-made Morocco itineraries, and authentic cultural experiences with local guides." data-fr="Let's Camel Tours propose des aventures désert inoubliables, des itinéraires sur mesure au Maroc et des expériences culturelles authentiques avec des guides locaux." data-es="Let's Camel Tours ofrece aventuras inolvidables en el desierto, itinerarios a medida por Marruecos y experiencias culturales auténticas con guías locales." data-de="Let's Camel Tours bietet unvergessliche Wüstenabenteuer, maßgeschneiderte Marokko-Reiserouten und authentische kulturelle Erlebnisse mit lokalen Guides.">Let's Camel Tours offers unforgettable desert adventures, tailor-made Morocco itineraries, and authentic cultural experiences with local guides.</span></p>
+      </div>
+      <div class="footer-col">
+        <h4><span data-en="Our Tours" data-fr="Nos Circuits" data-es="Nuestros Tours" data-de="Unsere Touren">Our Tours</span></h4>
+        <ul>
+          <li><a href="#tours"><span data-en="Desert Tours" data-fr="Circuits Désert" data-es="Tours al Desierto" data-de="Wüstentouren">Desert Tours</span></a></li>
+          <li><a href="#desert-treks"><span data-en="Camel Trekking" data-fr="Trek à Dos de Chameau" data-es="Trekking en Camello" data-de="Kameltrekking">Camel Trekking</span></a></li>
+          <li><a href="#tours"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4><span data-en="Company" data-fr="Entreprise" data-es="Empresa" data-de="Unternehmen">Company</span></h4>
+        <ul>
+          <li><a href="#about"><span data-en="About Us" data-fr="À Propos" data-es="Sobre Nosotros" data-de="Über Uns">About Us</span></a></li>
+          <li><a href="#blog"><span data-en="Blog" data-fr="Blog" data-es="Blog" data-de="Blog">Blog</span></a></li>
+          <li><a href="#faq"><span data-en="FAQ" data-fr="FAQ" data-es="Preguntas Frecuentes" data-de="FAQ">FAQ</span></a></li>
+          <li><a href="#"><span data-en="Terms" data-fr="Conditions" data-es="Términos" data-de="AGB">Terms</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></h4>
+        <ul>
+          <li><span data-en="Marrakech, Morocco" data-fr="Marrakech, Maroc" data-es="Marrakech, Marruecos" data-de="Marrakesch, Marokko">Marrakech, Morocco</span></li>
+          <li>+212 6 00 00 00 00</li>
+          <li>contact@letscameltours.ma</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-en="© 2026 Let's Camel Tours. All Rights Reserved." data-fr="© 2026 Let's Camel Tours. Tous droits réservés." data-es="© 2026 Let's Camel Tours. Todos los derechos reservados." data-de="© 2026 Let's Camel Tours. Alle Rechte vorbehalten.">© 2026 Let's Camel Tours. All Rights Reserved.</span>
+      <span data-en="Based in Morocco" data-fr="Basé au Maroc" data-es="Con base en Marruecos" data-de="Ansässig in Marokko">Based in Morocco</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('scroll', function() {
+    var navbar = document.querySelector('.navbar');
+    if (window.scrollY > 80) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  var currentLang = 'en';
+  function applyLang(lang) {
+    document.querySelectorAll('[data-en]').forEach(function(el) {
+      el.textContent = el.dataset[lang];
+    });
+    document.querySelectorAll('[data-en-ph]').forEach(function(el) {
+      el.setAttribute('placeholder', el.dataset[lang + 'Ph']);
+    });
+    document.getElementById('lang-label').textContent = lang.toUpperCase();
+    document.documentElement.lang = lang;
+    document.querySelectorAll('.lang-option').forEach(function(btn) {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    currentLang = lang;
+  }
+
+  var langToggle = document.getElementById('lang-toggle');
+  var langMenu = document.getElementById('lang-menu');
+  langToggle.addEventListener('click', function(e) {
+    e.stopPropagation();
+    langMenu.classList.toggle('open');
+  });
+  document.addEventListener('click', function() {
+    langMenu.classList.remove('open');
+  });
+  document.querySelectorAll('.lang-option').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      applyLang(btn.dataset.lang);
+      langMenu.classList.remove('open');
+    });
+  });
+
+  document.querySelectorAll('.faq-item').forEach(function(item) {
+    var q = item.querySelector('.faq-q');
+    var a = item.querySelector('.faq-a');
+    q.addEventListener('click', function() {
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o) {
+        o.classList.remove('open');
+        o.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
