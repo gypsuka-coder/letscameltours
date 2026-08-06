@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Let's Camel Tours</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #003366; --navy-dark: #001f3f; --gold: #E07A3E; --gold-light: #ea9868;
+    --white: #ffffff; --off-white: #F8FAFC; --text-gray: #5c6474; --line: #e6e9ef;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Poppins', sans-serif; color: #1a1a1a; line-height: 1.6; }
+  a { text-decoration: none; color: inherit; }
+  ul { list-style: none; }
+  img { max-width: 100%; display: block; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 30px; }
+
+  .navbar { background: var(--navy); padding: 16px 0; }
+  .nav-container { max-width: 1300px; margin: 0 auto; padding: 0 30px; display: flex; align-items: center; justify-content: space-between; }
+  .logo img { height: 42px; }
+  .nav-links { display: flex; align-items: center; gap: 22px; }
+  .nav-links a { color: #F8FAFC; font-size: 14px; font-weight: 500; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-right { display: flex; align-items: center; gap: 14px; position: relative; }
+  .lang-toggle { display: flex; align-items: center; gap: 6px; background: none; border: 1px solid rgba(255,255,255,0.4); color: #F8FAFC; padding: 8px 12px; border-radius: 4px; font-size: 13px; font-weight: 600; cursor: pointer; }
+  .lang-toggle svg { width: 15px; height: 15px; }
+  .lang-menu { position: absolute; top: calc(100% + 8px); right: 0; background: var(--white); border-radius: 6px; box-shadow: 0 12px 30px rgba(0,0,0,0.15); padding: 6px; display: none; min-width: 140px; z-index: 50; }
+  .lang-menu.open { display: block; }
+  .lang-option { display: block; width: 100%; text-align: left; background: none; border: none; padding: 9px 12px; font-size: 13.5px; font-weight: 500; color: var(--navy); border-radius: 4px; cursor: pointer; }
+  .lang-option:hover { background: var(--off-white); }
+  .lang-option.active { color: var(--gold); font-weight: 700; }
+  .btn-book { background: var(--gold); color: var(--white); padding: 10px 22px; border-radius: 4px; font-size: 14px; font-weight: 700; }
+  .btn-book:hover { background: var(--gold-light); }
+  @media (max-width: 800px) { .nav-links { display: none; } }
+
+  .hero {
+    background: linear-gradient(180deg, rgba(0,51,102,0.55) 0%, rgba(0,31,63,0.75) 100%), url('about-1.jpg');
+    background-size: cover; background-position: center;
+    padding: 90px 30px 70px; color: #fff; text-align: center;
+  }
+  .hero h1 { font-size: clamp(30px, 4.5vw, 46px); font-weight: 800; margin-bottom: 14px; }
+  .hero p { font-size: 16px; color: #e8e8e8; max-width: 60ch; margin: 0 auto; }
+
+  .section { padding: 80px 0; }
+  .section-label { color: var(--gold); font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; display: block; }
+  .section-title { font-size: clamp(26px, 3.6vw, 36px); font-weight: 700; color: var(--navy); margin-bottom: 16px; }
+
+  .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .story-grid img { border-radius: 10px; height: 380px; object-fit: cover; width: 100%; }
+  .story-text p { color: var(--text-gray); font-size: 15.5px; margin-bottom: 16px; }
+
+  .stats-section { background: var(--off-white); padding: 60px 0; }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; text-align: center; }
+  .stat-box .num { font-size: 34px; font-weight: 800; color: var(--gold); margin-bottom: 6px; }
+  .stat-box .label { font-size: 13px; color: var(--text-gray); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+
+  .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .value-card { background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 30px 26px; text-align: center; }
+  .value-icon { width: 50px; height: 50px; background: rgba(224,122,62,0.12); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
+  .value-icon svg { width: 24px; height: 24px; color: var(--gold); }
+  .value-card h3 { font-size: 16.5px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .value-card p { color: var(--text-gray); font-size: 13.5px; }
+
+  .cta-section { background: var(--navy); color: #fff; padding: 70px 0; text-align: center; }
+  .cta-section h2 { font-size: clamp(24px, 3.2vw, 32px); margin-bottom: 16px; }
+  .cta-section p { color: #dbe2ee; margin-bottom: 26px; }
+  .btn-gold { display: inline-block; background: var(--gold); color: #fff; padding: 15px 32px; border-radius: 4px; font-weight: 700; font-size: 15px; }
+  .btn-gold:hover { background: var(--gold-light); }
+
+  .whatsapp-btn { position: fixed; bottom: 26px; right: 26px; z-index: 300; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+  .whatsapp-btn svg { width: 30px; height: 30px; fill: #fff; }
+
+  .footer { background: var(--navy-dark); color: #F8FAFC; padding: 34px 0; }
+  .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-size: 13px; color: rgba(248,250,252,0.7); }
+  .footer-inner a { color: var(--gold); }
+
+  @media (max-width: 800px) {
+    .story-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .values-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo"><img src="logo.png" alt="Let's Camel Tours"></a>
+    <div class="nav-links">
+      <a href="index.html#home"><span data-en="Home" data-fr="Accueil" data-es="Inicio" data-de="Startseite">Home</span></a>
+      <a href="index.html#tours"><span data-en="Tours" data-fr="Circuits" data-es="Tours" data-de="Touren">Tours</span></a>
+      <a href="index.html#services"><span data-en="Services" data-fr="Services" data-es="Servicios" data-de="Leistungen">Services</span></a>
+      <a href="about-us.html"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
+      <a href="index.html#blog"><span data-en="Blog" data-fr="Blog" data-es="Blog" data-de="Blog">Blog</span></a>
+      <a href="index.html#contact"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
+    </div>
+    <div class="nav-right">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9z"/></svg>
+        <span id="lang-label">EN</span>
+      </button>
+      <div class="lang-menu" id="lang-menu">
+        <button class="lang-option active" data-lang="en">English</button>
+        <button class="lang-option" data-lang="fr">Français</button>
+        <button class="lang-option" data-lang="es">Español</button>
+        <button class="lang-option" data-lang="de">Deutsch</button>
+      </div>
+      <a href="index.html#contact" class="btn-book"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <h1><span data-en="About Let's Camel Tours" data-fr="À Propos de Let's Camel Tours" data-es="Sobre Let's Camel Tours" data-de="Über Let's Camel Tours">About Let's Camel Tours</span></h1>
+  <p><span data-en="A Morocco-based agency built on real local knowledge, honest prices, and a genuine love for sharing this country." data-fr="Une agence basée au Maroc, fondée sur une vraie connaissance locale, des prix honnêtes et un amour sincère pour ce pays." data-es="Una agencia con sede en Marruecos, basada en un conocimiento local real, precios honestos y un amor genuino por compartir este país." data-de="Eine in Marokko ansässige Agentur, gegründet auf echtem lokalem Wissen, ehrlichen Preisen und echter Liebe zu diesem Land.">A Morocco-based agency built on real local knowledge, honest prices, and a genuine love for sharing this country.</span></p>
+</section>
+
+<section class="section">
+  <div class="container story-grid">
+    <img src="about-1.jpg" alt="Let's Camel Tours team">
+    <div class="story-text">
+      <span class="section-label"><span data-en="Our Story" data-fr="Notre Histoire" data-es="Nuestra Historia" data-de="Unsere Geschichte">Our Story</span></span>
+      <h2 class="section-title"><span data-en="Since 2019, We've Been Sharing Our Morocco" data-fr="Depuis 2019, Nous Partageons Notre Maroc" data-es="Desde 2019, Compartimos Nuestro Marruecos" data-de="Seit 2019 Teilen Wir Unser Marokko">Since 2019, We've Been Sharing Our Morocco</span></h2>
+      <p><span data-en="Let's Camel Tours started with a simple idea: show travelers the Morocco we grew up in, not a rehearsed version of it. From the blue lanes of Chefchaouen to the golden dunes of Merzouga, every itinerary is built by people who actually know these roads." data-fr="Let's Camel Tours est né d'une idée simple : montrer aux voyageurs le Maroc dans lequel nous avons grandi, pas une version répétée. Des ruelles bleues de Chefchaouen aux dunes dorées de Merzouga, chaque itinéraire est conçu par des gens qui connaissent vraiment ces routes." data-es="Let's Camel Tours nació de una idea simple: mostrar a los viajeros el Marruecos en el que crecimos, no una versión ensayada. Desde las calles azules de Chefchaouen hasta las dunas doradas de Merzouga, cada itinerario está creado por personas que realmente conocen estos caminos." data-de="Let's Camel Tours entstand aus einer einfachen Idee: Reisenden das Marokko zu zeigen, in dem wir aufgewachsen sind, keine einstudierte Version davon. Von den blauen Gassen Chefchaouens bis zu den goldenen Dünen Merzougas wird jede Reiseroute von Menschen gestaltet, die diese Wege wirklich kennen.">Let's Camel Tours started with a simple idea: show travelers the Morocco we grew up in, not a rehearsed version of it. From the blue lanes of Chefchaouen to the golden dunes of Merzouga, every itinerary is built by people who actually know these roads.</span></p>
+      <p><span data-en="We coordinate every trip from booking to the moment you land — working closely with trusted local drivers and guides so you're taken care of at every step." data-fr="Nous coordonnons chaque voyage, de la réservation jusqu'à votre atterrissage — en travaillant étroitement avec des chauffeurs et guides locaux de confiance pour que vous soyez pris en charge à chaque étape." data-es="Coordinamos cada viaje desde la reserva hasta el momento en que aterrizas, trabajando de cerca con conductores y guías locales de confianza para que estés atendido en cada paso." data-de="Wir koordinieren jede Reise von der Buchung bis zur Landung — in enger Zusammenarbeit mit vertrauenswürdigen lokalen Fahrern und Guides, damit Sie bei jedem Schritt gut betreut sind.">We coordinate every trip from booking to the moment you land — working closely with trusted local drivers and guides so you're taken care of at every step.</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="stats-section">
+  <div class="container stats-grid">
+    <div class="stat-box"><div class="num">6+</div><div class="label"><span data-en="Years of Experience" data-fr="Ans d'Expérience" data-es="Años de Experiencia" data-de="Jahre Erfahrung">Years of Experience</span></div></div>
+    <div class="stat-box"><div class="num">1,200+</div><div class="label"><span data-en="Happy Travelers" data-fr="Voyageurs Satisfaits" data-es="Viajeros Felices" data-de="Zufriedene Reisende">Happy Travelers</span></div></div>
+    <div class="stat-box"><div class="num">4</div><div class="label"><span data-en="Signature Tours" data-fr="Circuits Signature" data-es="Tours Insignia" data-de="Signature-Touren">Signature Tours</span></div></div>
+    <div class="stat-box"><div class="num">24/7</div><div class="label"><span data-en="Support on the Road" data-fr="Assistance en Route" data-es="Asistencia en Ruta" data-de="Unterstützung Unterwegs">Support on the Road</span></div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div style="text-align:center;max-width:600px;margin:0 auto 50px;">
+      <span class="section-label"><span data-en="Our Values" data-fr="Nos Valeurs" data-es="Nuestros Valores" data-de="Unsere Werte">Our Values</span></span>
+      <h2 class="section-title"><span data-en="What Guides Every Trip We Plan" data-fr="Ce Qui Guide Chaque Voyage" data-es="Lo Que Guía Cada Viaje" data-de="Was Jede Reise Leitet">What Guides Every Trip We Plan</span></h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+        <h3><span data-en="Local First" data-fr="Local Avant Tout" data-es="Local Primero" data-de="Lokal Zuerst">Local First</span></h3>
+        <p><span data-en="Every guide and driver we work with is Moroccan, and knows these roads personally." data-fr="Chaque guide et chauffeur avec qui nous travaillons est marocain et connaît ces routes personnellement." data-es="Cada guía y conductor con el que trabajamos es marroquí y conoce estas rutas personalmente." data-de="Jeder Guide und Fahrer, mit dem wir arbeiten, ist Marokkaner und kennt diese Wege persönlich.">Every guide and driver we work with is Moroccan, and knows these roads personally.</span></p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21C7 17 3 13.5 3 9a5 5 0 019-3 5 5 0 019 3c0 4.5-4 8-9 12z"/></svg></div>
+        <h3><span data-en="Honest Pricing" data-fr="Prix Honnêtes" data-es="Precios Honestos" data-de="Faire Preise">Honest Pricing</span></h3>
+        <p><span data-en="What you're quoted is what you pay — no hidden fees added later." data-fr="Le prix annoncé est le prix payé — aucun frais caché ajouté plus tard." data-es="El precio cotizado es el que pagas — sin cargos ocultos añadidos después." data-de="Der genannte Preis ist der zu zahlende Preis — keine später hinzugefügten versteckten Kosten.">What you're quoted is what you pay — no hidden fees added later.</span></p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 9h16M9 4v16"/></svg></div>
+        <h3><span data-en="Flexible by Default" data-fr="Flexible par Défaut" data-es="Flexible por Defecto" data-de="Standardmäßig Flexibel">Flexible by Default</span></h3>
+        <p><span data-en="Every itinerary can be adjusted — we plan around you, not the other way around." data-fr="Chaque itinéraire peut être ajusté — nous planifions selon vous, pas l'inverse." data-es="Cada itinerario se puede ajustar — planeamos según tú, no al revés." data-de="Jede Reiseroute kann angepasst werden — wir planen um Sie herum, nicht umgekehrt.">Every itinerary can be adjusted — we plan around you, not the other way around.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2><span data-en="Ready to Plan Your Trip?" data-fr="Prêt à Planifier Votre Voyage ?" data-es="¿Listo para Planear tu Viaje?" data-de="Bereit, Ihre Reise zu Planen?">Ready to Plan Your Trip?</span></h2>
+    <p><span data-en="Tell us what you're looking for and we'll put together an itinerary just for you." data-fr="Dites-nous ce que vous cherchez et nous vous préparerons un itinéraire sur mesure." data-es="Cuéntanos lo que buscas y prepararemos un itinerario solo para ti." data-de="Sagen Sie uns, was Sie suchen, und wir stellen eine Reiseroute nur für Sie zusammen.">Tell us what you're looking for and we'll put together an itinerary just for you.</span></p>
+    <a href="index.html#contact" class="btn-gold"><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></a>
+  </div>
+</section>
+
+<a href="https://wa.me/212600000000" class="whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.7 4.61 1.905 6.48L4 29l7.72-1.858A11.94 11.94 0 0016.001 27C22.63 27 28 21.627 28 15S22.63 3 16.001 3zm6.997 16.63c-.29.816-1.68 1.56-2.32 1.646-.593.08-1.34.114-2.16-.135-.498-.15-1.137-.362-1.958-.71-3.447-1.488-5.699-4.94-5.874-5.17-.174-.23-1.41-1.874-1.41-3.575 0-1.7.89-2.535 1.207-2.883.318-.348.694-.435.926-.435.232 0 .464.002.667.012.213.01.5-.081.782.596.29.696.986 2.4 1.073 2.574.087.174.145.377.03.608-.116.232-.174.377-.348.58-.174.203-.365.453-.522.608-.174.174-.355.363-.153.71.203.348.902 1.487 1.936 2.408 1.33 1.186 2.452 1.554 2.8 1.728.348.174.55.145.754-.087.203-.232.87-1.015 1.102-1.363.232-.348.464-.29.783-.174.319.116 2.02.952 2.367 1.125.348.174.58.26.667.406.087.145.087.841-.203 1.657z"/></svg>
+</a>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span><span data-en="© 2026 Let's Camel Tours. All Rights Reserved." data-fr="© 2026 Let's Camel Tours. Tous droits réservés." data-es="© 2026 Let's Camel Tours. Todos los derechos reservados." data-de="© 2026 Let's Camel Tours. Alle Rechte vorbehalten.">© 2026 Let's Camel Tours. All Rights Reserved.</span></span>
+    <span><a href="index.html"><span data-en="Back to Home" data-fr="Retour à l'Accueil" data-es="Volver al Inicio" data-de="Zurück zur Startseite">Back to Home</span></a> · info.letscameltours@gmail.com</span>
+  </div>
+</footer>
+
+<script>
+  var currentLang = 'en';
+  function applyLang(lang) {
+    document.querySelectorAll('[data-en]').forEach(function(el) { el.textContent = el.dataset[lang]; });
+    document.getElementById('lang-label').textContent = lang.toUpperCase();
+    document.documentElement.lang = lang;
+    document.querySelectorAll('.lang-option').forEach(function(btn) { btn.classList.toggle('active', btn.dataset.lang === lang); });
+    currentLang = lang;
+  }
+  var langToggle = document.getElementById('lang-toggle');
+  var langMenu = document.getElementById('lang-menu');
+  langToggle.addEventListener('click', function(e) { e.stopPropagation(); langMenu.classList.toggle('open'); });
+  document.addEventListener('click', function() { langMenu.classList.remove('open'); });
+  document.querySelectorAll('.lang-option').forEach(function(btn) {
+    btn.addEventListener('click', function() { applyLang(btn.dataset.lang); langMenu.classList.remove('open'); });
+  });
+</script>
+
+</body>
+</html>
