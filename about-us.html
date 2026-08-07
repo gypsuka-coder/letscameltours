@@ -19,7 +19,24 @@
   img { max-width: 100%; display: block; }
   .container { max-width: 1100px; margin: 0 auto; padding: 0 30px; }
 
-  .navbar { background: var(--navy); padding: 16px 0; }
+  .navbar {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    z-index: 200;
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+    padding: 16px 0;
+    transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+  }
+  .navbar.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .navbar.scrolled .nav-links a { color: var(--navy); }
+  .navbar.scrolled .lang-toggle { color: var(--navy); border-color: var(--line); }
+  .navbar.scrolled .burger { color: var(--navy); }
   .nav-container { max-width: 1300px; margin: 0 auto; padding: 0 30px; display: flex; align-items: center; justify-content: space-between; }
   .logo img { height: 42px; }
   .nav-links { display: flex; align-items: center; gap: 22px; }
@@ -35,7 +52,7 @@
   .lang-option.active { color: var(--gold); font-weight: 700; }
   .btn-book { background: var(--gold); color: var(--white); padding: 10px 22px; border-radius: 4px; font-size: 14px; font-weight: 700; }
   .btn-book:hover { background: var(--gold-light); }
-  @media (max-width: 800px) { .nav-links { display: none; } }
+  @media (max-width: 800px) { .nav-links { display: none; } .burger { display: block; } .nav-right .btn-book { display: none; } }
 
   .hero {
     background: linear-gradient(180deg, rgba(0,51,102,0.55) 0%, rgba(0,31,63,0.75) 100%), url('about-1.jpg');
@@ -49,8 +66,10 @@
   .section-label { color: var(--gold); font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; display: block; }
   .section-title { font-size: clamp(26px, 3.6vw, 36px); font-weight: 700; color: var(--navy); margin-bottom: 16px; }
 
-  .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
   .story-grid img { border-radius: 10px; height: 380px; object-fit: cover; width: 100%; }
+  .story-images { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 100px; }
+  .story-images img { height: 260px; }
   .story-text p { color: var(--text-gray); font-size: 15.5px; margin-bottom: 16px; }
 
   .stats-section { background: var(--off-white); padding: 60px 0; }
@@ -80,9 +99,62 @@
 
   @media (max-width: 800px) {
     .story-grid { grid-template-columns: 1fr; }
+    .story-images { position: static; }
     .stats-grid { grid-template-columns: 1fr 1fr; }
     .values-grid { grid-template-columns: 1fr; }
   }
+
+  .burger {
+    display: none;
+    background: none;
+    border: none;
+    color: #F8FAFC;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .burger svg { width: 24px; height: 24px; }
+
+  .mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 240;
+  }
+  .mobile-menu-overlay.open { display: block; }
+
+  .mobile-menu {
+    position: fixed;
+    top: 0; right: -100%;
+    width: 78%;
+    max-width: 320px;
+    height: 100vh;
+    background: var(--white);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+    z-index: 250;
+    padding: 80px 30px 30px;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile-menu.open { right: 0; }
+  .mobile-menu a {
+    display: block;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 15.5px;
+  }
+  .mobile-menu-close {
+    position: absolute;
+    top: 24px; right: 24px;
+    background: none;
+    border: none;
+    color: var(--navy);
+    cursor: pointer;
+  }
+  .mobile-menu-close svg { width: 22px; height: 22px; }
 </style>
 </head>
 <body>
@@ -110,9 +182,28 @@
         <button class="lang-option" data-lang="de">Deutsch</button>
       </div>
       <a href="index.html#contact" class="btn-book"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+      <button class="burger" id="burger-toggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    
     </div>
   </div>
 </header>
+
+<div class="mobile-menu-overlay" id="mobile-overlay"></div>
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <a href="index.html#home"><span data-en="Home" data-fr="Accueil" data-es="Inicio" data-de="Startseite">Home</span></a>
+      <a href="index.html#tours"><span data-en="Tours" data-fr="Circuits" data-es="Tours" data-de="Touren">Tours</span></a>
+      <a href="index.html#services"><span data-en="Services" data-fr="Services" data-es="Servicios" data-de="Leistungen">Services</span></a>
+      <a href="about-us.html"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
+      <a href="index.html#blog"><span data-en="Blog" data-fr="Blog" data-es="Blog" data-de="Blog">Blog</span></a>
+      <a href="index.html#contact"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
+  <a href="index.html#contact" class="btn-book" style="display:block;text-align:center;margin-top:16px;"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+</div>
+
 
 <section class="hero">
   <h1><span data-en="About Let's Camel Tours" data-fr="À Propos de Let's Camel Tours" data-es="Sobre Let's Camel Tours" data-de="Über Let's Camel Tours">About Let's Camel Tours</span></h1>
@@ -121,19 +212,27 @@
 
 <section class="section">
   <div class="container story-grid">
-    <img src="about-1.jpg" alt="Let's Camel Tours team">
+    <div class="story-images">
+      <img src="about-1.jpg" alt="Let's Camel Tours">
+      <img src="about-2.jpg" alt="Merzouga desert">
+      <img src="about-3.jpeg" alt="idir2desert">
+    </div>
     <div class="story-text">
       <span class="section-label"><span data-en="Our Story" data-fr="Notre Histoire" data-es="Nuestra Historia" data-de="Unsere Geschichte">Our Story</span></span>
-      <h2 class="section-title"><span data-en="Since 2019, We've Been Sharing Our Morocco" data-fr="Depuis 2019, Nous Partageons Notre Maroc" data-es="Desde 2019, Compartimos Nuestro Marruecos" data-de="Seit 2019 Teilen Wir Unser Marokko">Since 2019, We've Been Sharing Our Morocco</span></h2>
-      <p><span data-en="Let's Camel Tours started with a simple idea: show travelers the Morocco we grew up in, not a rehearsed version of it. From the blue lanes of Chefchaouen to the golden dunes of Merzouga, every itinerary is built by people who actually know these roads." data-fr="Let's Camel Tours est né d'une idée simple : montrer aux voyageurs le Maroc dans lequel nous avons grandi, pas une version répétée. Des ruelles bleues de Chefchaouen aux dunes dorées de Merzouga, chaque itinéraire est conçu par des gens qui connaissent vraiment ces routes." data-es="Let's Camel Tours nació de una idea simple: mostrar a los viajeros el Marruecos en el que crecimos, no una versión ensayada. Desde las calles azules de Chefchaouen hasta las dunas doradas de Merzouga, cada itinerario está creado por personas que realmente conocen estos caminos." data-de="Let's Camel Tours entstand aus einer einfachen Idee: Reisenden das Marokko zu zeigen, in dem wir aufgewachsen sind, keine einstudierte Version davon. Von den blauen Gassen Chefchaouens bis zu den goldenen Dünen Merzougas wird jede Reiseroute von Menschen gestaltet, die diese Wege wirklich kennen.">Let's Camel Tours started with a simple idea: show travelers the Morocco we grew up in, not a rehearsed version of it. From the blue lanes of Chefchaouen to the golden dunes of Merzouga, every itinerary is built by people who actually know these roads.</span></p>
-      <p><span data-en="We coordinate every trip from booking to the moment you land — working closely with trusted local drivers and guides so you're taken care of at every step." data-fr="Nous coordonnons chaque voyage, de la réservation jusqu'à votre atterrissage — en travaillant étroitement avec des chauffeurs et guides locaux de confiance pour que vous soyez pris en charge à chaque étape." data-es="Coordinamos cada viaje desde la reserva hasta el momento en que aterrizas, trabajando de cerca con conductores y guías locales de confianza para que estés atendido en cada paso." data-de="Wir koordinieren jede Reise von der Buchung bis zur Landung — in enger Zusammenarbeit mit vertrauenswürdigen lokalen Fahrern und Guides, damit Sie bei jedem Schritt gut betreut sind.">We coordinate every trip from booking to the moment you land — working closely with trusted local drivers and guides so you're taken care of at every step.</span></p>
+      <h2 class="section-title"><span data-en="Born and Raised in the Dunes of Merzouga" data-fr="Née et Élevée dans les Dunes de Merzouga" data-es="Nacida y Criada en las Dunas de Merzouga" data-de="Geboren und Aufgewachsen in den Dünen von Merzouga">Born and Raised in the Dunes of Merzouga</span></h2>
+      <p><span data-en="I'm Yassmina — a wife, a mother, and, at heart, a daughter of Merzouga. This small corner of Morocco isn't just where I'm from — it's where my whole family's story lives." data-fr="Je m'appelle Yassmina — épouse, maman, et avant tout, fille de Merzouga. Ce petit coin du Maroc n'est pas seulement mon lieu de naissance, c'est là que vit toute l'histoire de ma famille." data-es="Soy Yassmina — esposa, madre y, ante todo, hija de Merzouga. Este pequeño rincón de Marruecos no es solo de donde vengo, es donde vive la historia de toda mi familia." data-de="Ich bin Yassmina — Ehefrau, Mutter und vor allem eine Tochter Merzougas. Dieser kleine Winkel Marokkos ist nicht nur mein Herkunftsort — hier lebt die Geschichte meiner ganzen Familie.">I'm Yassmina — a wife, a mother, and, at heart, a daughter of Merzouga. This small corner of Morocco isn't just where I'm from — it's where my whole family's story lives.</span></p>
+      <p><span data-en="I grew up watching my father, Idir, known locally as “Idir of the Desert” (Idir2Desert), take travelers into the dunes he's known since he was a boy. For nearly 40 years, he has guided and driven visitors through this landscape — a career that began in the 1970s and has touched thousands of travelers since." data-fr="J'ai grandi en regardant mon père, Idir, connu localement sous le nom d'« Idir du Désert » (Idir2Desert), emmener des voyageurs dans les dunes qu'il connaît depuis son enfance. Depuis près de 40 ans, il guide et conduit des visiteurs à travers ce paysage — une carrière commencée dans les années 1970 qui a touché des milliers de voyageurs depuis." data-es="Crecí viendo a mi padre, Idir, conocido localmente como «Idir del Desierto» (Idir2Desert), llevar a viajeros a las dunas que conoce desde niño. Durante casi 40 años, ha guiado y conducido a visitantes por este paisaje — una carrera que comenzó en los años 70 y que ha tocado a miles de viajeros desde entonces." data-de="Ich bin aufgewachsen und habe gesehen, wie mein Vater Idir, lokal bekannt als „Idir der Wüste“ (Idir2Desert), Reisende in die Dünen führte, die er seit seiner Kindheit kennt. Seit fast 40 Jahren führt und fährt er Besucher durch diese Landschaft — eine Karriere, die in den 1970er Jahren begann und seitdem Tausende von Reisenden berührt hat.">I grew up watching my father, Idir, known locally as "Idir of the Desert" (Idir2Desert), take travelers into the dunes he's known since he was a boy. For nearly 40 years, he has guided and driven visitors through this landscape — a career that began in the 1970s and has touched thousands of travelers since.</span></p>
+      <p><span data-en="That upbringing shaped me. I went on to study Hotel and Tourism Marketing at Morocco's Institut Supérieur de Tourisme, under the Ministry of Tourism, because I wanted to turn what I'd grown up with into something I could build on." data-fr="Cette enfance m'a façonnée. J'ai ensuite étudié le Marketing Hôtelier et Touristique à l'Institut Supérieur de Tourisme du Maroc, rattaché au Ministère du Tourisme, car je voulais transformer ce dans quoi j'avais grandi en quelque chose que je pourrais construire." data-es="Esa infancia me formó. Después estudié Marketing Hotelero y Turístico en el Instituto Superior de Turismo de Marruecos, dependiente del Ministerio de Turismo, porque quería convertir aquello con lo que crecí en algo sobre lo que pudiera construir." data-de="Diese Kindheit hat mich geprägt. Später studierte ich Hotel- und Tourismusmarketing am Institut Supérieur de Tourisme Marokkos, das dem Tourismusministerium untersteht, weil ich das, womit ich aufgewachsen bin, zu etwas machen wollte, auf dem ich aufbauen kann.">That upbringing shaped me. I went on to study Hotel and Tourism Marketing at Morocco's Institut Supérieur de Tourisme, under the Ministry of Tourism, because I wanted to turn what I'd grown up with into something I could build on.</span></p>
+      <p><span data-en="Let's Camel Tours exists to carry that knowledge forward — the routes, the contacts, the small details only a local family with decades in this desert would know. It's also something I hope to pass on one day, the same way it was passed to me." data-fr="Let's Camel Tours existe pour faire perdurer ce savoir-faire — les itinéraires, les contacts, les petits détails que seule une famille locale avec des décennies dans ce désert peut connaître. C'est aussi quelque chose que j'espère transmettre un jour, comme cela m'a été transmis." data-es="Let's Camel Tours existe para llevar ese conocimiento hacia adelante — las rutas, los contactos, los pequeños detalles que solo una familia local con décadas en este desierto puede conocer. También es algo que espero transmitir algún día, tal como me fue transmitido a mí." data-de="Let's Camel Tours existiert, um dieses Wissen weiterzutragen — die Routen, die Kontakte, die kleinen Details, die nur eine lokale Familie mit jahrzehntelanger Erfahrung in dieser Wüste kennt. Es ist auch etwas, das ich eines Tages weitergeben möchte, so wie es mir weitergegeben wurde.">Let's Camel Tours exists to carry that knowledge forward — the routes, the contacts, the small details only a local family with decades in this desert would know. It's also something I hope to pass on one day, the same way it was passed to me.</span></p>
+      <p><span data-en="My husband adds another piece to that network — he's from Taghazout, on the Atlantic coast, and through his family and contacts there we're now able to extend that same local, trusted approach to the Taghazout region too." data-fr="Mon mari apporte une autre pièce à ce réseau — il est originaire de Taghazout, sur la côte Atlantique, et grâce à sa famille et à ses contacts là-bas, nous pouvons désormais étendre cette même approche locale et de confiance à la région de Taghazout." data-es="Mi esposo aporta otra pieza a esa red — es de Taghazout, en la costa Atlántica, y gracias a su familia y contactos allí, ahora podemos extender ese mismo enfoque local y de confianza a la región de Taghazout también." data-de="Mein Mann bringt ein weiteres Stück zu diesem Netzwerk hinzu — er stammt aus Taghazout an der Atlantikküste, und durch seine Familie und Kontakte dort können wir denselben lokalen, vertrauensvollen Ansatz nun auch auf die Region Taghazout ausweiten.">My husband adds another piece to that network — he's from Taghazout, on the Atlantic coast, and through his family and contacts there we're now able to extend that same local, trusted approach to the Taghazout region too.</span></p>
+      <p><span data-en="Above all, I started this agency for travelers who want to see the real Morocco — not a version smoothed over for tourists, but the one we actually know, because we've lived here all along." data-fr="Avant tout, j'ai créé cette agence pour les voyageurs qui veulent voir le vrai Maroc — pas une version lissée pour les touristes, mais celle que nous connaissons vraiment, parce que nous vivons ici depuis toujours." data-es="Sobre todo, creé esta agencia para los viajeros que quieren ver el verdadero Marruecos — no una versión suavizada para turistas, sino la que realmente conocemos, porque hemos vivido aquí siempre." data-de="Vor allem habe ich diese Agentur für Reisende gegründet, die das echte Marokko sehen wollen — keine für Touristen geglättete Version, sondern die, die wir wirklich kennen, weil wir schon immer hier leben.">Above all, I started this agency for travelers who want to see the real Morocco — not a version smoothed over for tourists, but the one we actually know, because we've lived here all along.</span></p>
     </div>
   </div>
 </section>
 
 <section class="stats-section">
   <div class="container stats-grid">
-    <div class="stat-box"><div class="num">6+</div><div class="label"><span data-en="Years of Experience" data-fr="Ans d'Expérience" data-es="Años de Experiencia" data-de="Jahre Erfahrung">Years of Experience</span></div></div>
+    <div class="stat-box"><div class="num">40+</div><div class="label"><span data-en="Years of Family Expertise" data-fr="Ans d'Expertise Familiale" data-es="Años de Experiencia Familiar" data-de="Jahre Familiäre Expertise">Years of Family Expertise</span></div></div>
     <div class="stat-box"><div class="num">1,200+</div><div class="label"><span data-en="Happy Travelers" data-fr="Voyageurs Satisfaits" data-es="Viajeros Felices" data-de="Zufriedene Reisende">Happy Travelers</span></div></div>
     <div class="stat-box"><div class="num">4</div><div class="label"><span data-en="Signature Tours" data-fr="Circuits Signature" data-es="Tours Insignia" data-de="Signature-Touren">Signature Tours</span></div></div>
     <div class="stat-box"><div class="num">24/7</div><div class="label"><span data-en="Support on the Road" data-fr="Assistance en Route" data-es="Asistencia en Ruta" data-de="Unterstützung Unterwegs">Support on the Road</span></div></div>
@@ -186,6 +285,24 @@
 </footer>
 
 <script>
+
+
+  window.addEventListener('scroll', function() {
+    var navbar = document.querySelector('.navbar');
+    if (window.scrollY > 60) { navbar.classList.add('scrolled'); } else { navbar.classList.remove('scrolled'); }
+  });
+
+  var burgerToggle = document.getElementById('burger-toggle');
+  var mobileMenu = document.getElementById('mobile-menu');
+  var mobileOverlay = document.getElementById('mobile-overlay');
+  var mobileMenuClose = document.getElementById('mobile-menu-close');
+  function openMobileMenu() { mobileMenu.classList.add('open'); mobileOverlay.classList.add('open'); }
+  function closeMobileMenu() { mobileMenu.classList.remove('open'); mobileOverlay.classList.remove('open'); }
+  burgerToggle.addEventListener('click', openMobileMenu);
+  mobileMenuClose.addEventListener('click', closeMobileMenu);
+  mobileOverlay.addEventListener('click', closeMobileMenu);
+  document.querySelectorAll('.mobile-menu a').forEach(function(link) { link.addEventListener('click', closeMobileMenu); });
+
   var currentLang = 'en';
   function applyLang(lang) {
     document.querySelectorAll('[data-en]').forEach(function(el) { el.textContent = el.dataset[lang]; });
