@@ -308,20 +308,15 @@
   .hero-btns { display: flex; gap: 14px; justify-content: center; margin-bottom: 60px; }
 
   .search-bar {
-    position: absolute;
-    bottom: -42px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--white);
-    border-radius: 10px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-    padding: 20px 24px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    width: 92%;
-    max-width: 1000px;
-  }
+  position: relative;
+  bottom: 0;
+  left: 0;
+  transform: none;
+  margin: 30px auto 0;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(8px);
+}
 
   .search-field { flex: 1; border-right: 1px solid var(--line); padding-right: 20px; }
   .search-field:last-of-type { border-right: none; }
