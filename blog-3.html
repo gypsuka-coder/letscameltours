@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Best Time to Visit Morocco: A Season-by-Season Guide | Let's Camel Tours Blog</title>
+<title>Best Taghazout Day Trips | Paradise Valley, Imsouane & Legzira</title>
+<meta name="description" content="From Paradise Valley's pools to Imsouane's famous wave, here are the best day trips from Taghazout to fill your Morocco surf trip.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -18,7 +19,24 @@
   img { max-width: 100%; display: block; }
   .container { max-width: 760px; margin: 0 auto; padding: 0 30px; }
 
-  .navbar { background: var(--navy); padding: 16px 0; }
+  .navbar {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    z-index: 200;
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+    padding: 16px 0;
+    transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+  }
+  .navbar.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .navbar.scrolled .nav-links a { color: var(--navy); }
+  .navbar.scrolled .lang-toggle { color: var(--navy); border-color: var(--line); }
+  .navbar.scrolled .burger { color: var(--navy); }
   .nav-container { max-width: 1300px; margin: 0 auto; padding: 0 30px; display: flex; align-items: center; justify-content: space-between; }
   .logo img { height: 42px; }
   .nav-links { display: flex; align-items: center; gap: 22px; }
@@ -34,7 +52,7 @@
   .lang-option.active { color: var(--gold); font-weight: 700; }
   .btn-book { background: var(--gold); color: var(--white); padding: 10px 22px; border-radius: 4px; font-size: 14px; font-weight: 700; }
   .btn-book:hover { background: var(--gold-light); }
-  @media (max-width: 800px) { .nav-links { display: none; } }
+  @media (max-width: 800px) { .nav-links { display: none; } .burger { display: block; } .nav-right .btn-book { display: none; } }
 
   .hero {
     position: relative; height: 40vh; min-height: 280px;
@@ -67,6 +85,58 @@
   .footer { background: var(--navy-dark); color: #F8FAFC; padding: 34px 0; }
   .footer-inner { max-width: 1300px; margin: 0 auto; padding: 0 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-size: 13px; color: rgba(248,250,252,0.7); }
   .footer-inner a { color: var(--gold); }
+
+  .burger {
+    display: none;
+    background: none;
+    border: none;
+    color: #F8FAFC;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .burger svg { width: 24px; height: 24px; }
+
+  .mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 240;
+  }
+  .mobile-menu-overlay.open { display: block; }
+
+  .mobile-menu {
+    position: fixed;
+    top: 0; right: -100%;
+    width: 78%;
+    max-width: 320px;
+    height: 100vh;
+    background: var(--white);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+    z-index: 250;
+    padding: 80px 30px 30px;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile-menu.open { right: 0; }
+  .mobile-menu a {
+    display: block;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 15.5px;
+  }
+  .mobile-menu-close {
+    position: absolute;
+    top: 24px; right: 24px;
+    background: none;
+    border: none;
+    color: var(--navy);
+    cursor: pointer;
+  }
+  .mobile-menu-close svg { width: 22px; height: 22px; }
 </style>
 </head>
 <body>
@@ -94,40 +164,58 @@
         <button class="lang-option" data-lang="de">Deutsch</button>
       </div>
       <a href="index.html#contact" class="btn-book"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+      <button class="burger" id="burger-toggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    
     </div>
   </div>
 </header>
 
+<div class="mobile-menu-overlay" id="mobile-overlay"></div>
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <a href="index.html#home"><span data-en="Home" data-fr="Accueil" data-es="Inicio" data-de="Startseite">Home</span></a>
+      <a href="index.html#tours"><span data-en="Tours" data-fr="Circuits" data-es="Tours" data-de="Touren">Tours</span></a>
+      <a href="index.html#services"><span data-en="Services" data-fr="Services" data-es="Servicios" data-de="Leistungen">Services</span></a>
+      <a href="about-us.html"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
+      <a href="index.html#blog"><span data-en="Blog" data-fr="Blog" data-es="Blog" data-de="Blog">Blog</span></a>
+      <a href="index.html#contact"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
+  <a href="index.html#contact" class="btn-book" style="display:block;text-align:center;margin-top:16px;"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+</div>
+
+
 <section class="hero">
   <div class="hero-inner">
-    <span class="hero-tag"><span data-en="Travel Tips" data-fr="Conseils Voyage" data-es="Consejos de Viaje" data-de="Reisetipps">Travel Tips</span></span>
-    <h1><span data-en="Best Time to Visit Morocco: A Season-by-Season Guide" data-fr="Meilleure Période pour Visiter le Maroc : Saison par Saison" data-es="Mejor Época para Visitar Marruecos: Guía Estación por Estación" data-de="Beste Reisezeit für Marokko: Ein Saisonführer">Best Time to Visit Morocco: A Season-by-Season Guide</span></h1>
-    <p class="meta">May 2026</p>
+    <span class="hero-tag">Travel Tips</span>
+    <h1>The Best Day Trips from Taghazout, Morocco</h1>
+    <p class="meta">August 2026</p>
   </div>
 </section>
 
 <div class="container article">
   <a href="index.html#blog" class="back-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg> <span data-en="Back to Blog" data-fr="Retour au Blog" data-es="Volver al Blog" data-de="Zurück zum Blog">Back to Blog</span></a>
 
+  <p>Taghazout is compact, but the surrounding region is packed with easy day trips, from mountain pools to Africa's longest surf wave. Here are the best ones to fill your stay.</p>
 
-  <p>Morocco's geography means the right season really depends on where you're headed. Here's a quick breakdown to help you plan.</p>
+  <h2>Paradise Valley, Natural Pools in the Atlas Foothills</h2>
+  <p>About 45 minutes inland, Paradise Valley is a palm-lined canyon with clear natural pools tucked between honey-colored cliffs. It's the classic flat-day trip from Taghazout, go early to beat the heat and the crowds, and bring water shoes for the rocky sections.</p>
 
-  <h2>Spring (March–May)</h2>
-  <p>Widely considered the best all-round season. Mild temperatures everywhere, wildflowers in the Atlas foothills, and comfortable desert days without the summer heat.</p>
+  <h2>Imsouane, Africa's Longest Surf Wave</h2>
+  <p>An hour up the coast, Imsouane is a laid-back fishing village known for one of the longest, gentlest surf waves on the continent. It's a favorite for beginner and intermediate surfers, and a great lunch stop even if you're not surfing.</p>
 
-  <h2>Summer (June–August)</h2>
-  <p>Ideal for the Atlantic coast (Essaouira, Agadir) and the mountains, but the desert and inland cities like Marrakech and Fes can get extremely hot during the day.</p>
+  <h2>Tamri, Where Dunes Meet the Atlantic</h2>
+  <p>Just north of Taghazout, Tamri combines sand dunes with ocean views, a striking contrast that makes for great photos. The area is also known locally for its banana plantations, and it's an easy stop on the way to Imsouane.</p>
 
-  <h2>Autumn (September–November)</h2>
-  <p>A quieter alternative to spring, with similarly pleasant temperatures and fewer crowds at major sites — a strong choice for imperial city tours.</p>
+  <h2>Legzira Beach & Tiznit</h2>
+  <p>Further south, Legzira Beach is famous for its dramatic red stone arches carved by wind and sea. Combine it with a stop in Tiznit, known for its silver jewelry souks and old city walls, for a fuller day trip.</p>
 
-  <h2>Winter (December–February)</h2>
-  <p>Desert days stay pleasant, though nights get cold. The Atlas Mountains can see snow, which is beautiful but worth planning around if you're crossing mountain passes.</p>
+  <h2>Tafraout, Painted Rocks in the Anti-Atlas</h2>
+  <p>A little further inland, Tafraout sits among pink granite boulders, some of them painted blue by a local artist decades ago. It's a quieter, more offbeat trip for travelers who want to see a different side of southern Morocco.</p>
 
-  <h2>Our Take</h2>
-  <p>If you're combining the desert with imperial cities, aim for October–April. If your trip is mostly coastal or mountain-based, summer works well too.</p>
-
-
+  <p>We're currently putting together dedicated excursions and activities around Taghazout, including surf-friendly day trips, yoga sessions, and Moroccan cooking classes. Get in touch if you'd like early details.</p>
   <div class="article-cta">
     <p><span data-en="Ready to plan your own Morocco trip?" data-fr="Prêt à planifier votre voyage au Maroc ?" data-es="¿Listo para planear tu viaje a Marruecos?" data-de="Bereit, Ihre eigene Marokko-Reise zu planen?">Ready to plan your own Morocco trip?</span></p>
     <a href="index.html#contact" class="btn-gold"><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></a>
@@ -146,6 +234,24 @@
 </footer>
 
 <script>
+
+
+  window.addEventListener('scroll', function() {
+    var navbar = document.querySelector('.navbar');
+    if (window.scrollY > 60) { navbar.classList.add('scrolled'); } else { navbar.classList.remove('scrolled'); }
+  });
+
+  var burgerToggle = document.getElementById('burger-toggle');
+  var mobileMenu = document.getElementById('mobile-menu');
+  var mobileOverlay = document.getElementById('mobile-overlay');
+  var mobileMenuClose = document.getElementById('mobile-menu-close');
+  function openMobileMenu() { mobileMenu.classList.add('open'); mobileOverlay.classList.add('open'); }
+  function closeMobileMenu() { mobileMenu.classList.remove('open'); mobileOverlay.classList.remove('open'); }
+  burgerToggle.addEventListener('click', openMobileMenu);
+  mobileMenuClose.addEventListener('click', closeMobileMenu);
+  mobileOverlay.addEventListener('click', closeMobileMenu);
+  document.querySelectorAll('.mobile-menu a').forEach(function(link) { link.addEventListener('click', closeMobileMenu); });
+
   var currentLang = 'en';
   function applyLang(lang) {
     document.querySelectorAll('[data-en]').forEach(function(el) { el.textContent = el.dataset[lang]; });

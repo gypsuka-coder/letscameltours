@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Excursions | Let's Camel Tours</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #003366; --navy-dark: #001f3f; --gold: #E07A3E; --gold-light: #ea9868;
+    --white: #ffffff; --off-white: #F8FAFC; --text-gray: #5c6474; --line: #e6e9ef;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Poppins', sans-serif; color: #1a1a1a; line-height: 1.6; }
+  a { text-decoration: none; color: inherit; }
+  ul { list-style: none; }
+  img { max-width: 100%; display: block; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+
+  .navbar { position: fixed; top: 0; left: 0; width: 100%; z-index: 200; background: var(--navy); padding: 16px 0; }
+  .nav-container { max-width: 1300px; margin: 0 auto; padding: 0 30px; display: flex; align-items: center; justify-content: space-between; }
+  .logo img { height: 42px; }
+  .nav-links { display: flex; align-items: center; gap: 22px; }
+  .nav-links a { color: #F8FAFC; font-size: 14px; font-weight: 500; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-right { display: flex; align-items: center; gap: 14px; position: relative; }
+  .lang-toggle { display: flex; align-items: center; gap: 6px; background: none; border: 1px solid rgba(255,255,255,0.4); color: #F8FAFC; padding: 8px 12px; border-radius: 4px; font-size: 13px; font-weight: 600; cursor: pointer; }
+  .lang-toggle svg { width: 15px; height: 15px; }
+  .lang-menu { position: absolute; top: calc(100% + 8px); right: 0; background: var(--white); border-radius: 6px; box-shadow: 0 12px 30px rgba(0,0,0,0.15); padding: 6px; display: none; min-width: 140px; z-index: 50; }
+  .lang-menu.open { display: block; }
+  .lang-option { display: block; width: 100%; text-align: left; background: none; border: none; padding: 9px 12px; font-size: 13.5px; font-weight: 500; color: var(--navy); border-radius: 4px; cursor: pointer; }
+  .lang-option:hover { background: var(--off-white); }
+  .lang-option.active { color: var(--gold); font-weight: 700; }
+  .btn-book { background: var(--gold); color: var(--white); padding: 10px 22px; border-radius: 4px; font-size: 14px; font-weight: 700; }
+  .btn-book:hover { background: var(--gold-light); }
+  .burger { display: none; background: none; border: none; color: #F8FAFC; cursor: pointer; padding: 4px; }
+  .burger svg { width: 24px; height: 24px; }
+  .mobile-menu-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 240; }
+  .mobile-menu-overlay.open { display: block; }
+  .mobile-menu { position: fixed; top: 0; right: -100%; width: 78%; max-width: 320px; height: 100vh; background: var(--white); box-shadow: -10px 0 30px rgba(0,0,0,0.2); z-index: 250; padding: 80px 30px 30px; transition: right 0.3s ease; display: flex; flex-direction: column; }
+  .mobile-menu.open { right: 0; }
+  .mobile-menu a { display: block; padding: 15px 0; border-bottom: 1px solid var(--line); color: var(--navy); font-weight: 600; font-size: 15.5px; }
+  .mobile-menu-close { position: absolute; top: 24px; right: 24px; background: none; border: none; color: var(--navy); cursor: pointer; }
+  .mobile-menu-close svg { width: 22px; height: 22px; }
+
+  .hero { padding: 150px 30px 70px; background: var(--navy); color: #fff; text-align: center; }
+  .hero span.label { color: var(--gold); font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; display: block; margin-bottom: 14px; }
+  .hero h1 { font-size: clamp(28px, 4.4vw, 44px); font-weight: 800; margin-bottom: 14px; }
+  .hero p { color: #d3d9ec; font-size: 15.5px; max-width: 60ch; margin: 0 auto; }
+
+  .listing { padding: 80px 0; }
+  .listing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+
+  .item-card { background: var(--white); border-radius: 10px; overflow: hidden; border: 1px solid var(--line); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+  .item-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,51,102,0.12); }
+  .item-image { height: 210px; background-size: cover; background-position: center; position: relative; }
+  .item-tag { position: absolute; top: 14px; left: 14px; background: var(--gold); color: var(--white); font-size: 11.5px; font-weight: 700; padding: 6px 12px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .item-body { padding: 22px 22px 24px; }
+  .item-body h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .item-desc { color: var(--text-gray); font-size: 13.5px; margin-bottom: 16px; line-height: 1.6; }
+  .btn-arrow { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 14px; color: var(--navy); }
+  .btn-arrow svg { width: 16px; height: 16px; transition: transform 0.2s ease; }
+  .btn-arrow:hover svg { transform: translateX(4px); }
+
+  .whatsapp-btn { position: fixed; bottom: 26px; right: 26px; z-index: 300; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+  .whatsapp-btn svg { width: 30px; height: 30px; fill: #fff; }
+
+  .footer { background: var(--navy-dark); color: #F8FAFC; padding: 34px 0; }
+  .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-size: 13px; color: rgba(248,250,252,0.7); }
+  .footer-inner a { color: var(--gold); }
+
+  @media (max-width: 900px) { .listing-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 700px) {
+    .nav-links { display: none; }
+    .nav-right .btn-book { display: none; }
+    .burger { display: block; }
+    .listing-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo"><img src="logo-white.png" alt="Let's Camel Tours"></a>
+    <div class="nav-links">
+      <a href="index.html#home"><span data-en="Home" data-fr="Accueil" data-es="Inicio" data-de="Startseite">Home</span></a>
+      <a href="tours.html"><span data-en="Tours" data-fr="Circuits" data-es="Tours" data-de="Touren">Tours</span></a>
+      <a href="excursions.html"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></a>
+      <a href="activities.html"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span></a>
+      <a href="about-us.html"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
+      <a href="index.html#contact"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
+    </div>
+    <div class="nav-right">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9z"/></svg>
+        <span id="lang-label">EN</span>
+      </button>
+      <div class="lang-menu" id="lang-menu">
+        <button class="lang-option active" data-lang="en">English</button>
+        <button class="lang-option" data-lang="fr">Français</button>
+        <button class="lang-option" data-lang="es">Español</button>
+        <button class="lang-option" data-lang="de">Deutsch</button>
+      </div>
+      <a href="index.html#contact" class="btn-book"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+      <button class="burger" id="burger-toggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu-overlay" id="mobile-overlay"></div>
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <a href="index.html#home"><span data-en="Home" data-fr="Accueil" data-es="Inicio" data-de="Startseite">Home</span></a>
+  <a href="tours.html"><span data-en="Tours" data-fr="Circuits" data-es="Tours" data-de="Touren">Tours</span></a>
+  <a href="excursions.html"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></a>
+  <a href="activities.html"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span></a>
+  <a href="about-us.html"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
+  <a href="index.html#contact"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
+  <a href="index.html#contact" class="btn-book" style="display:block;text-align:center;margin-top:16px;"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+</div>
+
+<section class="hero">
+  <span class="label"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></span>
+  <h1><span data-en="Day Trips from Taghazout" data-fr="Excursions à la Journée depuis Taghazout" data-es="Excursiones de un Día desde Taghazout" data-de="Tagesausflüge ab Taghazout">Day Trips from Taghazout</span></h1>
+  <p><span data-en="Short, guided excursions to the best spots around Taghazout, no long commitment, just a great day out." data-fr="Des excursions courtes et guidées vers les meilleurs endroits autour de Taghazout, sans engagement, juste une belle journée." data-es="Excursiones cortas y guiadas a los mejores lugares alrededor de Taghazout, sin compromiso largo, solo un gran día." data-de="Kurze, geführte Ausflüge zu den besten Orten rund um Taghazout, ohne lange Bindung, einfach ein toller Tag.">Short, guided excursions to the best spots around Taghazout, no long commitment, just a great day out.</span></p>
+</section>
+
+<section class="listing">
+  <div class="container listing-grid">
+    <div class="item-card">
+      <div class="item-image" style="background-image:url('excursion-1.jpg');"><span class="item-tag"><span data-en="Half-Day" data-fr="Demi-Journée" data-es="Medio Día" data-de="Halber Tag">Half-Day</span></span></div>
+      <div class="item-body">
+        <h3><span data-en="Paradise Valley & Imsouane" data-fr="Paradise Valley & Imsouane" data-es="Paradise Valley y Imsouane" data-de="Paradise Valley & Imsouane">Paradise Valley & Imsouane</span></h3>
+        <p class="item-desc"><span data-en="Swim in the natural pools of Paradise Valley, then visit Imsouane, home to one of the longest surf waves in Africa." data-fr="Baignez-vous dans les bassins naturels de Paradise Valley, puis découvrez Imsouane, célèbre pour l'une des plus longues vagues de surf d'Afrique." data-es="Nada en las piscinas naturales de Paradise Valley, luego visita Imsouane, hogar de una de las olas de surf más largas de África." data-de="Schwimmen Sie in den natürlichen Pools des Paradise Valley und besuchen Sie dann Imsouane, Heimat einer der längsten Surfwellen Afrikas.">Swim in the natural pools of Paradise Valley, then visit Imsouane, home to one of the longest surf waves in Africa.</span></p>
+        <a href="index.html#contact" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+    <div class="item-card">
+      <div class="item-image" style="background-image:url('excursion-2.jpg');"><span class="item-tag"><span data-en="Full-Day" data-fr="Journée Complète" data-es="Día Completo" data-de="Ganzer Tag">Full-Day</span></span></div>
+      <div class="item-body">
+        <h3><span data-en="Legzira Beach & Tiznit" data-fr="Plage de Legzira & Tiznit" data-es="Playa de Legzira y Tiznit" data-de="Legzira-Strand & Tiznit">Legzira Beach & Tiznit</span></h3>
+        <p class="item-desc"><span data-en="See the famous red stone arches of Legzira, then explore Tiznit's old city walls and silver jewelry souks." data-fr="Découvrez les célèbres arches de pierre rouge de Legzira, puis explorez les remparts et les souks d'argenterie de Tiznit." data-es="Ve los famosos arcos de piedra roja de Legzira, luego explora las murallas y los zocos de plata de Tiznit." data-de="Sehen Sie die berühmten roten Steinbögen von Legzira und erkunden Sie dann die alten Stadtmauern und Silberschmuck-Souks von Tiznit.">See the famous red stone arches of Legzira, then explore Tiznit's old city walls and silver jewelry souks.</span></p>
+        <a href="index.html#contact" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+    <div class="item-card">
+      <div class="item-image" style="background-image:url('excursion-3.jpg');"><span class="item-tag"><span data-en="Full-Day" data-fr="Journée Complète" data-es="Día Completo" data-de="Ganzer Tag">Full-Day</span></span></div>
+      <div class="item-body">
+        <h3><span data-en="Tafraout & the Painted Rocks" data-fr="Tafraout & les Roches Peintes" data-es="Tafraout y las Rocas Pintadas" data-de="Tafraout & die Bemalten Felsen">Tafraout & the Painted Rocks</span></h3>
+        <p class="item-desc"><span data-en="Head into the Anti-Atlas to see Tafraout's pink granite boulders, including rocks painted blue by a local artist." data-fr="Direction l'Anti-Atlas pour voir les rochers de granit rose de Tafraout, dont certains peints en bleu par un artiste local." data-es="Dirígete al Anti-Atlas para ver las rocas de granito rosa de Tafraout, incluidas rocas pintadas de azul por un artista local." data-de="Fahren Sie in den Anti-Atlas, um die rosa Granitfelsen von Tafraout zu sehen, darunter blau bemalte Felsen eines lokalen Künstlers.">Head into the Anti-Atlas to see Tafraout's pink granite boulders, including rocks painted blue by a local artist.</span></p>
+        <a href="index.html#contact" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<a href="https://wa.me/212600000000" class="whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.7 4.61 1.905 6.48L4 29l7.72-1.858A11.94 11.94 0 0016.001 27C22.63 27 28 21.627 28 15S22.63 3 16.001 3zm6.997 16.63c-.29.816-1.68 1.56-2.32 1.646-.593.08-1.34.114-2.16-.135-.498-.15-1.137-.362-1.958-.71-3.447-1.488-5.699-4.94-5.874-5.17-.174-.23-1.41-1.874-1.41-3.575 0-1.7.89-2.535 1.207-2.883.318-.348.694-.435.926-.435.232 0 .464.002.667.012.213.01.5-.081.782.596.29.696.986 2.4 1.073 2.574.087.174.145.377.03.608-.116.232-.174.377-.348.58-.174.203-.365.453-.522.608-.174.174-.355.363-.153.71.203.348.902 1.487 1.936 2.408 1.33 1.186 2.452 1.554 2.8 1.728.348.174.55.145.754-.087.203-.232.87-1.015 1.102-1.363.232-.348.464-.29.783-.174.319.116 2.02.952 2.367 1.125.348.174.58.26.667.406.087.145.087.841-.203 1.657z"/></svg>
+</a>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span><span data-en="© 2026 Let's Camel Tours. All Rights Reserved." data-fr="© 2026 Let's Camel Tours. Tous droits réservés." data-es="© 2026 Let's Camel Tours. Todos los derechos reservados." data-de="© 2026 Let's Camel Tours. Alle Rechte vorbehalten.">© 2026 Let's Camel Tours. All Rights Reserved.</span></span>
+    <span><a href="index.html"><span data-en="Back to Home" data-fr="Retour à l'Accueil" data-es="Volver al Inicio" data-de="Zurück zur Startseite">Back to Home</span></a> · info.letscameltours@gmail.com</span>
+  </div>
+</footer>
+
+<script>
+  var burgerToggle = document.getElementById('burger-toggle');
+  var mobileMenu = document.getElementById('mobile-menu');
+  var mobileOverlay = document.getElementById('mobile-overlay');
+  var mobileMenuClose = document.getElementById('mobile-menu-close');
+  function openMobileMenu() { mobileMenu.classList.add('open'); mobileOverlay.classList.add('open'); }
+  function closeMobileMenu() { mobileMenu.classList.remove('open'); mobileOverlay.classList.remove('open'); }
+  burgerToggle.addEventListener('click', openMobileMenu);
+  mobileMenuClose.addEventListener('click', closeMobileMenu);
+  mobileOverlay.addEventListener('click', closeMobileMenu);
+  document.querySelectorAll('.mobile-menu a').forEach(function(link) { link.addEventListener('click', closeMobileMenu); });
+
+  var currentLang = 'en';
+  function applyLang(lang) {
+    document.querySelectorAll('[data-en]').forEach(function(el) { el.textContent = el.dataset[lang]; });
+    document.getElementById('lang-label').textContent = lang.toUpperCase();
+    document.documentElement.lang = lang;
+    document.querySelectorAll('.lang-option').forEach(function(btn) { btn.classList.toggle('active', btn.dataset.lang === lang); });
+    currentLang = lang;
+  }
+  var langToggle = document.getElementById('lang-toggle');
+  var langMenu = document.getElementById('lang-menu');
+  langToggle.addEventListener('click', function(e) { e.stopPropagation(); langMenu.classList.toggle('open'); });
+  document.addEventListener('click', function() { langMenu.classList.remove('open'); });
+  document.querySelectorAll('.lang-option').forEach(function(btn) {
+    btn.addEventListener('click', function() { applyLang(btn.dataset.lang); langMenu.classList.remove('open'); });
+  });
+</script>
+
+</body>
+</html>

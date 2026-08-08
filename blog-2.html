@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Local's Guide to Marrakech's Medina | Let's Camel Tours Blog</title>
+<title>Best Time to Visit Merzouga & Taghazout | Morocco Season Guide</title>
+<meta name="description" content="When's the best time to visit Morocco's desert and coast? Compare Merzouga's desert seasons with Taghazout's surf season to plan your trip.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -18,7 +19,24 @@
   img { max-width: 100%; display: block; }
   .container { max-width: 760px; margin: 0 auto; padding: 0 30px; }
 
-  .navbar { background: var(--navy); padding: 16px 0; }
+  .navbar {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    z-index: 200;
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+    padding: 16px 0;
+    transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+  }
+  .navbar.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .navbar.scrolled .nav-links a { color: var(--navy); }
+  .navbar.scrolled .lang-toggle { color: var(--navy); border-color: var(--line); }
+  .navbar.scrolled .burger { color: var(--navy); }
   .nav-container { max-width: 1300px; margin: 0 auto; padding: 0 30px; display: flex; align-items: center; justify-content: space-between; }
   .logo img { height: 42px; }
   .nav-links { display: flex; align-items: center; gap: 22px; }
@@ -34,7 +52,7 @@
   .lang-option.active { color: var(--gold); font-weight: 700; }
   .btn-book { background: var(--gold); color: var(--white); padding: 10px 22px; border-radius: 4px; font-size: 14px; font-weight: 700; }
   .btn-book:hover { background: var(--gold-light); }
-  @media (max-width: 800px) { .nav-links { display: none; } }
+  @media (max-width: 800px) { .nav-links { display: none; } .burger { display: block; } .nav-right .btn-book { display: none; } }
 
   .hero {
     position: relative; height: 40vh; min-height: 280px;
@@ -67,6 +85,58 @@
   .footer { background: var(--navy-dark); color: #F8FAFC; padding: 34px 0; }
   .footer-inner { max-width: 1300px; margin: 0 auto; padding: 0 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-size: 13px; color: rgba(248,250,252,0.7); }
   .footer-inner a { color: var(--gold); }
+
+  .burger {
+    display: none;
+    background: none;
+    border: none;
+    color: #F8FAFC;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .burger svg { width: 24px; height: 24px; }
+
+  .mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 240;
+  }
+  .mobile-menu-overlay.open { display: block; }
+
+  .mobile-menu {
+    position: fixed;
+    top: 0; right: -100%;
+    width: 78%;
+    max-width: 320px;
+    height: 100vh;
+    background: var(--white);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+    z-index: 250;
+    padding: 80px 30px 30px;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile-menu.open { right: 0; }
+  .mobile-menu a {
+    display: block;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 15.5px;
+  }
+  .mobile-menu-close {
+    position: absolute;
+    top: 24px; right: 24px;
+    background: none;
+    border: none;
+    color: var(--navy);
+    cursor: pointer;
+  }
+  .mobile-menu-close svg { width: 22px; height: 22px; }
 </style>
 </head>
 <body>
@@ -94,44 +164,58 @@
         <button class="lang-option" data-lang="de">Deutsch</button>
       </div>
       <a href="index.html#contact" class="btn-book"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+      <button class="burger" id="burger-toggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    
     </div>
   </div>
 </header>
 
+<div class="mobile-menu-overlay" id="mobile-overlay"></div>
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <a href="index.html#home"><span data-en="Home" data-fr="Accueil" data-es="Inicio" data-de="Startseite">Home</span></a>
+      <a href="index.html#tours"><span data-en="Tours" data-fr="Circuits" data-es="Tours" data-de="Touren">Tours</span></a>
+      <a href="index.html#services"><span data-en="Services" data-fr="Services" data-es="Servicios" data-de="Leistungen">Services</span></a>
+      <a href="about-us.html"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
+      <a href="index.html#blog"><span data-en="Blog" data-fr="Blog" data-es="Blog" data-de="Blog">Blog</span></a>
+      <a href="index.html#contact"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
+  <a href="index.html#contact" class="btn-book" style="display:block;text-align:center;margin-top:16px;"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+</div>
+
+
 <section class="hero">
   <div class="hero-inner">
-    <span class="hero-tag"><span data-en="City Guide" data-fr="Guide de Ville" data-es="Guía de Ciudad" data-de="Stadtführer">City Guide</span></span>
-    <h1><span data-en="A Local's Guide to Marrakech's Medina" data-fr="Le Guide Local de la Médina de Marrakech" data-es="Guía Local de la Medina de Marrakech" data-de="Ein Lokaler Guide durch die Medina von Marrakesch">A Local's Guide to Marrakech's Medina</span></h1>
-    <p class="meta">June 2026</p>
+    <span class="hero-tag">Travel Tips</span>
+    <h1>Best Time to Visit Morocco: Merzouga Desert vs. Taghazout Coast</h1>
+    <p class="meta">August 2026</p>
   </div>
 </section>
 
 <div class="container article">
   <a href="index.html#blog" class="back-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg> <span data-en="Back to Blog" data-fr="Retour au Blog" data-es="Volver al Blog" data-de="Zurück zum Blog">Back to Blog</span></a>
 
+  <p>Morocco's desert and its Atlantic coast run on very different calendars. If your trip includes both Merzouga and Taghazout, here's how to time it right.</p>
 
-  <p>Marrakech's medina can feel overwhelming on a first visit — narrow lanes, constant motion, and no clear map. Here's how to navigate it like someone who actually lives there.</p>
+  <h2>Merzouga Desert Seasons</h2>
+  <p>October to April is the sweet spot for the Sahara, warm days, cool nights, and none of the extreme summer heat that can make midday activities in Merzouga uncomfortable. December and January bring the coldest desert nights, so pack layers even if the days feel warm.</p>
 
-  <h2>Start Early, Before the Crowds</h2>
-  <p>The souks are calmer and cooler before 10am. It's the best time to browse without the midday crush, and shopkeepers are often more relaxed for a chat.</p>
+  <h2>Taghazout Surf Seasons</h2>
+  <p>Taghazout surfs well year-round, which is part of what makes it famous. Autumn and winter (September to February) tend to bring the biggest, most consistent swells and suit more experienced surfers, while spring and summer offer smaller, friendlier waves that are ideal for beginners.</p>
 
-  <h2>Getting Lost Is Part of the Experience</h2>
-  <p>The medina isn't built on a grid, and that's intentional. Rather than fighting it, treat wrong turns as a chance to stumble on a quiet courtyard or a tiny workshop you'd never find on purpose.</p>
+  <h2>Combining Both in One Trip</h2>
+  <p>Because the desert prefers cooler months and Taghazout works well nearly year-round, October through April is generally the easiest window to combine both regions comfortably, cool enough for the Sahara, and still good surf on the coast.</p>
 
-  <h2>Where to Find the Best Mint Tea</h2>
-  <p>Skip the tourist-facing cafés right on Jemaa el-Fnaa and look one or two streets back — smaller, family-run spots tend to serve tea the way locals actually drink it: strong, sweet, and poured from height.</p>
-
-  <h2>Bargaining Basics</h2>
+  <h2>Quick Month-by-Month Guide</h2>
   <ul>
-    <li>Start at roughly half the first price offered</li>
-    <li>Stay friendly — bargaining is a conversation, not a confrontation</li>
-    <li>Walking away often brings the price down further</li>
+    <li><strong>Sept–Nov:</strong> Great all-round, mild desert heat, strong early-season swell in Taghazout</li>
+    <li><strong>Dec–Feb:</strong> Coldest desert nights, but the best surf season on the coast</li>
+    <li><strong>Mar–May:</strong> Comfortable everywhere, wildflowers in the Atlas foothills</li>
+    <li><strong>Jun–Aug:</strong> Hot in the desert during the day, mellow beginner-friendly waves in Taghazout</li>
   </ul>
-
-  <h2>A Few Hidden Corners</h2>
-  <p>Beyond the main souks, take time for the quieter Mellah (old Jewish quarter), the tucked-away herboristes selling spices and natural remedies, and the small tanneries that rarely make it onto tourist maps.</p>
-
-
   <div class="article-cta">
     <p><span data-en="Ready to plan your own Morocco trip?" data-fr="Prêt à planifier votre voyage au Maroc ?" data-es="¿Listo para planear tu viaje a Marruecos?" data-de="Bereit, Ihre eigene Marokko-Reise zu planen?">Ready to plan your own Morocco trip?</span></p>
     <a href="index.html#contact" class="btn-gold"><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></a>
@@ -150,6 +234,24 @@
 </footer>
 
 <script>
+
+
+  window.addEventListener('scroll', function() {
+    var navbar = document.querySelector('.navbar');
+    if (window.scrollY > 60) { navbar.classList.add('scrolled'); } else { navbar.classList.remove('scrolled'); }
+  });
+
+  var burgerToggle = document.getElementById('burger-toggle');
+  var mobileMenu = document.getElementById('mobile-menu');
+  var mobileOverlay = document.getElementById('mobile-overlay');
+  var mobileMenuClose = document.getElementById('mobile-menu-close');
+  function openMobileMenu() { mobileMenu.classList.add('open'); mobileOverlay.classList.add('open'); }
+  function closeMobileMenu() { mobileMenu.classList.remove('open'); mobileOverlay.classList.remove('open'); }
+  burgerToggle.addEventListener('click', openMobileMenu);
+  mobileMenuClose.addEventListener('click', closeMobileMenu);
+  mobileOverlay.addEventListener('click', closeMobileMenu);
+  document.querySelectorAll('.mobile-menu a').forEach(function(link) { link.addEventListener('click', closeMobileMenu); });
+
   var currentLang = 'en';
   function applyLang(lang) {
     document.querySelectorAll('[data-en]').forEach(function(el) { el.textContent = el.dataset[lang]; });

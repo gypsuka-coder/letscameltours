@@ -25,7 +25,24 @@
   img { max-width: 100%; display: block; }
   .container { max-width: 1000px; margin: 0 auto; padding: 0 30px; }
 
-  .navbar { background: var(--navy); padding: 16px 0; }
+  .navbar {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    z-index: 200;
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+    padding: 16px 0;
+    transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+  }
+  .navbar.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .navbar.scrolled .nav-links a { color: var(--navy); }
+  .navbar.scrolled .lang-toggle { color: var(--navy); border-color: var(--line); }
+  .navbar.scrolled .burger { color: var(--navy); }
   .nav-container { max-width: 1300px; margin: 0 auto; padding: 0 30px; display: flex; align-items: center; justify-content: space-between; }
   .logo img { height: 42px; }
   .nav-links { display: flex; align-items: center; gap: 22px; }
@@ -106,6 +123,58 @@
     .sidebar { position: static; }
     .nav-links { display: none; }
   }
+
+  .burger {
+    display: none;
+    background: none;
+    border: none;
+    color: #F8FAFC;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .burger svg { width: 24px; height: 24px; }
+
+  .mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 240;
+  }
+  .mobile-menu-overlay.open { display: block; }
+
+  .mobile-menu {
+    position: fixed;
+    top: 0; right: -100%;
+    width: 78%;
+    max-width: 320px;
+    height: 100vh;
+    background: var(--white);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+    z-index: 250;
+    padding: 80px 30px 30px;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile-menu.open { right: 0; }
+  .mobile-menu a {
+    display: block;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 15.5px;
+  }
+  .mobile-menu-close {
+    position: absolute;
+    top: 24px; right: 24px;
+    background: none;
+    border: none;
+    color: var(--navy);
+    cursor: pointer;
+  }
+  .mobile-menu-close svg { width: 22px; height: 22px; }
 </style>
 </head>
 <body>
@@ -117,7 +186,7 @@
       <a href="index.html#home"><span data-en="Home" data-fr="Accueil" data-es="Inicio" data-de="Startseite">Home</span></a>
       <a href="index.html#tours"><span data-en="Tours" data-fr="Circuits" data-es="Tours" data-de="Touren">Tours</span></a>
       <a href="index.html#services"><span data-en="Services" data-fr="Services" data-es="Servicios" data-de="Leistungen">Services</span></a>
-      <a href="index.html#about"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
+      <a href="about-us.html"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
       <a href="index.html#blog"><span data-en="Blog" data-fr="Blog" data-es="Blog" data-de="Blog">Blog</span></a>
       <a href="index.html#contact"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
     </div>
@@ -135,9 +204,28 @@
         <button class="lang-option" data-lang="de">Deutsch</button>
       </div>
       <a href="index.html#contact" class="btn-book"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+      <button class="burger" id="burger-toggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    
     </div>
   </div>
 </header>
+
+<div class="mobile-menu-overlay" id="mobile-overlay"></div>
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <a href="index.html#home"><span data-en="Home" data-fr="Accueil" data-es="Inicio" data-de="Startseite">Home</span></a>
+      <a href="index.html#tours"><span data-en="Tours" data-fr="Circuits" data-es="Tours" data-de="Touren">Tours</span></a>
+      <a href="index.html#services"><span data-en="Services" data-fr="Services" data-es="Servicios" data-de="Leistungen">Services</span></a>
+      <a href="about-us.html"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
+      <a href="index.html#blog"><span data-en="Blog" data-fr="Blog" data-es="Blog" data-de="Blog">Blog</span></a>
+      <a href="index.html#contact"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
+  <a href="index.html#contact" class="btn-book" style="display:block;text-align:center;margin-top:16px;"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+</div>
+
 
 <section class="hero">
   <div class="hero-inner">
@@ -152,7 +240,7 @@
     <div class="main-col">
       <h2 class="section-h"><span data-en="Overview" data-fr="Aperçu" data-es="Resumen" data-de="Überblick">Overview</span></h2>
       <div class="overview">
-        <p><span data-en="The complete Morocco experience in one expedition — imperial cities, the blue mountains of the north, and the deep Sahara, all in a single fully private itinerary." data-fr="L'expérience marocaine complète en une seule expédition — villes impériales, montagnes bleues du nord et Sahara profond, dans un seul itinéraire entièrement privé." data-es="La experiencia marroquí completa en una sola expedición — ciudades imperiales, montañas azules del norte y el profundo Sahara, en un itinerario totalmente privado." data-de="Das komplette Marokko-Erlebnis in einer Expedition — Kaiserstädte, die blauen Berge des Nordens und die tiefe Sahara, in einer vollständig privaten Reiseroute.">The complete Morocco experience in one expedition — imperial cities, the blue mountains of the north, and the deep Sahara, all in a single fully private itinerary.</span></p>
+        <p><span data-en="The complete Morocco experience in one expedition, imperial cities, the blue mountains of the north, and the deep Sahara, all in a single fully private itinerary." data-fr="L'expérience marocaine complète en une seule expédition, villes impériales, montagnes bleues du nord et Sahara profond, dans un seul itinéraire entièrement privé." data-es="La experiencia marroquí completa en una sola expedición, ciudades imperiales, montañas azules del norte y el profundo Sahara, en un itinerario totalmente privado." data-de="Das komplette Marokko-Erlebnis in einer Expedition, Kaiserstädte, die blauen Berge des Nordens und die tiefe Sahara, in einer vollständig privaten Reiseroute.">The complete Morocco experience in one expedition, imperial cities, the blue mountains of the north, and the deep Sahara, all in a single fully private itinerary.</span></p>
       </div>
       <div class="route-line"><span data-en="Casablanca → Rabat → Tangier → Chefchaouen → Fes → Merzouga Desert → Todra Gorges → Ouarzazate → Marrakech" data-fr="Casablanca → Rabat → Tanger → Chefchaouen → Fès → Désert de Merzouga → Gorges du Todra → Ouarzazate → Marrakech" data-es="Casablanca → Rabat → Tánger → Chefchaouen → Fez → Desierto de Merzouga → Gargantas de Todra → Ouarzazate → Marrakech" data-de="Casablanca → Rabat → Tanger → Chefchaouen → Fès → Merzouga-Wüste → Todra-Schluchten → Ouarzazate → Marrakesch">Casablanca → Rabat → Tangier → Chefchaouen → Fes → Merzouga Desert → Todra Gorges → Ouarzazate → Marrakech</span></div>
 
@@ -273,6 +361,24 @@
 </footer>
 
 <script>
+
+
+  window.addEventListener('scroll', function() {
+    var navbar = document.querySelector('.navbar');
+    if (window.scrollY > 60) { navbar.classList.add('scrolled'); } else { navbar.classList.remove('scrolled'); }
+  });
+
+  var burgerToggle = document.getElementById('burger-toggle');
+  var mobileMenu = document.getElementById('mobile-menu');
+  var mobileOverlay = document.getElementById('mobile-overlay');
+  var mobileMenuClose = document.getElementById('mobile-menu-close');
+  function openMobileMenu() { mobileMenu.classList.add('open'); mobileOverlay.classList.add('open'); }
+  function closeMobileMenu() { mobileMenu.classList.remove('open'); mobileOverlay.classList.remove('open'); }
+  burgerToggle.addEventListener('click', openMobileMenu);
+  mobileMenuClose.addEventListener('click', closeMobileMenu);
+  mobileOverlay.addEventListener('click', closeMobileMenu);
+  document.querySelectorAll('.mobile-menu a').forEach(function(link) { link.addEventListener('click', closeMobileMenu); });
+
   var currentLang = 'en';
   function applyLang(lang) {
     document.querySelectorAll('[data-en]').forEach(function(el) {
