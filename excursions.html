@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Excursions | Let's Camel Tours</title>
+<title>Unforgettable Day Trips | Let's Camel Tours</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -19,12 +19,60 @@
   img { max-width: 100%; display: block; }
   .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
 
-  .navbar { position: fixed; top: 0; left: 0; width: 100%; z-index: 200; background: var(--navy); padding: 16px 0; }
+  .navbar {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    z-index: 200;
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+    padding: 16px 0;
+    transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+  }
+  .navbar.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .navbar.scrolled .nav-menu a { color: var(--navy); }
+  .navbar.scrolled .lang-toggle { color: var(--navy); border-color: var(--line); }
+  .navbar.scrolled .burger { color: var(--navy); }
   .nav-container { max-width: 1300px; margin: 0 auto; padding: 0 30px; display: flex; align-items: center; justify-content: space-between; }
   .logo img { height: 42px; }
-  .nav-links { display: flex; align-items: center; gap: 22px; }
-  .nav-links a { color: #F8FAFC; font-size: 14px; font-weight: 500; }
-  .nav-links a:hover { color: var(--gold); }
+  .nav-menu { display: flex; align-items: center; gap: 22px; }
+  .nav-menu a { color: #F8FAFC; font-size: 14px; font-weight: 500; }
+  .nav-menu a:hover { color: var(--gold); }
+
+  .nav-dropdown { position: relative; }
+  .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
+  .nav-dropdown-caret { width: 10px; height: 10px; transition: transform 0.2s ease; }
+  .nav-dropdown:hover .nav-dropdown-caret { transform: rotate(180deg); }
+  .nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding-top: 14px;
+    z-index: 60;
+  }
+  .nav-dropdown-menu-inner {
+    background: var(--white);
+    min-width: 240px;
+    border-radius: 8px;
+    box-shadow: 0 16px 36px rgba(0,0,0,0.18);
+    padding: 8px;
+  }
+  .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+  .nav-dropdown-menu { display: none; }
+  .nav-dropdown-menu a {
+    display: block;
+    padding: 10px 14px;
+    color: var(--navy) !important;
+    font-size: 13.5px;
+    font-weight: 500;
+    border-radius: 5px;
+  }
+  .nav-dropdown-menu a:hover { background: var(--off-white); color: var(--gold) !important; }
+
   .nav-right { display: flex; align-items: center; gap: 14px; position: relative; }
   .lang-toggle { display: flex; align-items: center; gap: 6px; background: none; border: 1px solid rgba(255,255,255,0.4); color: #F8FAFC; padding: 8px 12px; border-radius: 4px; font-size: 13px; font-weight: 600; cursor: pointer; }
   .lang-toggle svg { width: 15px; height: 15px; }
@@ -45,10 +93,40 @@
   .mobile-menu-close { position: absolute; top: 24px; right: 24px; background: none; border: none; color: var(--navy); cursor: pointer; }
   .mobile-menu-close svg { width: 22px; height: 22px; }
 
-  .hero { padding: 150px 30px 70px; background: var(--navy); color: #fff; text-align: center; }
+  .hero {
+    position: relative;
+    min-height: 55vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 60px 30px 60px;
+    background-image: linear-gradient(180deg, rgba(0,51,102,0.35) 0%, rgba(0,31,63,0.7) 100%), url('excursions-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+  }
+  .hero-inner { max-width: 700px; }
+
+  .gallery-section { padding: 70px 0 0; }
+  .gallery-carousel-wrap { position: relative; }
+  .gallery-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 6px; }
+  .gallery-track::-webkit-scrollbar { display: none; }
+  .gallery-track img { flex: 0 0 70%; max-width: 520px; height: 340px; object-fit: cover; border-radius: 10px; scroll-snap-align: center; }
+  .g-carousel-arrow {
+    position: absolute; top: 50%; transform: translateY(-50%); z-index: 5;
+    width: 44px; height: 44px; border-radius: 50%; background: var(--white);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center;
+    border: none; color: var(--navy); cursor: pointer;
+  }
+  .g-carousel-arrow svg { width: 18px; height: 18px; }
+  .g-carousel-arrow.left { left: -10px; }
+  .g-carousel-arrow.right { right: -10px; }
+  @media (max-width: 700px) {
+    .gallery-track img { flex-basis: 84%; height: 240px; }
+    .g-carousel-arrow { width: 36px; height: 36px; }
+  }
   .hero span.label { color: var(--gold); font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; display: block; margin-bottom: 14px; }
-  .hero h1 { font-size: clamp(28px, 4.4vw, 44px); font-weight: 800; margin-bottom: 14px; }
-  .hero p { color: #d3d9ec; font-size: 15.5px; max-width: 60ch; margin: 0 auto; }
+  .hero h1 { font-size: clamp(30px, 4.8vw, 48px); font-weight: 800; margin-bottom: 14px; }
+  .hero p { color: #e8e8e8; font-size: 15.5px; max-width: 60ch; }
 
   .listing { padding: 80px 0; }
   .listing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
@@ -59,7 +137,8 @@
   .item-tag { position: absolute; top: 14px; left: 14px; background: var(--gold); color: var(--white); font-size: 11.5px; font-weight: 700; padding: 6px 12px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.04em; }
   .item-body { padding: 22px 22px 24px; }
   .item-body h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
-  .item-desc { color: var(--text-gray); font-size: 13.5px; margin-bottom: 16px; line-height: 1.6; }
+  .item-desc { color: var(--text-gray); font-size: 13.5px; margin-bottom: 14px; line-height: 1.6; }
+  .item-price { font-size: 17px; font-weight: 700; color: var(--gold); margin-bottom: 16px; }
   .btn-arrow { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 14px; color: var(--navy); }
   .btn-arrow svg { width: 16px; height: 16px; transition: transform 0.2s ease; }
   .btn-arrow:hover svg { transform: translateX(4px); }
@@ -67,13 +146,77 @@
   .whatsapp-btn { position: fixed; bottom: 26px; right: 26px; z-index: 300; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
   .whatsapp-btn svg { width: 30px; height: 30px; fill: #fff; }
 
-  .footer { background: var(--navy-dark); color: #F8FAFC; padding: 34px 0; }
-  .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-size: 13px; color: rgba(248,250,252,0.7); }
-  .footer-inner a { color: var(--gold); }
+  .footer { background: var(--off-white); color: var(--text-gray); padding: 60px 0 24px; border-top: 1px solid var(--line); }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 36px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .footer-logo img { height: 40px; margin-bottom: 18px; }
+
+  .footer-col-brand p { font-size: 13.5px; line-height: 1.7; color: var(--text-gray); max-width: 44ch; margin-bottom: 20px; }
+
+  .footer-col h4 {
+    color: var(--navy);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+
+  .footer-col li { margin-bottom: 11px; }
+  .footer-col a { font-size: 14px; color: var(--text-gray); transition: color 0.25s ease; }
+  .footer-col a:hover { color: var(--gold); }
+
+  .footer-lang-row { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 18px; }
+  .footer-lang-btn {
+    background: none; border: none; padding: 0; cursor: pointer;
+    font-family: 'Poppins', sans-serif; font-size: 14px; color: var(--text-gray);
+    transition: color 0.25s ease; text-align: left;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .footer-lang-btn img { border-radius: 2px; flex-shrink: 0; }
+  .footer-lang-btn:hover, .footer-lang-btn.active { color: var(--gold); font-weight: 600; }
+
+  .socials { display: flex; gap: 12px; margin-top: 18px; }
+  .socials a {
+    width: 36px; height: 36px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--navy);
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+  .socials a:hover { background: var(--gold); border-color: var(--gold); color: #fff; }
+  .socials svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+  .footer-bottom {
+    padding-top: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: 12.5px;
+    color: var(--text-gray);
+  }
+
+  @media (max-width: 800px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .footer-grid { grid-template-columns: 1fr; }
+  }
 
   @media (max-width: 900px) { .listing-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 700px) {
-    .nav-links { display: none; }
+    .nav-menu { display: none; }
     .nav-right .btn-book { display: none; }
     .burger { display: block; }
     .listing-grid { grid-template-columns: 1fr; }
@@ -84,15 +227,50 @@
 
 <header class="navbar">
   <div class="nav-container">
-    <a href="index.html" class="logo"><img src="logo-white.png" alt="Let's Camel Tours"></a>
-    <div class="nav-links">
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="Let's Camel Tours">
+    </a>
+    <nav class="nav-menu">
       <a href="index.html#home"><span data-en="Home" data-fr="Accueil" data-es="Inicio" data-de="Startseite">Home</span></a>
-      <a href="tours.html"><span data-en="Tours" data-fr="Circuits" data-es="Tours" data-de="Touren">Tours</span></a>
-      <a href="excursions.html"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></a>
-      <a href="activities.html"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span></a>
+      <div class="nav-dropdown">
+        <a href="tours.html"><span data-en="Morocco Tours" data-fr="Circuits Maroc" data-es="Tours Marruecos" data-de="Marokko Touren">Morocco Tours</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="tour-1.html">Grand Morocco Tour: North to South</a>
+            <a href="tour-2.html">Classic Desert Adventure: Marrakech to Fes</a>
+            <a href="tour-3.html">Imperial Cities & Coastal Pearl</a>
+            <a href="tours.html" style="color:var(--gold) !important;font-weight:700;">View All Tours →</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="excursions.html"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="excursions.html">Day Trip to Essaouira</a>
+            <a href="excursions.html">Day Trip to Marrakech</a>
+            <a href="excursions.html">Paradise Valley</a>
+            <a href="excursions.html" style="color:var(--gold) !important;font-weight:700;">View All Excursions →</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="activities.html"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="activities.html">Camel Riding</a>
+            <a href="activities.html">Surfing Lesson</a>
+            <a href="activities.html">Quad Tours</a>
+            <a href="activities.html" style="color:var(--gold) !important;font-weight:700;">View All Activities →</a>
+          </div>
+        </div>
+      </div>
+      <a href="index.html#transfers"><span data-en="Transfers" data-fr="Transferts" data-es="Traslados" data-de="Transfers">Transfers</span></a>
+      <a href="index.html#services"><span data-en="Services" data-fr="Services" data-es="Servicios" data-de="Leistungen">Services</span></a>
       <a href="about-us.html"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
-      <a href="index.html#contact"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
-    </div>
+      <a href="index.html#blog"><span data-en="Blogs" data-fr="Blogs" data-es="Blogs" data-de="Blogs">Blogs</span></a>
+      <a href="contact.html"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
+    </nav>
     <div class="nav-right">
       <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9z"/></svg>
@@ -104,7 +282,7 @@
         <button class="lang-option" data-lang="es">Español</button>
         <button class="lang-option" data-lang="de">Deutsch</button>
       </div>
-      <a href="index.html#contact" class="btn-book"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+      <a href="contact.html" class="btn-book"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
       <button class="burger" id="burger-toggle" aria-label="Menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
@@ -118,45 +296,68 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
   </button>
   <a href="index.html#home"><span data-en="Home" data-fr="Accueil" data-es="Inicio" data-de="Startseite">Home</span></a>
-  <a href="tours.html"><span data-en="Tours" data-fr="Circuits" data-es="Tours" data-de="Touren">Tours</span></a>
-  <a href="excursions.html"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></a>
-  <a href="activities.html"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span></a>
+  <a href="index.html#tours"><span data-en="Morocco Tours" data-fr="Circuits Maroc" data-es="Tours Marruecos" data-de="Marokko Touren">Morocco Tours</span></a>
+      <a href="index.html#excursions"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></a>
+      <a href="index.html#activities"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span></a>
+  <a href="index.html#transfers"><span data-en="Transfers" data-fr="Transferts" data-es="Traslados" data-de="Transfers">Transfers</span></a>
+  <a href="index.html#services"><span data-en="Services" data-fr="Services" data-es="Servicios" data-de="Leistungen">Services</span></a>
   <a href="about-us.html"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
-  <a href="index.html#contact"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
-  <a href="index.html#contact" class="btn-book" style="display:block;text-align:center;margin-top:16px;"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+  <a href="index.html#blog"><span data-en="Blogs" data-fr="Blogs" data-es="Blogs" data-de="Blogs">Blogs</span></a>
+  <a href="contact.html"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
+  <a href="contact.html" class="btn-book" style="display:block;text-align:center;margin-top:16px;"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
 </div>
 
+
 <section class="hero">
-  <span class="label"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></span>
-  <h1><span data-en="Day Trips from Taghazout" data-fr="Excursions à la Journée depuis Taghazout" data-es="Excursiones de un Día desde Taghazout" data-de="Tagesausflüge ab Taghazout">Day Trips from Taghazout</span></h1>
-  <p><span data-en="Short, guided excursions to the best spots around Taghazout, no long commitment, just a great day out." data-fr="Des excursions courtes et guidées vers les meilleurs endroits autour de Taghazout, sans engagement, juste une belle journée." data-es="Excursiones cortas y guiadas a los mejores lugares alrededor de Taghazout, sin compromiso largo, solo un gran día." data-de="Kurze, geführte Ausflüge zu den besten Orten rund um Taghazout, ohne lange Bindung, einfach ein toller Tag.">Short, guided excursions to the best spots around Taghazout, no long commitment, just a great day out.</span></p>
+  <div class="hero-inner">
+    <span class="label"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></span>
+    <h1><span data-en="Unforgettable Day Trips" data-fr="Excursions Inoubliables" data-es="Excursiones Inolvidables" data-de="Unvergessliche Tagesausflüge">Unforgettable Day Trips</span></h1>
+    <p><span data-en="Guided day trips around Agadir, Taghazout, and Marrakech, no long commitment, just a great day out." data-fr="Des excursions guidées autour d'Agadir, Taghazout et Marrakech, sans engagement, juste une belle journée." data-es="Excursiones guiadas alrededor de Agadir, Taghazout y Marrakech, sin compromiso largo, solo un gran día." data-de="Geführte Tagesausflüge rund um Agadir, Taghazout und Marrakesch, ohne lange Bindung, einfach ein toller Tag.">Guided day trips around Agadir, Taghazout, and Marrakech, no long commitment, just a great day out.</span></p>
+  </div>
 </section>
 
 <section class="listing">
   <div class="container listing-grid">
     <div class="item-card">
-      <div class="item-image" style="background-image:url('excursion-1.jpg');"><span class="item-tag"><span data-en="Half-Day" data-fr="Demi-Journée" data-es="Medio Día" data-de="Halber Tag">Half-Day</span></span></div>
+      <div class="item-image" style="background-image:url('excursion-1.jpg');"><span class="item-tag"><span data-en="Full-Day" data-fr="Journée Complète" data-es="Día Completo" data-de="Ganzer Tag">Full-Day</span></span></div>
       <div class="item-body">
-        <h3><span data-en="Paradise Valley & Imsouane" data-fr="Paradise Valley & Imsouane" data-es="Paradise Valley y Imsouane" data-de="Paradise Valley & Imsouane">Paradise Valley & Imsouane</span></h3>
-        <p class="item-desc"><span data-en="Swim in the natural pools of Paradise Valley, then visit Imsouane, home to one of the longest surf waves in Africa." data-fr="Baignez-vous dans les bassins naturels de Paradise Valley, puis découvrez Imsouane, célèbre pour l'une des plus longues vagues de surf d'Afrique." data-es="Nada en las piscinas naturales de Paradise Valley, luego visita Imsouane, hogar de una de las olas de surf más largas de África." data-de="Schwimmen Sie in den natürlichen Pools des Paradise Valley und besuchen Sie dann Imsouane, Heimat einer der längsten Surfwellen Afrikas.">Swim in the natural pools of Paradise Valley, then visit Imsouane, home to one of the longest surf waves in Africa.</span></p>
-        <a href="index.html#contact" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <h3><span data-en="Day Trip to Essaouira from Agadir and Taghazout" data-fr="Excursion à Essaouira depuis Agadir et Taghazout" data-es="Excursión a Essaouira desde Agadir y Taghazout" data-de="Tagesausflug nach Essaouira ab Agadir und Taghazout">Day Trip to Essaouira from Agadir and Taghazout</span></h3>
+        <p class="item-desc"><span data-en="A full day exploring the coastal city of Essaouira, its historic medina, fishing port, and windswept beaches." data-fr="Une journée complète à explorer la ville côtière d'Essaouira, sa médina historique, son port de pêche et ses plages venteuses." data-es="Un día completo explorando la ciudad costera de Essaouira, su medina histórica, puerto pesquero y playas ventosas." data-de="Ein ganzer Tag zur Erkundung der Küstenstadt Essaouira, ihrer historischen Medina, des Fischerhafens und der windigen Strände.">A full day exploring the coastal city of Essaouira, its historic medina, fishing port, and windswept beaches.</span></p>
+        <div class="item-price"><span data-en="From €50" data-fr="À partir de 50 €" data-es="Desde 50 €" data-de="Ab 50 €">From €50</span></div>
+        <a href="contact.html" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
     <div class="item-card">
       <div class="item-image" style="background-image:url('excursion-2.jpg');"><span class="item-tag"><span data-en="Full-Day" data-fr="Journée Complète" data-es="Día Completo" data-de="Ganzer Tag">Full-Day</span></span></div>
       <div class="item-body">
-        <h3><span data-en="Legzira Beach & Tiznit" data-fr="Plage de Legzira & Tiznit" data-es="Playa de Legzira y Tiznit" data-de="Legzira-Strand & Tiznit">Legzira Beach & Tiznit</span></h3>
-        <p class="item-desc"><span data-en="See the famous red stone arches of Legzira, then explore Tiznit's old city walls and silver jewelry souks." data-fr="Découvrez les célèbres arches de pierre rouge de Legzira, puis explorez les remparts et les souks d'argenterie de Tiznit." data-es="Ve los famosos arcos de piedra roja de Legzira, luego explora las murallas y los zocos de plata de Tiznit." data-de="Sehen Sie die berühmten roten Steinbögen von Legzira und erkunden Sie dann die alten Stadtmauern und Silberschmuck-Souks von Tiznit.">See the famous red stone arches of Legzira, then explore Tiznit's old city walls and silver jewelry souks.</span></p>
-        <a href="index.html#contact" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <h3><span data-en="Day Trip to Marrakech: Explore the Red City's Vibrant Culture" data-fr="Excursion à Marrakech : La Culture Vibrante de la Ville Rouge" data-es="Excursión a Marrakech: La Vibrante Cultura de la Ciudad Roja" data-de="Tagesausflug nach Marrakesch: Die Lebendige Kultur der Roten Stadt">Day Trip to Marrakech: Explore the Red City's Vibrant Culture</span></h3>
+        <p class="item-desc"><span data-en="Discover Marrakech's souks, palaces, and the iconic Jemaa el-Fnaa square on a full-day excursion from the coast." data-fr="Découvrez les souks, les palais et la célèbre place Jemaa el-Fnaa de Marrakech lors d'une excursion d'une journée depuis la côte." data-es="Descubre los zocos, palacios y la icónica plaza Jemaa el-Fnaa de Marrakech en una excursión de un día desde la costa." data-de="Entdecken Sie die Souks, Paläste und den ikonischen Jemaa-el-Fnaa-Platz von Marrakesch bei einem Tagesausflug von der Küste aus.">Discover Marrakech's souks, palaces, and the iconic Jemaa el-Fnaa square on a full-day excursion from the coast.</span></p>
+        <div class="item-price"><span data-en="From €55" data-fr="À partir de 55 €" data-es="Desde 55 €" data-de="Ab 55 €">From €55</span></div>
+        <a href="contact.html" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
     <div class="item-card">
-      <div class="item-image" style="background-image:url('excursion-3.jpg');"><span class="item-tag"><span data-en="Full-Day" data-fr="Journée Complète" data-es="Día Completo" data-de="Ganzer Tag">Full-Day</span></span></div>
+      <div class="item-image" style="background-image:url('excursion-3.jpg');"><span class="item-tag"><span data-en="8 Hours" data-fr="8 Heures" data-es="8 Horas" data-de="8 Stunden">8 Hours</span></span></div>
       <div class="item-body">
-        <h3><span data-en="Tafraout & the Painted Rocks" data-fr="Tafraout & les Roches Peintes" data-es="Tafraout y las Rocas Pintadas" data-de="Tafraout & die Bemalten Felsen">Tafraout & the Painted Rocks</span></h3>
-        <p class="item-desc"><span data-en="Head into the Anti-Atlas to see Tafraout's pink granite boulders, including rocks painted blue by a local artist." data-fr="Direction l'Anti-Atlas pour voir les rochers de granit rose de Tafraout, dont certains peints en bleu par un artiste local." data-es="Dirígete al Anti-Atlas para ver las rocas de granito rosa de Tafraout, incluidas rocas pintadas de azul por un artista local." data-de="Fahren Sie in den Anti-Atlas, um die rosa Granitfelsen von Tafraout zu sehen, darunter blau bemalte Felsen eines lokalen Künstlers.">Head into the Anti-Atlas to see Tafraout's pink granite boulders, including rocks painted blue by a local artist.</span></p>
-        <a href="index.html#contact" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <h3><span data-en="Day Trip to Paradise Valley from Agadir or Taghazout" data-fr="Excursion à Paradise Valley depuis Agadir ou Taghazout" data-es="Excursión a Paradise Valley desde Agadir o Taghazout" data-de="Tagesausflug zum Paradise Valley ab Agadir oder Taghazout">Day Trip to Paradise Valley from Agadir or Taghazout</span></h3>
+        <p class="item-desc"><span data-en="Explore Paradise Valley's lush palm groves and clear natural pools, finished with a relaxing lunch by the water." data-fr="Découvrez les palmeraies luxuriantes et les bassins naturels de Paradise Valley, suivis d'un déjeuner relaxant au bord de l'eau." data-es="Explora los frondosos palmerales y las piscinas naturales de Paradise Valley, terminando con un almuerzo relajante junto al agua." data-de="Entdecken Sie die üppigen Palmenhaine und klaren natürlichen Pools des Paradise Valley, mit einem entspannten Mittagessen am Wasser.">Explore Paradise Valley's lush palm groves and clear natural pools, finished with a relaxing lunch by the water.</span></p>
+        <div class="item-price"><span data-en="From €45" data-fr="À partir de 45 €" data-es="Desde 45 €" data-de="Ab 45 €">From €45</span></div>
+        <a href="contact.html" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
+    </div>
+  </div>
+</section>
+<section class="gallery-section">
+  <div class="container">
+    <div class="gallery-carousel-wrap">
+      <button class="g-carousel-arrow left" id="gallery-prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <div class="gallery-track" id="gallery-track">
+        <img src="excursions-gallery-1.jpg" alt="Essaouira coastline">
+        <img src="excursions-gallery-2.jpg" alt="Marrakech medina">
+        <img src="excursions-gallery-3.jpg" alt="Paradise Valley pools">
+        <img src="excursions-gallery-4.jpg" alt="Marrakech souks">
+      </div>
+      <button class="g-carousel-arrow right" id="gallery-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></button>
     </div>
   </div>
 </section>
@@ -166,13 +367,85 @@
 </a>
 
 <footer class="footer">
-  <div class="container footer-inner">
-    <span><span data-en="© 2026 Let's Camel Tours. All Rights Reserved." data-fr="© 2026 Let's Camel Tours. Tous droits réservés." data-es="© 2026 Let's Camel Tours. Todos los derechos reservados." data-de="© 2026 Let's Camel Tours. Alle Rechte vorbehalten.">© 2026 Let's Camel Tours. All Rights Reserved.</span></span>
-    <span><a href="index.html"><span data-en="Back to Home" data-fr="Retour à l'Accueil" data-es="Volver al Inicio" data-de="Zurück zur Startseite">Back to Home</span></a> · info.letscameltours@gmail.com</span>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-col-brand">
+        <div class="footer-logo"><img src="logo.png" alt="Let's Camel Tours"></div>
+        <p><span data-en="A family-run travel agency between the dunes of Merzouga and the waves of Taghazout, guiding travelers through real Morocco since day one." data-fr="Une agence de voyage familiale entre les dunes de Merzouga et les vagues de Taghazout, guidant les voyageurs à travers le vrai Maroc depuis le premier jour." data-es="Una agencia de viajes familiar entre las dunas de Merzouga y las olas de Taghazout, guiando a los viajeros por el verdadero Marruecos desde el primer día." data-de="Eine familiengeführte Reiseagentur zwischen den Dünen Merzougas und den Wellen Taghazouts, die Reisende von Anfang an durch das echte Marokko führt.">A family-run travel agency between the dunes of Merzouga and the waves of Taghazout, guiding travelers through real Morocco since day one.</span></p>
+        <div class="footer-lang-row">
+          <button type="button" class="footer-lang-btn" data-lang="en"><img src="https://flagcdn.com/20x15/gb.png" alt="EN" width="20" height="15"> EN</button>
+          <button type="button" class="footer-lang-btn" data-lang="fr"><img src="https://flagcdn.com/20x15/fr.png" alt="FR" width="20" height="15"> FR</button>
+          <button type="button" class="footer-lang-btn" data-lang="es"><img src="https://flagcdn.com/20x15/es.png" alt="ES" width="20" height="15"> ES</button>
+          <button type="button" class="footer-lang-btn" data-lang="de"><img src="https://flagcdn.com/20x15/de.png" alt="DE" width="20" height="15"> DE</button>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4><span data-en="What We Offer" data-fr="Nos Services" data-es="Lo Que Ofrecemos" data-de="Was Wir Bieten">What We Offer</span></h4>
+        <ul>
+          <li><a href="tours.html"><span data-en="Morocco Tours" data-fr="Circuits Maroc" data-es="Tours Marruecos" data-de="Marokko Touren">Morocco Tours</span></a></li>
+          <li><a href="excursions.html"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></a></li>
+          <li><a href="activities.html"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span></a></li>
+          <li><a href="index.html#transfers"><span data-en="Transfers" data-fr="Transferts" data-es="Traslados" data-de="Transfers">Transfers</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4><span data-en="Help & Info" data-fr="Aide & Infos" data-es="Ayuda e Información" data-de="Hilfe & Infos">Help & Info</span></h4>
+        <ul>
+          <li><a href="about-us.html"><span data-en="About Us" data-fr="À Propos" data-es="Sobre Nosotros" data-de="Über Uns">About Us</span></a></li>
+          <li><a href="index.html#blog"><span data-en="Blogs" data-fr="Blogs" data-es="Blogs" data-de="Blogs">Blogs</span></a></li>
+          <li><a href="index.html#faq"><span data-en="FAQ's" data-fr="FAQ" data-es="Preguntas Frecuentes" data-de="FAQ">FAQ's</span></a></li>
+          <li><a href="#"><span data-en="Terms & Conditions" data-fr="Conditions Générales" data-es="Términos y Condiciones" data-de="AGB">Terms & Conditions</span></a></li>
+          <li><a href="#"><span data-en="Privacy Policy" data-fr="Politique de Confidentialité" data-es="Política de Privacidad" data-de="Datenschutz">Privacy Policy</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></h4>
+        <ul>
+          <li><a href="tel:+212600000000">+212 6 00 00 00 00</a></li>
+          <li><a href="mailto:info.letscameltours@gmail.com">info.letscameltours@gmail.com</a></li>
+          <li><a href="https://wa.me/212600000000" target="_blank"><span data-en="WhatsApp Us" data-fr="WhatsApp" data-es="WhatsApp" data-de="WhatsApp">WhatsApp Us</span></a></li>
+        </ul>
+        <div class="socials">
+          <a href="#" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
+          </a>
+          <a href="#" target="_blank" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 3h-2a5 5 0 00-5 5v2H6v4h2v7h4v-7h3l1-4h-4V8a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="#" target="_blank" aria-label="TripAdvisor">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="13" r="3.2"/><circle cx="16" cy="13" r="3.2"/><path d="M8 13a4 4 0 014-4 4 4 0 014 4M2 8h6M16 8h6M12 5c-2.5 0-4.5 1.3-5.5 3M12 5c2.5 0 4.5 1.3 5.5 3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span data-en="© 2026 Let's Camel Tours. All Rights Reserved." data-fr="© 2026 Let's Camel Tours. Tous droits réservés." data-es="© 2026 Let's Camel Tours. Todos los derechos reservados." data-de="© 2026 Let's Camel Tours. Alle Rechte vorbehalten.">© 2026 Let's Camel Tours. All Rights Reserved.</span>
+      <span data-en="Based in Morocco" data-fr="Basé au Maroc" data-es="Con base en Marruecos" data-de="Ansässig in Marokko">Based in Morocco</span>
+    </div>
   </div>
 </footer>
 
 <script>
+  window.addEventListener('scroll', function() {
+    var navbar = document.querySelector('.navbar');
+    if (window.scrollY > 60) { navbar.classList.add('scrolled'); } else { navbar.classList.remove('scrolled'); }
+  });
+
+  var galleryTrack = document.getElementById('gallery-track');
+  var galleryPrev = document.getElementById('gallery-prev');
+  var galleryNext = document.getElementById('gallery-next');
+  if (galleryTrack && galleryPrev && galleryNext) {
+    galleryPrev.addEventListener('click', function() {
+      var w = galleryTrack.querySelector('img').offsetWidth + 16;
+      galleryTrack.scrollBy({ left: -w, behavior: 'smooth' });
+    });
+    galleryNext.addEventListener('click', function() {
+      var w = galleryTrack.querySelector('img').offsetWidth + 16;
+      galleryTrack.scrollBy({ left: w, behavior: 'smooth' });
+    });
+  }
+
   var burgerToggle = document.getElementById('burger-toggle');
   var mobileMenu = document.getElementById('mobile-menu');
   var mobileOverlay = document.getElementById('mobile-overlay');
@@ -198,6 +471,9 @@
   document.addEventListener('click', function() { langMenu.classList.remove('open'); });
   document.querySelectorAll('.lang-option').forEach(function(btn) {
     btn.addEventListener('click', function() { applyLang(btn.dataset.lang); langMenu.classList.remove('open'); });
+  });
+  document.querySelectorAll('.footer-lang-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() { applyLang(btn.dataset.lang); });
   });
 </script>
 
