@@ -262,6 +262,7 @@
 
   .map-embed-wrap { width: 100%; height: 480px; border-radius: 12px; border: 1px solid var(--line); overflow: hidden; margin-bottom: 14px; }
   .map-embed-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
+  .map-embed-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .map-view-link { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 13.5px; color: var(--navy); margin-bottom: 16px; transition: color 0.2s ease; }
   .map-view-link:hover { color: var(--gold); }
   .map-view-link svg { width: 15px; height: 15px; transition: transform 0.2s ease; }
@@ -274,6 +275,7 @@
   .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
   .review-card { background: var(--off-white); border: 1px solid var(--line); border-radius: 10px; padding: 22px 20px; }
   .review-stars { color: var(--gold); font-size: 15px; letter-spacing: 0.05em; margin-bottom: 10px; }
+  .review-score { font-size: 12px; font-weight: 700; color: var(--text-gray); letter-spacing: normal; vertical-align: middle; }
   .review-text { font-size: 13.8px; color: var(--text-gray); line-height: 1.65; margin-bottom: 18px; }
   .review-who { display: flex; align-items: center; gap: 10px; }
   .review-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex-shrink: 0; background: var(--line); }
@@ -339,9 +341,15 @@
   .accom-body ul li::before { content: ""; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
 
   /* Sidebar */
-  .sidebar { background: var(--off-white); border: 1px solid var(--line); border-radius: 12px; padding: 26px 24px; height: fit-content; position: sticky; top: 90px; }
+  .sidebar { background: var(--off-white); border: 1px solid var(--line); border-radius: 12px; padding: 26px 24px; height: fit-content; }
   .sidebar h3 { font-size: 16.5px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
   .sidebar .sub { font-size: 13px; color: var(--text-gray); margin-bottom: 18px; }
+
+  /* Sidebar agent — friendly human touch above the form */
+  .sidebar-agent { display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+  .sidebar-agent-avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 3px solid #fff; box-shadow: 0 4px 14px rgba(0,0,0,0.12); margin-bottom: 10px; }
+  .sidebar-agent-greeting { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
+  .sidebar-agent-role { font-size: 12.5px; color: var(--text-gray); }
 
   /* Booking / inquiry form */
   .booking-form-grid { display: grid; grid-template-columns: 1fr; gap: 13px; }
@@ -583,7 +591,7 @@
         <h2 class="section-h"><span data-en="12-Day Casablanca - Sahara - Marrakech Route" data-fr="Itinéraire de 12 Jours Casablanca - Sahara - Marrakech" data-es="Ruta de 12 Días Casablanca - Sahara - Marrakech" data-de="12-Tage-Route Casablanca - Sahara - Marrakesch">12-Day Casablanca - Sahara - Marrakech Route</span></h2>
         <p class="section-sub"><span data-en="A cross-country journey of roughly 2,900 km, from Casablanca north to Chefchaouen and Fes, south into the Sahara at Merzouga, then west over the High Atlas to Marrakech and the coast at Essaouira." data-fr="Un périple à travers le pays d'environ 2 900 km, de Casablanca au nord vers Chefchaouen et Fès, au sud jusqu'au Sahara à Merzouga, puis à l'ouest par le Haut Atlas jusqu'à Marrakech et la côte à Essaouira." data-es="Un recorrido por el país de aproximadamente 2.900 km, desde Casablanca al norte hacia Chefchaouen y Fez, al sur hasta el Sahara en Merzouga, y luego al oeste por el Alto Atlas hasta Marrakech y la costa en Essaouira." data-de="Eine Reise quer durchs Land von rund 2.900 km, von Casablanca nordwärts nach Chefchaouen und Fès, südwärts in die Sahara bei Merzouga, dann westwärts über den Hohen Atlas nach Marrakesch und an die Küste bei Essaouira.">A cross-country journey of roughly 2,900 km, from Casablanca north to Chefchaouen and Fes, south into the Sahara at Merzouga, then west over the High Atlas to Marrakech and the coast at Essaouira.</span></p>
         <div class="map-embed-wrap">
-          <iframe src="https://www.google.com/maps?saddr=Casablanca,+Morocco&daddr=Rabat,+Morocco+to:Chefchaouen,+Morocco+to:Fes,+Morocco+to:Merzouga,+Morocco+to:Dades+Valley,+Morocco+to:Ouarzazate,+Morocco+to:Marrakech,+Morocco+to:Essaouira,+Morocco" title="12-Day Morocco Tour driving route map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          <img src="tour-3-map.jpg" alt="12-Day Morocco Tour driving route map: Casablanca, Rabat, Chefchaouen, Fes, Merzouga, Dades Valley, Ouarzazate, Marrakech, Essaouira" loading="lazy">
         </div>
         <a class="map-view-link" href="https://www.google.com/maps/dir/Casablanca,+Morocco/Rabat,+Morocco/Chefchaouen,+Morocco/Fes,+Morocco/Merzouga,+Morocco/Dades+Valley,+Morocco/Ouarzazate,+Morocco/Marrakech,+Morocco/Essaouira,+Morocco" target="_blank" rel="noopener">
           <span data-en="View Route on Google Maps" data-fr="Voir l'Itinéraire sur Google Maps" data-es="Ver la Ruta en Google Maps" data-de="Route auf Google Maps Ansehen">View Route on Google Maps</span>
@@ -890,7 +898,7 @@
 
         <div class="review-grid">
           <div class="review-card">
-            <div class="review-stars">★★★★★</div>
+            <div class="review-stars">★★★★★ <span class="review-score">5.0</span></div>
             <p class="review-text"><span data-en="Twelve days let us see everything without feeling rushed — Chefchaouen and Fes alone were worth the trip, and the Sahara camp was the perfect midpoint." data-fr="Douze jours nous ont permis de tout voir sans nous sentir pressés — Chefchaouen et Fès à elles seules valaient le voyage, et le camp du Sahara a été le point médian parfait." data-es="Doce días nos permitieron verlo todo sin sentirnos apurados — solo Chefchaouen y Fez ya valían el viaje, y el campamento del Sahara fue el punto medio perfecto." data-de="Zwölf Tage erlaubten uns, alles zu sehen, ohne uns gehetzt zu fühlen — Chefchaouen und Fès allein waren die Reise wert, und das Sahara-Camp war der perfekte Mittelpunkt.">Twelve days let us see everything without feeling rushed — Chefchaouen and Fes alone were worth the trip, and the Sahara camp was the perfect midpoint.</span></p>
             <div class="review-who">
               <img src="tour-3-review-1.jpg" alt="Laura & Ben" class="review-avatar">
@@ -902,8 +910,8 @@
           </div>
 
           <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text"><span data-en="The Fes guided tour and the Todra Gorges were the two biggest surprises. Our driver knew exactly when to stop for photos and when to just let us wander." data-fr="La visite guidée de Fès et les gorges du Todra ont été les deux plus grandes surprises. Notre chauffeur savait exactement quand s'arrêter pour les photos et quand nous laisser flâner." data-es="La visita guiada de Fez y las Gargantas del Todra fueron las dos mayores sorpresas. Nuestro chófer sabía exactamente cuándo parar para fotos y cuándo dejarnos pasear." data-de="Die geführte Tour durch Fès und die Todra-Schluchten waren die beiden größten Überraschungen. Unser Fahrer wusste genau, wann er für Fotos anhalten und wann er uns einfach schlendern lassen sollte.">The Fes guided tour and the Todra Gorges were the two biggest surprises. Our driver knew exactly when to stop for photos and when to just let us wander.</span></p>
+            <div class="review-stars">★★★★☆ <span class="review-score">4.5</span></div>
+            <p class="review-text"><span data-en="The Fes guided tour and the Todra Gorges were the two biggest surprises. Our driver knew exactly when to stop for photos and when to just let us wander. One long driving day between Fes and Merzouga was tiring, but worth it." data-fr="La visite guidée de Fès et les gorges du Todra ont été les deux plus grandes surprises. Notre chauffeur savait exactement quand s'arrêter pour les photos et quand nous laisser flâner. Une longue journée de route entre Fès et Merzouga était fatigante, mais cela en valait la peine." data-es="La visita guiada de Fez y las Gargantas del Todra fueron las dos mayores sorpresas. Nuestro chófer sabía exactamente cuándo parar para fotos y cuándo dejarnos pasear. Un día de conducción largo entre Fez y Merzouga fue agotador, pero valió la pena." data-de="Die geführte Tour durch Fès und die Todra-Schluchten waren die beiden größten Überraschungen. Unser Fahrer wusste genau, wann er für Fotos anhalten und wann er uns einfach schlendern lassen sollte. Ein langer Fahrtag zwischen Fès und Merzouga war anstrengend, aber es hat sich gelohnt.">The Fes guided tour and the Todra Gorges were the two biggest surprises. Our driver knew exactly when to stop for photos and when to just let us wander. One long driving day between Fes and Merzouga was tiring, but worth it.</span></p>
             <div class="review-who">
               <img src="tour-3-review-2.jpg" alt="Hiroshi K." class="review-avatar">
               <div>
@@ -914,8 +922,8 @@
           </div>
 
           <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text"><span data-en="Starting in Casablanca and ending in Marrakech meant we got the full country in one loop — four imperial cities, the desert, and Essaouira on the coast. Incredible value for the length." data-fr="Le départ de Casablanca et l'arrivée à Marrakech nous ont permis de découvrir tout le pays en une seule boucle — quatre villes impériales, le désert et Essaouira sur la côte. Un excellent rapport qualité-prix pour la durée." data-es="Empezar en Casablanca y terminar en Marrakech nos permitió ver todo el país en un solo circuito — cuatro ciudades imperiales, el desierto y Essaouira en la costa. Una relación calidad-precio increíble para la duración." data-de="Der Start in Casablanca und das Ende in Marrakesch bedeuteten, dass wir das ganze Land in einer Runde sahen — vier Kaiserstädte, die Wüste und Essaouira an der Küste. Unglaubliches Preis-Leistungs-Verhältnis für die Länge.">Starting in Casablanca and ending in Marrakech meant we got the full country in one loop — four imperial cities, the desert, and Essaouira on the coast. Incredible value for the length.</span></p>
+            <div class="review-stars">★★★★☆ <span class="review-score">4.0</span></div>
+            <p class="review-text"><span data-en="Starting in Casablanca and ending in Marrakech meant we got the full country in one loop — four imperial cities, the desert, and Essaouira on the coast. Communication before the trip was a little slow, but everything ran smoothly once we arrived." data-fr="Le départ de Casablanca et l'arrivée à Marrakech nous ont permis de découvrir tout le pays en une seule boucle — quatre villes impériales, le désert et Essaouira sur la côte. La communication avant le voyage était un peu lente, mais tout s'est bien passé une fois sur place." data-es="Empezar en Casablanca y terminar en Marrakech nos permitió ver todo el país en un solo circuito — cuatro ciudades imperiales, el desierto y Essaouira en la costa. La comunicación antes del viaje fue algo lenta, pero todo funcionó bien una vez que llegamos." data-de="Der Start in Casablanca und das Ende in Marrakesch bedeuteten, dass wir das ganze Land in einer Runde sahen — vier Kaiserstädte, die Wüste und Essaouira an der Küste. Die Kommunikation vor der Reise war etwas langsam, aber sobald wir angekommen waren, lief alles reibungslos.">Starting in Casablanca and ending in Marrakech meant we got the full country in one loop — four imperial cities, the desert, and Essaouira on the coast. Communication before the trip was a little slow, but everything ran smoothly once we arrived.</span></p>
             <div class="review-who">
               <img src="tour-3-review-3.jpg" alt="Anna P." class="review-avatar">
               <div>
@@ -930,6 +938,11 @@
     </div>
 
     <div class="sidebar" id="contact">
+      <div class="sidebar-agent">
+        <img src="images-yassmina-profile.jpg" alt="Yassmina, Let's Camel Tours travel expert" class="sidebar-agent-avatar">
+        <p class="sidebar-agent-greeting"><span data-en="Hi, I'm Yassmina!" data-fr="Bonjour, je suis Yassmina !" data-es="¡Hola, soy Yassmina!" data-de="Hallo, ich bin Yassmina!">Hi, I'm Yassmina!</span></p>
+        <p class="sidebar-agent-role"><span data-en="Happy to help plan your trip" data-fr="Ravie de vous aider à organiser votre voyage" data-es="Encantada de ayudarte a planear tu viaje" data-de="Ich helfe Ihnen gerne, Ihre Reise zu planen">Happy to help plan your trip</span></p>
+      </div>
       <h3><span data-en="Book This Tour" data-fr="Réservez ce Circuit" data-es="Reserva este Tour" data-de="Diese Tour Buchen">Book This Tour</span></h3>
       <p class="sub"><span data-en="12 Days / 11 Nights · Casablanca to Marrakech & Sahara" data-fr="12 Jours / 11 Nuits · Casablanca à Marrakech et au Sahara" data-es="12 Días / 11 Noches · Casablanca a Marrakech y el Sahara" data-de="12 Tage / 11 Nächte · Casablanca nach Marrakesch & Sahara">12 Days / 11 Nights · Casablanca to Marrakech & Sahara</span></p>
 
