@@ -1,0 +1,22 @@
+/* Global mobile layout fixes — Let's Camel Tours */
+
+/* Excursion / tour detail pages: on mobile, the booking form sidebar moves up to sit
+   right after the Overview + Highlights section (main-col-top), and before the rest
+   of the page content (Gallery, Route Map, Included/Excluded, Reviews, FAQ — main-col-bottom).
+   Requires pages to split their content-grid into: .main-col-top, .sidebar, .main-col-bottom
+   as direct children of .content-grid. */
+@media (max-width: 768px) {
+  .content-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .main-col-top {
+    order: 1;
+  }
+  .sidebar {
+    order: 2;
+  }
+  .main-col-bottom {
+    order: 3;
+  }
+}
