@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms & Conditions - Let's Camel Tours</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #003366; --navy-dark: #001f3f; --gold: #E07A3E; --gold-light: #ea9868;
+    --white: #ffffff; --off-white: #F8FAFC; --text-gray: #5c6474; --line: #e6e9ef;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Poppins', sans-serif; color: #1a1a1a; line-height: 1.6; }
+  a { text-decoration: none; color: inherit; }
+  ul { list-style: none; }
+  img { max-width: 100%; display: block; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 30px; }
+
+  .navbar {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    z-index: 200;
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+    padding: 16px 0;
+    transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+  }
+  .navbar.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .navbar.scrolled .nav-menu a { color: var(--navy); }
+  .navbar.scrolled .lang-toggle { color: var(--navy); border-color: var(--line); }
+  .navbar.scrolled .burger { color: var(--navy); }
+  .nav-container { max-width: 1300px; margin: 0 auto; padding: 0 30px; display: flex; align-items: center; justify-content: space-between; }
+  .logo img { height: 42px; }
+  .nav-menu { display: flex; align-items: center; gap: 22px; }
+  .nav-menu a { color: #F8FAFC; font-size: 14px; font-weight: 500; }
+  .nav-menu a:hover { color: var(--gold); }
+
+  .nav-dropdown { position: relative; }
+  .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
+  .nav-dropdown-caret { width: 10px; height: 10px; transition: transform 0.2s ease; }
+  .nav-dropdown:hover .nav-dropdown-caret { transform: rotate(180deg); }
+  .nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding-top: 14px;
+    z-index: 60;
+  }
+  .nav-dropdown-menu-inner {
+    background: var(--white);
+    min-width: 240px;
+    border-radius: 8px;
+    box-shadow: 0 16px 36px rgba(0,0,0,0.18);
+    padding: 8px;
+  }
+  .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+  .nav-dropdown-menu { display: none; }
+  .nav-dropdown-menu a {
+    display: block;
+    padding: 10px 14px;
+    color: var(--navy) !important;
+    font-size: 13.5px;
+    font-weight: 500;
+    border-radius: 5px;
+  }
+  .nav-dropdown-menu a:hover { background: var(--off-white); color: var(--gold) !important; }
+
+  .nav-right { display: flex; align-items: center; gap: 14px; position: relative; }
+  .lang-toggle { display: flex; align-items: center; gap: 6px; background: none; border: 1px solid rgba(255,255,255,0.4); color: #F8FAFC; padding: 8px 12px; border-radius: 4px; font-size: 13px; font-weight: 600; cursor: pointer; }
+  .lang-toggle svg { width: 15px; height: 15px; }
+  .lang-menu { position: absolute; top: calc(100% + 8px); right: 0; background: var(--white); border-radius: 6px; box-shadow: 0 12px 30px rgba(0,0,0,0.15); padding: 6px; display: none; min-width: 140px; z-index: 50; }
+  .lang-menu.open { display: block; }
+  .lang-option { display: block; width: 100%; text-align: left; background: none; border: none; padding: 9px 12px; font-size: 13.5px; font-weight: 500; color: var(--navy); border-radius: 4px; cursor: pointer; }
+  .lang-option:hover { background: var(--off-white); }
+  .lang-option.active { color: var(--gold); font-weight: 700; }
+  .btn-book { background: var(--gold); color: var(--white); padding: 10px 22px; border-radius: 4px; font-size: 14px; font-weight: 700; }
+  .btn-book:hover { background: var(--gold-light); }
+
+  .hero {
+    min-height: 46vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 60px 40px 60px;
+    background-size: cover;
+    background-position: center;
+    background-image: linear-gradient(180deg, rgba(0,51,102,0.55) 0%, rgba(0,31,63,0.75) 100%), url('camel-bg.jpg');
+    position: relative;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 680px; color: #fff; }
+  .hero-eyebrow { font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 16px; display: block; }
+  .hero h1 { font-size: clamp(30px, 5vw, 46px); font-weight: 800; line-height: 1.15; margin-bottom: 14px; }
+  .hero p { font-size: 15.5px; color: #e8e8e8; max-width: 60ch; }
+
+  .section { padding: 60px 0; }
+  .section:first-of-type { padding-top: 70px; }
+  .section-label { color: var(--gold); font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px; display: block; }
+  .section-title { font-size: clamp(22px, 3vw, 28px); font-weight: 700; color: var(--navy); margin-bottom: 16px; }
+
+  .terms-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 34px 36px;
+    margin-bottom: 24px;
+  }
+  .terms-card p, .terms-card li { color: var(--text-gray); font-size: 15px; margin-bottom: 12px; }
+  .terms-card ul { list-style: disc; padding-left: 20px; }
+  .terms-card ul li { margin-bottom: 8px; }
+  .terms-card p:last-child, .terms-card ul:last-child { margin-bottom: 0; }
+  .terms-card h3 { color: var(--navy); font-size: 16px; font-weight: 700; margin: 18px 0 8px; }
+  .terms-card h3:first-child { margin-top: 0; }
+  .terms-card a.inline-link { color: var(--gold); font-weight: 600; }
+  .terms-card a.inline-link:hover { text-decoration: underline; }
+
+  .last-updated { color: var(--text-gray); font-size: 13.5px; margin-bottom: 30px; }
+
+  .btn-gold { display: inline-block; background: var(--gold); color: #fff; padding: 15px 32px; border-radius: 4px; font-weight: 700; font-size: 15px; }
+  .btn-gold:hover { background: var(--gold-light); }
+
+  .whatsapp-btn { position: fixed; bottom: 26px; right: 26px; z-index: 300; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+  .whatsapp-btn svg { width: 30px; height: 30px; fill: #fff; }
+
+  .footer { background: var(--off-white); color: var(--text-gray); padding: 60px 0 24px; border-top: 1px solid var(--line); }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 36px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .footer-logo img { height: 40px; margin-bottom: 18px; }
+
+  .footer-col-brand p { font-size: 13.5px; line-height: 1.7; color: var(--text-gray); max-width: 44ch; margin-bottom: 20px; }
+
+  .footer-col h4 {
+    color: var(--navy);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+
+  .footer-col li { margin-bottom: 11px; }
+  .footer-col a { font-size: 14px; color: var(--text-gray); transition: color 0.25s ease; }
+  .footer-col a:hover { color: var(--gold); }
+
+  .footer-lang-row { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 18px; }
+  .footer-lang-btn {
+    background: none; border: none; padding: 0; cursor: pointer;
+    font-family: 'Poppins', sans-serif; font-size: 14px; color: var(--text-gray);
+    transition: color 0.25s ease; text-align: left;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .footer-lang-btn img { border-radius: 2px; flex-shrink: 0; }
+  .footer-lang-btn:hover, .footer-lang-btn.active { color: var(--gold); font-weight: 600; }
+
+  .socials { display: flex; gap: 12px; margin-top: 18px; }
+  .socials a {
+    width: 36px; height: 36px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--navy);
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+  .socials a:hover { background: var(--gold); border-color: var(--gold); color: #fff; }
+  .socials svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+  .footer-bottom {
+    padding-top: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: 12.5px;
+    color: var(--text-gray);
+  }
+
+  @media (max-width: 800px) {
+    .nav-menu { display: none; } .burger { display: block; } .nav-right .btn-book { display: none; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .terms-card { padding: 26px 22px; }
+  }
+  @media (max-width: 600px) {
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+
+  .burger {
+    display: none;
+    background: none;
+    border: none;
+    color: #F8FAFC;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .burger svg { width: 24px; height: 24px; }
+
+  .mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 240;
+  }
+  .mobile-menu-overlay.open { display: block; }
+
+  .mobile-menu {
+    position: fixed;
+    top: 0; right: -100%;
+    width: 78%;
+    max-width: 320px;
+    height: 100vh;
+    background: var(--white);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+    z-index: 250;
+    padding: 80px 30px 30px;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile-menu.open { right: 0; }
+  .mobile-menu a {
+    display: block;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 15.5px;
+  }
+  .mobile-menu-close {
+    position: absolute;
+    top: 24px; right: 24px;
+    background: none;
+    border: none;
+    color: var(--navy);
+    cursor: pointer;
+  }
+  .mobile-menu-close svg { width: 22px; height: 22px; }
+</style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="Let's Camel Tours">
+    </a>
+    <nav class="nav-menu">
+      <a href="index.html#home"><span data-en="Home" data-fr="Accueil" data-es="Inicio" data-de="Startseite">Home</span></a>
+      <div class="nav-dropdown">
+        <a href="tours.html"><span data-en="Morocco Tours" data-fr="Circuits Maroc" data-es="Tours Marruecos" data-de="Marokko Touren">Morocco Tours</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="tour-1.html">Grand Morocco Tour: North to South</a>
+            <a href="tour-2.html">Classic Desert Adventure: Marrakech to Fes</a>
+            <a href="tour-3.html">Imperial Cities & Coastal Pearl</a>
+            <a href="tours.html" style="color:var(--gold) !important;font-weight:700;">View All Tours →</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="excursions.html"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="excursions.html">Day Trip to Essaouira</a>
+            <a href="excursions.html">Day Trip to Marrakech</a>
+            <a href="excursions.html">Paradise Valley</a>
+            <a href="excursions.html" style="color:var(--gold) !important;font-weight:700;">View All Excursions →</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="activities.html"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="activities.html">Camel Riding</a>
+            <a href="activities.html">Surfing Lesson</a>
+            <a href="activities.html">Quad Tours</a>
+            <a href="activities.html" style="color:var(--gold) !important;font-weight:700;">View All Activities →</a>
+          </div>
+        </div>
+      </div>
+      <a href="index.html#transfers"><span data-en="Transfers" data-fr="Transferts" data-es="Traslados" data-de="Transfers">Transfers</span></a>
+      <a href="index.html#services"><span data-en="Services" data-fr="Services" data-es="Servicios" data-de="Leistungen">Services</span></a>
+      <a href="about-us.html"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
+      <a href="index.html#blog"><span data-en="Blogs" data-fr="Blogs" data-es="Blogs" data-de="Blogs">Blogs</span></a>
+      <a href="contact.html"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
+    </nav>
+    <div class="nav-right">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9z"/></svg>
+        <span id="lang-label">EN</span>
+      </button>
+      <div class="lang-menu" id="lang-menu">
+        <button class="lang-option active" data-lang="en">English</button>
+        <button class="lang-option" data-lang="fr">Français</button>
+        <button class="lang-option" data-lang="es">Español</button>
+        <button class="lang-option" data-lang="de">Deutsch</button>
+      </div>
+      <a href="contact.html" class="btn-book"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+      <button class="burger" id="burger-toggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu-overlay" id="mobile-overlay"></div>
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <a href="index.html#home"><span data-en="Home" data-fr="Accueil" data-es="Inicio" data-de="Startseite">Home</span></a>
+  <a href="index.html#tours"><span data-en="Morocco Tours" data-fr="Circuits Maroc" data-es="Tours Marruecos" data-de="Marokko Touren">Morocco Tours</span></a>
+  <a href="index.html#excursions"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></a>
+  <a href="index.html#activities"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span></a>
+  <a href="index.html#transfers"><span data-en="Transfers" data-fr="Transferts" data-es="Traslados" data-de="Transfers">Transfers</span></a>
+  <a href="index.html#services"><span data-en="Services" data-fr="Services" data-es="Servicios" data-de="Leistungen">Services</span></a>
+  <a href="about-us.html"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
+  <a href="index.html#blog"><span data-en="Blogs" data-fr="Blogs" data-es="Blogs" data-de="Blogs">Blogs</span></a>
+  <a href="contact.html"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
+  <a href="contact.html" class="btn-book" style="display:block;text-align:center;margin-top:16px;"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+</div>
+
+<section class="hero">
+  <div class="hero-content">
+    <span class="hero-eyebrow"><span data-en="Legal" data-fr="Mentions Légales" data-es="Legal" data-de="Rechtliches">Legal</span></span>
+    <h1><span data-en="Terms & Conditions" data-fr="Conditions Générales" data-es="Términos y Condiciones" data-de="Allgemeine Geschäftsbedingungen">Terms & Conditions</span></h1>
+    <p><span data-en="Please read these terms carefully before booking a tour, excursion, or activity with Let's Camel Tours." data-fr="Veuillez lire attentivement ces conditions avant de réserver un circuit, une excursion ou une activité avec Let's Camel Tours." data-es="Lea atentamente estos términos antes de reservar un tour, excursión o actividad con Let's Camel Tours." data-de="Bitte lesen Sie diese Bedingungen sorgfältig, bevor Sie eine Tour, einen Ausflug oder eine Aktivität bei Let's Camel Tours buchen.">Please read these terms carefully before booking a tour, excursion, or activity with Let's Camel Tours.</span></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:900px;">
+    <p class="last-updated"><span data-en="Last updated: August 2026" data-fr="Dernière mise à jour : Août 2026" data-es="Última actualización: Agosto 2026" data-de="Zuletzt aktualisiert: August 2026">Last updated: August 2026</span></p>
+
+    <div class="terms-card">
+      <span class="section-label">01</span>
+      <h2 class="section-title"><span data-en="Booking & Confirmation" data-fr="Réservation & Confirmation" data-es="Reserva y Confirmación" data-de="Buchung & Bestätigung">Booking & Confirmation</span></h2>
+      <p><span data-en="All bookings can be made directly through our website, by email, or via WhatsApp. A booking is only considered confirmed once a deposit has been received and a written confirmation (email or WhatsApp message) has been sent by Let's Camel Tours." data-fr="Toutes les réservations peuvent être effectuées directement sur notre site, par email ou via WhatsApp. Une réservation n'est considérée comme confirmée qu'après réception d'un acompte et l'envoi d'une confirmation écrite (email ou message WhatsApp) par Let's Camel Tours." data-es="Todas las reservas se pueden realizar directamente a través de nuestro sitio web, por correo electrónico o por WhatsApp. Una reserva solo se considera confirmada una vez recibido un depósito y enviada una confirmación por escrito (correo electrónico o WhatsApp) por parte de Let's Camel Tours." data-de="Alle Buchungen können direkt über unsere Website, per E-Mail oder über WhatsApp vorgenommen werden. Eine Buchung gilt erst als bestätigt, nachdem eine Anzahlung eingegangen ist und Let's Camel Tours eine schriftliche Bestätigung (E-Mail oder WhatsApp-Nachricht) gesendet hat.">All bookings can be made directly through our website, by email, or via WhatsApp. A booking is only considered confirmed once a deposit has been received and a written confirmation (email or WhatsApp message) has been sent by Let's Camel Tours.</span></p>
+      <p><span data-en="A non-refundable deposit of 20-30% of the total tour price is required to secure your reservation, unless otherwise agreed in writing. The remaining balance is due before or at the start of the tour, as specified in your booking confirmation." data-fr="Un acompte non remboursable de 20 à 30 % du prix total du circuit est requis pour garantir votre réservation, sauf accord écrit contraire. Le solde restant est dû avant ou au début du circuit, comme indiqué dans votre confirmation de réservation." data-es="Se requiere un depósito no reembolsable del 20-30 % del precio total del tour para asegurar su reserva, salvo acuerdo escrito distinto. El saldo restante vence antes o al inicio del tour, según lo indicado en la confirmación de su reserva." data-de="Zur Sicherung Ihrer Reservierung ist eine nicht erstattungsfähige Anzahlung von 20-30 % des Gesamtpreises der Tour erforderlich, sofern nicht schriftlich anders vereinbart. Der Restbetrag ist vor oder zu Beginn der Tour fällig, wie in Ihrer Buchungsbestätigung angegeben.">A non-refundable deposit of 20-30% of the total tour price is required to secure your reservation, unless otherwise agreed in writing. The remaining balance is due before or at the start of the tour, as specified in your booking confirmation.</span></p>
+      <p><span data-en="It is the traveler's responsibility to ensure that names, dates, and group sizes provided at the time of booking are accurate, as these details are used to arrange guides, drivers, and accommodation." data-fr="Il incombe au voyageur de s'assurer que les noms, dates et tailles de groupe fournis lors de la réservation sont exacts, ces informations étant utilisées pour organiser les guides, chauffeurs et hébergements." data-es="Es responsabilidad del viajero asegurarse de que los nombres, fechas y tamaños de grupo proporcionados en el momento de la reserva sean correctos, ya que estos datos se utilizan para organizar guías, conductores y alojamiento." data-de="Es liegt in der Verantwortung des Reisenden, sicherzustellen, dass die bei der Buchung angegebenen Namen, Daten und Gruppengrößen korrekt sind, da diese Angaben zur Organisation von Guides, Fahrern und Unterkünften verwendet werden.">It is the traveler's responsibility to ensure that names, dates, and group sizes provided at the time of booking are accurate, as these details are used to arrange guides, drivers, and accommodation.</span></p>
+    </div>
+
+    <div class="terms-card">
+      <span class="section-label">02</span>
+      <h2 class="section-title"><span data-en="Payment Terms" data-fr="Modalités de Paiement" data-es="Condiciones de Pago" data-de="Zahlungsbedingungen">Payment Terms</span></h2>
+      <p><span data-en="Payments can be made in cash or by card in Euros (EUR) or Moroccan Dirhams (MAD). Card payments may be subject to a small processing fee, which will be communicated before payment is taken." data-fr="Les paiements peuvent être effectués en espèces ou par carte, en Euros (EUR) ou en Dirhams marocains (MAD). Les paiements par carte peuvent être soumis à de légers frais de traitement, communiqués avant le paiement." data-es="Los pagos se pueden realizar en efectivo o con tarjeta, en euros (EUR) o dirhams marroquíes (MAD). Los pagos con tarjeta pueden estar sujetos a una pequeña comisión de procesamiento, que se comunicará antes de realizar el pago." data-de="Zahlungen können bar oder per Karte in Euro (EUR) oder marokkanischen Dirham (MAD) geleistet werden. Kartenzahlungen können einer geringen Bearbeitungsgebühr unterliegen, die vor der Zahlung mitgeteilt wird.">Payments can be made in cash or by card in Euros (EUR) or Moroccan Dirhams (MAD). Card payments may be subject to a small processing fee, which will be communicated before payment is taken.</span></p>
+      <p><span data-en="Unless otherwise stated, the remaining balance of your tour is payable in cash to your guide or driver on the first day of the tour. Prices quoted are per person or per group as specified in your itinerary and are valid at the time of booking only." data-fr="Sauf indication contraire, le solde restant de votre circuit est payable en espèces à votre guide ou chauffeur le premier jour du circuit. Les prix indiqués sont par personne ou par groupe selon votre itinéraire et ne sont valables qu'au moment de la réservation." data-es="Salvo que se indique lo contrario, el saldo restante de su tour se paga en efectivo a su guía o conductor el primer día del tour. Los precios indicados son por persona o por grupo según su itinerario y son válidos únicamente en el momento de la reserva." data-de="Sofern nicht anders angegeben, ist der Restbetrag Ihrer Tour am ersten Tag der Tour bar an Ihren Guide oder Fahrer zu zahlen. Die angegebenen Preise gelten pro Person oder pro Gruppe gemäß Ihrer Reiseroute und sind nur zum Zeitpunkt der Buchung gültig.">Unless otherwise stated, the remaining balance of your tour is payable in cash to your guide or driver on the first day of the tour. Prices quoted are per person or per group as specified in your itinerary and are valid at the time of booking only.</span></p>
+      <p><span data-en="Optional extras (camel rides, quad biking, spa treatments, additional meals, etc.) are not included in the base tour price unless specified, and are paid separately, directly at the point of service." data-fr="Les options supplémentaires (balades à dos de chameau, quad, soins spa, repas additionnels, etc.) ne sont pas incluses dans le prix de base du circuit sauf indication contraire, et sont payées séparément, directement sur place." data-es="Los extras opcionales (paseos en camello, quad, tratamientos de spa, comidas adicionales, etc.) no están incluidos en el precio base del tour salvo que se indique, y se pagan por separado, directamente en el lugar." data-de="Optionale Extras (Kamelritte, Quad-Touren, Spa-Behandlungen, zusätzliche Mahlzeiten usw.) sind im Grundpreis der Tour nicht enthalten, sofern nicht anders angegeben, und werden separat direkt vor Ort bezahlt.">Optional extras (camel rides, quad biking, spa treatments, additional meals, etc.) are not included in the base tour price unless specified, and are paid separately, directly at the point of service.</span></p>
+    </div>
+
+    <div class="terms-card">
+      <span class="section-label">03</span>
+      <h2 class="section-title"><span data-en="Cancellation & Refund Policy" data-fr="Politique d'Annulation & de Remboursement" data-es="Política de Cancelación y Reembolso" data-de="Stornierungs- & Rückerstattungsrichtlinie">Cancellation & Refund Policy</span></h2>
+      <ul>
+        <li><span data-en="Cancellations made more than 48 hours before the tour start time are eligible for a full refund, minus any non-recoverable third-party costs already incurred (e.g. accommodation deposits)." data-fr="Les annulations effectuées plus de 48 heures avant le début du circuit sont éligibles à un remboursement intégral, moins les frais non récupérables déjà engagés auprès de tiers (ex. acomptes d'hébergement)." data-es="Las cancelaciones realizadas con más de 48 horas de antelación al inicio del tour tienen derecho a un reembolso completo, menos los costos no recuperables ya incurridos con terceros (por ejemplo, depósitos de alojamiento)." data-de="Stornierungen, die mehr als 48 Stunden vor Tourbeginn erfolgen, berechtigen zu einer vollständigen Rückerstattung, abzüglich bereits entstandener, nicht erstattungsfähiger Kosten Dritter (z. B. Unterkunftsanzahlungen).">Cancellations made more than 48 hours before the tour start time are eligible for a full refund, minus any non-recoverable third-party costs already incurred (e.g. accommodation deposits).</span></li>
+        <li><span data-en="Cancellations made between 24-48 hours before the tour start time are eligible for a 50% refund of the total tour price." data-fr="Les annulations effectuées entre 24 et 48 heures avant le début du circuit sont éligibles à un remboursement de 50 % du prix total." data-es="Las cancelaciones realizadas entre 24 y 48 horas antes del inicio del tour tienen derecho a un reembolso del 50 % del precio total." data-de="Stornierungen, die zwischen 24 und 48 Stunden vor Tourbeginn erfolgen, berechtigen zu einer Rückerstattung von 50 % des Gesamtpreises.">Cancellations made between 24-48 hours before the tour start time are eligible for a 50% refund of the total tour price.</span></li>
+        <li><span data-en="Cancellations made less than 24 hours before the tour start time, or no-shows, are non-refundable." data-fr="Les annulations effectuées moins de 24 heures avant le début du circuit, ou les absences, ne sont pas remboursables." data-es="Las cancelaciones realizadas con menos de 24 horas de antelación al inicio del tour, o la ausencia sin aviso, no son reembolsables." data-de="Stornierungen, die weniger als 24 Stunden vor Tourbeginn erfolgen, oder Nichterscheinen, sind nicht erstattungsfähig.">Cancellations made less than 24 hours before the tour start time, or no-shows, are non-refundable.</span></li>
+        <li><span data-en="The original deposit paid to secure a booking is non-refundable in all cancellation scenarios, except where Let's Camel Tours cancels the tour." data-fr="L'acompte initial versé pour garantir une réservation n'est remboursable dans aucun scénario d'annulation, sauf si Let's Camel Tours annule le circuit." data-es="El depósito inicial pagado para asegurar una reserva no es reembolsable en ningún escenario de cancelación, excepto cuando Let's Camel Tours cancele el tour." data-de="Die ursprünglich zur Sicherung einer Buchung geleistete Anzahlung ist in allen Stornierungsfällen nicht erstattungsfähig, außer wenn Let's Camel Tours die Tour absagt.">The original deposit paid to secure a booking is non-refundable in all cancellation scenarios, except where Let's Camel Tours cancels the tour.</span></li>
+      </ul>
+      <p><span data-en="Refund requests must be submitted in writing by email or WhatsApp. Approved refunds are processed within 7-14 business days, using the same payment method originally used." data-fr="Les demandes de remboursement doivent être soumises par écrit, par email ou WhatsApp. Les remboursements approuvés sont traités dans un délai de 7 à 14 jours ouvrables, via le même moyen de paiement utilisé initialement." data-es="Las solicitudes de reembolso deben presentarse por escrito por correo electrónico o WhatsApp. Los reembolsos aprobados se procesan en un plazo de 7 a 14 días hábiles, utilizando el mismo método de pago original." data-de="Rückerstattungsanträge müssen schriftlich per E-Mail oder WhatsApp eingereicht werden. Genehmigte Rückerstattungen werden innerhalb von 7-14 Werktagen über die ursprünglich verwendete Zahlungsmethode bearbeitet.">Refund requests must be submitted in writing by email or WhatsApp. Approved refunds are processed within 7-14 business days, using the same payment method originally used.</span></p>
+    </div>
+
+    <div class="terms-card">
+      <span class="section-label">04</span>
+      <h2 class="section-title"><span data-en="Travel Insurance & Liability" data-fr="Assurance Voyage & Responsabilité" data-es="Seguro de Viaje y Responsabilidad" data-de="Reiseversicherung & Haftung">Travel Insurance & Liability</span></h2>
+      <p><span data-en="We strongly recommend that all guests obtain comprehensive travel insurance covering medical emergencies, trip cancellation, lost luggage, and adventure activities before departure. Let's Camel Tours does not provide travel insurance and is not liable for costs arising from its absence." data-fr="Nous recommandons vivement à tous les voyageurs de souscrire une assurance voyage complète couvrant les urgences médicales, l'annulation de voyage, la perte de bagages et les activités d'aventure avant le départ. Let's Camel Tours ne fournit pas d'assurance voyage et n'est pas responsable des frais résultant de son absence." data-es="Recomendamos encarecidamente que todos los huéspedes obtengan un seguro de viaje completo que cubra emergencias médicas, cancelación del viaje, pérdida de equipaje y actividades de aventura antes de la salida. Let's Camel Tours no proporciona seguro de viaje y no se hace responsable de los costos derivados de su ausencia." data-de="Wir empfehlen dringend, dass alle Gäste vor der Abreise eine umfassende Reiseversicherung abschließen, die medizinische Notfälle, Reiserücktritt, Gepäckverlust und Abenteueraktivitäten abdeckt. Let's Camel Tours bietet keine Reiseversicherung an und haftet nicht für Kosten, die aus deren Fehlen entstehen.">We strongly recommend that all guests obtain comprehensive travel insurance covering medical emergencies, trip cancellation, lost luggage, and adventure activities before departure. Let's Camel Tours does not provide travel insurance and is not liable for costs arising from its absence.</span></p>
+      <p><span data-en="Guests are responsible for disclosing any pre-existing medical conditions, mobility limitations, or health concerns that may affect their participation in camel riding, quad tours, surfing, or other adventure activities. Our guides reserve the right to adjust or refuse participation where a genuine safety risk is identified." data-fr="Les voyageurs sont tenus de déclarer toute condition médicale préexistante, limitation de mobilité ou problème de santé pouvant affecter leur participation aux balades à dos de chameau, aux excursions en quad, au surf ou à d'autres activités d'aventure. Nos guides se réservent le droit d'ajuster ou de refuser la participation en cas de risque de sécurité réel identifié." data-es="Los huéspedes son responsables de declarar cualquier condición médica preexistente, limitación de movilidad o problema de salud que pueda afectar su participación en paseos en camello, quad, surf u otras actividades de aventura. Nuestros guías se reservan el derecho de ajustar o rechazar la participación cuando se identifique un riesgo real para la seguridad." data-de="Gäste sind dafür verantwortlich, bestehende Vorerkrankungen, Mobilitätseinschränkungen oder gesundheitliche Bedenken offenzulegen, die ihre Teilnahme an Kamelritten, Quad-Touren, Surfen oder anderen Abenteueraktivitäten beeinträchtigen könnten. Unsere Guides behalten sich das Recht vor, die Teilnahme anzupassen oder abzulehnen, wenn ein echtes Sicherheitsrisiko festgestellt wird.">Guests are responsible for disclosing any pre-existing medical conditions, mobility limitations, or health concerns that may affect their participation in camel riding, quad tours, surfing, or other adventure activities. Our guides reserve the right to adjust or refuse participation where a genuine safety risk is identified.</span></p>
+      <p><span data-en="By participating in any adventure activity offered by Let's Camel Tours, guests acknowledge the inherent risks involved and agree to follow all safety instructions given by guides and staff. Let's Camel Tours, its guides, and partners are not liable for injury, loss, or damage resulting from a guest's failure to follow safety guidance or disclose relevant health information." data-fr="En participant à toute activité d'aventure proposée par Let's Camel Tours, les voyageurs reconnaissent les risques inhérents et acceptent de suivre toutes les consignes de sécurité données par les guides et le personnel. Let's Camel Tours, ses guides et partenaires ne sont pas responsables des blessures, pertes ou dommages résultant du non-respect des consignes de sécurité ou de la non-déclaration d'informations de santé pertinentes." data-es="Al participar en cualquier actividad de aventura ofrecida por Let's Camel Tours, los huéspedes reconocen los riesgos inherentes y aceptan seguir todas las instrucciones de seguridad dadas por los guías y el personal. Let's Camel Tours, sus guías y socios no son responsables de lesiones, pérdidas o daños resultantes de que un huésped no siga las indicaciones de seguridad o no declare información de salud relevante." data-de="Durch die Teilnahme an einer von Let's Camel Tours angebotenen Abenteueraktivität erkennen die Gäste die damit verbundenen Risiken an und verpflichten sich, alle von Guides und Personal gegebenen Sicherheitsanweisungen zu befolgen. Let's Camel Tours, seine Guides und Partner haften nicht für Verletzungen, Verluste oder Schäden, die durch die Nichtbeachtung von Sicherheitshinweisen oder das Nichtoffenlegen relevanter Gesundheitsinformationen durch einen Gast entstehen.">By participating in any adventure activity offered by Let's Camel Tours, guests acknowledge the inherent risks involved and agree to follow all safety instructions given by guides and staff. Let's Camel Tours, its guides, and partners are not liable for injury, loss, or damage resulting from a guest's failure to follow safety guidance or disclose relevant health information.</span></p>
+    </div>
+
+    <div class="terms-card">
+      <span class="section-label">05</span>
+      <h2 class="section-title"><span data-en="Itinerary Changes & Force Majeure" data-fr="Modifications d'Itinéraire & Force Majeure" data-es="Cambios de Itinerario y Fuerza Mayor" data-de="Änderungen der Reiseroute & Höhere Gewalt">Itinerary Changes & Force Majeure</span></h2>
+      <p><span data-en="Itineraries may be adjusted by our guides at any point due to weather conditions, road safety, local events, or other circumstances beyond our control. Where possible, an equivalent alternative experience will be offered at no extra cost." data-fr="Les itinéraires peuvent être ajustés par nos guides à tout moment en raison des conditions météorologiques, de la sécurité routière, d'événements locaux ou d'autres circonstances indépendantes de notre volonté. Dans la mesure du possible, une expérience alternative équivalente sera proposée sans frais supplémentaires." data-es="Nuestros guías pueden ajustar los itinerarios en cualquier momento debido a condiciones climáticas, seguridad vial, eventos locales u otras circunstancias fuera de nuestro control. Cuando sea posible, se ofrecerá una experiencia alternativa equivalente sin costo adicional." data-de="Reiserouten können von unseren Guides jederzeit aufgrund von Wetterbedingungen, Straßensicherheit, lokalen Ereignissen oder anderen Umständen außerhalb unserer Kontrolle angepasst werden. Wo möglich, wird eine gleichwertige alternative Erfahrung ohne zusätzliche Kosten angeboten.">Itineraries may be adjusted by our guides at any point due to weather conditions, road safety, local events, or other circumstances beyond our control. Where possible, an equivalent alternative experience will be offered at no extra cost.</span></p>
+      <p><span data-en="Let's Camel Tours is not liable for delays, cancellations, or itinerary changes caused by force majeure events, including but not limited to extreme weather, natural disasters, political unrest, border closures, or government travel restrictions. In such cases, we will work with guests in good faith to reschedule or provide the fairest resolution possible." data-fr="Let's Camel Tours n'est pas responsable des retards, annulations ou modifications d'itinéraire causés par des événements de force majeure, incluant mais sans s'y limiter les conditions météorologiques extrêmes, les catastrophes naturelles, les troubles politiques, les fermetures de frontières ou les restrictions de voyage gouvernementales. Dans de tels cas, nous travaillerons de bonne foi avec les voyageurs pour reprogrammer ou proposer la solution la plus équitable possible." data-es="Let's Camel Tours no se hace responsable de retrasos, cancelaciones o cambios de itinerario causados por eventos de fuerza mayor, incluyendo entre otros condiciones climáticas extremas, desastres naturales, disturbios políticos, cierres de fronteras o restricciones de viaje gubernamentales. En tales casos, trabajaremos de buena fe con los huéspedes para reprogramar o brindar la solución más justa posible." data-de="Let's Camel Tours haftet nicht für Verzögerungen, Stornierungen oder Änderungen der Reiseroute, die durch Ereignisse höherer Gewalt verursacht werden, einschließlich, aber nicht beschränkt auf extreme Wetterbedingungen, Naturkatastrophen, politische Unruhen, Grenzschließungen oder staatliche Reisebeschränkungen. In solchen Fällen arbeiten wir in gutem Glauben mit den Gästen zusammen, um eine Umbuchung oder die fairstmögliche Lösung anzubieten.">Let's Camel Tours is not liable for delays, cancellations, or itinerary changes caused by force majeure events, including but not limited to extreme weather, natural disasters, political unrest, border closures, or government travel restrictions. In such cases, we will work with guests in good faith to reschedule or provide the fairest resolution possible.</span></p>
+    </div>
+
+    <div class="terms-card">
+      <span class="section-label">06</span>
+      <h2 class="section-title"><span data-en="Contact Information" data-fr="Informations de Contact" data-es="Información de Contacto" data-de="Kontaktinformationen">Contact Information</span></h2>
+      <p><span data-en="For any questions regarding these Terms & Conditions, bookings, or refunds, please reach out to us directly:" data-fr="Pour toute question concernant ces Conditions Générales, les réservations ou les remboursements, veuillez nous contacter directement :" data-es="Para cualquier pregunta sobre estos Términos y Condiciones, reservas o reembolsos, por favor contáctenos directamente:" data-de="Bei Fragen zu diesen Allgemeinen Geschäftsbedingungen, Buchungen oder Rückerstattungen wenden Sie sich bitte direkt an uns:">For any questions regarding these Terms & Conditions, bookings, or refunds, please reach out to us directly:</span></p>
+      <ul>
+        <li><span data-en="Email: " data-fr="Email : " data-es="Correo: " data-de="E-Mail: ">Email: </span><a class="inline-link" href="mailto:info.letscameltours@gmail.com">info.letscameltours@gmail.com</a></li>
+        <li><span data-en="WhatsApp: " data-fr="WhatsApp : " data-es="WhatsApp: " data-de="WhatsApp: ">WhatsApp: </span><a class="inline-link" href="https://wa.me/212600000000" target="_blank">+212 6 00 00 00 00</a></li>
+        <li><span data-en="Or use our " data-fr="Ou utilisez notre " data-es="O use nuestro " data-de="Oder nutzen Sie unser ">Or use our </span><a class="inline-link" href="contact.html"><span data-en="contact form" data-fr="formulaire de contact" data-es="formulario de contacto" data-de="Kontaktformular">contact form</span></a></li>
+      </ul>
+    </div>
+
+    <a href="contact.html" class="btn-gold"><span data-en="Have Questions? Contact Us" data-fr="Des Questions ? Contactez-Nous" data-es="¿Preguntas? Contáctanos" data-de="Fragen? Kontaktieren Sie Uns">Have Questions? Contact Us</span></a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-col-brand">
+        <div class="footer-logo"><img src="logo.png" alt="Let's Camel Tours"></div>
+        <p><span data-en="A family-run travel agency between the dunes of Merzouga and the waves of Taghazout, guiding travelers through real Morocco since day one." data-fr="Une agence de voyage familiale entre les dunes de Merzouga et les vagues de Taghazout, guidant les voyageurs à travers le vrai Maroc depuis le premier jour." data-es="Una agencia de viajes familiar entre las dunas de Merzouga y las olas de Taghazout, guiando a los viajeros por el verdadero Marruecos desde el primer día." data-de="Eine familiengeführte Reiseagentur zwischen den Dünen Merzougas und den Wellen Taghazouts, die Reisende von Anfang an durch das echte Marokko führt.">A family-run travel agency between the dunes of Merzouga and the waves of Taghazout, guiding travelers through real Morocco since day one.</span></p>
+        <div class="footer-lang-row">
+          <button type="button" class="footer-lang-btn" data-lang="en"><img src="https://flagcdn.com/20x15/gb.png" alt="EN" width="20" height="15"> EN</button>
+          <button type="button" class="footer-lang-btn" data-lang="fr"><img src="https://flagcdn.com/20x15/fr.png" alt="FR" width="20" height="15"> FR</button>
+          <button type="button" class="footer-lang-btn" data-lang="es"><img src="https://flagcdn.com/20x15/es.png" alt="ES" width="20" height="15"> ES</button>
+          <button type="button" class="footer-lang-btn" data-lang="de"><img src="https://flagcdn.com/20x15/de.png" alt="DE" width="20" height="15"> DE</button>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4><span data-en="What We Offer" data-fr="Nos Services" data-es="Lo Que Ofrecemos" data-de="Was Wir Bieten">What We Offer</span></h4>
+        <ul>
+          <li><a href="tours.html"><span data-en="Morocco Tours" data-fr="Circuits Maroc" data-es="Tours Marruecos" data-de="Marokko Touren">Morocco Tours</span></a></li>
+          <li><a href="excursions.html"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></a></li>
+          <li><a href="activities.html"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span></a></li>
+          <li><a href="index.html#transfers"><span data-en="Transfers" data-fr="Transferts" data-es="Traslados" data-de="Transfers">Transfers</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4><span data-en="Help & Info" data-fr="Aide & Infos" data-es="Ayuda e Información" data-de="Hilfe & Infos">Help & Info</span></h4>
+        <ul>
+          <li><a href="about-us.html"><span data-en="About Us" data-fr="À Propos" data-es="Sobre Nosotros" data-de="Über Uns">About Us</span></a></li>
+          <li><a href="index.html#blog"><span data-en="Blogs" data-fr="Blogs" data-es="Blogs" data-de="Blogs">Blogs</span></a></li>
+          <li><a href="index.html#faq"><span data-en="FAQ's" data-fr="FAQ" data-es="Preguntas Frecuentes" data-de="FAQ">FAQ's</span></a></li>
+          <li><a href="terms-and-conditions.html"><span data-en="Terms & Conditions" data-fr="Conditions Générales" data-es="Términos y Condiciones" data-de="AGB">Terms & Conditions</span></a></li>
+          <li><a href="#"><span data-en="Privacy Policy" data-fr="Politique de Confidentialité" data-es="Política de Privacidad" data-de="Datenschutz">Privacy Policy</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></h4>
+        <ul>
+          <li><a href="tel:+212600000000">+212 6 00 00 00 00</a></li>
+          <li><a href="mailto:info.letscameltours@gmail.com">info.letscameltours@gmail.com</a></li>
+          <li><a href="https://wa.me/212600000000" target="_blank"><span data-en="WhatsApp Us" data-fr="WhatsApp" data-es="WhatsApp" data-de="WhatsApp">WhatsApp Us</span></a></li>
+        </ul>
+        <div class="socials">
+          <a href="#" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
+          </a>
+          <a href="#" target="_blank" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 3h-2a5 5 0 00-5 5v2H6v4h2v7h4v-7h3l1-4h-4V8a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="#" target="_blank" aria-label="TripAdvisor">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="13" r="3.2"/><circle cx="16" cy="13" r="3.2"/><path d="M8 13a4 4 0 014-4 4 4 0 014 4M2 8h6M16 8h6M12 5c-2.5 0-4.5 1.3-5.5 3M12 5c2.5 0 4.5 1.3 5.5 3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span data-en="© 2026 Let's Camel Tours. All Rights Reserved." data-fr="© 2026 Let's Camel Tours. Tous droits réservés." data-es="© 2026 Let's Camel Tours. Todos los derechos reservados." data-de="© 2026 Let's Camel Tours. Alle Rechte vorbehalten.">© 2026 Let's Camel Tours. All Rights Reserved.</span>
+      <span data-en="Based in Morocco" data-fr="Basé au Maroc" data-es="Con base en Marruecos" data-de="Ansässig in Marokko">Based in Morocco</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/212600000000" target="_blank" class="whatsapp-btn" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 004.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0012.04 2zm5.8 14.14c-.24.68-1.4 1.3-1.94 1.36-.52.06-1.05.28-3.52-.73-2.97-1.22-4.84-4.22-4.99-4.42-.15-.2-1.19-1.58-1.19-3.02s.75-2.14 1.02-2.43c.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.83 2 .9 2.15.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.31.4-.44.53-.15.15-.31.31-.13.61.18.3.79 1.31 1.7 2.13 1.17 1.04 2.16 1.37 2.46 1.52.3.15.48.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.24.66-.15.27.1 1.7.8 1.99.95.3.15.49.22.56.34.07.13.07.75-.17 1.43z"/></svg>
+</a>
+
+<script>
+  window.addEventListener('scroll', function() {
+    var navbar = document.querySelector('.navbar');
+    if (window.scrollY > 60) { navbar.classList.add('scrolled'); } else { navbar.classList.remove('scrolled'); }
+  });
+
+  var burgerToggle = document.getElementById('burger-toggle');
+  var mobileMenu = document.getElementById('mobile-menu');
+  var mobileOverlay = document.getElementById('mobile-overlay');
+  var mobileMenuClose = document.getElementById('mobile-menu-close');
+  function openMobileMenu() { mobileMenu.classList.add('open'); mobileOverlay.classList.add('open'); }
+  function closeMobileMenu() { mobileMenu.classList.remove('open'); mobileOverlay.classList.remove('open'); }
+  burgerToggle.addEventListener('click', openMobileMenu);
+  mobileMenuClose.addEventListener('click', closeMobileMenu);
+  mobileOverlay.addEventListener('click', closeMobileMenu);
+  document.querySelectorAll('.mobile-menu a').forEach(function(link) { link.addEventListener('click', closeMobileMenu); });
+
+  var currentLang = 'en';
+  function applyLang(lang) {
+    document.querySelectorAll('[data-en]').forEach(function(el) { el.textContent = el.dataset[lang]; });
+    document.getElementById('lang-label').textContent = lang.toUpperCase();
+    document.documentElement.lang = lang;
+    document.querySelectorAll('.lang-option').forEach(function(btn) { btn.classList.toggle('active', btn.dataset.lang === lang); });
+    currentLang = lang;
+  }
+  var langToggle = document.getElementById('lang-toggle');
+  var langMenu = document.getElementById('lang-menu');
+  langToggle.addEventListener('click', function(e) { e.stopPropagation(); langMenu.classList.toggle('open'); });
+  document.addEventListener('click', function() { langMenu.classList.remove('open'); });
+  document.querySelectorAll('.lang-option').forEach(function(btn) {
+    btn.addEventListener('click', function() { applyLang(btn.dataset.lang); langMenu.classList.remove('open'); });
+  });
+  document.querySelectorAll('.footer-lang-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() { applyLang(btn.dataset.lang); });
+  });
+</script>
+
+</body>
+</html>

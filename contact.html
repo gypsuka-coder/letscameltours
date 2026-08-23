@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - Let's Camel Tours</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #003366;
+    --navy-dark: #001f3f;
+    --gold: #E07A3E;
+    --gold-light: #ea9868;
+    --white: #ffffff;
+    --off-white: #F8FAFC;
+    --text-gray: #5c6474;
+    --line: #e6e9ef;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body { font-family: 'Poppins', sans-serif; color: #1a1a1a; line-height: 1.6; }
+
+  a { text-decoration: none; color: inherit; }
+
+  ul { list-style: none; }
+
+  img { max-width: 100%; display: block; }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+
+  .section-label {
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .section-title {
+    font-size: clamp(32px, 4.4vw, 48px);
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+
+  .section-text {
+    color: var(--text-gray);
+    font-size: 15.5px;
+    max-width: 640px;
+  }
+
+  .section-head {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+  }
+
+  .btn-gold {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--white);
+    padding: 14px 30px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 14.5px;
+    letter-spacing: 0.02em;
+    border: none;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .btn-outline {
+    display: inline-block;
+    border: 1.5px solid var(--white);
+    color: var(--white);
+    padding: 13px 28px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 14.5px;
+    transition: background 0.25s ease;
+  }
+
+  .btn-outline:hover { background: rgba(255,255,255,0.1); }
+
+  /* ===== Navbar ===== */
+  .navbar {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    z-index: 200;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  .nav-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 16px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo img { height: 46px; width: auto; }
+
+  .nav-menu { display: flex; align-items: center; gap: 30px; }
+
+  .nav-menu a {
+    color: var(--navy);
+    font-size: 14.5px;
+    font-weight: 500;
+    transition: color 0.25s ease;
+  }
+
+  .nav-menu a:hover { color: var(--gold); }
+
+  .nav-dropdown { position: relative; }
+  .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
+  .nav-dropdown-caret { width: 10px; height: 10px; transition: transform 0.2s ease; }
+  .nav-dropdown:hover .nav-dropdown-caret { transform: rotate(180deg); }
+  .nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding-top: 14px;
+    z-index: 60;
+  }
+  .nav-dropdown-menu-inner {
+    background: var(--white);
+    min-width: 240px;
+    border-radius: 8px;
+    box-shadow: 0 16px 36px rgba(0,0,0,0.18);
+    padding: 8px;
+  }
+  .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+  .nav-dropdown-menu { display: none; }
+  .nav-dropdown-menu a {
+    display: block;
+    padding: 10px 14px;
+    color: var(--navy) !important;
+    font-size: 13.5px;
+    font-weight: 500;
+    border-radius: 5px;
+  }
+  .nav-dropdown-menu a:hover { background: var(--off-white); color: var(--gold) !important; }
+
+  .nav-right { display: flex; align-items: center; gap: 18px; position: relative; }
+
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--navy);
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.25s ease, border-color 0.25s ease;
+  }
+
+  .lang-toggle svg { width: 15px; height: 15px; }
+
+  .lang-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: var(--white);
+    border-radius: 6px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    padding: 6px;
+    display: none;
+    min-width: 140px;
+  }
+
+  .lang-menu.open { display: block; }
+
+  .lang-option {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 9px 12px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--navy);
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .lang-option:hover { background: var(--off-white); }
+  .lang-option.active { color: var(--gold); font-weight: 700; }
+
+  .btn-book {
+    background: var(--gold);
+    color: var(--white);
+    padding: 11px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: background 0.25s ease;
+  }
+
+  .btn-book:hover { background: var(--gold-light); }
+
+  .burger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--navy);
+    cursor: pointer;
+    padding: 4px;
+  }
+  .burger svg { width: 24px; height: 24px; }
+
+  .mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 240;
+  }
+  .mobile-menu-overlay.open { display: block; }
+
+  .mobile-menu {
+    position: fixed;
+    top: 0; right: -100%;
+    width: 78%;
+    max-width: 320px;
+    height: 100vh;
+    background: var(--white);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+    z-index: 250;
+    padding: 80px 30px 30px;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile-menu.open { right: 0; }
+  .mobile-menu a {
+    display: block;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 15.5px;
+  }
+  .mobile-menu-close {
+    position: absolute;
+    top: 24px; right: 24px;
+    background: none;
+    border: none;
+    color: var(--navy);
+    cursor: pointer;
+  }
+  .mobile-menu-close svg { width: 22px; height: 22px; }
+
+  /* ===== Page Hero ===== */
+  .page-hero {
+    position: relative;
+    padding: 170px 24px 90px;
+    background: linear-gradient(180deg, rgba(0,51,102,0.85) 0%, rgba(0,31,63,0.9) 100%), url("desert.jpg");
+    background-size: cover;
+    background-position: center 30%;
+    text-align: center;
+    color: var(--white);
+  }
+  .page-hero h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 700; margin-bottom: 14px; }
+  .page-hero p { font-size: 15.5px; color: rgba(255,255,255,0.85); max-width: 600px; margin: 0 auto; }
+
+  /* ===== Contact Section ===== */
+  .contact-section { padding: 90px 0; background: var(--white); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 50px;
+    align-items: start;
+  }
+
+  .contact-form {
+    background: var(--off-white);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 40px;
+  }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+
+  .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
+  .form-group label { font-size: 13.5px; font-weight: 600; color: var(--navy); }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 13px 14px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14.5px;
+    color: #1a1a1a;
+    background: var(--white);
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--gold); }
+  .form-group textarea { resize: vertical; min-height: 140px; }
+
+  .contact-form .btn-gold { width: 100%; margin-top: 6px; }
+
+  .form-result { display: none; margin-top: 14px; padding: 13px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; text-align: center; }
+  .form-result.show { display: block; }
+  .form-result.success { background: #e6f7ec; color: #1a7f3c; border: 1px solid #b8e6c8; }
+  .form-result.error { background: #fdeaea; color: #c0392b; border: 1px solid #f5c2c0; }
+
+  .contact-sidebar { display: flex; flex-direction: column; gap: 18px; }
+
+  .contact-card {
+    background: var(--off-white);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 26px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .contact-card-icon {
+    flex-shrink: 0;
+    width: 44px; height: 44px;
+    border-radius: 8px;
+    background: var(--navy);
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .contact-card-icon svg { width: 20px; height: 20px; }
+
+  .contact-card h4 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .contact-card p, .contact-card a { font-size: 13.5px; color: var(--text-gray); display: block; }
+  .contact-card a:hover { color: var(--gold); }
+
+  .whatsapp-card {
+    background: var(--navy);
+    color: var(--white);
+    text-align: center;
+    padding: 30px 26px;
+  }
+  .whatsapp-card h4 { color: var(--white); margin-bottom: 8px; }
+  .whatsapp-card p { color: rgba(255,255,255,0.75); margin-bottom: 18px; }
+  .whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #25D366;
+    color: var(--white);
+    padding: 13px 24px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 14px;
+    width: 100%;
+    transition: background 0.25s ease;
+  }
+  .whatsapp-btn:hover { background: #1ebe5a; }
+  .whatsapp-btn svg { width: 18px; height: 18px; }
+
+  @media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    .nav-menu, .nav-right .lang-toggle, .nav-right .btn-book { display: none; }
+    .burger { display: block; }
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+  }
+
+  /* ===== Footer ===== */
+  .socials { display: flex; gap: 12px; margin-top: 28px; }
+  .socials a {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  }
+  .socials a:hover { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+  .socials svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+  .footer { background: var(--off-white); color: var(--text-gray); padding: 60px 0 24px; border-top: 1px solid var(--line); }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
+  }
+
+  .footer-col-brand p { font-size: 13.5px; line-height: 1.7; color: var(--text-gray); max-width: 44ch; margin-bottom: 20px; }
+
+  .footer-col h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 18px;
+  }
+
+  .footer-col li { margin-bottom: 11px; }
+  .footer-col a { font-size: 14px; color: var(--text-gray); transition: color 0.25s ease; }
+  .footer-col a:hover { color: var(--gold); }
+
+  .footer-lang-row { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 18px; }
+  .footer-lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    font-size: 13px;
+    color: var(--text-gray);
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+  }
+  .footer-lang-btn img { border-radius: 2px; flex-shrink: 0; }
+  .footer-lang-btn:hover, .footer-lang-btn.active { color: var(--gold); font-weight: 600; }
+
+  .footer-bottom {
+    border-top: 1px solid var(--line);
+    padding-top: 22px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 13px;
+  }
+
+  @media (max-width: 900px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="Let's Camel Tours">
+    </a>
+    <nav class="nav-menu">
+      <a href="index.html#home"><span data-en="Home" data-fr="Accueil" data-es="Inicio" data-de="Startseite">Home</span></a>
+      <div class="nav-dropdown">
+        <a href="tours.html"><span data-en="Morocco Tours" data-fr="Circuits Maroc" data-es="Tours Marruecos" data-de="Marokko Touren">Morocco Tours</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="tour-1.html">Grand Morocco Tour: North to South</a>
+            <a href="tour-2.html">Classic Desert Adventure: Marrakech to Fes</a>
+            <a href="tour-3.html">Imperial Cities & Coastal Pearl</a>
+            <a href="tours.html" style="color:var(--gold) !important;font-weight:700;">View All Tours →</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="excursions.html"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="excursions.html">Day Trip to Essaouira</a>
+            <a href="excursions.html">Day Trip to Marrakech</a>
+            <a href="excursions.html">Paradise Valley</a>
+            <a href="excursions.html" style="color:var(--gold) !important;font-weight:700;">View All Excursions →</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="activities.html"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="activities.html">Camel Riding</a>
+            <a href="activities.html">Surfing Lesson</a>
+            <a href="activities.html">Quad Tours</a>
+            <a href="activities.html" style="color:var(--gold) !important;font-weight:700;">View All Activities →</a>
+          </div>
+        </div>
+      </div>
+      <a href="index.html#transfers"><span data-en="Transfers" data-fr="Transferts" data-es="Traslados" data-de="Transfers">Transfers</span></a>
+      <a href="index.html#services"><span data-en="Services" data-fr="Services" data-es="Servicios" data-de="Leistungen">Services</span></a>
+      <a href="about-us.html"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
+      <a href="index.html#blog"><span data-en="Blogs" data-fr="Blogs" data-es="Blogs" data-de="Blogs">Blogs</span></a>
+      <a href="contact.html"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
+    </nav>
+    <div class="nav-right">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9z"/></svg>
+        <span id="lang-label">EN</span>
+      </button>
+      <div class="lang-menu" id="lang-menu">
+        <button class="lang-option active" data-lang="en">English</button>
+        <button class="lang-option" data-lang="fr">Français</button>
+        <button class="lang-option" data-lang="es">Español</button>
+        <button class="lang-option" data-lang="de">Deutsch</button>
+      </div>
+      <a href="contact.html" class="btn-book"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+      <button class="burger" id="burger-toggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu-overlay" id="mobile-overlay"></div>
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <a href="index.html#home"><span data-en="Home" data-fr="Accueil" data-es="Inicio" data-de="Startseite">Home</span></a>
+  <a href="tours.html"><span data-en="Morocco Tours" data-fr="Circuits Maroc" data-es="Tours Marruecos" data-de="Marokko Touren">Morocco Tours</span></a>
+  <a href="excursions.html"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></a>
+  <a href="activities.html"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span></a>
+  <a href="index.html#transfers"><span data-en="Transfers" data-fr="Transferts" data-es="Traslados" data-de="Transfers">Transfers</span></a>
+  <a href="index.html#services"><span data-en="Services" data-fr="Services" data-es="Servicios" data-de="Leistungen">Services</span></a>
+  <a href="about-us.html"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
+  <a href="index.html#blog"><span data-en="Blogs" data-fr="Blogs" data-es="Blogs" data-de="Blogs">Blogs</span></a>
+  <a href="contact.html"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
+  <a href="contact.html" class="btn-book" style="display:block;text-align:center;margin-top:16px;"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+</div>
+
+<section class="page-hero">
+  <h1><span data-en="Contact Us - Let's Camel Tours" data-fr="Contactez-Nous - Let's Camel Tours" data-es="Contáctanos - Let's Camel Tours" data-de="Kontaktieren Sie Uns - Let's Camel Tours">Contact Us - Let's Camel Tours</span></h1>
+  <p><span data-en="Have questions about our tours or need a custom itinerary? Get in touch with us!" data-fr="Des questions sur nos circuits ou besoin d'un itinéraire personnalisé ? Contactez-nous !" data-es="¿Tienes preguntas sobre nuestros tours o necesitas un itinerario personalizado? ¡Ponte en contacto con nosotros!" data-de="Haben Sie Fragen zu unseren Touren oder benötigen Sie eine individuelle Reiseroute? Kontaktieren Sie uns!">Have questions about our tours or need a custom itinerary? Get in touch with us!</span></p>
+</section>
+
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-grid">
+      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="29460a97-9e17-42cd-9949-924a21efc332">
+        <input type="hidden" name="subject" value="New Inquiry from Let's Camel Tours Website">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="full-name" data-en="Full Name" data-fr="Nom Complet" data-es="Nombre Completo" data-de="Vollständiger Name">Full Name</label>
+            <input type="text" id="full-name" name="full-name" placeholder="Your full name" required>
+          </div>
+          <div class="form-group">
+            <label for="email" data-en="Email Address" data-fr="Adresse E-mail" data-es="Correo Electrónico" data-de="E-Mail-Adresse">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone" data-en="Phone / WhatsApp" data-fr="Téléphone / WhatsApp" data-es="Teléfono / WhatsApp" data-de="Telefon / WhatsApp">Phone / WhatsApp</label>
+            <input type="tel" id="phone" name="phone" placeholder="+212 6 00 00 00 00">
+          </div>
+          <div class="form-group">
+            <label for="tour" data-en="Select Tour / Activity" data-fr="Choisir Circuit / Activité" data-es="Elegir Tour / Actividad" data-de="Tour / Aktivität Auswählen">Select Tour / Activity</label>
+            <select id="tour" name="tour">
+              <optgroup label="Morocco Tours">
+                <option value="grand-morocco-tour">Grand Morocco Tour: North to South</option>
+                <option value="classic-desert-adventure">Classic Desert Adventure: Marrakech to Fes</option>
+                <option value="imperial-cities-coastal-pearl">Imperial Cities & Coastal Pearl</option>
+              </optgroup>
+              <optgroup label="Excursions">
+                <option value="essaouira-day-trip">Day Trip to Essaouira</option>
+                <option value="marrakech-day-trip">Day Trip to Marrakech</option>
+                <option value="paradise-valley">Paradise Valley</option>
+              </optgroup>
+              <optgroup label="Activities">
+                <option value="camel-riding">Camel Riding</option>
+                <option value="surfing-lesson">Surfing Lesson</option>
+                <option value="quad-biking">Quad Biking</option>
+                <option value="horse-riding">Horse Riding</option>
+              </optgroup>
+              <optgroup label="Transfers">
+                <option value="airport-transfer">Airport / City Transfer</option>
+              </optgroup>
+              <optgroup label="Other">
+                <option value="custom-desert-tour">Custom Desert Tour</option>
+                <option value="general-inquiry">General Inquiry</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="participants" data-en="Number of Participants" data-fr="Nombre de Participants" data-es="Número de Participantes" data-de="Anzahl der Teilnehmer">Number of Participants</label>
+            <input type="number" id="participants" name="participants" min="1" placeholder="e.g. 2">
+          </div>
+          <div class="form-group">
+            <label for="travel-date" data-en="Travel Date" data-fr="Date de Voyage" data-es="Fecha de Viaje" data-de="Reisedatum">Travel Date</label>
+            <input type="date" id="travel-date" name="travel-date">
+          </div>
+        </div>
+        <div class="form-group" id="accommodation-group">
+          <label for="accommodation" data-en="Accommodation Type" data-fr="Type d'Hébergement" data-es="Tipo de Alojamiento" data-de="Unterkunftsart">Accommodation Type</label>
+          <select id="accommodation" name="accommodation">
+            <option value="standard">Standard</option>
+            <option value="comfort">Comfort</option>
+            <option value="luxury">Luxury</option>
+            <option value="not-sure">Not Sure Yet</option>
+          </select>
+        </div>
+        <input type="hidden" id="accommodation-fallback" name="accommodation" value="not-important" disabled>
+        <div class="form-group">
+          <label for="message" data-en="Message" data-fr="Message" data-es="Mensaje" data-de="Nachricht">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us about your trip..." required></textarea>
+        </div>
+        <button type="submit" class="btn-gold"><span data-en="Send Message" data-fr="Envoyer le Message" data-es="Enviar Mensaje" data-de="Nachricht Senden">Send Message</span></button>
+        <div class="form-result" id="form-result"></div>
+      </form>
+
+      <div class="contact-sidebar">
+        <div class="contact-card">
+          <div class="contact-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <h4><span data-en="Call or WhatsApp" data-fr="Appelez ou WhatsApp" data-es="Llame o WhatsApp" data-de="Anrufen oder WhatsApp">Call or WhatsApp</span></h4>
+            <a href="tel:+212600000000">+212 6 00 00 00 00</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z" opacity="0"/><path d="M3 7l9 6 9-6M4 5h16a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1z"/></svg>
+          </div>
+          <div>
+            <h4><span data-en="Email Us" data-fr="Envoyez-nous un Email" data-es="Envíanos un Correo" data-de="E-Mail an Uns">Email Us</span></h4>
+            <a href="mailto:info.letscameltours@gmail.com">info.letscameltours@gmail.com</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <h4><span data-en="Our Location" data-fr="Notre Emplacement" data-es="Nuestra Ubicación" data-de="Unser Standort">Our Location</span></h4>
+            <p><span data-en="Agadir & Taghazout, Morocco" data-fr="Agadir et Taghazout, Maroc" data-es="Agadir y Taghazout, Marruecos" data-de="Agadir und Taghazout, Marokko">Agadir & Taghazout, Morocco</span></p>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          </div>
+          <div>
+            <h4><span data-en="Support Hours" data-fr="Heures d'Assistance" data-es="Horario de Soporte" data-de="Support-Zeiten">Support Hours</span></h4>
+            <p><span data-en="Available daily for quick responses" data-fr="Disponible tous les jours pour des réponses rapides" data-es="Disponible todos los días para respuestas rápidas" data-de="Täglich für schnelle Antworten verfügbar">Available daily for quick responses</span></p>
+          </div>
+        </div>
+        <div class="contact-card whatsapp-card">
+          <div style="width:100%;">
+            <h4><span data-en="Chat With Us Now" data-fr="Discutez avec Nous" data-es="Chatea con Nosotros" data-de="Jetzt Chatten">Chat With Us Now</span></h4>
+            <p><span data-en="Get an instant reply on WhatsApp" data-fr="Obtenez une réponse instantanée sur WhatsApp" data-es="Obtén una respuesta instantánea en WhatsApp" data-de="Sofortige Antwort auf WhatsApp erhalten">Get an instant reply on WhatsApp</span></p>
+            <a href="https://wa.me/212600000000" target="_blank" class="whatsapp-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.86 9.86 0 0012.04 2zm5.8 14.14c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.12.11-1.8-.11-.42-.14-.95-.31-1.64-.61-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.98 0-1.42.74-2.11 1-2.4.27-.29.58-.36.77-.36.19 0 .39 0 .55.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.15.12.32.02.52-.1.19-.15.31-.3.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.26 1.64 2.04 1.13 1 2.08 1.32 2.37 1.47.29.15.46.13.63-.08.17-.2.72-.84.91-1.13.19-.29.38-.24.64-.14.26.1 1.65.78 1.93.92.28.14.47.21.54.33.07.12.07.68-.17 1.36z"/></svg>
+              <span data-en="WhatsApp Us" data-fr="WhatsApp" data-es="WhatsApp" data-de="WhatsApp">WhatsApp Us</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-col-brand">
+        <div class="footer-logo"><img src="logo.png" alt="Let's Camel Tours"></div>
+        <p><span data-en="A family-run travel agency between the dunes of Merzouga and the waves of Taghazout, guiding travelers through real Morocco since day one." data-fr="Une agence de voyage familiale entre les dunes de Merzouga et les vagues de Taghazout, guidant les voyageurs à travers le vrai Maroc depuis le premier jour." data-es="Una agencia de viajes familiar entre las dunas de Merzouga y las olas de Taghazout, guiando a los viajeros por el verdadero Marruecos desde el primer día." data-de="Eine familiengeführte Reiseagentur zwischen den Dünen Merzougas und den Wellen Taghazouts, die Reisende von Anfang an durch das echte Marokko führt.">A family-run travel agency between the dunes of Merzouga and the waves of Taghazout, guiding travelers through real Morocco since day one.</span></p>
+        <div class="footer-lang-row">
+          <button type="button" class="footer-lang-btn" data-lang="en"><img src="https://flagcdn.com/20x15/gb.png" alt="EN" width="20" height="15"> EN</button>
+          <button type="button" class="footer-lang-btn" data-lang="fr"><img src="https://flagcdn.com/20x15/fr.png" alt="FR" width="20" height="15"> FR</button>
+          <button type="button" class="footer-lang-btn" data-lang="es"><img src="https://flagcdn.com/20x15/es.png" alt="ES" width="20" height="15"> ES</button>
+          <button type="button" class="footer-lang-btn" data-lang="de"><img src="https://flagcdn.com/20x15/de.png" alt="DE" width="20" height="15"> DE</button>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4><span data-en="What We Offer" data-fr="Nos Services" data-es="Lo Que Ofrecemos" data-de="Was Wir Bieten">What We Offer</span></h4>
+        <ul>
+          <li><a href="tours.html"><span data-en="Morocco Tours" data-fr="Circuits Maroc" data-es="Tours Marruecos" data-de="Marokko Touren">Morocco Tours</span></a></li>
+          <li><a href="excursions.html"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></a></li>
+          <li><a href="activities.html"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span></a></li>
+          <li><a href="index.html#transfers"><span data-en="Transfers" data-fr="Transferts" data-es="Traslados" data-de="Transfers">Transfers</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4><span data-en="Help & Info" data-fr="Aide & Infos" data-es="Ayuda e Información" data-de="Hilfe & Infos">Help & Info</span></h4>
+        <ul>
+          <li><a href="about-us.html"><span data-en="About Us" data-fr="À Propos" data-es="Sobre Nosotros" data-de="Über Uns">About Us</span></a></li>
+          <li><a href="index.html#blog"><span data-en="Blogs" data-fr="Blogs" data-es="Blogs" data-de="Blogs">Blogs</span></a></li>
+          <li><a href="index.html#faq"><span data-en="FAQ's" data-fr="FAQ" data-es="Preguntas Frecuentes" data-de="FAQ">FAQ's</span></a></li>
+          <li><a href="#"><span data-en="Terms & Conditions" data-fr="Conditions Générales" data-es="Términos y Condiciones" data-de="AGB">Terms & Conditions</span></a></li>
+          <li><a href="#"><span data-en="Privacy Policy" data-fr="Politique de Confidentialité" data-es="Política de Privacidad" data-de="Datenschutz">Privacy Policy</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></h4>
+        <ul>
+          <li><a href="tel:+212600000000">+212 6 00 00 00 00</a></li>
+          <li><a href="mailto:info.letscameltours@gmail.com">info.letscameltours@gmail.com</a></li>
+          <li><a href="https://wa.me/212600000000" target="_blank"><span data-en="WhatsApp Us" data-fr="WhatsApp" data-es="WhatsApp" data-de="WhatsApp">WhatsApp Us</span></a></li>
+        </ul>
+        <div class="socials">
+          <a href="#" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
+          </a>
+          <a href="#" target="_blank" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 3h-2a5 5 0 00-5 5v2H6v4h2v7h4v-7h3l1-4h-4V8a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="#" target="_blank" aria-label="TripAdvisor">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="13" r="3.2"/><circle cx="16" cy="13" r="3.2"/><path d="M8 13a4 4 0 014-4 4 4 0 014 4M2 8h6M16 8h6M12 5c-2.5 0-4.5 1.3-5.5 3M12 5c2.5 0 4.5 1.3 5.5 3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span data-en="© 2026 Let's Camel Tours. All Rights Reserved." data-fr="© 2026 Let's Camel Tours. Tous droits réservés." data-es="© 2026 Let's Camel Tours. Todos los derechos reservados." data-de="© 2026 Let's Camel Tours. Alle Rechte vorbehalten.">© 2026 Let's Camel Tours. All Rights Reserved.</span>
+      <span data-en="Based in Morocco" data-fr="Basé au Maroc" data-es="Con base en Marruecos" data-de="Ansässig in Marokko">Based in Morocco</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var burgerToggle = document.getElementById('burger-toggle');
+  var mobileMenu = document.getElementById('mobile-menu');
+  var mobileOverlay = document.getElementById('mobile-overlay');
+  var mobileMenuClose = document.getElementById('mobile-menu-close');
+
+  function openMobileMenu() {
+    mobileMenu.classList.add('open');
+    mobileOverlay.classList.add('open');
+  }
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('open');
+    mobileOverlay.classList.remove('open');
+  }
+  burgerToggle.addEventListener('click', openMobileMenu);
+  mobileMenuClose.addEventListener('click', closeMobileMenu);
+  mobileOverlay.addEventListener('click', closeMobileMenu);
+  document.querySelectorAll('.mobile-menu a').forEach(function(link) {
+    link.addEventListener('click', closeMobileMenu);
+  });
+
+  var currentLang = 'en';
+  function applyLang(lang) {
+    document.querySelectorAll('[data-en]').forEach(function(el) {
+      el.textContent = el.dataset[lang];
+    });
+    document.getElementById('lang-label').textContent = lang.toUpperCase();
+    document.documentElement.lang = lang;
+    document.querySelectorAll('.lang-option').forEach(function(btn) {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    currentLang = lang;
+  }
+
+  var langToggle = document.getElementById('lang-toggle');
+  var langMenu = document.getElementById('lang-menu');
+  langToggle.addEventListener('click', function(e) {
+    e.stopPropagation();
+    langMenu.classList.toggle('open');
+  });
+  document.addEventListener('click', function() {
+    langMenu.classList.remove('open');
+  });
+  document.querySelectorAll('.lang-option').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      applyLang(btn.dataset.lang);
+      langMenu.classList.remove('open');
+    });
+  });
+
+  document.querySelectorAll('.footer-lang-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() { applyLang(btn.dataset.lang); });
+  });
+
+  var TOUR_VALUES = ['grand-morocco-tour', 'classic-desert-adventure', 'imperial-cities-coastal-pearl', 'custom-desert-tour'];
+  var tourSelect = document.getElementById('tour');
+  var accommodationGroup = document.getElementById('accommodation-group');
+  var accommodationSelect = document.getElementById('accommodation');
+  var accommodationFallback = document.getElementById('accommodation-fallback');
+
+  function toggleAccommodation() {
+    var isTour = TOUR_VALUES.indexOf(tourSelect.value) !== -1;
+    accommodationGroup.style.display = isTour ? '' : 'none';
+    accommodationSelect.disabled = !isTour;
+    accommodationFallback.disabled = isTour;
+  }
+  tourSelect.addEventListener('change', toggleAccommodation);
+  toggleAccommodation();
+
+  var contactForm = document.querySelector('.contact-form');
+  var formResult = document.getElementById('form-result');
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var submitBtn = contactForm.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    formResult.className = 'form-result';
+    fetch(contactForm.action, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(contactForm)
+    })
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        submitBtn.disabled = false;
+        if (data.success) {
+          formResult.textContent = "Thank you! Your message has been sent successfully.";
+          formResult.className = 'form-result show success';
+          contactForm.reset();
+        } else {
+          formResult.textContent = "Something went wrong. Please try again.";
+          formResult.className = 'form-result show error';
+        }
+      })
+      .catch(function() {
+        submitBtn.disabled = false;
+        formResult.textContent = "Something went wrong. Please try again.";
+        formResult.className = 'form-result show error';
+      });
+  });
+</script>
+
+</body>
+</html>
