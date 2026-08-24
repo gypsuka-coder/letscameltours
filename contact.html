@@ -470,9 +470,10 @@
         <a href="tours.html"><span data-en="Morocco Tours" data-fr="Circuits Maroc" data-es="Tours Marruecos" data-de="Marokko Touren">Morocco Tours</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
         <div class="nav-dropdown-menu">
           <div class="nav-dropdown-menu-inner">
-            <a href="tour-1.html">Grand Morocco Tour: North to South</a>
-            <a href="tour-2.html">Classic Desert Adventure: Marrakech to Fes</a>
-            <a href="tour-3.html">Imperial Cities & Coastal Pearl</a>
+            <a href="tour-1.html">8-Day Grand Morocco Tour: Sahara & Rif Mountains</a>
+            <a href="tour-2.html">5-Day Marrakech to Merzouga Desert Tour</a>
+            <a href="tour-3.html">12-Day Morocco Tour: Casablanca to Marrakech & Sahara</a>
+            <a href="tour-4.html">9-Day Morocco Adventure: Marrakech, Sahara & Atlantic</a>
             <a href="tours.html" style="color:var(--gold) !important;font-weight:700;">View All Tours →</a>
           </div>
         </div>
@@ -481,9 +482,9 @@
         <a href="excursions.html"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
         <div class="nav-dropdown-menu">
           <div class="nav-dropdown-menu-inner">
-            <a href="excursions.html">Day Trip to Essaouira</a>
-            <a href="excursions.html">Day Trip to Marrakech</a>
-            <a href="excursions.html">Paradise Valley</a>
+            <a href="excursion-1.html">Day Trip to Essaouira</a>
+            <a href="excursion-2.html">Day Trip to Marrakech</a>
+            <a href="excursion-3.html">Paradise Valley</a>
             <a href="excursions.html" style="color:var(--gold) !important;font-weight:700;">View All Excursions →</a>
           </div>
         </div>
@@ -492,9 +493,9 @@
         <a href="activities.html"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
         <div class="nav-dropdown-menu">
           <div class="nav-dropdown-menu-inner">
-            <a href="activities.html">Camel Riding</a>
-            <a href="activities.html">Surfing Lesson</a>
-            <a href="activities.html">Quad Tours</a>
+            <a href="activity-1.html">Beach Horse Riding</a>
+            <a href="activity-2.html">Quad Biking</a>
+            <a href="activity-3.html">Private Surf Lesson</a>
             <a href="activities.html" style="color:var(--gold) !important;font-weight:700;">View All Activities →</a>
           </div>
         </div>
@@ -768,9 +769,14 @@
       btn.classList.toggle('active', btn.dataset.lang === lang);
     });
     currentLang = lang;
+    try { localStorage.setItem("lct-lang", lang); } catch (e) {}
   }
 
-  var langToggle = document.getElementById('lang-toggle');
+  var savedLang = null;
+  try { savedLang = localStorage.getItem("lct-lang"); } catch (e) {}
+  if (savedLang && ["en", "fr", "es", "de"].indexOf(savedLang) !== -1) applyLang(savedLang);
+
+  var langToggle = document.getElementById("lang-toggle");
   var langMenu = document.getElementById('lang-menu');
   langToggle.addEventListener('click', function(e) {
     e.stopPropagation();
