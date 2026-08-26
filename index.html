@@ -65,29 +65,31 @@
     background: var(--gold);
     color: var(--white);
     padding: 14px 30px;
-    border-radius: 4px;
+    border-radius: 50px;
     font-weight: 700;
     font-size: 14.5px;
     letter-spacing: 0.02em;
     border: none;
     cursor: pointer;
-    transition: background 0.25s ease, transform 0.25s ease;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
   }
 
   .btn-gold:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 26px rgba(224,122,62,0.4); }
 
   .btn-outline {
     display: inline-block;
-    border: 1.5px solid var(--white);
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.7);
     color: var(--white);
     padding: 13px 28px;
-    border-radius: 4px;
-    font-weight: 600;
+    border-radius: 50px;
+    font-weight: 700;
     font-size: 14.5px;
-    transition: background 0.25s ease;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   }
 
-  .btn-outline:hover { background: rgba(255,255,255,0.1); }
+  .btn-outline:hover { background: rgba(255,255,255,0.12); border-color: #fff; transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 26px rgba(0,0,0,0.25); }
 
   .btn-arrow {
     display: inline-flex;
@@ -196,18 +198,17 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    background: transparent;
-    color: #F8FAFC;
-    border: 1.5px solid rgba(255,255,255,0.5);
+    background: var(--gold);
+    color: var(--white);
+    border: none;
     padding: 8px 14px;
     border-radius: 50px;
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
-    transition: border-color 0.25s ease, color 0.25s ease;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
   }
-  .lang-toggle:hover { border-color: var(--gold); color: var(--gold); }
-  .navbar.scrolled .lang-toggle { color: var(--navy); border-color: var(--line); }
+  .lang-toggle:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 22px rgba(224,122,62,0.35); }
 
   .lang-toggle svg { width: 15px; height: 15px; }
 
@@ -385,19 +386,19 @@
   }
 
   .btn-search {
-    background: var(--navy);
+    background: var(--gold);
     color: var(--white);
     border: none;
     padding: 15px 28px;
-    border-radius: 6px;
+    border-radius: 50px;
     font-weight: 700;
     font-size: 14.5px;
     cursor: pointer;
     white-space: nowrap;
-    transition: background 0.25s ease;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
   }
 
-  .btn-search:hover { background: var(--navy-dark); }
+  .btn-search:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 26px rgba(224,122,62,0.4); }
 
   .trust-strip { background: var(--off-white); padding: 22px 0; border-bottom: 1px solid var(--line); }
   .trust-inner { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
@@ -440,6 +441,7 @@
 
   .why-card h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
   .why-card p { color: var(--text-gray); font-size: 14.5px; }
+  .why-card-clone { display: none; }
 
   .about { padding: 100px 0; }
 
@@ -605,6 +607,7 @@
 
   .blog-body h3 { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 10px; line-height: 1.35; }
   .blog-body p { font-size: 13.5px; color: var(--text-gray); margin-bottom: 16px; }
+  .blog-card-clone { display: none; }
 
 
   .tours-grid {
@@ -718,23 +721,25 @@
   .final-cta p { color: #d3d9ec; font-size: 15.5px; max-width: 55ch; margin: 0 auto 30px; }
   .final-cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
-  .camel-banner {
-    position: relative;
-    background-image: linear-gradient(180deg, rgba(0,51,102,0.6) 0%, rgba(0,31,63,0.8) 100%), url('camel-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    padding: 90px 0;
-    text-align: center;
-  }
-  .camel-banner h2 { color: #fff; font-size: clamp(24px, 3.2vw, 32px); font-weight: 700; margin-bottom: 14px; }
-  .camel-banner p { color: #d3d9ec; font-size: 15.5px; max-width: 58ch; margin: 0 auto 26px; }
+  .camel-banner { background: var(--navy); color: #fff; padding: 100px 0; }
+  .camel-banner-grid { display: grid; grid-template-columns: 1fr 1.15fr; align-items: center; gap: 60px; }
+  .camel-banner-media { border-radius: 18px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.35); }
+  .camel-banner-media img { width: 100%; height: 100%; min-height: 380px; object-fit: cover; display: block; }
+  .camel-banner-content { text-align: left; }
+  .camel-banner h2 { color: #fff; font-size: clamp(24px, 3.2vw, 32px); font-weight: 700; margin-bottom: 14px; text-align: left; }
+  .camel-banner p { color: #d3d9ec; font-size: 15.5px; max-width: 52ch; margin: 0 0 24px; text-align: left; }
   .camel-signature {
+    position: relative;
+    display: block;
     font-family: 'Caveat', cursive;
     font-size: clamp(26px, 3.4vw, 36px);
+    line-height: 1.3;
     color: var(--gold-light);
-    margin: 0 auto 30px;
+    border-left: 3px solid var(--gold);
+    padding-left: 20px;
+    margin: 0 0 30px;
   }
+  .camel-signature .quote-mark { font-family: Georgia, serif; font-size: 1.5em; color: var(--gold); line-height: 0; vertical-align: -0.14em; margin-right: 3px; }
 
   .transfer-banner {
     position: relative;
@@ -789,6 +794,7 @@
 
   .service-card h3 { font-size: 16.5px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
   .service-card p { color: var(--text-gray); font-size: 14px; }
+  .service-card-clone { display: none; }
 
   .packages { padding: 100px 0; background: var(--off-white); }
 
@@ -841,6 +847,7 @@
   .testi-who span { display: block; color: var(--text-gray); font-weight: 400; font-size: 12.5px; margin-top: 2px; }
   .testi-avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
   .testi-who-text { display: block; }
+  .testi-card-clone { display: none; }
 
   .faq { padding: 100px 0; background: var(--off-white); }
 
@@ -998,6 +1005,9 @@
     }
     .search-field { border-right: none; padding-right: 0; width: 100%; }
     .why-us { padding-top: 70px; }
+    .camel-banner { padding: 60px 0; }
+    .camel-banner-grid { grid-template-columns: 1fr; gap: 30px; }
+    .camel-banner-media img { min-height: 260px; }
 
     .carousel-container { position: relative; }
     .carousel-arrow {
@@ -1020,7 +1030,7 @@
     .carousel-arrow.left { left: -4px; }
     .carousel-arrow.right { right: -4px; }
 
-    .why-grid, .services-grid {
+    .why-grid, .services-grid, .testi-grid, .blog-grid {
       display: flex;
       grid-template-columns: none;
       overflow-x: auto;
@@ -1029,16 +1039,18 @@
       padding: 4px 30px 10px;
       scrollbar-width: none;
     }
-    .why-grid::-webkit-scrollbar, .services-grid::-webkit-scrollbar { display: none; }
+    .why-grid::-webkit-scrollbar, .services-grid::-webkit-scrollbar, .testi-grid::-webkit-scrollbar, .blog-grid::-webkit-scrollbar { display: none; }
     .why-card, .service-card {
       flex: 0 0 78%;
       scroll-snap-align: center;
       padding: 22px 18px;
     }
+    .testi-card, .blog-card { flex: 0 0 82%; scroll-snap-align: center; }
+    .why-card-clone, .service-card-clone, .testi-card-clone, .blog-card-clone { display: block; }
     .why-card h3, .service-card h3 { font-size: 15.5px; }
     .why-card p, .service-card p { font-size: 13px; }
 
-    .tours-grid, .testi-grid, .blog-grid { grid-template-columns: 1fr; }
+    .tours-grid { grid-template-columns: 1fr; }
     form { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; }
   }
@@ -1207,6 +1219,11 @@
     <div class="carousel-container">
       <button class="carousel-arrow left" data-target="why-carousel" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 6l-6 6 6 6"/></svg></button>
       <div class="why-grid" id="why-carousel">
+      <div class="why-card why-card-clone" data-clone-of="last" aria-hidden="true" tabindex="-1">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21C7 17 3 13.5 3 9a5 5 0 019-3 5 5 0 019 3c0 4.5-4 8-9 12z"/></svg></div>
+        <h3><span data-en="Fair, Transparent Prices" data-fr="Prix Justes et Transparents" data-es="Precios Justos y Transparentes" data-de="Faire, Transparente Preise">Fair, Transparent Prices</span></h3>
+        <p><span data-en="Premium desert tours and authentic experiences at honest prices, with no hidden fees." data-fr="Des circuits désert haut de gamme et des expériences authentiques à prix honnêtes, sans frais cachés." data-es="Tours de desierto premium y experiencias auténticas a precios honestos, sin cargos ocultos." data-de="Premium-Wüstentouren und authentische Erlebnisse zu fairen Preisen, ohne versteckte Kosten.">Premium desert tours and authentic experiences at honest prices, with no hidden fees.</span></p>
+      </div>
       <div class="why-card">
         <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
         <h3><span data-en="Local Berber Guides" data-fr="Guides Berbères Locaux" data-es="Guías Bereberes Locales" data-de="Lokale Berberführer">Local Berber Guides</span></h3>
@@ -1227,6 +1244,11 @@
         <h3><span data-en="Fair, Transparent Prices" data-fr="Prix Justes et Transparents" data-es="Precios Justos y Transparentes" data-de="Faire, Transparente Preise">Fair, Transparent Prices</span></h3>
         <p><span data-en="Premium desert tours and authentic experiences at honest prices, with no hidden fees." data-fr="Des circuits désert haut de gamme et des expériences authentiques à prix honnêtes, sans frais cachés." data-es="Tours de desierto premium y experiencias auténticas a precios honestos, sin cargos ocultos." data-de="Premium-Wüstentouren und authentische Erlebnisse zu fairen Preisen, ohne versteckte Kosten.">Premium desert tours and authentic experiences at honest prices, with no hidden fees.</span></p>
       </div>
+      <div class="why-card why-card-clone" data-clone-of="first" aria-hidden="true" tabindex="-1">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+        <h3><span data-en="Local Berber Guides" data-fr="Guides Berbères Locaux" data-es="Guías Bereberes Locales" data-de="Lokale Berberführer">Local Berber Guides</span></h3>
+        <p><span data-en="Travel with knowledgeable guides who share Morocco's hidden treasures and traditions along every route." data-fr="Voyagez avec des guides expérimentés qui partagent les trésors cachés et les traditions du Maroc tout au long du parcours." data-es="Viaja con guías experimentados que comparten los tesoros ocultos y las tradiciones de Marruecos en cada ruta." data-de="Reisen Sie mit erfahrenen Guides, die auf jeder Route Marokkos verborgene Schätze und Traditionen teilen.">Travel with knowledgeable guides who share Morocco's hidden treasures and traditions along every route.</span></p>
+      </div>
       </div>
       <button class="carousel-arrow right" data-target="why-carousel" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></button>
     </div>
@@ -1234,11 +1256,16 @@
 </section>
 
 <section class="camel-banner">
-  <div class="container">
-    <h2><span data-en="We Take Care of Our Camels" data-fr="Nous Prenons Soin de Nos Chameaux" data-es="Cuidamos a Nuestros Camellos" data-de="Wir Kümmern Uns um Unsere Kamele">We Take Care of Our Camels</span></h2>
-    <p><span data-en="The camel is more than our brand's symbol, it's a part of our family's story, tended to with the same care we give every traveler who joins us in the dunes." data-fr="Le chameau n'est pas qu'un symbole pour notre marque, c'est une part de l'histoire de notre famille, soigné avec la même attention que nous portons à chaque voyageur qui nous rejoint dans les dunes." data-es="El camello es más que el símbolo de nuestra marca, es parte de la historia de nuestra familia, cuidado con la misma atención que damos a cada viajero que se une a nosotros en las dunas." data-de="Das Kamel ist mehr als das Symbol unserer Marke, es ist Teil der Geschichte unserer Familie, mit derselben Sorgfalt gepflegt, die wir jedem Reisenden entgegenbringen, der sich uns in den Dünen anschließt.">The camel is more than our brand's symbol, it's a part of our family's story, tended to with the same care we give every traveler who joins us in the dunes.</span></p>
-    <p class="camel-signature">Happy camels, happy travelers...</p>
-    <a href="about-us.html" class="btn-gold"><span data-en="Read Our Story" data-fr="Lire Notre Histoire" data-es="Lee Nuestra Historia" data-de="Lesen Sie Unsere Geschichte">Read Our Story</span></a>
+  <div class="container camel-banner-grid">
+    <div class="camel-banner-media">
+      <img src="camel-bg.jpg" alt="A well-cared-for camel resting in the Moroccan desert" loading="lazy">
+    </div>
+    <div class="camel-banner-content">
+      <h2><span data-en="We Take Care of Our Camels" data-fr="Nous Prenons Soin de Nos Chameaux" data-es="Cuidamos a Nuestros Camellos" data-de="Wir Kümmern Uns um Unsere Kamele">We Take Care of Our Camels</span></h2>
+      <p><span data-en="The camel is more than our brand's symbol, it's a part of our family's story, tended to with the same care we give every traveler who joins us in the dunes." data-fr="Le chameau n'est pas qu'un symbole pour notre marque, c'est une part de l'histoire de notre famille, soigné avec la même attention que nous portons à chaque voyageur qui nous rejoint dans les dunes." data-es="El camello es más que el símbolo de nuestra marca, es parte de la historia de nuestra familia, cuidado con la misma atención que damos a cada viajero que se une a nosotros en las dunas." data-de="Das Kamel ist mehr als das Symbol unserer Marke, es ist Teil der Geschichte unserer Familie, mit derselben Sorgfalt gepflegt, die wir jedem Reisenden entgegenbringen, der sich uns in den Dünen anschließt.">The camel is more than our brand's symbol, it's a part of our family's story, tended to with the same care we give every traveler who joins us in the dunes.</span></p>
+      <p class="camel-signature"><span class="quote-mark" aria-hidden="true">&ldquo;</span>Happy camels, happy travelers...</p>
+      <a href="about-us.html" class="btn-gold"><span data-en="Read Our Story" data-fr="Lire Notre Histoire" data-es="Lee Nuestra Historia" data-de="Lesen Sie Unsere Geschichte">Read Our Story</span></a>
+    </div>
   </div>
 </section>
 
@@ -1276,6 +1303,7 @@
       </a>
 
     </div>
+    <p style="text-align:center;font-size:13px;color:var(--text-gray);font-style:italic;margin-bottom:24px;"><span data-en="* Prices shown are estimates and may vary by group size, season, and customization." data-fr="* Les prix indiqués sont des estimations et peuvent varier selon la taille du groupe, la saison et la personnalisation." data-es="* Los precios mostrados son estimados y pueden variar según el tamaño del grupo, la temporada y la personalización." data-de="* Die angegebenen Preise sind Schätzungen und können je nach Gruppengröße, Saison und Anpassung variieren.">* Prices shown are estimates and may vary by group size, season, and customization.</span></p>
     <div class="tours-cta">
       <a href="tours.html" class="btn-arrow-gold"><span data-en="Discover More Tours" data-fr="Découvrir Plus de Circuits" data-es="Descubre Más Tours" data-de="Mehr Touren Entdecken">Discover More Tours</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a href="contact.html" class="btn-outline-navy"><span data-en="Request a Custom Itinerary" data-fr="Demander un Itinéraire Sur Mesure" data-es="Solicitar un Itinerario a Medida" data-de="Individuelle Reiseroute Anfragen">Request a Custom Itinerary</span></a>
@@ -1317,7 +1345,6 @@
       </a>
 
     </div>
-    <p style="text-align:center;font-size:13px;color:var(--text-gray);font-style:italic;margin-bottom:24px;"><span data-en="* Prices shown are estimates and may vary by group size, season, and customization." data-fr="* Les prix indiqués sont des estimations et peuvent varier selon la taille du groupe, la saison et la personnalisation." data-es="* Los precios mostrados son estimados y pueden variar según el tamaño del grupo, la temporada y la personalización." data-de="* Die angegebenen Preise sind Schätzungen und können je nach Gruppengröße, Saison und Anpassung variieren.">* Prices shown are estimates and may vary by group size, season, and customization.</span></p>
     <div class="tours-cta">
       <a href="excursions.html" class="btn-arrow-gold"><span data-en="Discover More Excursions" data-fr="Découvrir Plus d'Excursions" data-es="Descubre Más Excursiones" data-de="Mehr Ausflüge Entdecken">Discover More Excursions</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a href="contact.html" class="btn-outline-navy"><span data-en="Request a Custom Itinerary" data-fr="Demander un Itinéraire Sur Mesure" data-es="Solicitar un Itinerario a Medida" data-de="Individuelle Reiseroute Anfragen">Request a Custom Itinerary</span></a>
@@ -1386,6 +1413,11 @@
     <div class="carousel-container">
       <button class="carousel-arrow left" data-target="services-carousel" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 6l-6 6 6 6"/></svg></button>
       <div class="services-grid" id="services-carousel">
+      <div class="service-card service-card-clone" data-clone-of="last" aria-hidden="true" tabindex="-1">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3><span data-en="No-Risk Booking" data-fr="Réservation Sans Risque" data-es="Reserva Sin Riesgo" data-de="Risikofreie Buchung">No-Risk Booking</span></h3>
+        <p><span data-en="Free cancellation up to 4 days before departure, instant confirmation, and a best-price guarantee." data-fr="Annulation gratuite jusqu'à 4 jours avant le départ, confirmation immédiate et meilleur prix garanti." data-es="Cancelación gratuita hasta 4 días antes de la salida, confirmación instantánea y el mejor precio garantizado." data-de="Kostenlose Stornierung bis 4 Tage vor Abreise, sofortige Bestätigung und Bestpreisgarantie.">Free cancellation up to 4 days before departure, instant confirmation, and a best-price guarantee.</span></p>
+      </div>
       <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
         <h3><span data-en="Born-and-Raised Guides" data-fr="Guides Nés au Pays" data-es="Guías Nacidos y Criados Aquí" data-de="Einheimische Guides">Born-and-Raised Guides</span></h3>
@@ -1406,6 +1438,11 @@
         <h3><span data-en="No-Risk Booking" data-fr="Réservation Sans Risque" data-es="Reserva Sin Riesgo" data-de="Risikofreie Buchung">No-Risk Booking</span></h3>
         <p><span data-en="Free cancellation up to 4 days before departure, instant confirmation, and a best-price guarantee." data-fr="Annulation gratuite jusqu'à 4 jours avant le départ, confirmation immédiate et meilleur prix garanti." data-es="Cancelación gratuita hasta 4 días antes de la salida, confirmación instantánea y el mejor precio garantizado." data-de="Kostenlose Stornierung bis 4 Tage vor Abreise, sofortige Bestätigung und Bestpreisgarantie.">Free cancellation up to 4 days before departure, instant confirmation, and a best-price guarantee.</span></p>
       </div>
+      <div class="service-card service-card-clone" data-clone-of="first" aria-hidden="true" tabindex="-1">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+        <h3><span data-en="Born-and-Raised Guides" data-fr="Guides Nés au Pays" data-es="Guías Nacidos y Criados Aquí" data-de="Einheimische Guides">Born-and-Raised Guides</span></h3>
+        <p><span data-en="Our guides grew up in the Atlas Mountains and Sahara Desert, sharing their homeland with genuine warmth and local knowledge." data-fr="Nos guides ont grandi dans l'Atlas et le Sahara, et partagent leur pays natal avec une chaleur et une connaissance authentiques." data-es="Nuestros guías crecieron en el Atlas y el Sahara, compartiendo su tierra natal con calidez genuina y conocimiento local." data-de="Unsere Guides sind im Atlasgebirge und der Sahara aufgewachsen und teilen ihre Heimat mit echter Wärme und lokalem Wissen.">Our guides grew up in the Atlas Mountains and Sahara Desert, sharing their homeland with genuine warmth and local knowledge.</span></p>
+      </div>
       </div>
       <button class="carousel-arrow right" data-target="services-carousel" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></button>
     </div>
@@ -1418,7 +1455,13 @@
       <span class="section-label"><span data-en="Testimonials" data-fr="Témoignages" data-es="Testimonios" data-de="Erfahrungsberichte">Testimonials</span></span>
       <h2 class="section-title"><span data-en="Let's See What Our Travelers Say" data-fr="Découvrons Ce Que Disent Nos Voyageurs" data-es="Veamos Lo Que Dicen Nuestros Viajeros" data-de="Sehen Wir, Was Unsere Reisenden Sagen">Let's See What Our Travelers Say</span></h2>
     </div>
-    <div class="testi-grid">
+    <div class="carousel-container">
+      <button class="carousel-arrow left" data-target="testi-carousel" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <div class="testi-grid" id="testi-carousel">
+      <div class="testi-card testi-card-clone" data-clone-of="last" aria-hidden="true" tabindex="-1">
+        <p class="quote"><span data-en="The riads and desert camp were lovely, and the camel ride through the Sahara was memorable and truly once in a lifetime. Our guide was phenomenal from start to finish." data-fr="Les riads et le camp désert étaient magnifiques, et la balade à dos de chameau dans le Sahara était mémorable, une expérience unique. Notre guide était exceptionnel du début à la fin." data-es="Los riads y el campamento del desierto fueron encantadores, y el paseo en camello por el Sahara fue memorable y verdaderamente único en la vida. Nuestro guía fue excepcional de principio a fin." data-de="Die Riads und das Wüstencamp waren wunderschön, und der Kamelritt durch die Sahara war unvergesslich und wirklich einmalig. Unser Guide war von Anfang bis Ende hervorragend.">The riads and desert camp were lovely, and the camel ride through the Sahara was memorable and truly once in a lifetime. Our guide was phenomenal from start to finish.</span></p>
+        <div class="testi-who"><img src="testimonial-3.jpg" alt="Christine B." class="testi-avatar"><span class="testi-who-text">Christine B. <span>Kendal, United Kingdom</span></span></div>
+      </div>
       <div class="testi-card">
         <p class="quote"><span data-en="Our two-day tour from Marrakech to Merzouga was fantastic for our family. Our guide was knowledgeable and answered all our questions. The whole trip exceeded our expectations." data-fr="Notre circuit de deux jours de Marrakech à Merzouga était fantastique pour notre famille. Notre guide était compétent et a répondu à toutes nos questions. Le voyage a dépassé nos attentes." data-es="Nuestro tour de dos días de Marrakech a Merzouga fue fantástico para nuestra familia. Nuestro guía tenía mucho conocimiento y respondió todas nuestras preguntas. Todo el viaje superó nuestras expectativas." data-de="Unsere zweitägige Tour von Marrakesch nach Merzouga war fantastisch für unsere Familie. Unser Guide war kompetent und beantwortete all unsere Fragen. Die ganze Reise übertraf unsere Erwartungen.">Our two-day tour from Marrakech to Merzouga was fantastic for our family. Our guide was knowledgeable and answered all our questions. The whole trip exceeded our expectations.</span></p>
         <div class="testi-who"><img src="testimonial-1.jpg" alt="Kelsey S." class="testi-avatar"><span class="testi-who-text">Kelsey S. <span>Livingston, Montana</span></span></div>
@@ -1431,6 +1474,12 @@
         <p class="quote"><span data-en="The riads and desert camp were lovely, and the camel ride through the Sahara was memorable and truly once in a lifetime. Our guide was phenomenal from start to finish." data-fr="Les riads et le camp désert étaient magnifiques, et la balade à dos de chameau dans le Sahara était mémorable, une expérience unique. Notre guide était exceptionnel du début à la fin." data-es="Los riads y el campamento del desierto fueron encantadores, y el paseo en camello por el Sahara fue memorable y verdaderamente único en la vida. Nuestro guía fue excepcional de principio a fin." data-de="Die Riads und das Wüstencamp waren wunderschön, und der Kamelritt durch die Sahara war unvergesslich und wirklich einmalig. Unser Guide war von Anfang bis Ende hervorragend.">The riads and desert camp were lovely, and the camel ride through the Sahara was memorable and truly once in a lifetime. Our guide was phenomenal from start to finish.</span></p>
         <div class="testi-who"><img src="testimonial-3.jpg" alt="Christine B." class="testi-avatar"><span class="testi-who-text">Christine B. <span>Kendal, United Kingdom</span></span></div>
       </div>
+      <div class="testi-card testi-card-clone" data-clone-of="first" aria-hidden="true" tabindex="-1">
+        <p class="quote"><span data-en="Our two-day tour from Marrakech to Merzouga was fantastic for our family. Our guide was knowledgeable and answered all our questions. The whole trip exceeded our expectations." data-fr="Notre circuit de deux jours de Marrakech à Merzouga était fantastique pour notre famille. Notre guide était compétent et a répondu à toutes nos questions. Le voyage a dépassé nos attentes." data-es="Nuestro tour de dos días de Marrakech a Merzouga fue fantástico para nuestra familia. Nuestro guía tenía mucho conocimiento y respondió todas nuestras preguntas. Todo el viaje superó nuestras expectativas." data-de="Unsere zweitägige Tour von Marrakesch nach Merzouga war fantastisch für unsere Familie. Unser Guide war kompetent und beantwortete all unsere Fragen. Die ganze Reise übertraf unsere Erwartungen.">Our two-day tour from Marrakech to Merzouga was fantastic for our family. Our guide was knowledgeable and answered all our questions. The whole trip exceeded our expectations.</span></p>
+        <div class="testi-who"><img src="testimonial-1.jpg" alt="Kelsey S." class="testi-avatar"><span class="testi-who-text">Kelsey S. <span>Livingston, Montana</span></span></div>
+      </div>
+      </div>
+      <button class="carousel-arrow right" data-target="testi-carousel" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></button>
     </div>
   </div>
 </section>
@@ -1442,7 +1491,22 @@
       <h2 class="section-title"><span data-en="Let's Read & Explore" data-fr="Lisons & Explorons" data-es="Leamos y Exploremos" data-de="Lasst uns Lesen & Entdecken">Let's Read & Explore</span></h2>
       <p class="section-text" style="margin: 0 auto;"><span data-en="Travel tips, stories, and guides to help you plan the perfect Morocco trip." data-fr="Conseils de voyage, récits et guides pour préparer le voyage parfait au Maroc." data-es="Consejos de viaje, historias y guías para planear el viaje perfecto a Marruecos." data-de="Reisetipps, Geschichten und Guides für die perfekte Marokko-Reise.">Travel tips, stories, and guides to help you plan the perfect Morocco trip.</span></p>
     </div>
-    <div class="blog-grid">
+    <div class="carousel-container">
+      <button class="carousel-arrow left" data-target="blog-carousel" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <div class="blog-grid" id="blog-carousel">
+      <div class="blog-card blog-card-clone" data-clone-of="last" aria-hidden="true" tabindex="-1">
+        <div class="blog-image">
+        <div class="blog-image-bg" style="background-image:url('blog-3.jpg');"></div><span class="blog-tag"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span></span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-meta">
+          <span>August 2026</span>
+        </div>
+          <h3><span data-en="Things to Do in Taghazout: Surfing, Camel Rides & Quad Tours" data-fr="Choses à Faire à Taghazout : Surf, Chameaux & Quad" data-es="Cosas que Hacer en Taghazout: Surf, Camellos y Quads" data-de="Dinge zu Tun in Taghazout: Surfen, Kamelritte & Quad-Touren">Things to Do in Taghazout: Surfing, Camel Rides & Quad Tours</span></h3>
+          <p><span data-en="From beginner surf lessons to sunset camel rides, here are the best ways to fill your days in Taghazout." data-fr="Des cours de surf pour débutants aux balades à dos de chameau au coucher du soleil, voici les meilleures façons d'occuper vos journées à Taghazout." data-es="Desde clases de surf para principiantes hasta paseos en camello al atardecer, estas son las mejores formas de llenar tus días en Taghazout." data-de="Von Surfkursen für Anfänger bis zu Kamelritten bei Sonnenuntergang, so füllen Sie Ihre Tage in Taghazout am besten.">From beginner surf lessons to sunset camel rides, here are the best ways to fill your days in Taghazout.</span></p>
+          <a href="blog-3.html" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
       <div class="blog-card">
         <div class="blog-image">
         <div class="blog-image-bg" style="background-image:url('blog-1.jpg');"></div><span class="blog-tag"><span data-en="Desert Travel" data-fr="Voyage Désert" data-es="Viaje al Desierto" data-de="Wüstenreise">Desert Travel</span></span>
@@ -1482,6 +1546,21 @@
           <a href="blog-3.html" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
+      <div class="blog-card blog-card-clone" data-clone-of="first" aria-hidden="true" tabindex="-1">
+        <div class="blog-image">
+        <div class="blog-image-bg" style="background-image:url('blog-1.jpg');"></div><span class="blog-tag"><span data-en="Desert Travel" data-fr="Voyage Désert" data-es="Viaje al Desierto" data-de="Wüstenreise">Desert Travel</span></span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-meta">
+          <span>August 2026</span>
+        </div>
+          <h3><span data-en="Merzouga Desert Tour: The Complete Guide" data-fr="Circuit Désert Merzouga : Le Guide Complet" data-es="Tour al Desierto de Merzouga: La Guía Completa" data-de="Merzouga-Wüstentour: Der Komplette Guide">Merzouga Desert Tour: The Complete Guide</span></h3>
+          <p><span data-en="Camel treks, Erg Chebbi dunes, desert camps, and the best route from Marrakech, everything you need to plan your Sahara trip." data-fr="Treks à dos de chameau, dunes de l'Erg Chebbi, camps désert et meilleur itinéraire depuis Marrakech, tout pour préparer votre voyage au Sahara." data-es="Paseos en camello, dunas de Erg Chebbi, campamentos y la mejor ruta desde Marrakech, todo para planear tu viaje al Sahara." data-de="Kamelritte, Erg-Chebbi-Dünen, Wüstencamps und die beste Route ab Marrakesch, alles für Ihre Sahara-Reise.">Camel treks, Erg Chebbi dunes, desert camps, and the best route from Marrakech, everything you need to plan your Sahara trip.</span></p>
+          <a href="blog-1.html" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      </div>
+      <button class="carousel-arrow right" data-target="blog-carousel" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></button>
     </div>
     <div class="tours-cta">
       <a href="blog.html" class="btn-arrow-gold"><span data-en="View More Blogs" data-fr="Voir Plus d'Articles" data-es="Ver Más Artículos" data-de="Mehr Blogs Ansehen">View More Blogs</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -1614,10 +1693,133 @@
   document.querySelectorAll('.carousel-arrow').forEach(function(btn) {
     btn.addEventListener('click', function() {
       var target = document.getElementById(btn.dataset.target);
-      var scrollAmount = target.querySelector('.why-card, .service-card').offsetWidth + 14;
+      var scrollAmount = target.querySelector('.why-card, .service-card, .testi-card, .blog-card').offsetWidth + 14;
       target.scrollBy({ left: btn.classList.contains('left') ? -scrollAmount : scrollAmount, behavior: 'smooth' });
     });
   });
+
+  // Infinite-loop mobile carousel with optional autoplay, shared by "Why
+  // Choose Us", "What Makes Us Different", "Testimonials" and "From the
+  // Blog". Leading/trailing clones give the illusion of an endless loop;
+  // once a clone settles into view we silently (no animation) snap back to
+  // the matching real card. When enabled, autoplay advances every 3.5s
+  // (matching the site's hero image carousel pacing), pausing on touch and
+  // resuming a few seconds after the user lets go.
+  function initInfiniteCarousel(trackId, cardClass, autoplay) {
+    var track = document.getElementById(trackId);
+    if (!track) return;
+    var cloneClass = cardClass + '-clone';
+    var mq = window.matchMedia('(max-width: 768px)');
+    var AUTOPLAY_MS = 3500;
+    var RESUME_DELAY_MS = 4000;
+    var autoplayTimer = null;
+    var resumeTimer = null;
+    var programmatic = false;
+
+    function realCards() {
+      return Array.prototype.slice.call(track.querySelectorAll('.' + cardClass)).filter(function(c) {
+        return !c.classList.contains(cloneClass);
+      });
+    }
+
+    function positionAt(el, smooth) {
+      var target = el.offsetLeft - (track.clientWidth - el.clientWidth) / 2;
+      programmatic = true;
+      track.scrollTo({ left: target, behavior: smooth ? 'smooth' : 'auto' });
+    }
+
+    function initPosition() {
+      if (!mq.matches) return;
+      var cards = realCards();
+      if (cards.length) positionAt(cards[0], false);
+    }
+
+    function stopAutoplay() {
+      clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+
+    function startAutoplay() {
+      if (!autoplay || !mq.matches || document.hidden) return;
+      stopAutoplay();
+      autoplayTimer = setInterval(function() {
+        var card = track.querySelector('.' + cardClass);
+        if (!card) return;
+        var cardWidth = card.offsetWidth + 14;
+        programmatic = true;
+        track.scrollBy({ left: cardWidth, behavior: 'smooth' });
+      }, AUTOPLAY_MS);
+    }
+
+    function scheduleResume() {
+      if (!autoplay) return;
+      clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(startAutoplay, RESUME_DELAY_MS);
+    }
+
+    function onInteractionStart() {
+      if (!mq.matches) return;
+      stopAutoplay();
+      clearTimeout(resumeTimer);
+    }
+
+    function onInteractionEnd() {
+      if (!mq.matches) return;
+      scheduleResume();
+    }
+
+    var scrollTimeout;
+    track.addEventListener('scroll', function() {
+      if (!mq.matches) return;
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(function() {
+        var cards = Array.prototype.slice.call(track.querySelectorAll('.' + cardClass));
+        var trackRect = track.getBoundingClientRect();
+        var center = trackRect.left + trackRect.width / 2;
+        var closest = null, closestDist = Infinity;
+        cards.forEach(function(c) {
+          var r = c.getBoundingClientRect();
+          var dist = Math.abs((r.left + r.width / 2) - center);
+          if (dist < closestDist) { closestDist = dist; closest = c; }
+        });
+        if (closest && closest.classList.contains(cloneClass)) {
+          var real = realCards();
+          var target = closest.dataset.cloneOf === 'first' ? real[0] : real[real.length - 1];
+          positionAt(target, false);
+        }
+        if (!programmatic) scheduleResume();
+        programmatic = false;
+      }, 120);
+    });
+
+    track.addEventListener('touchstart', onInteractionStart, { passive: true });
+    track.addEventListener('pointerdown', onInteractionStart);
+    track.addEventListener('touchend', onInteractionEnd, { passive: true });
+    track.addEventListener('pointerup', onInteractionEnd);
+    document.querySelectorAll('.carousel-arrow[data-target="' + trackId + '"]').forEach(function(btn) {
+      btn.addEventListener('click', onInteractionStart);
+    });
+
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) stopAutoplay();
+      else if (mq.matches) scheduleResume();
+    });
+
+    initPosition();
+    startAutoplay();
+    window.addEventListener('resize', function() {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(function() {
+        initPosition();
+        if (mq.matches) startAutoplay(); else stopAutoplay();
+      }, 150);
+    });
+  }
+
+  initInfiniteCarousel('why-carousel', 'why-card', true);
+  initInfiniteCarousel('services-carousel', 'service-card', true);
+  initInfiniteCarousel('testi-carousel', 'testi-card', true);
+  initInfiniteCarousel('blog-carousel', 'blog-card', false);
 
   var burgerToggle = document.getElementById('burger-toggle');
   var mobileMenu = document.getElementById('mobile-menu');
