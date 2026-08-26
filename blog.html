@@ -133,9 +133,11 @@
   .listing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
 
   .item-card { background: var(--white); border-radius: 10px; overflow: hidden; border: 1px solid var(--line); transition: transform 0.25s ease, box-shadow 0.25s ease; }
-  .item-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,51,102,0.12); }
-  .item-image { height: 210px; background-size: cover; background-position: center; position: relative; }
-  .item-tag { position: absolute; top: 14px; left: 14px; background: var(--gold); color: var(--white); font-size: 11.5px; font-weight: 700; padding: 6px 12px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .item-card:hover { transform: translateY(-6px); box-shadow: 0 20px 44px rgba(0,51,102,0.16); }
+  .item-image { height: 210px; position: relative; overflow: hidden; }
+  .item-image-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.45s ease; }
+  .item-card:hover .item-image-bg { transform: scale(1.09); }
+  .item-tag { position: absolute; top: 14px; left: 14px; z-index: 2; background: var(--gold); color: var(--white); font-size: 11.5px; font-weight: 700; padding: 6px 12px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.04em; }
   .item-body { padding: 22px 22px 24px; }
   .item-body h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
   .item-desc { color: var(--text-gray); font-size: 13.5px; margin-bottom: 16px; line-height: 1.6; }
@@ -320,7 +322,8 @@
 <section class="listing">
   <div class="container listing-grid">
     <div class="item-card">
-      <div class="item-image" style="background-image:url('blog-1.jpg');"><span class="item-tag"><span data-en="Desert Travel" data-fr="Voyage Désert" data-es="Viaje al Desierto" data-de="Wüstenreise">Desert Travel</span></span></div>
+      <div class="item-image">
+        <div class="item-image-bg" style="background-image:url('blog-1.jpg');"></div><span class="item-tag"><span data-en="Desert Travel" data-fr="Voyage Désert" data-es="Viaje al Desierto" data-de="Wüstenreise">Desert Travel</span></span></div>
       <div class="item-body">
         <h3><span data-en="Merzouga Desert Tour: The Complete Guide" data-fr="Circuit Désert Merzouga : Le Guide Complet" data-es="Tour al Desierto de Merzouga: La Guía Completa" data-de="Merzouga-Wüstentour: Der Komplette Guide">Merzouga Desert Tour: The Complete Guide</span></h3>
         <p class="item-desc"><span data-en="Camel treks, Erg Chebbi dunes, desert camps, and the best route from Marrakech, everything you need to plan your Sahara trip." data-fr="Treks à dos de chameau, dunes de l'Erg Chebbi, camps désert et meilleur itinéraire depuis Marrakech, tout pour préparer votre voyage au Sahara." data-es="Paseos en camello, dunas de Erg Chebbi, campamentos y la mejor ruta desde Marrakech, todo para planear tu viaje al Sahara." data-de="Kamelritte, Erg-Chebbi-Dünen, Wüstencamps und die beste Route ab Marrakesch, alles für Ihre Sahara-Reise.">Camel treks, Erg Chebbi dunes, desert camps, and the best route from Marrakech, everything you need to plan your Sahara trip.</span></p>
@@ -328,7 +331,8 @@
       </div>
     </div>
     <div class="item-card">
-      <div class="item-image" style="background-image:url('blog-2.jpg'); background-position: center 75%;"><span class="item-tag"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></span></div>
+      <div class="item-image">
+        <div class="item-image-bg" style="background-image:url('blog-2.jpg'); background-position: center 75%;"></div><span class="item-tag"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></span></div>
       <div class="item-body">
         <h3><span data-en="Marrakech Day Trip from Agadir: Everything You Need to Know" data-fr="Excursion à Marrakech depuis Agadir : Tout Savoir" data-es="Excursión a Marrakech desde Agadir: Todo lo que Necesitas Saber" data-de="Marrakesch-Tagesausflug ab Agadir: Alles Was Sie Wissen Müssen">Marrakech Day Trip from Agadir: Everything You Need to Know</span></h3>
         <p class="item-desc"><span data-en="From the souks of the Medina to Jemaa el-Fnaa square, here's how to make the most of a day trip to the Red City." data-fr="Des souks de la médina à la place Jemaa el-Fnaa, voici comment profiter au maximum d'une excursion à la Ville Rouge." data-es="Desde los zocos de la medina hasta la plaza Jemaa el-Fnaa, aquí te contamos cómo aprovechar al máximo una excursión a la Ciudad Roja." data-de="Von den Souks der Medina bis zum Jemaa-el-Fnaa-Platz, so machen Sie das Beste aus einem Tagesausflug in die Rote Stadt.">From the souks of the Medina to Jemaa el-Fnaa square, here's how to make the most of a day trip to the Red City.</span></p>
@@ -336,7 +340,8 @@
       </div>
     </div>
     <div class="item-card">
-      <div class="item-image" style="background-image:url('blog-3.jpg');"><span class="item-tag"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span></span></div>
+      <div class="item-image">
+        <div class="item-image-bg" style="background-image:url('blog-3.jpg');"></div><span class="item-tag"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span></span></div>
       <div class="item-body">
         <h3><span data-en="Things to Do in Taghazout: Surfing, Camel Rides & Quad Tours" data-fr="Choses à Faire à Taghazout : Surf, Chameaux & Quad" data-es="Cosas que Hacer en Taghazout: Surf, Camellos y Quads" data-de="Dinge zu Tun in Taghazout: Surfen, Kamelritte & Quad-Touren">Things to Do in Taghazout: Surfing, Camel Rides & Quad Tours</span></h3>
         <p class="item-desc"><span data-en="From beginner surf lessons to sunset camel rides, here are the best ways to fill your days in Taghazout." data-fr="Des cours de surf pour débutants aux balades à dos de chameau au coucher du soleil, voici les meilleures façons d'occuper vos journées à Taghazout." data-es="Desde clases de surf para principiantes hasta paseos en camello al atardecer, estas son las mejores formas de llenar tus días en Taghazout." data-de="Von Surfkursen für Anfänger bis zu Kamelritten bei Sonnenuntergang, so füllen Sie Ihre Tage in Taghazout am besten.">From beginner surf lessons to sunset camel rides, here are the best ways to fill your days in Taghazout.</span></p>

@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>5-Day Marrakech to Merzouga Desert Tour | Private Sahara Trip | Let's Camel Tours</title>
+<title>5-Day Marrakech to Merzouga Desert Tour | Let's Camel Tours</title>
+<meta name="description" content="Private 5-day Sahara trip from Marrakech via the High Atlas, Ait Benhaddou & Dades Valley to Merzouga's dunes. Berber camp overnight included.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -116,18 +117,19 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    background: none;
-    border: 1px solid rgba(255,255,255,0.4);
-    color: var(--off-white);
-    padding: 8px 12px;
-    border-radius: 4px;
+    background: transparent;
+    color: #F8FAFC;
+    border: 1.5px solid rgba(255,255,255,0.5);
+    padding: 8px 14px;
+    border-radius: 50px;
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
-    transition: color 0.25s ease, border-color 0.25s ease;
+    transition: border-color 0.25s ease, color 0.25s ease;
   }
-  .lang-toggle svg { width: 15px; height: 15px; }
+  .lang-toggle:hover { border-color: var(--gold); color: var(--gold); }
   .navbar.scrolled .lang-toggle { color: var(--navy); border-color: var(--line); }
+  .lang-toggle svg { width: 15px; height: 15px; }
 
   .lang-menu {
     position: absolute;
@@ -253,6 +255,7 @@
   h2.section-h { font-size: 24px; font-weight: 800; color: var(--navy); margin-bottom: 6px; }
   .section-sub { font-size: 14px; color: var(--text-gray); margin-bottom: 22px; }
   .content-section { scroll-margin-top: 86px; margin-bottom: 54px; }
+  #booking-form { scroll-margin-top: 86px; }
   .content-section:last-child { margin-bottom: 0; }
 
   .overview p { color: var(--text-gray); font-size: 15.5px; margin-bottom: 14px; }
@@ -270,34 +273,16 @@
     .map-embed-wrap { height: 340px; }
   }
 
-  /* Reviews */
-  .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-  .review-card { background: var(--off-white); border: 1px solid var(--line); border-radius: 10px; padding: 22px 20px; }
-  .review-stars { color: var(--gold); font-size: 15px; letter-spacing: 0.05em; margin-bottom: 10px; }
-  .review-text { font-size: 13.8px; color: var(--text-gray); line-height: 1.65; margin-bottom: 18px; }
-  .review-who { display: flex; align-items: center; gap: 10px; }
-  .review-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex-shrink: 0; background: var(--line); }
-  .review-name { font-size: 13.5px; font-weight: 700; color: var(--navy); }
-  .review-flag { font-size: 13px; }
-  .review-country { font-size: 12px; color: var(--text-gray); }
-  @media (max-width: 900px) {
-    .review-grid { grid-template-columns: 1fr; }
+@media (max-width: 900px) {
+    .highlight-grid { grid-template-columns: 1fr; }
   }
 
   /* Highlights grid */
-  .highlight-list { display: flex; flex-direction: column; gap: 10px; }
-  .highlight-item { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: #fff; transition: border-color 0.2s ease; }
-  .highlight-item[open] { border-color: var(--gold); }
-  .highlight-item summary { list-style: none; cursor: pointer; padding: 14px 16px; display: flex; align-items: center; gap: 12px; }
-  .highlight-item summary::-webkit-details-marker { display: none; }
   .highlight-icon { width: 38px; height: 38px; background: rgba(224,122,62,0.12); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .highlight-icon svg { width: 18px; height: 18px; color: var(--gold); }
-  .highlight-item-title { flex: 1; font-size: 13.8px; color: var(--navy); font-weight: 600; }
-  .highlight-chevron { width: 16px; height: 16px; color: var(--gold); flex-shrink: 0; transition: transform 0.25s ease; }
-  .highlight-item[open] .highlight-chevron { transform: rotate(180deg); }
-  .highlight-item-body { display: block !important; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; padding: 0 16px 0 66px; }
-  .highlight-item[open] .highlight-item-body { max-height: 200px; padding: 0 16px 16px 66px; }
-  .highlight-item-body p { color: var(--text-gray); font-size: 13.5px; }
+  .highlight-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .highlight-card { display: flex; gap: 12px; align-items: flex-start; padding: 16px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+  .highlight-card p { font-size: 13.5px; color: var(--navy); font-weight: 600; }
 
   /* Itinerary stepper/accordion */
   .day-list { position: relative; }
@@ -350,6 +335,12 @@
   .sidebar { background: var(--off-white); border: 1px solid var(--line); border-radius: 12px; padding: 26px 24px; height: fit-content; }
   .sidebar h3 { font-size: 16.5px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
   .sidebar .sub { font-size: 13px; color: var(--text-gray); margin-bottom: 18px; }
+  /* Summary card — same rules as the excursion / activity pages */
+  .quick-facts { border: 1px solid var(--line); border-radius: 8px; background: #fff; margin-bottom: 18px; }
+  .quick-fact-row { display: flex; align-items: center; gap: 10px; padding: 11px 14px; border-bottom: 1px solid var(--line); font-size: 13px; color: var(--text-gray); }
+  .quick-fact-row:last-child { border-bottom: none; }
+  .quick-fact-row svg { width: 16px; height: 16px; color: var(--gold); flex-shrink: 0; }
+  .quick-fact-row strong { color: var(--navy); font-weight: 700; }
 
   /* Sidebar agent — friendly human touch above the form */
   .sidebar-agent { display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
@@ -361,7 +352,7 @@
   .booking-form-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
   .booking-form-grid .full { grid-column: 1 / -1; }
   .booking-form label { display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--navy); margin-bottom: 6px; }
-  .booking-form input, .booking-form textarea {
+  .booking-form input, .booking-form select, .booking-form textarea {
     width: 100%;
     border: 1px solid var(--line);
     background: #fff;
@@ -372,8 +363,47 @@
     color: #1a1a1a;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
   }
-  .booking-form input:focus, .booking-form textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 4px rgba(224,122,62,0.12); }
+  .booking-form input:focus, .booking-form select:focus, .booking-form textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 4px rgba(224,122,62,0.12); }
   .booking-form textarea { min-height: 80px; resize: vertical; }
+  /* Two fields side by side (start/end date, adults/children) */
+  .booking-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
+  /* Native select, restyled to match the inputs */
+  .booking-form select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 32px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23003366' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 11px center;
+    background-size: 11px;
+  }
+  /* Keep date fields the same height as text inputs across browsers */
+  .booking-form input[type="date"] { min-height: 40px; line-height: 1.2; }
+  .booking-form input[type="date"]::-webkit-calendar-picker-indicator { cursor: pointer; opacity: 0.55; }
+  .booking-form input[type="date"]::-webkit-calendar-picker-indicator:hover { opacity: 1; }
+  /* Consent checkbox above the submit button */
+  .booking-form-check { display: flex; align-items: flex-start; gap: 9px; margin-top: 16px; }
+  .booking-form-check input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    min-width: 15px;
+    margin: 1px 0 0;
+    padding: 0;
+    accent-color: var(--gold);
+    cursor: pointer;
+  }
+  .booking-form-check label {
+    font-size: 11.5px;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--text-gray);
+    line-height: 1.45;
+    margin-bottom: 0;
+    cursor: pointer;
+  }
   .booking-form-submit { margin-top: 20px; width: 100%; text-align: center; font-size: 15.5px; padding: 16px; box-shadow: 0 10px 24px rgba(224,122,62,0.28); }
   .booking-form-note { font-size: 11.5px; color: var(--text-gray); margin-top: 10px; text-align: center; }
 
@@ -383,6 +413,26 @@
   .whatsapp-btn { position: fixed; bottom: 26px; right: 26px; z-index: 300; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0,0,0,0.25); transition: transform 0.25s ease, box-shadow 0.25s ease; }
   .whatsapp-btn:hover { transform: translateY(-3px) scale(1.08); box-shadow: 0 14px 30px rgba(37,211,102,0.45); }
   .whatsapp-btn svg { width: 30px; height: 30px; fill: #fff; }
+
+  /* Sticky mobile "Book Now" bar */
+  .mobile-book-bar { display: none; }
+  @media (max-width: 768px) {
+    .mobile-book-bar {
+      display: flex;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 230;
+      padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+      background: #fff;
+      border-top: 1px solid var(--line);
+      box-shadow: 0 -6px 20px rgba(0,0,0,0.08);
+    }
+    .mobile-book-bar .btn-gold { width: 100%; text-align: center; }
+    body { padding-bottom: 78px; }
+    .whatsapp-btn { bottom: 94px; }
+  }
 
   /* Footer */
   .footer { background: var(--off-white); color: var(--text-gray); padding: 60px 0 24px; border-top: 1px solid var(--line); }
@@ -430,11 +480,11 @@
         <a href="tours.html" class="active"><span data-en="Morocco Tours" data-fr="Circuits Maroc" data-es="Tours Marruecos" data-de="Marokko Touren">Morocco Tours</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
         <div class="nav-dropdown-menu">
           <div class="nav-dropdown-menu-inner">
-            <a href="tour-1.html">8-Day Grand Morocco Tour: Sahara & Rif Mountains</a>
-            <a href="tour-2.html">5-Day Marrakech to Merzouga Desert Tour</a>
-            <a href="tour-3.html">12-Day Morocco Tour: Casablanca to Marrakech & Sahara</a>
-            <a href="tour-4.html">9-Day Morocco Adventure: Marrakech, Sahara & Atlantic</a>
-            <a href="tours.html" style="color:var(--gold) !important;font-weight:700;">View All Tours →</a>
+            <a href="tour-1.html"><span data-en="8-Day Grand Morocco Tour: Sahara & Rif Mountains" data-fr="Circuit de 8 Jours au Maroc : Sahara et Rif" data-es="Tour de 8 Días por Marruecos: Sahara y Rif" data-de="8-Tägige Marokko-Tour: Sahara & Rif-Gebirge">8-Day Grand Morocco Tour: Sahara & Rif Mountains</span></a>
+            <a href="tour-2.html"><span data-en="5-Day Marrakech to Merzouga Desert Tour" data-fr="Circuit de 5 Jours : Marrakech à Merzouga" data-es="Tour de 5 Días: Marrakech a Merzouga" data-de="5-Tägige Tour: Marrakesch bis Merzouga">5-Day Marrakech to Merzouga Desert Tour</span></a>
+            <a href="tour-3.html"><span data-en="12-Day Morocco Tour: Casablanca to Marrakech & Sahara" data-fr="Circuit de 12 Jours : Casablanca à Marrakech et Sahara" data-es="Tour de 12 Días: Casablanca a Marrakech y Sahara" data-de="12-Tägige Marokko-Tour: Casablanca bis Marrakesch & Sahara">12-Day Morocco Tour: Casablanca to Marrakech & Sahara</span></a>
+            <a href="tour-4.html"><span data-en="9-Day Morocco Adventure: Marrakech, Sahara & Atlantic" data-fr="Aventure de 9 Jours : Marrakech, Sahara et Atlantique" data-es="Aventura de 9 Días: Marrakech, Sahara y Atlántico" data-de="9-Tägiges Marokko-Abenteuer: Marrakesch, Sahara & Atlantik">9-Day Morocco Adventure: Marrakech, Sahara & Atlantic</span></a>
+            <a href="tours.html" style="color:var(--gold) !important;font-weight:700;"><span data-en="View All Tours →" data-fr="Voir Tous les Circuits →" data-es="Ver Todos los Tours →" data-de="Alle Touren Ansehen →">View All Tours →</span></a>
           </div>
         </div>
       </div>
@@ -442,10 +492,10 @@
         <a href="excursions.html"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
         <div class="nav-dropdown-menu">
           <div class="nav-dropdown-menu-inner">
-            <a href="excursion-1.html">Day Trip to Essaouira</a>
-            <a href="excursion-2.html">Day Trip to Marrakech</a>
-            <a href="excursion-3.html">Paradise Valley</a>
-            <a href="excursions.html" style="color:var(--gold) !important;font-weight:700;">View All Excursions →</a>
+            <a href="excursion-1.html"><span data-en="Day Trip to Essaouira" data-fr="Excursion à Essaouira" data-es="Excursión a Essaouira" data-de="Tagesausflug nach Essaouira">Day Trip to Essaouira</span></a>
+            <a href="excursion-2.html"><span data-en="Day Trip to Marrakech" data-fr="Excursion à Marrakech" data-es="Excursión a Marrakech" data-de="Tagesausflug nach Marrakesch">Day Trip to Marrakech</span></a>
+            <a href="excursion-3.html"><span data-en="Paradise Valley" data-fr="Paradise Valley" data-es="Paradise Valley" data-de="Paradise Valley">Paradise Valley</span></a>
+            <a href="excursions.html" style="color:var(--gold) !important;font-weight:700;"><span data-en="View All Excursions →" data-fr="Voir Toutes les Excursions →" data-es="Ver Todas las Excursiones →" data-de="Alle Ausflüge Ansehen →">View All Excursions →</span></a>
           </div>
         </div>
       </div>
@@ -453,10 +503,10 @@
         <a href="activities.html"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
         <div class="nav-dropdown-menu">
           <div class="nav-dropdown-menu-inner">
-            <a href="activity-1.html">Beach Horse Riding</a>
-            <a href="activity-2.html">Quad Biking</a>
-            <a href="activity-3.html">Private Surf Lesson</a>
-            <a href="activities.html" style="color:var(--gold) !important;font-weight:700;">View All Activities →</a>
+            <a href="activity-1.html"><span data-en="Beach Horse Riding" data-fr="Équitation sur la Plage" data-es="Paseo a Caballo en la Playa" data-de="Strandreiten">Beach Horse Riding</span></a>
+            <a href="activity-2.html"><span data-en="Quad Biking" data-fr="Quad" data-es="Quad" data-de="Quad-Fahren">Quad Biking</span></a>
+            <a href="activity-3.html"><span data-en="Private Surf Lesson" data-fr="Cours de Surf Privé" data-es="Clase de Surf Privada" data-de="Privater Surfkurs">Private Surf Lesson</span></a>
+            <a href="activities.html" style="color:var(--gold) !important;font-weight:700;"><span data-en="View All Activities →" data-fr="Voir Toutes les Activités →" data-es="Ver Todas las Actividades →" data-de="Alle Aktivitäten Ansehen →">View All Activities →</span></a>
           </div>
         </div>
       </div>
@@ -477,7 +527,7 @@
         <button class="lang-option" data-lang="es">Español</button>
         <button class="lang-option" data-lang="de">Deutsch</button>
       </div>
-      <a href="#contact" class="btn-book"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+      <a href="#booking-form" class="btn-book"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
       <button class="burger" id="burger-toggle" aria-label="Menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
@@ -499,7 +549,7 @@
   <a href="about-us.html"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
   <a href="index.html#blog"><span data-en="Blogs" data-fr="Blogs" data-es="Blogs" data-de="Blogs">Blogs</span></a>
   <a href="contact.html"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
-  <a href="#contact" class="btn-book" style="display:block;text-align:center;margin-top:16px;"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+  <a href="#booking-form" class="btn-book" style="display:block;text-align:center;margin-top:16px;"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
 </div>
 
 <section class="hero">
@@ -546,7 +596,6 @@
     <a href="#itinerary" class="anchor-link"><span data-en="Itinerary" data-fr="Itinéraire" data-es="Itinerario" data-de="Reiseroute">Itinerary</span></a>
     <a href="#included" class="anchor-link"><span data-en="Included / Excluded" data-fr="Inclus / Exclus" data-es="Incluido / Excluido" data-de="Inklusive / Exklusive">Included / Excluded</span></a>
     <a href="#accommodations" class="anchor-link"><span data-en="Accommodations" data-fr="Hébergements" data-es="Alojamientos" data-de="Unterkünfte">Accommodations</span></a>
-    <a href="#reviews" class="anchor-link"><span data-en="Reviews" data-fr="Avis" data-es="Reseñas" data-de="Bewertungen">Reviews</span></a>
     <a href="#contact" class="anchor-link"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
   </div>
 </nav>
@@ -566,71 +615,39 @@
 
       <div class="content-section" id="highlights">
         <h2 class="section-h"><span data-en="Trip Highlights" data-fr="Points Forts du Voyage" data-es="Puntos Destacados" data-de="Reise-Highlights">Trip Highlights</span></h2>
-        <div class="highlight-list">
-          <details class="highlight-item">
-            <summary>
-              <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21l6-14 4 8 3-6 5 12"/></svg></div>
-              <span class="highlight-item-title"><span data-en="Tizi n'Tichka pass over the High Atlas Mountains" data-fr="Col de Tizi n'Tichka à travers le Haut Atlas" data-es="Puerto de Tizi n'Tichka a través del Alto Atlas" data-de="Tizi-n'-Tichka-Pass über den Hohen Atlas">Tizi n'Tichka pass over the High Atlas Mountains</span></span>
-              <svg class="highlight-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-            </summary>
-            <div class="highlight-item-body"><p><span data-en="At over 2,260m, this is the highest paved mountain pass in North Africa, with dramatic switchbacks and panoramic viewpoints over Berber villages." data-fr="À plus de 2 260 m d'altitude, c'est le plus haut col de montagne goudronné d'Afrique du Nord, avec des lacets spectaculaires et des points de vue panoramiques sur les villages berbères." data-es="A más de 2.260 m de altitud, es el puerto de montaña asfaltado más alto del norte de África, con espectaculares curvas cerradas y miradores panorámicos sobre pueblos bereberes." data-de="Mit über 2.260 m Höhe ist dies der höchste asphaltierte Gebirgspass Nordafrikas, mit dramatischen Serpentinen und Panoramablicken auf Berberdörfer.">At over 2,260m, this is the highest paved mountain pass in North Africa, with dramatic switchbacks and panoramic viewpoints over Berber villages.</span></p></div>
-          </details>
-          <details class="highlight-item">
-            <summary>
-              <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="10" rx="1"/><path d="M8 10V7a4 4 0 018 0v3"/></svg></div>
-              <span class="highlight-item-title"><span data-en="UNESCO-listed kasbah of Ait Benhaddou" data-fr="Kasbah d'Aït Benhaddou, classée UNESCO" data-es="Kasbah de Ait Benhaddou, Patrimonio de la UNESCO" data-de="UNESCO-gelistete Kasbah von Ait Benhaddou">UNESCO-listed kasbah of Ait Benhaddou</span></span>
-              <svg class="highlight-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-            </summary>
-            <div class="highlight-item-body"><p><span data-en="This fortified ksar of red-earth kasbahs has featured in countless films, from Lawrence of Arabia to Game of Thrones, and remains inhabited by a handful of families today." data-fr="Ce ksar fortifié de kasbahs en terre rouge a servi de décor à d'innombrables films, de Lawrence d'Arabie à Game of Thrones, et reste habité aujourd'hui par quelques familles." data-es="Este ksar fortificado de kasbahs de tierra roja ha aparecido en innumerables películas, desde Lawrence de Arabia hasta Juego de Tronos, y hoy sigue habitado por unas pocas familias." data-de="Dieser befestigte Ksar aus roten Lehm-Kasbahs war Schauplatz unzähliger Filme, von Lawrence von Arabien bis Game of Thrones, und wird noch heute von wenigen Familien bewohnt.">This fortified ksar of red-earth kasbahs has featured in countless films, from Lawrence of Arabia to Game of Thrones, and remains inhabited by a handful of families today.</span></p></div>
-          </details>
-          <details class="highlight-item">
-            <summary>
-              <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 18l4-4 4 3 5-8 5 6"/></svg></div>
-              <span class="highlight-item-title"><span data-en="Dades Valley and the dramatic Todra Gorge" data-fr="Vallée du Dadès et les spectaculaires gorges du Todra" data-es="Valle del Dadés y la espectacular Garganta del Todra" data-de="Dades-Tal und die dramatische Todra-Schlucht">Dades Valley and the dramatic Todra Gorge</span></span>
-              <svg class="highlight-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-            </summary>
-            <div class="highlight-item-body"><p><span data-en="Wind through rose-colored rock formations in the Dades Valley before entering the Todra Gorge, where 300-meter limestone cliffs narrow to just a few meters apart." data-fr="Serpentez entre les formations rocheuses roses de la vallée du Dadès avant d'entrer dans les gorges du Todra, où des falaises calcaires de 300 mètres se resserrent sur quelques mètres seulement." data-es="Serpentea entre formaciones rocosas rosadas en el Valle del Dadés antes de entrar en la Garganta del Todra, donde acantilados calizos de 300 metros se estrechan a solo unos metros de distancia." data-de="Schlängeln Sie sich durch rosafarbene Felsformationen im Dades-Tal, bevor Sie die Todra-Schlucht betreten, wo sich 300 Meter hohe Kalksteinklippen auf nur wenige Meter verengen.">Wind through rose-colored rock formations in the Dades Valley before entering the Todra Gorge, where 300-meter limestone cliffs narrow to just a few meters apart.</span></p></div>
-          </details>
-          <details class="highlight-item">
-            <summary>
-              <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10l9-7 9 7v10a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></svg></div>
-              <span class="highlight-item-title"><span data-en="Camel trek and overnight camp in the Erg Chebbi dunes" data-fr="Trek à dos de chameau et nuit en camp dans les dunes de l'Erg Chebbi" data-es="Paseo en camello y campamento nocturno en las dunas de Erg Chebbi" data-de="Kameltrekking und Übernachtung im Camp in den Dünen von Erg Chebbi">Camel trek and overnight camp in the Erg Chebbi dunes</span></span>
-              <svg class="highlight-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-            </summary>
-            <div class="highlight-item-body"><p><span data-en="Ride camels into the towering orange dunes of Erg Chebbi at sunset, then spend the night in a traditional Berber camp beneath one of the clearest night skies in Morocco." data-fr="Partez à dos de chameau dans les hautes dunes orangées de l'Erg Chebbi au coucher du soleil, puis passez la nuit dans un camp berbère traditionnel sous l'un des ciels étoilés les plus clairs du Maroc." data-es="Monta en camello hacia las imponentes dunas naranjas de Erg Chebbi al atardecer y pasa la noche en un campamento bereber tradicional bajo uno de los cielos nocturnos más despejados de Marruecos." data-de="Reiten Sie bei Sonnenuntergang auf Kamelen in die hoch aufragenden orangefarbenen Dünen von Erg Chebbi und verbringen Sie die Nacht in einem traditionellen Berbercamp unter einem der klarsten Nachthimmel Marokkos.">Ride camels into the towering orange dunes of Erg Chebbi at sunset, then spend the night in a traditional Berber camp beneath one of the clearest night skies in Morocco.</span></p></div>
-          </details>
-          <details class="highlight-item">
-            <summary>
-              <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12h1M12 12h1M16 12h1"/></svg></div>
-              <span class="highlight-item-title"><span data-en="Gnawa music with the Khamlia village musicians" data-fr="Musique gnaoua avec les musiciens du village de Khamlia" data-es="Música gnawa con los músicos del pueblo de Khamlia" data-de="Gnaoua-Musik mit den Musikern des Dorfes Khamlia">Gnawa music with the Khamlia village musicians</span></span>
-              <svg class="highlight-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-            </summary>
-            <div class="highlight-item-body"><p><span data-en="The musicians of Khamlia, descendants of sub-Saharan traders, perform hypnotic Gnawa rhythms passed down through generations — a living piece of Saharan history." data-fr="Les musiciens de Khamlia, descendants de commerçants subsahariens, interprètent des rythmes gnaouas envoûtants transmis de génération en génération — un pan vivant de l'histoire saharienne." data-es="Los músicos de Khamlia, descendientes de comerciantes subsaharianos, interpretan ritmos gnawa hipnóticos transmitidos de generación en generación — un fragmento vivo de la historia sahariana." data-de="Die Musiker von Khamlia, Nachkommen subsaharischer Händler, spielen hypnotische, über Generationen weitergegebene Gnaoua-Rhythmen — ein lebendiges Stück Sahara-Geschichte.">The musicians of Khamlia, descendants of sub-Saharan traders, perform hypnotic Gnawa rhythms passed down through generations — a living piece of Saharan history.</span></p></div>
-          </details>
-          <details class="highlight-item">
-            <summary>
-              <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
-              <span class="highlight-item-title"><span data-en="Visit with a nomad family in the Sahara" data-fr="Visite d'une famille nomade dans le Sahara" data-es="Visita a una familia nómada en el Sahara" data-de="Besuch bei einer Nomadenfamilie in der Sahara">Visit with a nomad family in the Sahara</span></span>
-              <svg class="highlight-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-            </summary>
-            <div class="highlight-item-body"><p><span data-en="Share mint tea inside a nomad family's tent at the edge of the erg and learn firsthand how desert communities still live a semi-nomadic life today." data-fr="Partagez un thé à la menthe sous la tente d'une famille nomade en bordure de l'erg et découvrez de première main comment les communautés du désert vivent encore aujourd'hui une vie semi-nomade." data-es="Comparte un té de menta dentro de la tienda de una familia nómada al borde del erg y descubre de primera mano cómo las comunidades del desierto aún viven una vida seminómada hoy en día." data-de="Teilen Sie Minztee im Zelt einer Nomadenfamilie am Rand des Erg und erfahren Sie aus erster Hand, wie Wüstengemeinschaften bis heute ein halbnomadisches Leben führen.">Share mint tea inside a nomad family's tent at the edge of the erg and learn firsthand how desert communities still live a semi-nomadic life today.</span></p></div>
-          </details>
-          <details class="highlight-item">
-            <summary>
-              <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></div>
-              <span class="highlight-item-title"><span data-en="Rissani's ancient caravan souk" data-fr="Ancien souk caravanier de Rissani" data-es="Antiguo zoco caravanero de Rissani" data-de="Antiker Karawanen-Souk von Rissani">Rissani's ancient caravan souk</span></span>
-              <svg class="highlight-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-            </summary>
-            <div class="highlight-item-body"><p><span data-en="Once the last stop on the trans-Saharan caravan routes, Rissani's covered souk still trades in dates, spices, and silver jewelry much as it has for centuries." data-fr="Autrefois dernière étape des routes caravanières transsahariennes, le souk couvert de Rissani commerce toujours dattes, épices et bijoux en argent comme il le fait depuis des siècles." data-es="Antaño última parada de las rutas de caravanas transaharianas, el zoco cubierto de Rissani sigue comerciando con dátiles, especias y joyas de plata como lo ha hecho durante siglos." data-de="Einst letzte Station der transsaharischen Karawanenrouten, handelt der überdachte Souk von Rissani noch heute mit Datteln, Gewürzen und Silberschmuck wie seit Jahrhunderten.">Once the last stop on the trans-Saharan caravan routes, Rissani's covered souk still trades in dates, spices, and silver jewelry much as it has for centuries.</span></p></div>
-          </details>
-          <details class="highlight-item">
-            <summary>
-              <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V9l8-6 8 6v12M9 21v-6h6v6"/></svg></div>
-              <span class="highlight-item-title"><span data-en="Kasbah Taourirt in Ouarzazate, the door of the desert" data-fr="Kasbah Taourirt à Ouarzazate, la porte du désert" data-es="Kasbah Taourirt en Ouarzazate, la puerta del desierto" data-de="Kasbah Taourirt in Ouarzazate, das Tor zur Wüste">Kasbah Taourirt in Ouarzazate, the door of the desert</span></span>
-              <svg class="highlight-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-            </summary>
-            <div class="highlight-item-body"><p><span data-en="Once the seat of power for the influential Glaoui family, this sprawling earthen kasbah showcases the intricate craftsmanship of traditional southern Moroccan architecture." data-fr="Ancien siège du pouvoir de l'influente famille Glaoui, cette vaste kasbah en terre témoigne du savoir-faire minutieux de l'architecture traditionnelle du sud marocain." data-es="Antigua sede de poder de la influyente familia Glaoui, esta extensa kasbah de tierra muestra el intrincado artesanado de la arquitectura tradicional del sur de Marruecos." data-de="Einst Machtsitz der einflussreichen Glaoui-Familie, zeigt diese weitläufige Lehm-Kasbah die kunstvolle Handwerkskunst der traditionellen südmarokkanischen Architektur.">Once the seat of power for the influential Glaoui family, this sprawling earthen kasbah showcases the intricate craftsmanship of traditional southern Moroccan architecture.</span></p></div>
-          </details>
+        <div class="highlight-grid">
+          <div class="highlight-card">
+            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21l6-14 4 8 3-6 5 12"/></svg></div>
+            <p><span data-en="Tizi n'Tichka pass over the High Atlas Mountains" data-fr="Col de Tizi n'Tichka à travers le Haut Atlas" data-es="Puerto de Tizi n'Tichka a través del Alto Atlas" data-de="Tizi-n'-Tichka-Pass über den Hohen Atlas">Tizi n'Tichka pass over the High Atlas Mountains</span></p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="10" rx="1"/><path d="M8 10V7a4 4 0 018 0v3"/></svg></div>
+            <p><span data-en="UNESCO-listed kasbah of Ait Benhaddou" data-fr="Kasbah d'Aït Benhaddou, classée UNESCO" data-es="Kasbah de Ait Benhaddou, Patrimonio de la UNESCO" data-de="UNESCO-gelistete Kasbah von Ait Benhaddou">UNESCO-listed kasbah of Ait Benhaddou</span></p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 18l4-4 4 3 5-8 5 6"/></svg></div>
+            <p><span data-en="Dades Valley and the dramatic Todra Gorge" data-fr="Vallée du Dadès et les spectaculaires gorges du Todra" data-es="Valle del Dadés y la espectacular Garganta del Todra" data-de="Dades-Tal und die dramatische Todra-Schlucht">Dades Valley and the dramatic Todra Gorge</span></p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10l9-7 9 7v10a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></svg></div>
+            <p><span data-en="Camel trek and overnight camp in the Erg Chebbi dunes" data-fr="Trek à dos de chameau et nuit en camp dans les dunes de l'Erg Chebbi" data-es="Paseo en camello y campamento nocturno en las dunas de Erg Chebbi" data-de="Kameltrekking und Übernachtung im Camp in den Dünen von Erg Chebbi">Camel trek and overnight camp in the Erg Chebbi dunes</span></p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12h1M12 12h1M16 12h1"/></svg></div>
+            <p><span data-en="Gnawa music with the Khamlia village musicians" data-fr="Musique gnaoua avec les musiciens du village de Khamlia" data-es="Música gnawa con los músicos del pueblo de Khamlia" data-de="Gnaoua-Musik mit den Musikern des Dorfes Khamlia">Gnawa music with the Khamlia village musicians</span></p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+            <p><span data-en="Visit with a nomad family in the Sahara" data-fr="Visite d'une famille nomade dans le Sahara" data-es="Visita a una familia nómada en el Sahara" data-de="Besuch bei einer Nomadenfamilie in der Sahara">Visit with a nomad family in the Sahara</span></p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p><span data-en="Rissani's ancient caravan souk" data-fr="Ancien souk caravanier de Rissani" data-es="Antiguo zoco caravanero de Rissani" data-de="Antiker Karawanen-Souk von Rissani">Rissani's ancient caravan souk</span></p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V9l8-6 8 6v12M9 21v-6h6v6"/></svg></div>
+            <p><span data-en="Kasbah Taourirt in Ouarzazate, the door of the desert" data-fr="Kasbah Taourirt à Ouarzazate, la porte du désert" data-es="Kasbah Taourirt en Ouarzazate, la puerta del desierto" data-de="Kasbah Taourirt in Ouarzazate, das Tor zur Wüste">Kasbah Taourirt in Ouarzazate, the door of the desert</span></p>
+          </div>
         </div>
       </div>
 
@@ -809,52 +826,18 @@
         </div>
       </div>
 
-      <div class="content-section" id="reviews">
-        <h2 class="section-h"><span data-en="What Our Travelers Say" data-fr="Ce Que Disent Nos Voyageurs" data-es="Lo Que Dicen Nuestros Viajeros" data-de="Was Unsere Reisenden Sagen">What Our Travelers Say</span></h2>
-        <p class="section-sub"><span data-en="Real feedback from travelers who completed this exact route." data-fr="De vrais retours de voyageurs ayant parcouru cet itinéraire exact." data-es="Opiniones reales de viajeros que completaron esta misma ruta." data-de="Echtes Feedback von Reisenden, die genau diese Route absolviert haben.">Real feedback from travelers who completed this exact route.</span></p>
-
-        <div class="review-grid">
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text"><span data-en="Two full days around Merzouga made all the difference — the Gnawa music in Khamlia and tea with the nomad family were things we'd never have found on our own." data-fr="Deux jours complets autour de Merzouga ont tout changé — la musique gnaoua à Khamlia et le thé avec la famille nomade sont des choses que nous n'aurions jamais découvertes seuls." data-es="Dos días completos alrededor de Merzouga marcaron la diferencia — la música gnawa en Khamlia y el té con la familia nómada fueron cosas que nunca habríamos descubierto solos." data-de="Zwei volle Tage rund um Merzouga machten den Unterschied — die Gnaoua-Musik in Khamlia und der Tee mit der Nomadenfamilie waren Dinge, die wir alleine nie entdeckt hätten.">Two full days around Merzouga made all the difference — the Gnawa music in Khamlia and tea with the nomad family were things we'd never have found on our own.</span></p>
-            <div class="review-who">
-              <img src="tour2-review-1.jpg" alt="Claire D." class="review-avatar">
-              <div>
-                <div class="review-name">Claire D. <span class="review-flag">🇫🇷</span></div>
-                <div class="review-country"><span data-en="France" data-fr="France" data-es="Francia" data-de="Frankreich">France</span></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text"><span data-en="Ait Benhaddou on day one already blew us away, and the second night in the dunes after the free day of exploring was the highlight of our whole trip." data-fr="Aït Benhaddou dès le premier jour nous a déjà impressionnés, et la seconde nuit dans les dunes après la journée libre d'exploration a été le point fort de tout notre voyage." data-es="Ait Benhaddou el primer día ya nos impresionó, y la segunda noche en las dunas tras el día libre de exploración fue lo más destacado de todo nuestro viaje." data-de="Ait Benhaddou am ersten Tag hat uns bereits beeindruckt, und die zweite Nacht in den Dünen nach dem freien Erkundungstag war der Höhepunkt unserer ganzen Reise.">Ait Benhaddou on day one already blew us away, and the second night in the dunes after the free day of exploring was the highlight of our whole trip.</span></p>
-            <div class="review-who">
-              <img src="tour2-review-2.jpg" alt="Tom & Lisa" class="review-avatar">
-              <div>
-                <div class="review-name">Tom & Lisa <span class="review-flag">🇺🇸</span></div>
-                <div class="review-country"><span data-en="United States" data-fr="États-Unis" data-es="Estados Unidos" data-de="Vereinigte Staaten">United States</span></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text"><span data-en="A perfect short break from Marrakech. The Todra Gorge and the Rissani souk were unexpected highlights, and our driver made sure we never felt rushed." data-fr="Une escapade parfaite depuis Marrakech. Les gorges du Todra et le souk de Rissani ont été des points forts inattendus, et notre chauffeur a fait en sorte que nous ne nous sentions jamais pressés." data-es="Una escapada perfecta desde Marrakech. La Garganta del Todra y el zoco de Rissani fueron sorpresas destacadas, y nuestro conductor se aseguró de que nunca nos sintiéramos apurados." data-de="Ein perfekter kurzer Ausflug ab Marrakesch. Die Todra-Schlucht und der Souk von Rissani waren unerwartete Höhepunkte, und unser Fahrer sorgte dafür, dass wir uns nie gehetzt fühlten.">A perfect short break from Marrakech. The Todra Gorge and the Rissani souk were unexpected highlights, and our driver made sure we never felt rushed.</span></p>
-            <div class="review-who">
-              <img src="tour2-review-3.jpg" alt="Yuki T." class="review-avatar">
-              <div>
-                <div class="review-name">Yuki T. <span class="review-flag">🇯🇵</span></div>
-                <div class="review-country"><span data-en="Japan" data-fr="Japon" data-es="Japón" data-de="Japan">Japan</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
     </div>
 
     <div class="sidebar" id="contact">
+      <h3><span data-en="Tour Summary" data-fr="Résumé du Circuit" data-es="Resumen del Tour" data-de="Tour-Überblick">Tour Summary</span></h3>
+      <div class="quick-facts">
+        <div class="quick-fact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> <span><strong><span data-en="Duration:" data-fr="Durée :" data-es="Duración:" data-de="Dauer:">Duration:</span></strong> <span data-en="5 Days / 4 Nights" data-fr="5 Jours / 4 Nuits" data-es="5 Días / 4 Noches" data-de="5 Tage / 4 Nächte">5 Days / 4 Nights</span></span></div>
+        <div class="quick-fact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21C7 17 3 13.5 3 9a5 5 0 019-3 5 5 0 019 3c0 4.5-4 8-9 12z"/></svg> <span><strong><span data-en="Route:" data-fr="Itinéraire :" data-es="Ruta:" data-de="Route:">Route:</span></strong> <span data-en="Starts & Ends in Marrakech" data-fr="Départ et Retour à Marrakech" data-es="Inicio y Fin en Marrakech" data-de="Start & Ende in Marrakesch">Starts & Ends in Marrakech</span></span></div>
+        <div class="quick-fact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg> <span><strong><span data-en="Tour Type:" data-fr="Type de Circuit :" data-es="Tipo de Tour:" data-de="Tourart:">Tour Type:</span></strong> <span data-en="Private Sahara Experience" data-fr="Expérience Privée du Sahara" data-es="Experiencia Privada del Sahara" data-de="Private Sahara-Erfahrung">Private Sahara Experience</span></span></div>
+        <div class="quick-fact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M7 7V5a2 2 0 012-2h6a2 2 0 012 2v2"/></svg> <span><strong><span data-en="Transport:" data-fr="Transport :" data-es="Transporte:" data-de="Transport:">Transport:</span></strong> <span data-en="Private Vehicle & Driver" data-fr="Véhicule Privé et Chauffeur" data-es="Vehículo Privado y Conductor" data-de="Privates Fahrzeug & Fahrer">Private Vehicle & Driver</span></span></div>
+      </div>
+
       <div class="sidebar-agent">
         <img src="images-yassmina-profile.jpg" alt="Yassmina, Let's Camel Tours travel expert" class="sidebar-agent-avatar">
         <p class="sidebar-agent-greeting"><span data-en="Hi, I'm Yassmina!" data-fr="Bonjour, je suis Yassmina !" data-es="¡Hola, soy Yassmina!" data-de="Hallo, ich bin Yassmina!">Hi, I'm Yassmina!</span></p>
@@ -877,13 +860,35 @@
             <label for="bf-phone"><span data-en="Phone / WhatsApp" data-fr="Téléphone / WhatsApp" data-es="Teléfono / WhatsApp" data-de="Telefon / WhatsApp">Phone / WhatsApp</span></label>
             <input type="tel" id="bf-phone" name="phone" required data-en-ph="+1 234 567 8900" data-fr-ph="+33 6 12 34 56 78" data-es-ph="+34 612 34 56 78" data-de-ph="+49 151 23456789" placeholder="+1 234 567 8900">
           </div>
-          <div>
-            <label for="bf-dates"><span data-en="Travel Dates" data-fr="Dates de Voyage" data-es="Fechas de Viaje" data-de="Reisedaten">Travel Dates</span></label>
-            <input type="text" id="bf-dates" name="dates" data-en-ph="e.g. 12–16 October 2026" data-fr-ph="ex. 12–16 octobre 2026" data-es-ph="ej. 12–16 octubre 2026" data-de-ph="z.B. 12.–16. Oktober 2026" placeholder="e.g. 12–16 October 2026">
+          <div class="booking-form-row">
+            <div>
+              <label for="bf-start-date"><span data-en="Start Date" data-fr="Date de Début" data-es="Fecha de Inicio" data-de="Startdatum">Start Date</span></label>
+              <input type="date" id="bf-start-date" name="start_date">
+            </div>
+            <div>
+              <label for="bf-end-date"><span data-en="End Date" data-fr="Date de Fin" data-es="Fecha de Fin" data-de="Enddatum">End Date</span></label>
+              <input type="date" id="bf-end-date" name="end_date">
+            </div>
           </div>
           <div>
-            <label for="bf-guests"><span data-en="Number of Guests" data-fr="Nombre de Voyageurs" data-es="Número de Viajeros" data-de="Anzahl der Reisenden">Number of Guests</span></label>
-            <input type="number" id="bf-guests" name="guests" min="1" max="30" data-en-ph="e.g. 2" data-fr-ph="ex. 2" data-es-ph="ej. 2" data-de-ph="z.B. 2" placeholder="e.g. 2">
+            <label for="bf-accommodation"><span data-en="Accommodation" data-fr="Hébergement" data-es="Alojamiento" data-de="Unterkunft">Accommodation</span></label>
+            <select id="bf-accommodation" name="accommodation">
+              <option value="standard-desert-camp" data-en="Standard Desert Camp" data-fr="Camp Désert Standard" data-es="Campamento Desierto Estándar" data-de="Standard-Wüstencamp">Standard Desert Camp</option>
+              <option value="luxury-desert-camp" data-en="Luxury Desert Camp" data-fr="Camp Désert de Luxe" data-es="Campamento Desierto de Lujo" data-de="Luxus-Wüstencamp">Luxury Desert Camp</option>
+              <option value="hotel-3-star" data-en="Hotel (3-star)" data-fr="Hôtel (3 étoiles)" data-es="Hotel (3 estrellas)" data-de="Hotel (3 Sterne)">Hotel (3-star)</option>
+              <option value="hotel-4-star" data-en="Hotel (4-star)" data-fr="Hôtel (4 étoiles)" data-es="Hotel (4 estrellas)" data-de="Hotel (4 Sterne)">Hotel (4-star)</option>
+              <option value="not-sure-yet" data-en="Not sure yet" data-fr="Pas encore décidé" data-es="Aún no lo sé" data-de="Noch nicht sicher">Not sure yet</option>
+            </select>
+          </div>
+          <div class="booking-form-row">
+            <div>
+              <label for="bf-adults"><span data-en="Adults" data-fr="Adultes" data-es="Adultos" data-de="Erwachsene">Adults</span></label>
+              <input type="number" id="bf-adults" name="adults" min="1" max="30" data-en-ph="e.g. 2" data-fr-ph="ex. 2" data-es-ph="ej. 2" data-de-ph="z.B. 2" placeholder="e.g. 2">
+            </div>
+            <div>
+              <label for="bf-children"><span data-en="Children" data-fr="Enfants" data-es="Niños" data-de="Kinder">Children</span></label>
+              <input type="number" id="bf-children" name="children" min="0" max="30" data-en-ph="e.g. 0" data-fr-ph="ex. 0" data-es-ph="ej. 0" data-de-ph="z.B. 0" placeholder="e.g. 0">
+            </div>
           </div>
           <div>
             <label for="bf-message"><span data-en="Special Requests" data-fr="Demandes Spéciales" data-es="Solicitudes Especiales" data-de="Besondere Wünsche">Special Requests</span></label>
@@ -891,16 +896,19 @@
           </div>
         </div>
 
-        <button type="submit" class="btn-gold booking-form-submit"><span data-en="Book This Tour" data-fr="Réserver ce Circuit" data-es="Reservar este Tour" data-de="Diese Tour Buchen">Book This Tour</span></button>
-        <p class="booking-form-note"><span data-en="Opens your email app with your details pre-filled." data-fr="Ouvre votre application e-mail avec vos coordonnées pré-remplies." data-es="Abre tu aplicación de correo con tus datos rellenados." data-de="Öffnet Ihre E-Mail-App mit vorausgefüllten Angaben.">Opens your email app with your details pre-filled.</span></p>
-      </form>
+        <div class="booking-form-check">
+          <input type="checkbox" id="bf-consent" name="consent">
+          <label for="bf-consent"><span data-en="I agree to be contacted about my enquiry" data-fr="J'accepte d'être contacté au sujet de ma demande" data-es="Acepto que me contacten sobre mi consulta" data-de="Ich bin damit einverstanden, zu meiner Anfrage kontaktiert zu werden">I agree to be contacted about my enquiry</span></label>
+        </div>
 
-      <div class="trust-line">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1z"/></svg>
-        <span data-en="Free cancellation up to 4 days before departure" data-fr="Annulation gratuite jusqu'à 4 jours avant le départ" data-es="Cancelación gratuita hasta 4 días antes de la salida" data-de="Kostenlose Stornierung bis 4 Tage vor Abreise">Free cancellation up to 4 days before departure</span>
-      </div>
+        <button type="submit" class="btn-gold booking-form-submit"><span data-en="Book This Tour" data-fr="Réserver ce Circuit" data-es="Reservar este Tour" data-de="Diese Tour Buchen">Book This Tour</span></button>
+      </form>
     </div>
   </div>
+</div>
+
+<div class="mobile-book-bar">
+  <a href="#booking-form" class="btn-gold"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
 </div>
 
 <a href="https://wa.me/212600000000" class="whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
@@ -1043,16 +1051,25 @@
     var name = document.getElementById('bf-name').value;
     var email = document.getElementById('bf-email').value;
     var phone = document.getElementById('bf-phone').value;
-    var dates = document.getElementById('bf-dates').value;
-    var guests = document.getElementById('bf-guests').value;
+    var startDate = document.getElementById('bf-start-date').value;
+    var endDate = document.getElementById('bf-end-date').value;
+    var accommodationEl = document.getElementById('bf-accommodation');
+    var accommodation = accommodationEl.options[accommodationEl.selectedIndex].text;
+    var adults = document.getElementById('bf-adults').value;
+    var children = document.getElementById('bf-children').value;
+    var consent = document.getElementById('bf-consent').checked;
     var message = document.getElementById('bf-message').value;
 
     var subject = 'Tour Inquiry: 5-Day Marrakech to Merzouga Desert Tour';
     var body = 'Name: ' + name + '\n' +
       'Email: ' + email + '\n' +
       'Phone / WhatsApp: ' + phone + '\n' +
-      'Travel Dates: ' + dates + '\n' +
-      'Number of Guests: ' + guests + '\n\n' +
+      'Start Date: ' + startDate + '\n' +
+      'End Date: ' + endDate + '\n' +
+      'Accommodation: ' + accommodation + '\n' +
+      'Adults: ' + adults + '\n' +
+      'Children: ' + children + '\n' +
+      'Consent to be contacted: ' + (consent ? 'Yes' : 'No') + '\n\n' +
       'Special Requests:\n' + message;
 
     window.location.href = 'mailto:info.letscameltours@gmail.com?subject=' +

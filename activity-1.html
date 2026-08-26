@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Agadir & Taghazout Horse Riding & Sunset Beach Trail | Let's Camel Tours</title>
+<meta name="description" content="2-hour guided horse ride along Taghazout's coastal dunes & Souss river trails. All skill levels. Mint tea included. From €25pp.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -140,18 +141,19 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    background: none;
-    border: 1px solid rgba(255,255,255,0.4);
-    color: var(--off-white);
-    padding: 8px 12px;
-    border-radius: 4px;
+    background: transparent;
+    color: #F8FAFC;
+    border: 1.5px solid rgba(255,255,255,0.5);
+    padding: 8px 14px;
+    border-radius: 50px;
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
-    transition: color 0.25s ease, border-color 0.25s ease;
+    transition: border-color 0.25s ease, color 0.25s ease;
   }
-  .lang-toggle svg { width: 15px; height: 15px; }
+  .lang-toggle:hover { border-color: var(--gold); color: var(--gold); }
   .navbar.scrolled .lang-toggle { color: var(--navy); border-color: var(--line); }
+  .lang-toggle svg { width: 15px; height: 15px; }
 
   .lang-menu {
     position: absolute;
@@ -327,13 +329,14 @@
 
   /* Content layout */
   .content { padding: 56px 0 100px; }
-  .content-grid { display: grid; grid-template-columns: 1.4fr 0.9fr; grid-template-areas: "top side" "bottom side"; gap: 50px; align-items: start; }
+  .content-grid { display: grid; grid-template-columns: 1.4fr 0.9fr; grid-template-areas: "top side" "bottom side"; column-gap: 50px; row-gap: 0; align-items: start; }
   .main-col-top { grid-area: top; }
   .main-col-bottom { grid-area: bottom; }
 
   h2.section-h { font-size: 24px; font-weight: 800; color: var(--navy); margin-bottom: 6px; }
   .section-sub { font-size: 14px; color: var(--text-gray); margin-bottom: 22px; }
   .content-section { scroll-margin-top: 86px; margin-bottom: 54px; }
+  #booking-form { scroll-margin-top: 86px; }
   .content-section:last-child { margin-bottom: 0; }
 
   .overview p { color: var(--text-gray); font-size: 15.5px; margin-bottom: 14px; }
@@ -369,11 +372,6 @@
   .acc-item.open .acc-chevron { transform: rotate(180deg); }
 
   /* Highlights accordion */
-  .highlight-acc .acc-header { gap: 16px; }
-  .highlight-acc .highlight-icon { width: 38px; height: 38px; background: rgba(224,122,62,0.12); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .highlight-acc .highlight-icon svg { width: 18px; height: 18px; color: var(--gold); }
-  .highlight-acc .h-title { font-size: 15px; font-weight: 700; color: var(--navy); }
-  .highlight-acc .h-body { padding: 0 18px 18px 72px; color: var(--text-gray); font-size: 13.8px; }
 
   /* Included / excluded */
   .incl-excl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -416,6 +414,33 @@
   .booking-form textarea { min-height: 80px; resize: vertical; }
   .booking-form-submit { margin-top: 18px; width: 100%; text-align: center; }
   .booking-form-note { font-size: 11.5px; color: var(--text-gray); margin-top: 10px; text-align: center; }
+  /* Two fields side by side (adults / children) */
+  .booking-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
+  /* Keep date fields the same height as text inputs across browsers */
+  .booking-form input[type="date"] { min-height: 40px; line-height: 1.2; }
+  .booking-form input[type="date"]::-webkit-calendar-picker-indicator { cursor: pointer; opacity: 0.55; }
+  .booking-form input[type="date"]::-webkit-calendar-picker-indicator:hover { opacity: 1; }
+  /* Consent checkbox above the submit button */
+  .booking-form-check { display: flex; align-items: flex-start; gap: 9px; margin-top: 16px; }
+  .booking-form-check input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    min-width: 15px;
+    margin: 1px 0 0;
+    padding: 0;
+    accent-color: var(--gold);
+    cursor: pointer;
+  }
+  .booking-form-check label {
+    font-size: 11.5px;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--text-gray);
+    line-height: 1.45;
+    margin-bottom: 0;
+    cursor: pointer;
+  }
 
   /* FAQ */
   .faq-item { border: none; border-bottom: 1px solid var(--line); border-radius: 0; margin-bottom: 0; background: none; }
@@ -456,6 +481,26 @@
   .whatsapp-btn:hover { transform: translateY(-3px) scale(1.08); box-shadow: 0 14px 30px rgba(37,211,102,0.45); }
   .whatsapp-btn svg { width: 30px; height: 30px; fill: #fff; }
 
+  /* Sticky mobile "Book Now" bar */
+  .mobile-book-bar { display: none; }
+  @media (max-width: 768px) {
+    .mobile-book-bar {
+      display: flex;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 230;
+      padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+      background: #fff;
+      border-top: 1px solid var(--line);
+      box-shadow: 0 -6px 20px rgba(0,0,0,0.08);
+    }
+    .mobile-book-bar .btn-gold { width: 100%; text-align: center; }
+    body { padding-bottom: 78px; }
+    .whatsapp-btn { bottom: 94px; }
+  }
+
   /* Footer — identical structure/styling to the current index.html */
   .footer { background: var(--off-white); color: var(--text-gray); padding: 60px 0 24px; border-top: 1px solid var(--line); }
   .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 36px; margin-bottom: 24px; border-bottom: 1px solid var(--line); }
@@ -476,7 +521,7 @@
   .footer-bottom { padding-top: 6px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-size: 12.5px; color: var(--text-gray); }
 
   @media (max-width: 900px) {
-    .content-grid { grid-template-columns: 1fr; grid-template-areas: "top" "bottom" "side"; }
+    .content-grid { grid-template-columns: 1fr; grid-template-areas: "top" "side" "bottom"; row-gap: 50px; }
     .sidebar { position: static; }
     .highlight-grid { grid-template-columns: 1fr; }
     .incl-excl-grid { grid-template-columns: 1fr; }
@@ -501,11 +546,11 @@
         <a href="tours.html"><span data-en="Morocco Tours" data-fr="Circuits Maroc" data-es="Tours Marruecos" data-de="Marokko Touren">Morocco Tours</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
         <div class="nav-dropdown-menu">
           <div class="nav-dropdown-menu-inner">
-            <a href="tour-1.html">8-Day Grand Morocco Tour: Sahara & Rif Mountains</a>
-            <a href="tour-2.html">5-Day Marrakech to Merzouga Desert Tour</a>
-            <a href="tour-3.html">12-Day Morocco Tour: Casablanca to Marrakech & Sahara</a>
-            <a href="tour-4.html">9-Day Morocco Adventure: Marrakech, Sahara & Atlantic</a>
-            <a href="tours.html" style="color:var(--gold) !important;font-weight:700;">View All Tours →</a>
+            <a href="tour-1.html"><span data-en="8-Day Grand Morocco Tour: Sahara & Rif Mountains" data-fr="Circuit de 8 Jours au Maroc : Sahara et Rif" data-es="Tour de 8 Días por Marruecos: Sahara y Rif" data-de="8-Tägige Marokko-Tour: Sahara & Rif-Gebirge">8-Day Grand Morocco Tour: Sahara & Rif Mountains</span></a>
+            <a href="tour-2.html"><span data-en="5-Day Marrakech to Merzouga Desert Tour" data-fr="Circuit de 5 Jours : Marrakech à Merzouga" data-es="Tour de 5 Días: Marrakech a Merzouga" data-de="5-Tägige Tour: Marrakesch bis Merzouga">5-Day Marrakech to Merzouga Desert Tour</span></a>
+            <a href="tour-3.html"><span data-en="12-Day Morocco Tour: Casablanca to Marrakech & Sahara" data-fr="Circuit de 12 Jours : Casablanca à Marrakech et Sahara" data-es="Tour de 12 Días: Casablanca a Marrakech y Sahara" data-de="12-Tägige Marokko-Tour: Casablanca bis Marrakesch & Sahara">12-Day Morocco Tour: Casablanca to Marrakech & Sahara</span></a>
+            <a href="tour-4.html"><span data-en="9-Day Morocco Adventure: Marrakech, Sahara & Atlantic" data-fr="Aventure de 9 Jours : Marrakech, Sahara et Atlantique" data-es="Aventura de 9 Días: Marrakech, Sahara y Atlántico" data-de="9-Tägiges Marokko-Abenteuer: Marrakesch, Sahara & Atlantik">9-Day Morocco Adventure: Marrakech, Sahara & Atlantic</span></a>
+            <a href="tours.html" style="color:var(--gold) !important;font-weight:700;"><span data-en="View All Tours →" data-fr="Voir Tous les Circuits →" data-es="Ver Todos los Tours →" data-de="Alle Touren Ansehen →">View All Tours →</span></a>
           </div>
         </div>
       </div>
@@ -513,10 +558,10 @@
         <a href="excursions.html"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
         <div class="nav-dropdown-menu">
           <div class="nav-dropdown-menu-inner">
-            <a href="excursion-1.html">Day Trip to Essaouira</a>
-            <a href="excursion-2.html">Day Trip to Marrakech</a>
-            <a href="excursion-3.html">Paradise Valley</a>
-            <a href="excursions.html" style="color:var(--gold) !important;font-weight:700;">View All Excursions →</a>
+            <a href="excursion-1.html"><span data-en="Day Trip to Essaouira" data-fr="Excursion à Essaouira" data-es="Excursión a Essaouira" data-de="Tagesausflug nach Essaouira">Day Trip to Essaouira</span></a>
+            <a href="excursion-2.html"><span data-en="Day Trip to Marrakech" data-fr="Excursion à Marrakech" data-es="Excursión a Marrakech" data-de="Tagesausflug nach Marrakesch">Day Trip to Marrakech</span></a>
+            <a href="excursion-3.html"><span data-en="Paradise Valley" data-fr="Paradise Valley" data-es="Paradise Valley" data-de="Paradise Valley">Paradise Valley</span></a>
+            <a href="excursions.html" style="color:var(--gold) !important;font-weight:700;"><span data-en="View All Excursions →" data-fr="Voir Toutes les Excursions →" data-es="Ver Todas las Excursiones →" data-de="Alle Ausflüge Ansehen →">View All Excursions →</span></a>
           </div>
         </div>
       </div>
@@ -524,10 +569,10 @@
         <a href="activities.html" class="active"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
         <div class="nav-dropdown-menu">
           <div class="nav-dropdown-menu-inner">
-            <a href="activity-1.html">Beach Horse Riding</a>
-            <a href="activity-2.html">Quad Biking</a>
-            <a href="activity-3.html">Private Surf Lesson</a>
-            <a href="activities.html" style="color:var(--gold) !important;font-weight:700;">View All Activities →</a>
+            <a href="activity-1.html"><span data-en="Beach Horse Riding" data-fr="Équitation sur la Plage" data-es="Paseo a Caballo en la Playa" data-de="Strandreiten">Beach Horse Riding</span></a>
+            <a href="activity-2.html"><span data-en="Quad Biking" data-fr="Quad" data-es="Quad" data-de="Quad-Fahren">Quad Biking</span></a>
+            <a href="activity-3.html"><span data-en="Private Surf Lesson" data-fr="Cours de Surf Privé" data-es="Clase de Surf Privada" data-de="Privater Surfkurs">Private Surf Lesson</span></a>
+            <a href="activities.html" style="color:var(--gold) !important;font-weight:700;"><span data-en="View All Activities →" data-fr="Voir Toutes les Activités →" data-es="Ver Todas las Actividades →" data-de="Alle Aktivitäten Ansehen →">View All Activities →</span></a>
           </div>
         </div>
       </div>
@@ -548,7 +593,7 @@
         <button class="lang-option" data-lang="es">Español</button>
         <button class="lang-option" data-lang="de">Deutsch</button>
       </div>
-      <a href="contact.html" class="btn-book"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+      <a href="#booking-form" class="btn-book"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
       <button class="burger" id="burger-toggle" aria-label="Menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
@@ -570,7 +615,7 @@
   <a href="about-us.html"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
   <a href="index.html#blog"><span data-en="Blogs" data-fr="Blogs" data-es="Blogs" data-de="Blogs">Blogs</span></a>
   <a href="contact.html"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
-  <a href="contact.html" class="btn-book" style="display:block;text-align:center;margin-top:16px;"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+  <a href="#booking-form" class="btn-book" style="display:block;text-align:center;margin-top:16px;"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
 </div>
 
 <section class="hero">
@@ -584,6 +629,7 @@
       <div class="hero-price-badge">
         <span class="hpb-label" data-en="Starting From" data-fr="À Partir De" data-es="Desde" data-de="Ab">Starting From</span>
         <span class="hpb-amount">€25 <span class="hpb-unit" data-en="/ person" data-fr="/ personne" data-es="/ persona" data-de="/ Person">/ person</span></span>
+        <span style="display:block;font-size:11.5px;color:var(--text-gray);font-style:italic;margin-top:2px;" data-en="Estimated price, confirmed at booking" data-fr="Prix estimé, confirmé lors de la réservation" data-es="Precio estimado, confirmado al reservar" data-de="Geschätzter Preis, bei Buchung bestätigt">Estimated price, confirmed at booking</span>
       </div>
       <a href="#booking-form" class="btn-gold hero-book-btn"><span data-en="Book Now" data-fr="Réserver Maintenant" data-es="Reservar Ahora" data-de="Jetzt Buchen">Book Now</span></a>
     </div>
@@ -678,81 +724,33 @@
 
       <div class="content-section" id="highlights">
         <h2 class="section-h"><span data-en="Trip Highlights" data-fr="Points Forts du Voyage" data-es="Puntos Destacados" data-de="Reise-Highlights">Trip Highlights</span></h2>
-        <p class="section-sub"><span data-en="Tap a highlight to read more." data-fr="Touchez un point fort pour en savoir plus." data-es="Toca un destacado para saber más." data-de="Tippen Sie auf ein Highlight, um mehr zu erfahren.">Tap a highlight to read more.</span></p>
-        <div class="highlight-acc">
-
-          <div class="acc-item open">
-            <button type="button" class="acc-header" aria-expanded="true">
-              <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 16c2 2 4 2 6 0s4-2 6 0 4 2 6 0"/><path d="M3 20c2 2 4 2 6 0s4-2 6 0 4 2 6 0"/><circle cx="17" cy="7" r="3"/></svg></div>
-              <span class="h-title"><span data-en="Beach & Sand Dune Riding" data-fr="Balade sur Plage & Dunes" data-es="Paseo por Playa y Dunas" data-de="Strand- & Dünenreiten">Beach & Sand Dune Riding</span></span>
-              <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
-            <div class="acc-panel">
-              <p class="h-body"><span data-en="Ride along the open beach and weave through soft coastal sand dunes, with the Atlantic as your backdrop." data-fr="Chevauchez le long de la plage et à travers les douces dunes côtières, avec l'Atlantique en toile de fond." data-es="Cabalga por la playa abierta y a través de las suaves dunas costeras, con el Atlántico de fondo." data-de="Reiten Sie am offenen Strand entlang und durch weiche Küstendünen, mit dem Atlantik als Kulisse.">Ride along the open beach and weave through soft coastal sand dunes, with the Atlantic as your backdrop.</span></p>
-            </div>
+        <div class="highlight-grid">
+          <div class="highlight-card">
+            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 16c2 2 4 2 6 0s4-2 6 0 4 2 6 0"/><path d="M3 20c2 2 4 2 6 0s4-2 6 0 4 2 6 0"/><circle cx="17" cy="7" r="3"/></svg></div>
+            <p><span data-en="Beach & Sand Dune Riding" data-fr="Balade sur Plage & Dunes" data-es="Paseo por Playa y Dunas" data-de="Strand- & Dünenreiten">Beach & Sand Dune Riding</span></p>
           </div>
-
-          <div class="acc-item">
-            <button type="button" class="acc-header" aria-expanded="false">
-              <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21l6-14 4 8 3-6 5 12"/></svg></div>
-              <span class="h-title"><span data-en="Souss River Trails" data-fr="Sentiers du Fleuve Souss" data-es="Senderos del Río Souss" data-de="Souss-Flusspfade">Souss River Trails</span></span>
-              <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
-            <div class="acc-panel">
-              <p class="h-body"><span data-en="Explore the quieter trails along the Souss river, away from the crowded tourist spots." data-fr="Explorez les sentiers plus tranquilles le long du fleuve Souss, loin des sites touristiques bondés." data-es="Explora los senderos más tranquilos junto al río Souss, lejos de los lugares turísticos concurridos." data-de="Erkunden Sie die ruhigeren Pfade entlang des Souss-Flusses, abseits überfüllter Touristenorte.">Explore the quieter trails along the Souss river, away from the crowded tourist spots.</span></p>
-            </div>
+          <div class="highlight-card">
+            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21l6-14 4 8 3-6 5 12"/></svg></div>
+            <p><span data-en="Souss River Trails" data-fr="Sentiers du Fleuve Souss" data-es="Senderos del Río Souss" data-de="Souss-Flusspfade">Souss River Trails</span></p>
           </div>
-
-          <div class="acc-item">
-            <button type="button" class="acc-header" aria-expanded="false">
-              <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
-              <span class="h-title"><span data-en="Professional Horse Instructor" data-fr="Instructeur Professionnel" data-es="Instructor Profesional" data-de="Professioneller Reitlehrer">Professional Horse Instructor</span></span>
-              <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
-            <div class="acc-panel">
-              <p class="h-body"><span data-en="A safety briefing and hands-on guidance from a professional instructor, suitable for beginners and experienced riders alike." data-fr="Un briefing de sécurité et un accompagnement pratique par un instructeur professionnel, adapté aux débutants comme aux cavaliers expérimentés." data-es="Una charla de seguridad y guía práctica de un instructor profesional, apta para principiantes y jinetes experimentados." data-de="Eine Sicherheitseinweisung und praktische Anleitung durch einen professionellen Instruktor, geeignet für Anfänger und erfahrene Reiter.">A safety briefing and hands-on guidance from a professional instructor, suitable for beginners and experienced riders alike.</span></p>
-            </div>
+          <div class="highlight-card">
+            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+            <p><span data-en="Professional Horse Instructor" data-fr="Instructeur Professionnel" data-es="Instructor Profesional" data-de="Professioneller Reitlehrer">Professional Horse Instructor</span></p>
           </div>
-
-          <div class="acc-item">
-            <button type="button" class="acc-header" aria-expanded="false">
-              <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1z"/></svg></div>
-              <span class="h-title"><span data-en="Sunset Riding Option" data-fr="Option Coucher de Soleil" data-es="Opción al Atardecer" data-de="Sonnenuntergangs-Option">Sunset Riding Option</span></span>
-              <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
-            <div class="acc-panel">
-              <p class="h-body"><span data-en="Time your ride for sunset for golden-hour views along the beach — one of the most popular ways to experience this activity." data-fr="Choisissez le coucher de soleil pour des vues dorées le long de la plage — l'une des façons les plus populaires de vivre cette activité." data-es="Elige el atardecer para vistas doradas a lo largo de la playa — una de las formas más populares de vivir esta actividad." data-de="Wählen Sie den Sonnenuntergang für goldene Ausblicke entlang des Strandes — eine der beliebtesten Arten, dieses Erlebnis zu genießen.">Time your ride for sunset for golden-hour views along the beach — one of the most popular ways to experience this activity.</span></p>
-            </div>
+          <div class="highlight-card">
+            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1z"/></svg></div>
+            <p><span data-en="Sunset Riding Option" data-fr="Option Coucher de Soleil" data-es="Opción al Atardecer" data-de="Sonnenuntergangs-Option">Sunset Riding Option</span></p>
           </div>
-
-          <div class="acc-item">
-            <button type="button" class="acc-header" aria-expanded="false">
-              <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3v18M6 8h9a3 3 0 000-6H6M6 13h6a3 3 0 010 6H6"/></svg></div>
-              <span class="h-title"><span data-en="Traditional Mint Tea Break" data-fr="Pause Thé à la Menthe" data-es="Pausa de Té de Menta" data-de="Traditionelle Minztee-Pause">Traditional Mint Tea Break</span></span>
-              <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
-            <div class="acc-panel">
-              <p class="h-body"><span data-en="Wind down after the ride with a relaxing traditional Moroccan mint tea before heading back to your hotel." data-fr="Détendez-vous après la balade avec un thé à la menthe marocain traditionnel avant de retourner à votre hôtel." data-es="Relájate después del paseo con un té de menta marroquí tradicional antes de regresar a tu hotel." data-de="Entspannen Sie sich nach dem Ausritt bei einem traditionellen marokkanischen Minztee, bevor es zurück ins Hotel geht.">Wind down after the ride with a relaxing traditional Moroccan mint tea before heading back to your hotel.</span></p>
-            </div>
+          <div class="highlight-card">
+            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3v18M6 8h9a3 3 0 000-6H6M6 13h6a3 3 0 010 6H6"/></svg></div>
+            <p><span data-en="Traditional Mint Tea Break" data-fr="Pause Thé à la Menthe" data-es="Pausa de Té de Menta" data-de="Traditionelle Minztee-Pause">Traditional Mint Tea Break</span></p>
           </div>
-
-          <div class="acc-item">
-            <button type="button" class="acc-header" aria-expanded="false">
-              <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="14" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M3 15l4-4 5 5 3-3 5 5"/></svg></div>
-              <span class="h-title"><span data-en="Photography Stops" data-fr="Arrêts Photo" data-es="Paradas Fotográficas" data-de="Fotostopps">Photography Stops</span></span>
-              <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
-            <div class="acc-panel">
-              <p class="h-body"><span data-en="Plenty of stops along the beach and dunes to capture photos of you and your horse against the coastal scenery." data-fr="De nombreux arrêts le long de la plage et des dunes pour capturer des photos de vous et de votre cheval devant le paysage côtier." data-es="Muchas paradas a lo largo de la playa y las dunas para capturar fotos de ti y tu caballo con el paisaje costero de fondo." data-de="Viele Stopps am Strand und in den Dünen, um Fotos von Ihnen und Ihrem Pferd vor der Küstenkulisse zu machen.">Plenty of stops along the beach and dunes to capture photos of you and your horse against the coastal scenery.</span></p>
-            </div>
+          <div class="highlight-card">
+            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="14" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M3 15l4-4 5 5 3-3 5 5"/></svg></div>
+            <p><span data-en="Photography Stops" data-fr="Arrêts Photo" data-es="Paradas Fotográficas" data-de="Fotostopps">Photography Stops</span></p>
           </div>
-
         </div>
       </div>
-
-    </div>
-
-    <div class="main-col main-col-bottom">
 
       <div class="content-section" id="included">
         <h2 class="section-h"><span data-en="Included / Excluded" data-fr="Inclus / Exclus" data-es="Incluido / Excluido" data-de="Inklusive / Exklusive">Included / Excluded</span></h2>
@@ -778,6 +776,10 @@
           </div>
         </div>
       </div>
+
+    </div>
+
+    <div class="main-col main-col-bottom">
 
       <div class="content-section" id="contact">
         <h2 class="section-h"><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></h2>
@@ -858,13 +860,10 @@
       <div class="sidebar-agent">
         <img src="images-yassmina-profile.jpg" alt="Yassmina, Let's Camel Tours travel expert" class="sidebar-agent-avatar">
         <p class="sidebar-agent-greeting"><span data-en="Hi, I'm Yassmina!" data-fr="Bonjour, je suis Yassmina !" data-es="¡Hola, soy Yassmina!" data-de="Hallo, ich bin Yassmina!">Hi, I'm Yassmina!</span></p>
-        <p class="sidebar-agent-role"><span data-en="Happy to help plan your trip" data-fr="Ravie de vous aider à organiser votre voyage" data-es="Encantada de ayudarte a planear tu viaje" data-de="Ich helfe Ihnen gerne, Ihre Reise zu planen">Happy to help plan your trip</span></p>
+        <p class="sidebar-agent-role"><span data-en="Happy to help you book this activity" data-fr="Ravie de vous aider à réserver cette activité" data-es="Encantada de ayudarte a reservar esta actividad" data-de="Ich helfe Ihnen gerne, diese Aktivität zu buchen">Happy to help you book this activity</span></p>
       </div>
 
       <form class="booking-form" id="booking-form">
-        <h3><span data-en="Send Us a Quick Inquiry" data-fr="Envoyez-Nous une Demande Rapide" data-es="Envíanos una Consulta Rápida" data-de="Senden Sie Uns Eine Kurze Anfrage">Send Us a Quick Inquiry</span></h3>
-        <p class="form-sub"><span data-en="No need to leave this page — we'll reply with availability and a custom quote." data-fr="Pas besoin de quitter cette page — nous répondrons avec les disponibilités et un devis personnalisé." data-es="No necesitas salir de esta página — te responderemos con la disponibilidad y una cotización personalizada." data-de="Sie müssen diese Seite nicht verlassen — wir antworten mit Verfügbarkeit und einem individuellen Angebot.">No need to leave this page — we'll reply with availability and a custom quote.</span></p>
-
         <div class="booking-form-grid">
           <div>
             <label for="bf-name"><span data-en="Full Name" data-fr="Nom Complet" data-es="Nombre Completo" data-de="Vollständiger Name">Full Name</span></label>
@@ -879,12 +878,18 @@
             <input type="tel" id="bf-phone" name="phone" required data-en-ph="+1 234 567 8900" data-fr-ph="+33 6 12 34 56 78" data-es-ph="+34 612 34 56 78" data-de-ph="+49 151 23456789" placeholder="+1 234 567 8900">
           </div>
           <div>
-            <label for="bf-dates"><span data-en="Travel Date" data-fr="Date de Voyage" data-es="Fecha de Viaje" data-de="Reisedatum">Travel Date</span></label>
-            <input type="text" id="bf-dates" name="dates" data-en-ph="e.g. 12 October 2026" data-fr-ph="ex. 12 octobre 2026" data-es-ph="ej. 12 octubre 2026" data-de-ph="z.B. 12. Oktober 2026" placeholder="e.g. 12 October 2026">
+            <label for="bf-date"><span data-en="Travel Date" data-fr="Date de Voyage" data-es="Fecha de Viaje" data-de="Reisedatum">Travel Date</span></label>
+            <input type="date" id="bf-date" name="date">
           </div>
-          <div>
-            <label for="bf-guests"><span data-en="Number of Guests" data-fr="Nombre de Voyageurs" data-es="Número de Viajeros" data-de="Anzahl der Reisenden">Number of Guests</span></label>
-            <input type="number" id="bf-guests" name="guests" min="1" max="30" data-en-ph="e.g. 2" data-fr-ph="ex. 2" data-es-ph="ej. 2" data-de-ph="z.B. 2" placeholder="e.g. 2">
+          <div class="booking-form-row">
+            <div>
+              <label for="bf-adults"><span data-en="Adults" data-fr="Adultes" data-es="Adultos" data-de="Erwachsene">Adults</span></label>
+              <input type="number" id="bf-adults" name="adults" min="1" max="30" data-en-ph="e.g. 2" data-fr-ph="ex. 2" data-es-ph="ej. 2" data-de-ph="z.B. 2" placeholder="e.g. 2">
+            </div>
+            <div>
+              <label for="bf-children"><span data-en="Children" data-fr="Enfants" data-es="Niños" data-de="Kinder">Children</span></label>
+              <input type="number" id="bf-children" name="children" min="0" max="30" data-en-ph="e.g. 0" data-fr-ph="ex. 0" data-es-ph="ej. 0" data-de-ph="z.B. 0" placeholder="e.g. 0">
+            </div>
           </div>
           <div>
             <label for="bf-message"><span data-en="Special Requests" data-fr="Demandes Spéciales" data-es="Solicitudes Especiales" data-de="Besondere Wünsche">Special Requests</span></label>
@@ -892,16 +897,19 @@
           </div>
         </div>
 
-        <button type="submit" class="btn-gold booking-form-submit"><span data-en="Book This Activity" data-fr="Réserver Cette Activité" data-es="Reservar Esta Actividad" data-de="Diese Aktivität Buchen">Book This Activity</span></button>
-        <p class="booking-form-note"><span data-en="Opens your email app with your details pre-filled." data-fr="Ouvre votre application e-mail avec vos coordonnées pré-remplies." data-es="Abre tu aplicación de correo con tus datos rellenados." data-de="Öffnet Ihre E-Mail-App mit vorausgefüllten Angaben.">Opens your email app with your details pre-filled.</span></p>
-      </form>
+        <div class="booking-form-check">
+          <input type="checkbox" id="bf-consent" name="consent">
+          <label for="bf-consent"><span data-en="I agree to be contacted about my enquiry" data-fr="J'accepte d'être contacté au sujet de ma demande" data-es="Acepto que me contacten sobre mi consulta" data-de="Ich bin damit einverstanden, zu meiner Anfrage kontaktiert zu werden">I agree to be contacted about my enquiry</span></label>
+        </div>
 
-      <div class="trust-line">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1z"/></svg>
-        <span data-en="Free cancellation up to 24 hours before departure" data-fr="Annulation gratuite jusqu'à 24 heures avant le départ" data-es="Cancelación gratuita hasta 24 horas antes de la salida" data-de="Kostenlose Stornierung bis 24 Stunden vor Abreise">Free cancellation up to 24 hours before departure</span>
-      </div>
+        <button type="submit" class="btn-gold booking-form-submit"><span data-en="Book This Activity" data-fr="Réserver Cette Activité" data-es="Reservar Esta Actividad" data-de="Diese Aktivität Buchen">Book This Activity</span></button>
+      </form>
     </div>
   </div>
+</div>
+
+<div class="mobile-book-bar">
+  <a href="#booking-form" class="btn-gold"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
 </div>
 
 <a href="https://wa.me/212600000000" class="whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
@@ -1044,16 +1052,20 @@
     var name = document.getElementById('bf-name').value;
     var email = document.getElementById('bf-email').value;
     var phone = document.getElementById('bf-phone').value;
-    var dates = document.getElementById('bf-dates').value;
-    var guests = document.getElementById('bf-guests').value;
+    var date = document.getElementById('bf-date').value;
+    var adults = document.getElementById('bf-adults').value;
+    var children = document.getElementById('bf-children').value;
+    var consent = document.getElementById('bf-consent').checked;
     var message = document.getElementById('bf-message').value;
 
     var subject = 'Booking Request: Horse Riding Experience (Beach Horse Riding)';
     var body = 'Name: ' + name + '\n' +
       'Email: ' + email + '\n' +
       'Phone / WhatsApp: ' + phone + '\n' +
-      'Travel Date: ' + dates + '\n' +
-      'Number of Guests: ' + guests + '\n\n' +
+      'Travel Date: ' + date + '\n' +
+      'Adults: ' + adults + '\n' +
+      'Children: ' + children + '\n' +
+      'Consent to be contacted: ' + (consent ? 'Yes' : 'No') + '\n\n' +
       'Special Requests:\n' + message;
 
     window.location.href = 'mailto:info.letscameltours@gmail.com?subject=' +
