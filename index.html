@@ -119,6 +119,9 @@
   .btn-arrow-gold:hover { background: var(--gold-light); }
   .btn-arrow-gold:hover svg { transform: translateX(4px); }
 
+  .btn-arrow-gold.btn-pill { border-radius: 50px; transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
+  .btn-arrow-gold.btn-pill:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 26px rgba(224,122,62,0.4); }
+
   .navbar {
     position: fixed;
     top: 0; left: 0; width: 100%;
@@ -1273,7 +1276,7 @@
   <div class="container">
     <div class="section-head">
       <span class="section-label"><span data-en="Morocco Tours" data-fr="Circuits Maroc" data-es="Tours Marruecos" data-de="Marokko Touren">Morocco Tours</span></span>
-      <h2 class="section-title"><span data-en="Let's Explore Our Top Tours & Experiences" data-fr="Explorons Nos Meilleurs Circuits et Expériences" data-es="Exploremos Nuestros Mejores Tours y Experiencias" data-de="Entdecken Wir Unsere Top-Touren und Erlebnisse">Let's Explore Our Top Tours & Experiences</span></h2>
+      <h2 class="section-title"><span data-en="Our Top Morocco Tours" data-fr="Nos Meilleurs Circuits au Maroc" data-es="Nuestros Mejores Tours por Marruecos" data-de="Unsere Top Marokko-Touren">Our Top Morocco Tours</span></h2>
       <p class="section-text" style="margin: 0 auto;"><span data-en="Handpicked itineraries covering Morocco's imperial cities, mountains, and desert, each one fully private and customizable." data-fr="Des itinéraires sélectionnés couvrant les villes impériales, les montagnes et le désert du Maroc, chacun 100% privé et personnalisable." data-es="Itinerarios seleccionados que recorren las ciudades imperiales, montañas y desierto de Marruecos, cada uno 100% privado y personalizable." data-de="Handverlesene Reiserouten durch Marokkos Kaiserstädte, Berge und Wüste, jede vollständig privat und individuell anpassbar.">Handpicked itineraries covering Morocco's imperial cities, mountains, and desert, each one fully private and customizable.</span></p>
     </div>
     <div class="tours-grid">
@@ -1305,7 +1308,7 @@
     </div>
     <p style="text-align:center;font-size:13px;color:var(--text-gray);font-style:italic;margin-bottom:24px;"><span data-en="* Prices shown are estimates and may vary by group size, season, and customization." data-fr="* Les prix indiqués sont des estimations et peuvent varier selon la taille du groupe, la saison et la personnalisation." data-es="* Los precios mostrados son estimados y pueden variar según el tamaño del grupo, la temporada y la personalización." data-de="* Die angegebenen Preise sind Schätzungen und können je nach Gruppengröße, Saison und Anpassung variieren.">* Prices shown are estimates and may vary by group size, season, and customization.</span></p>
     <div class="tours-cta">
-      <a href="tours.html" class="btn-arrow-gold"><span data-en="Discover More Tours" data-fr="Découvrir Plus de Circuits" data-es="Descubre Más Tours" data-de="Mehr Touren Entdecken">Discover More Tours</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="tours.html" class="btn-arrow-gold btn-pill"><span data-en="Discover More Tours" data-fr="Découvrir Plus de Circuits" data-es="Descubre Más Tours" data-de="Mehr Touren Entdecken">Discover More Tours</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a href="contact.html" class="btn-outline-navy"><span data-en="Request a Custom Itinerary" data-fr="Demander un Itinéraire Sur Mesure" data-es="Solicitar un Itinerario a Medida" data-de="Individuelle Reiseroute Anfragen">Request a Custom Itinerary</span></a>
     </div>
   </div>
@@ -1315,7 +1318,7 @@
   <div class="container">
     <div class="section-head">
       <span class="section-label"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></span>
-      <h2 class="section-title"><span data-en="Unforgettable Day Trips" data-fr="Excursions Inoubliables" data-es="Excursiones Inolvidables" data-de="Unvergessliche Tagesausflüge">Unforgettable Day Trips</span></h2>
+      <h2 class="section-title"><span data-en="Day Trips from Agadir & Taghazout" data-fr="Excursions d'une Journée depuis Agadir et Taghazout" data-es="Excursiones de un Día desde Agadir y Taghazout" data-de="Tagesausflüge ab Agadir & Taghazout">Day Trips from Agadir & Taghazout</span></h2>
       <p class="section-text" style="margin: 0 auto;"><span data-en="Guided day trips around Agadir, Taghazout, and Marrakech, no long commitment, just a great day out." data-fr="Des excursions guidées autour d'Agadir, Taghazout et Marrakech, sans engagement, juste une belle journée." data-es="Excursiones guiadas alrededor de Agadir, Taghazout y Marrakech, sin compromiso largo, solo un gran día." data-de="Geführte Tagesausflüge rund um Agadir, Taghazout und Marrakesch, ohne lange Bindung, einfach ein toller Tag.">Guided day trips around Agadir, Taghazout, and Marrakech, no long commitment, just a great day out.</span></p>
     </div>
     <div class="tours-grid">
@@ -1346,7 +1349,7 @@
 
     </div>
     <div class="tours-cta">
-      <a href="excursions.html" class="btn-arrow-gold"><span data-en="Discover More Excursions" data-fr="Découvrir Plus d'Excursions" data-es="Descubre Más Excursiones" data-de="Mehr Ausflüge Entdecken">Discover More Excursions</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="excursions.html" class="btn-arrow-gold btn-pill"><span data-en="Discover More Excursions" data-fr="Découvrir Plus d'Excursions" data-es="Descubre Más Excursiones" data-de="Mehr Ausflüge Entdecken">Discover More Excursions</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a href="contact.html" class="btn-outline-navy"><span data-en="Request a Custom Itinerary" data-fr="Demander un Itinéraire Sur Mesure" data-es="Solicitar un Itinerario a Medida" data-de="Individuelle Reiseroute Anfragen">Request a Custom Itinerary</span></a>
     </div>
   </div>
