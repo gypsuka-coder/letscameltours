@@ -74,9 +74,8 @@
   .nav-container { max-width: 1300px; margin: 0 auto; padding: 0 30px; display: flex; align-items: center; justify-content: space-between; }
   .logo img { height: 42px; }
   .nav-right { display: flex; align-items: center; gap: 14px; position: relative; }
-  .lang-toggle { display: flex; align-items: center; gap: 6px; background: transparent; color: #F8FAFC; border: 1.5px solid rgba(255,255,255,0.5); padding: 8px 14px; border-radius: 50px; font-size: 13px; font-weight: 600; cursor: pointer; transition: border-color 0.25s ease, color 0.25s ease; }
-  .lang-toggle:hover { border-color: var(--gold); color: var(--gold); }
-  .navbar.scrolled .lang-toggle { color: var(--navy); border-color: var(--line); }
+  .lang-toggle { display: flex; align-items: center; gap: 6px; background: var(--gold); color: var(--white); border: none; padding: 8px 14px; border-radius: 50px; font-size: 13px; font-weight: 700; cursor: pointer; transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
+  .lang-toggle:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 22px rgba(224,122,62,0.35); }
   .lang-toggle svg { width: 15px; height: 15px; }
   .lang-menu { position: absolute; top: calc(100% + 8px); right: 0; background: var(--white); border-radius: 6px; box-shadow: 0 12px 30px rgba(0,0,0,0.15); padding: 6px; display: none; min-width: 140px; z-index: 50; }
   .lang-menu.open { display: block; }
@@ -134,15 +133,13 @@
   .listing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
 
   .item-card { background: var(--white); border-radius: 10px; overflow: hidden; border: 1px solid var(--line); transition: transform 0.25s ease, box-shadow 0.25s ease; }
-  .item-card:hover { transform: translateY(-6px); box-shadow: 0 20px 44px rgba(0,51,102,0.16); }
-  .item-image { height: 210px; position: relative; overflow: hidden; }
-  .item-image-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.45s ease; }
-  .item-card:hover .item-image-bg { transform: scale(1.09); }
-  .item-tag { position: absolute; top: 14px; left: 14px; z-index: 2; background: var(--gold); color: var(--white); font-size: 11.5px; font-weight: 700; padding: 6px 12px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.04em; }
-  .item-price-badge { position: absolute; top: 14px; right: 14px; z-index: 2; background: rgba(255,255,255,0.95); color: var(--navy); font-size: 12.5px; font-weight: 800; padding: 6px 12px; border-radius: 4px; }
+  .item-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,51,102,0.12); }
+  .item-image { height: 210px; background-size: cover; background-position: center; position: relative; }
+  .item-tag { position: absolute; top: 14px; left: 14px; background: var(--gold); color: var(--white); font-size: 11.5px; font-weight: 700; padding: 6px 12px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.04em; }
   .item-body { padding: 22px 22px 24px; }
   .item-body h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
-  .item-desc { color: var(--text-gray); font-size: 13.5px; margin-bottom: 16px; line-height: 1.6; }
+  .item-desc { color: var(--text-gray); font-size: 13.5px; margin-bottom: 14px; line-height: 1.6; }
+  .item-price { font-size: 17px; font-weight: 700; color: var(--gold); margin-bottom: 16px; }
   .btn-arrow { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 14px; color: var(--navy); }
   .btn-arrow svg { width: 16px; height: 16px; transition: transform 0.2s ease; }
   .btn-arrow:hover svg { transform: translateX(4px); }
@@ -324,30 +321,30 @@
 <section class="listing">
   <div class="container listing-grid">
     <div class="item-card">
-      <div class="item-image">
-        <div class="item-image-bg" style="background-image:url('activity-1.jpg');"></div><span class="item-tag"><span data-en="2 Hours" data-fr="2 Heures" data-es="2 Horas" data-de="2 Stunden">2 Hours</span></span><span class="item-price-badge"><span data-en="From €25" data-fr="À partir de 25 €" data-es="Desde 25 €" data-de="Ab 25 €">From €25</span></span></div>
+      <div class="item-image" style="background-image:url('activity-1.jpg');"><span class="item-tag"><span data-en="2 Hours" data-fr="2 Heures" data-es="2 Horas" data-de="2 Stunden">2 Hours</span></span></div>
       <div class="item-body">
         <h3><span data-en="Agadir & Taghazout Horse Riding & Sunset Beach Trail" data-fr="Équitation à Agadir et Taghazout : Balade sur la Plage au Coucher du Soleil" data-es="Paseo a Caballo en Agadir y Taghazout: Ruta por la Playa al Atardecer" data-de="Reiten in Agadir & Taghazout: Strandritt bei Sonnenuntergang">Agadir & Taghazout Horse Riding & Sunset Beach Trail</span></h3>
         <p class="item-desc"><span data-en="Experience a scenic horseback ride along the golden beach and coastal trails during a breathtaking Moroccan sunset." data-fr="Profitez d'une balade à cheval pittoresque le long de la plage dorée et des sentiers côtiers lors d'un coucher de soleil marocain à couper le souffle." data-es="Disfruta de un pintoresco paseo a caballo por la playa dorada y los senderos costeros durante un impresionante atardecer marroquí." data-de="Erleben Sie einen malerischen Ausritt entlang des goldenen Strandes und der Küstenpfade bei einem atemberaubenden marokkanischen Sonnenuntergang.">Experience a scenic horseback ride along the golden beach and coastal trails during a breathtaking Moroccan sunset.</span></p>
-                <a href="activity-1.html" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="item-price"><span data-en="From €25" data-fr="À partir de 25 €" data-es="Desde 25 €" data-de="Ab 25 €">From €25</span></div>
+        <a href="activity-1.html" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
     <div class="item-card">
-      <div class="item-image">
-        <div class="item-image-bg" style="background-image:url('activity-2.jpg');"></div><span class="item-tag"><span data-en="2 to 3 Hours" data-fr="2 à 3 Heures" data-es="2 a 3 Horas" data-de="2 bis 3 Stunden">2 to 3 Hours</span></span><span class="item-price-badge"><span data-en="From €35" data-fr="À partir de 35 €" data-es="Desde 35 €" data-de="Ab 35 €">From €35</span></span></div>
+      <div class="item-image" style="background-image:url('activity-2.jpg');"><span class="item-tag"><span data-en="2 to 3 Hours" data-fr="2 à 3 Heures" data-es="2 a 3 Horas" data-de="2 bis 3 Stunden">2 to 3 Hours</span></span></div>
       <div class="item-body">
         <h3><span data-en="Quad Biking Adventure: Sand Dunes & Argan Trails" data-fr="Aventure en Quad : Dunes de Sable et Pistes d'Arganiers" data-es="Aventura en Quad: Dunas de Arena y Senderos de Argán" data-de="Quad-Abenteuer: Sanddünen & Arganienpfade">Quad Biking Adventure: Sand Dunes & Argan Trails</span></h3>
         <p class="item-desc"><span data-en="Feel the thrill of riding quads across rugged sand dunes, argan forests, and rural Berber trails." data-fr="Ressentez le frisson de piloter un quad à travers les dunes de sable, les forêts d'arganiers et les pistes berbères." data-es="Siente la emoción de conducir un quad por escarpadas dunas de arena, bosques de argán y senderos bereberes." data-de="Spüren Sie den Nervenkitzel einer Quad-Fahrt über raue Sanddünen, Arganwälder und ländliche Berberpfade.">Feel the thrill of riding quads across rugged sand dunes, argan forests, and rural Berber trails.</span></p>
-                <a href="activity-2.html" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="item-price"><span data-en="From €35" data-fr="À partir de 35 €" data-es="Desde 35 €" data-de="Ab 35 €">From €35</span></div>
+        <a href="activity-2.html" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
     <div class="item-card">
-      <div class="item-image">
-        <div class="item-image-bg" style="background-image:url('activity-3.jpg');"></div><span class="item-tag"><span data-en="2 Hours" data-fr="2 Heures" data-es="2 Horas" data-de="2 Stunden">2 Hours</span></span><span class="item-price-badge"><span data-en="From €30" data-fr="À partir de 30 €" data-es="Desde 30 €" data-de="Ab 30 €">From €30</span></span></div>
+      <div class="item-image" style="background-image:url('activity-3.jpg');"><span class="item-tag"><span data-en="2 Hours" data-fr="2 Heures" data-es="2 Horas" data-de="2 Stunden">2 Hours</span></span></div>
       <div class="item-body">
         <h3><span data-en="Private Surf Lesson in Taghazout: Dedicated 1-on-1 Coaching" data-fr="Cours de Surf Privé à Taghazout : Coaching Individuel Dédié" data-es="Clase de Surf Privada en Taghazout: Entrenamiento Individual" data-de="Privater Surfkurs in Taghazout: Individuelles 1-zu-1-Coaching">Private Surf Lesson in Taghazout: Dedicated 1-on-1 Coaching</span></h3>
         <p class="item-desc"><span data-en="Get personalized 1-on-1 coaching with a professional instructor to master the waves at your own pace." data-fr="Bénéficiez d'un coaching personnalisé en tête-à-tête avec un instructeur professionnel pour maîtriser les vagues à votre rythme." data-es="Recibe entrenamiento personalizado individual con un instructor profesional para dominar las olas a tu propio ritmo." data-de="Erhalten Sie persönliches Einzelcoaching von einem professionellen Lehrer, um die Wellen in Ihrem eigenen Tempo zu meistern.">Get personalized 1-on-1 coaching with a professional instructor to master the waves at your own pace.</span></p>
-                <a href="activity-3.html" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="item-price"><span data-en="From €30" data-fr="À partir de 30 €" data-es="Desde 30 €" data-de="Ab 30 €">From €30</span></div>
+        <a href="activity-3.html" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
     <p style="text-align:center;font-size:13px;color:var(--text-gray);font-style:italic;margin-top:30px;"><span data-en="* Prices shown are estimates and may vary by group size, season, and customization." data-fr="* Les prix indiqués sont des estimations et peuvent varier selon la taille du groupe, la saison et la personnalisation." data-es="* Los precios mostrados son estimados y pueden variar según el tamaño del grupo, la temporada y la personalización." data-de="* Die angegebenen Preise sind Schätzungen und können je nach Gruppengröße, Saison und Anpassung variieren.">* Prices shown are estimates and may vary by group size, season, and customization.</span></p>

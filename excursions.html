@@ -73,9 +73,8 @@
   .nav-dropdown-menu a:hover { background: var(--off-white); color: var(--gold) !important; }
 
   .nav-right { display: flex; align-items: center; gap: 14px; position: relative; }
-  .lang-toggle { display: flex; align-items: center; gap: 6px; background: transparent; color: #F8FAFC; border: 1.5px solid rgba(255,255,255,0.5); padding: 8px 14px; border-radius: 50px; font-size: 13px; font-weight: 600; cursor: pointer; transition: border-color 0.25s ease, color 0.25s ease; }
-  .lang-toggle:hover { border-color: var(--gold); color: var(--gold); }
-  .navbar.scrolled .lang-toggle { color: var(--navy); border-color: var(--line); }
+  .lang-toggle { display: flex; align-items: center; gap: 6px; background: var(--gold); color: var(--white); border: none; padding: 8px 14px; border-radius: 50px; font-size: 13px; font-weight: 700; cursor: pointer; transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
+  .lang-toggle:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 22px rgba(224,122,62,0.35); }
   .lang-toggle svg { width: 15px; height: 15px; }
   .lang-menu { position: absolute; top: calc(100% + 8px); right: 0; background: var(--white); border-radius: 6px; box-shadow: 0 12px 30px rgba(0,0,0,0.15); padding: 6px; display: none; min-width: 140px; z-index: 50; }
   .lang-menu.open { display: block; }
@@ -133,15 +132,13 @@
   .listing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
 
   .item-card { background: var(--white); border-radius: 10px; overflow: hidden; border: 1px solid var(--line); transition: transform 0.25s ease, box-shadow 0.25s ease; }
-  .item-card:hover { transform: translateY(-6px); box-shadow: 0 20px 44px rgba(0,51,102,0.16); }
-  .item-image { height: 210px; position: relative; overflow: hidden; }
-  .item-image-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.45s ease; }
-  .item-card:hover .item-image-bg { transform: scale(1.09); }
-  .item-tag { position: absolute; top: 14px; left: 14px; z-index: 2; background: var(--gold); color: var(--white); font-size: 11.5px; font-weight: 700; padding: 6px 12px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.04em; }
-  .item-price-badge { position: absolute; top: 14px; right: 14px; z-index: 2; background: rgba(255,255,255,0.95); color: var(--navy); font-size: 12.5px; font-weight: 800; padding: 6px 12px; border-radius: 4px; }
+  .item-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,51,102,0.12); }
+  .item-image { height: 210px; background-size: cover; background-position: center; position: relative; }
+  .item-tag { position: absolute; top: 14px; left: 14px; background: var(--gold); color: var(--white); font-size: 11.5px; font-weight: 700; padding: 6px 12px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.04em; }
   .item-body { padding: 22px 22px 24px; }
   .item-body h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
-  .item-desc { color: var(--text-gray); font-size: 13.5px; margin-bottom: 16px; line-height: 1.6; }
+  .item-desc { color: var(--text-gray); font-size: 13.5px; margin-bottom: 14px; line-height: 1.6; }
+  .item-price { font-size: 17px; font-weight: 700; color: var(--gold); margin-bottom: 16px; }
   .btn-arrow { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 14px; color: var(--navy); }
   .btn-arrow svg { width: 16px; height: 16px; transition: transform 0.2s ease; }
   .btn-arrow:hover svg { transform: translateX(4px); }
@@ -323,29 +320,29 @@
 <section class="listing">
   <div class="container listing-grid">
     <div class="item-card">
-      <div class="item-image">
-        <div class="item-image-bg" style="background-image:url('excursion-1.jpg');"></div><span class="item-tag"><span data-en="Full-Day" data-fr="Journée Complète" data-es="Día Completo" data-de="Ganzer Tag">Full-Day</span></span><span class="item-price-badge"><span data-en="From €50" data-fr="À partir de 50 €" data-es="Desde 50 €" data-de="Ab 50 €">From €50</span></span></div>
+      <div class="item-image" style="background-image:url('excursion-1.jpg');"><span class="item-tag"><span data-en="Full-Day" data-fr="Journée Complète" data-es="Día Completo" data-de="Ganzer Tag">Full-Day</span></span></div>
       <div class="item-body">
         <h3><span data-en="Day Trip to Essaouira from Agadir and Taghazout" data-fr="Excursion à Essaouira depuis Agadir et Taghazout" data-es="Excursión a Essaouira desde Agadir y Taghazout" data-de="Tagesausflug nach Essaouira ab Agadir und Taghazout">Day Trip to Essaouira from Agadir and Taghazout</span></h3>
         <p class="item-desc"><span data-en="A full day exploring the coastal city of Essaouira, its historic medina, fishing port, and windswept beaches." data-fr="Une journée complète à explorer la ville côtière d'Essaouira, sa médina historique, son port de pêche et ses plages venteuses." data-es="Un día completo explorando la ciudad costera de Essaouira, su medina histórica, puerto pesquero y playas ventosas." data-de="Ein ganzer Tag zur Erkundung der Küstenstadt Essaouira, ihrer historischen Medina, des Fischerhafens und der windigen Strände.">A full day exploring the coastal city of Essaouira, its historic medina, fishing port, and windswept beaches.</span></p>
+        <div class="item-price"><span data-en="From €50" data-fr="À partir de 50 €" data-es="Desde 50 €" data-de="Ab 50 €">From €50</span></div>
         <a href="contact.html" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
     <div class="item-card">
-      <div class="item-image">
-        <div class="item-image-bg" style="background-image:url('excursion-2.jpg');"></div><span class="item-tag"><span data-en="Full-Day" data-fr="Journée Complète" data-es="Día Completo" data-de="Ganzer Tag">Full-Day</span></span><span class="item-price-badge"><span data-en="From €55" data-fr="À partir de 55 €" data-es="Desde 55 €" data-de="Ab 55 €">From €55</span></span></div>
+      <div class="item-image" style="background-image:url('excursion-2.jpg');"><span class="item-tag"><span data-en="Full-Day" data-fr="Journée Complète" data-es="Día Completo" data-de="Ganzer Tag">Full-Day</span></span></div>
       <div class="item-body">
         <h3><span data-en="Day Trip to Marrakech: Explore the Red City's Vibrant Culture" data-fr="Excursion à Marrakech : La Culture Vibrante de la Ville Rouge" data-es="Excursión a Marrakech: La Vibrante Cultura de la Ciudad Roja" data-de="Tagesausflug nach Marrakesch: Die Lebendige Kultur der Roten Stadt">Day Trip to Marrakech: Explore the Red City's Vibrant Culture</span></h3>
         <p class="item-desc"><span data-en="Discover Marrakech's souks, palaces, and the iconic Jemaa el-Fnaa square on a full-day excursion from the coast." data-fr="Découvrez les souks, les palais et la célèbre place Jemaa el-Fnaa de Marrakech lors d'une excursion d'une journée depuis la côte." data-es="Descubre los zocos, palacios y la icónica plaza Jemaa el-Fnaa de Marrakech en una excursión de un día desde la costa." data-de="Entdecken Sie die Souks, Paläste und den ikonischen Jemaa-el-Fnaa-Platz von Marrakesch bei einem Tagesausflug von der Küste aus.">Discover Marrakech's souks, palaces, and the iconic Jemaa el-Fnaa square on a full-day excursion from the coast.</span></p>
+        <div class="item-price"><span data-en="From €55" data-fr="À partir de 55 €" data-es="Desde 55 €" data-de="Ab 55 €">From €55</span></div>
         <a href="contact.html" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
     <div class="item-card">
-      <div class="item-image">
-        <div class="item-image-bg" style="background-image:url('excursion-3.jpg');"></div><span class="item-tag"><span data-en="8 Hours" data-fr="8 Heures" data-es="8 Horas" data-de="8 Stunden">8 Hours</span></span><span class="item-price-badge"><span data-en="From €45" data-fr="À partir de 45 €" data-es="Desde 45 €" data-de="Ab 45 €">From €45</span></span></div>
+      <div class="item-image" style="background-image:url('excursion-3.jpg');"><span class="item-tag"><span data-en="8 Hours" data-fr="8 Heures" data-es="8 Horas" data-de="8 Stunden">8 Hours</span></span></div>
       <div class="item-body">
         <h3><span data-en="Day Trip to Paradise Valley from Agadir or Taghazout" data-fr="Excursion à Paradise Valley depuis Agadir ou Taghazout" data-es="Excursión a Paradise Valley desde Agadir o Taghazout" data-de="Tagesausflug zum Paradise Valley ab Agadir oder Taghazout">Day Trip to Paradise Valley from Agadir or Taghazout</span></h3>
         <p class="item-desc"><span data-en="Explore Paradise Valley's lush palm groves and clear natural pools, finished with a relaxing lunch by the water." data-fr="Découvrez les palmeraies luxuriantes et les bassins naturels de Paradise Valley, suivis d'un déjeuner relaxant au bord de l'eau." data-es="Explora los frondosos palmerales y las piscinas naturales de Paradise Valley, terminando con un almuerzo relajante junto al agua." data-de="Entdecken Sie die üppigen Palmenhaine und klaren natürlichen Pools des Paradise Valley, mit einem entspannten Mittagessen am Wasser.">Explore Paradise Valley's lush palm groves and clear natural pools, finished with a relaxing lunch by the water.</span></p>
+        <div class="item-price"><span data-en="From €45" data-fr="À partir de 45 €" data-es="Desde 45 €" data-de="Ab 45 €">From €45</span></div>
         <a href="contact.html" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>

@@ -117,18 +117,17 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    background: transparent;
-    color: #F8FAFC;
-    border: 1.5px solid rgba(255,255,255,0.5);
+    background: var(--gold);
+    color: var(--white);
+    border: none;
     padding: 8px 14px;
     border-radius: 50px;
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
-    transition: border-color 0.25s ease, color 0.25s ease;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
   }
-  .lang-toggle:hover { border-color: var(--gold); color: var(--gold); }
-  .navbar.scrolled .lang-toggle { color: var(--navy); border-color: var(--line); }
+  .lang-toggle:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 22px rgba(224,122,62,0.35); }
   .lang-toggle svg { width: 15px; height: 15px; }
 
   .lang-menu {

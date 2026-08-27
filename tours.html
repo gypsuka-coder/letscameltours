@@ -74,9 +74,8 @@
   .nav-container { max-width: 1300px; margin: 0 auto; padding: 0 30px; display: flex; align-items: center; justify-content: space-between; }
   .logo img { height: 42px; }
   .nav-right { display: flex; align-items: center; gap: 14px; position: relative; }
-  .lang-toggle { display: flex; align-items: center; gap: 6px; background: transparent; color: #F8FAFC; border: 1.5px solid rgba(255,255,255,0.5); padding: 8px 14px; border-radius: 50px; font-size: 13px; font-weight: 600; cursor: pointer; transition: border-color 0.25s ease, color 0.25s ease; }
-  .lang-toggle:hover { border-color: var(--gold); color: var(--gold); }
-  .navbar.scrolled .lang-toggle { color: var(--navy); border-color: var(--line); }
+  .lang-toggle { display: flex; align-items: center; gap: 6px; background: var(--gold); color: var(--white); border: none; padding: 8px 14px; border-radius: 50px; font-size: 13px; font-weight: 700; cursor: pointer; transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
+  .lang-toggle:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 22px rgba(224,122,62,0.35); }
   .lang-toggle svg { width: 15px; height: 15px; }
   .lang-menu { position: absolute; top: calc(100% + 8px); right: 0; background: var(--white); border-radius: 6px; box-shadow: 0 12px 30px rgba(0,0,0,0.15); padding: 6px; display: none; min-width: 140px; z-index: 50; }
   .lang-menu.open { display: block; }
@@ -134,11 +133,9 @@
   .listing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
 
   .item-card { background: var(--white); border-radius: 10px; overflow: hidden; border: 1px solid var(--line); transition: transform 0.25s ease, box-shadow 0.25s ease; }
-  .item-card:hover { transform: translateY(-6px); box-shadow: 0 20px 44px rgba(0,51,102,0.16); }
-  .item-image { height: 210px; position: relative; overflow: hidden; }
-  .item-image-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.45s ease; }
-  .item-card:hover .item-image-bg { transform: scale(1.09); }
-  .item-tag { position: absolute; top: 14px; left: 14px; z-index: 2; background: var(--gold); color: var(--white); font-size: 11.5px; font-weight: 700; padding: 6px 12px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .item-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,51,102,0.12); }
+  .item-image { height: 210px; background-size: cover; background-position: center; position: relative; }
+  .item-tag { position: absolute; top: 14px; left: 14px; background: var(--gold); color: var(--white); font-size: 11.5px; font-weight: 700; padding: 6px 12px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.04em; }
   .item-body { padding: 22px 22px 24px; }
   .item-body h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
   .item-desc { color: var(--text-gray); font-size: 13.5px; margin-bottom: 16px; line-height: 1.6; }
@@ -323,8 +320,7 @@
 <section class="listing">
   <div class="container listing-grid">
     <div class="item-card">
-      <div class="item-image">
-        <div class="item-image-bg" style="background-image:url('tour-1.jpg');"></div><span class="item-tag"><span data-en="Bestseller" data-fr="Meilleure Vente" data-es="Más Vendido" data-de="Bestseller">Bestseller</span></span></div>
+      <div class="item-image" style="background-image:url('tour-1.jpg');"><span class="item-tag"><span data-en="Bestseller" data-fr="Meilleure Vente" data-es="Más Vendido" data-de="Bestseller">Bestseller</span></span></div>
       <div class="item-body">
         <h3><span data-en="Grand Morocco Tour: North to South" data-fr="Grand Tour du Maroc : Nord au Sud" data-es="Gran Tour de Marruecos: Norte a Sur" data-de="Große Marokko-Tour: Norden bis Süden">Grand Morocco Tour: North to South</span></h3>
         <p class="item-desc"><span data-en="Morocco's most complete north-to-south journey, connecting the blue streets of Chefchaouen, the ancient medina of Fes, a night in the Sahara, and the souks of Marrakech into one seamless private trip." data-fr="Le voyage le plus complet du Maroc, du nord au sud, reliant les ruelles bleues de Chefchaouen, la médina antique de Fès, une nuit dans le Sahara et les souks de Marrakech en un seul circuit privé." data-es="El viaje más completo de Marruecos, de norte a sur, que conecta las calles azules de Chefchaouen, la antigua medina de Fez, una noche en el Sahara y los zocos de Marrakech en un solo viaje privado." data-de="Marokkos vollständigste Nord-Süd-Reise, die die blauen Gassen Chefchaouens, die antike Medina von Fès, eine Nacht in der Sahara und die Souks von Marrakesch zu einer privaten Reise verbindet.">Morocco's most complete north-to-south journey, connecting the blue streets of Chefchaouen, the ancient medina of Fes, a night in the Sahara, and the souks of Marrakech into one seamless private trip.</span></p>
@@ -332,8 +328,7 @@
       </div>
     </div>
     <div class="item-card">
-      <div class="item-image">
-        <div class="item-image-bg" style="background-image:url('tour-2.jpg');"></div><span class="item-tag"><span data-en="Most Popular" data-fr="Le Plus Populaire" data-es="Más Popular" data-de="Am Beliebtesten">Most Popular</span></span></div>
+      <div class="item-image" style="background-image:url('tour-2.jpg');"><span class="item-tag"><span data-en="Most Popular" data-fr="Le Plus Populaire" data-es="Más Popular" data-de="Am Beliebtesten">Most Popular</span></span></div>
       <div class="item-body">
         <h3><span data-en="Classic Desert Adventure: Marrakech to Fes" data-fr="Aventure Désert Classique : Marrakech à Fès" data-es="Aventura Clásica en el Desierto: Marrakech a Fez" data-de="Klassisches Wüstenabenteuer: Marrakesch bis Fès">Classic Desert Adventure: Marrakech to Fes</span></h3>
         <p class="item-desc"><span data-en="The classic one-way crossing of Morocco, from Marrakech through the High Atlas and the Sahara, ending in the imperial city of Fes, ideal if you're flying in and out of different cities." data-fr="La traversée classique du Maroc, de Marrakech à travers le Haut Atlas et le Sahara, se terminant dans la ville impériale de Fès, idéal si vous arrivez et repartez de villes différentes." data-es="El clásico cruce de Marruecos, desde Marrakech a través del Alto Atlas y el Sahara, terminando en la ciudad imperial de Fez, ideal si llegas y sales por ciudades diferentes." data-de="Die klassische Durchquerung Marokkos von Marrakesch durch den Hohen Atlas und die Sahara bis zur Kaiserstadt Fès, ideal, wenn Sie über verschiedene Städte ein- und ausreisen.">The classic one-way crossing of Morocco, from Marrakech through the High Atlas and the Sahara, ending in the imperial city of Fes, ideal if you're flying in and out of different cities.</span></p>
@@ -341,8 +336,7 @@
       </div>
     </div>
     <div class="item-card">
-      <div class="item-image">
-        <div class="item-image-bg" style="background-image:url('tour-3.jpg');"></div><span class="item-tag"><span data-en="Cultural Highlight" data-fr="Temps Fort Culturel" data-es="Highlight Cultural" data-de="Kulturelles Highlight">Cultural Highlight</span></span></div>
+      <div class="item-image" style="background-image:url('tour-3.jpg');"><span class="item-tag"><span data-en="Cultural Highlight" data-fr="Temps Fort Culturel" data-es="Highlight Cultural" data-de="Kulturelles Highlight">Cultural Highlight</span></span></div>
       <div class="item-body">
         <h3><span data-en="Imperial Cities & Coastal Pearl" data-fr="Villes Impériales & Perle Côtière" data-es="Ciudades Imperiales y Perla Costera" data-de="Kaiserstädte & Küstenperle">Imperial Cities & Coastal Pearl</span></h3>
         <p class="item-desc"><span data-en="A culture-first journey through Morocco's imperial capitals, Casablanca, Rabat, Meknes, and Fes, before ending in the vibrant streets of Marrakech." data-fr="Un voyage axé sur la culture à travers les capitales impériales du Maroc, Casablanca, Rabat, Meknès et Fès, avant de se terminer dans les rues animées de Marrakech." data-es="Un viaje centrado en la cultura por las capitales imperiales de Marruecos, Casablanca, Rabat, Mequinez y Fez, antes de terminar en las vibrantes calles de Marrakech." data-de="Eine kulturorientierte Reise durch Marokkos Kaiserstädte, Casablanca, Rabat, Meknès und Fès, bevor sie in den lebendigen Straßen Marrakeschs endet.">A culture-first journey through Morocco's imperial capitals, Casablanca, Rabat, Meknes, and Fes, before ending in the vibrant streets of Marrakech.</span></p>
