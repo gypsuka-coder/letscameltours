@@ -12,6 +12,7 @@
     --navy: #003366; --navy-dark: #001f3f; --gold: #E07A3E; --gold-light: #ea9868;
     --white: #ffffff; --off-white: #F8FAFC; --text-gray: #5c6474; --line: #e6e9ef;
   }
+  html { scroll-behavior: smooth; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Poppins', sans-serif; color: #1a1a1a; line-height: 1.6; }
   a { text-decoration: none; color: inherit; }
@@ -22,11 +23,10 @@
   .navbar {
     position: fixed;
     top: 0; left: 0; width: 100%;
-    z-index: 200;
+    z-index: 260;
     background: transparent;
     backdrop-filter: none;
     box-shadow: none;
-    padding: 16px 0;
     transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
   }
   .navbar.scrolled {
@@ -36,11 +36,13 @@
   }
   .navbar.scrolled .nav-menu a { color: var(--navy); }
   .navbar.scrolled .burger { color: var(--navy); }
-  .nav-container { max-width: 1300px; margin: 0 auto; padding: 0 30px; display: flex; align-items: center; justify-content: space-between; }
-  .logo img { height: 42px; }
-  .nav-menu { display: flex; align-items: center; gap: 22px; }
-  .nav-menu a { color: #F8FAFC; font-size: 14px; font-weight: 500; }
+  .nav-container { max-width: 1300px; margin: 0 auto; padding: 16px 30px; display: flex; align-items: center; justify-content: space-between; }
+  .logo img { height: 46px; width: auto; }
+  .nav-menu { display: flex; align-items: center; gap: 30px; }
+  .nav-menu a { color: var(--off-white); font-size: 14.5px; font-weight: 500; transition: color 0.25s ease; position: relative; }
   .nav-menu a:hover { color: var(--gold); }
+  .nav-menu a.active { color: var(--gold); }
+  .nav-menu a.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; background: var(--gold); border-radius: 2px; }
 
   .nav-dropdown { position: relative; }
   .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
@@ -72,7 +74,7 @@
   }
   .nav-dropdown-menu a:hover { background: var(--off-white); color: var(--gold) !important; }
 
-  .nav-right { display: flex; align-items: center; gap: 14px; position: relative; }
+  .nav-right { display: flex; align-items: center; gap: 18px; position: relative; }
   .lang-toggle { display: flex; align-items: center; gap: 6px; background: var(--gold); color: var(--white); border: none; padding: 8px 14px; border-radius: 50px; font-size: 13px; font-weight: 700; cursor: pointer; transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
   .lang-toggle:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 22px rgba(224,122,62,0.35); }
   .lang-toggle svg { width: 15px; height: 15px; }
@@ -81,30 +83,30 @@
   .lang-option { display: block; width: 100%; text-align: left; background: none; border: none; padding: 9px 12px; font-size: 13.5px; font-weight: 500; color: var(--navy); border-radius: 4px; cursor: pointer; }
   .lang-option:hover { background: var(--off-white); }
   .lang-option.active { color: var(--gold); font-weight: 700; }
-  .btn-book { background: var(--gold); color: var(--white); padding: 10px 22px; border-radius: 50px; font-size: 14px; font-weight: 700; transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
+  .btn-book { background: var(--gold); color: var(--white); padding: 11px 24px; border-radius: 50px; font-size: 14px; font-weight: 700; transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
   .btn-book:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 22px rgba(224,122,62,0.35); }
-  .burger { display: none; background: none; border: none; color: #F8FAFC; cursor: pointer; padding: 4px; }
+  .burger { display: none; background: none; border: none; color: var(--off-white); cursor: pointer; padding: 4px; }
   .burger svg { width: 24px; height: 24px; }
   .mobile-menu-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 240; }
   .mobile-menu-overlay.open { display: block; }
   .mobile-menu { position: fixed; top: 0; right: -100%; width: 78%; max-width: 320px; height: 100vh; background: var(--white); box-shadow: -10px 0 30px rgba(0,0,0,0.2); z-index: 250; padding: 80px 30px 30px; transition: right 0.3s ease; display: flex; flex-direction: column; }
   .mobile-menu.open { right: 0; }
   .mobile-menu a { display: block; padding: 15px 0; border-bottom: 1px solid var(--line); color: var(--navy); font-weight: 600; font-size: 15.5px; }
+  .mobile-menu a.active { color: var(--gold); }
   .mobile-menu-close { position: absolute; top: 24px; right: 24px; background: none; border: none; color: var(--navy); cursor: pointer; }
   .mobile-menu-close svg { width: 22px; height: 22px; }
 
   .hero {
     position: relative;
-    min-height: 55vh;
-    display: flex;
-    align-items: flex-end;
-    padding: 60px 30px 60px;
-    background-image: linear-gradient(180deg, rgba(0,51,102,0.35) 0%, rgba(0,31,63,0.7) 100%), url('excursions-hero.jpg');
-    background-size: cover;
-    background-position: center;
-    color: #fff;
+    min-height: 440px;
+    background: linear-gradient(180deg, rgba(0,51,102,0.45) 0%, rgba(0,31,63,0.72) 100%), url('excursions-hero.jpg');
+    background-size: cover; background-position: center;
+    padding: 150px 30px 56px; color: #fff;
   }
-  .hero-inner { max-width: 700px; }
+  .hero-inner { max-width: 700px; margin: 0 auto; }
+  .hero-badge-top { display: inline-block; background: var(--gold); color: #fff; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 6px 14px; border-radius: 50px; margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(28px, 4.2vw, 44px); font-weight: 800; margin-bottom: 10px; max-width: 800px; }
+  .hero-lead { font-size: 15.5px; color: #e8edf4; max-width: 640px; }
 
   .gallery-section { padding: 70px 0 0; }
   .gallery-carousel-wrap { position: relative; }
@@ -124,26 +126,85 @@
     .gallery-track img { flex-basis: 84%; height: 240px; }
     .g-carousel-arrow { width: 36px; height: 36px; }
   }
-  .hero span.label { color: var(--gold); font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; display: block; margin-bottom: 14px; }
-  .hero h1 { font-size: clamp(30px, 4.8vw, 48px); font-weight: 800; margin-bottom: 14px; }
-  .hero p { color: #e8e8e8; font-size: 15.5px; max-width: 60ch; }
 
   .listing { padding: 80px 0; }
-  .listing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
 
-  .item-card { background: var(--white); border-radius: 10px; overflow: hidden; border: 1px solid var(--line); transition: transform 0.25s ease, box-shadow 0.25s ease; }
-  .item-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,51,102,0.12); }
-  .item-image { height: 210px; background-size: cover; background-position: center; position: relative; }
-  .item-tag { position: absolute; top: 14px; left: 14px; background: var(--gold); color: var(--white); font-size: 11.5px; font-weight: 700; padding: 6px 12px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.04em; }
-  .item-body { padding: 22px 22px 24px; }
-  .item-body h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
-  .item-desc { color: var(--text-gray); font-size: 13.5px; margin-bottom: 14px; line-height: 1.6; }
-  .item-price { font-size: 17px; font-weight: 700; color: var(--gold); margin-bottom: 16px; }
-  .btn-arrow { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 14px; color: var(--navy); }
-  .btn-arrow svg { width: 16px; height: 16px; transition: transform 0.2s ease; }
-  .btn-arrow:hover svg { transform: translateX(4px); }
+  .tours-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
 
-  .whatsapp-btn { position: fixed; bottom: 26px; right: 26px; z-index: 300; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+  .tour-card {
+    display: block;
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+  }
+
+  .tour-card:hover { transform: translateY(-6px); box-shadow: 0 20px 44px rgba(0,51,102,0.16); }
+
+  .tour-image {
+    height: 210px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tour-image-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.45s ease;
+  }
+
+  .tour-card:hover .tour-image-bg { transform: scale(1.09); }
+
+  .tour-tag {
+    position: absolute;
+    top: 14px; left: 14px;
+    z-index: 2;
+    background: var(--gold);
+    color: var(--white);
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .tour-price-badge {
+    position: absolute;
+    top: 14px; right: 14px;
+    z-index: 2;
+    background: rgba(255,255,255,0.95);
+    color: var(--navy);
+    font-size: 12.5px;
+    font-weight: 800;
+    padding: 6px 12px;
+    border-radius: 4px;
+  }
+
+  .tour-body { padding: 22px 22px 24px; }
+
+  .tour-body h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+    transition: color 0.2s ease;
+  }
+
+  .tour-card:hover .tour-body h3 { color: var(--gold); }
+
+  .tour-desc { color: var(--text-gray); font-size: 13.5px; line-height: 1.6; }
+
+  .whatsapp-btn { position: fixed; bottom: 26px; right: 26px; z-index: 300; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0,0,0,0.25); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+  .whatsapp-btn:hover { transform: translateY(-3px) scale(1.08); box-shadow: 0 14px 30px rgba(37,211,102,0.45); }
   .whatsapp-btn svg { width: 30px; height: 30px; fill: #fff; }
 
   .footer { background: var(--off-white); color: var(--text-gray); padding: 60px 0 24px; border-top: 1px solid var(--line); }
@@ -184,17 +245,17 @@
   .footer-lang-btn img { border-radius: 2px; flex-shrink: 0; }
   .footer-lang-btn:hover, .footer-lang-btn.active { color: var(--gold); font-weight: 600; }
 
-  .socials { display: flex; gap: 12px; margin-top: 18px; }
+  .socials { display: flex; gap: 12px; margin-top: 28px; }
   .socials a {
-    width: 36px; height: 36px;
+    width: 40px; height: 40px;
     border: 1px solid var(--line);
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     color: var(--navy);
     transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   }
-  .socials a:hover { background: var(--gold); border-color: var(--gold); color: #fff; }
-  .socials svg { width: 16px; height: 16px; flex-shrink: 0; }
+  .socials a:hover { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+  .socials svg { width: 18px; height: 18px; flex-shrink: 0; }
 
   .footer-bottom {
     padding-top: 6px;
@@ -214,12 +275,12 @@
     .footer-grid { grid-template-columns: 1fr; }
   }
 
-  @media (max-width: 900px) { .listing-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 900px) { .tours-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 700px) {
     .nav-menu { display: none; }
     .nav-right .btn-book { display: none; }
     .burger { display: block; }
-    .listing-grid { grid-template-columns: 1fr; }
+    .tours-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -245,7 +306,7 @@
         </div>
       </div>
       <div class="nav-dropdown">
-        <a href="excursions.html"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+        <a href="excursions.html" class="active"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
         <div class="nav-dropdown-menu">
           <div class="nav-dropdown-menu-inner">
             <a href="excursion-1.html"><span data-en="Day Trip to Essaouira" data-fr="Excursion à Essaouira" data-es="Excursión a Essaouira" data-de="Tagesausflug nach Essaouira">Day Trip to Essaouira</span></a>
@@ -311,40 +372,36 @@
 
 <section class="hero">
   <div class="hero-inner">
-    <span class="label"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></span>
+    <span class="hero-badge-top"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></span>
     <h1><span data-en="Unforgettable Day Trips" data-fr="Excursions Inoubliables" data-es="Excursiones Inolvidables" data-de="Unvergessliche Tagesausflüge">Unforgettable Day Trips</span></h1>
-    <p><span data-en="Guided day trips around Agadir, Taghazout, and Marrakech, no long commitment, just a great day out." data-fr="Des excursions guidées autour d'Agadir, Taghazout et Marrakech, sans engagement, juste une belle journée." data-es="Excursiones guiadas alrededor de Agadir, Taghazout y Marrakech, sin compromiso largo, solo un gran día." data-de="Geführte Tagesausflüge rund um Agadir, Taghazout und Marrakesch, ohne lange Bindung, einfach ein toller Tag.">Guided day trips around Agadir, Taghazout, and Marrakech, no long commitment, just a great day out.</span></p>
+    <p class="hero-lead"><span data-en="Guided day trips around Agadir, Taghazout, and Marrakech, no long commitment, just a great day out." data-fr="Des excursions guidées autour d'Agadir, Taghazout et Marrakech, sans engagement, juste une belle journée." data-es="Excursiones guiadas alrededor de Agadir, Taghazout y Marrakech, sin compromiso largo, solo un gran día." data-de="Geführte Tagesausflüge rund um Agadir, Taghazout und Marrakesch, ohne lange Bindung, einfach ein toller Tag.">Guided day trips around Agadir, Taghazout, and Marrakech, no long commitment, just a great day out.</span></p>
   </div>
 </section>
 
 <section class="listing">
-  <div class="container listing-grid">
-    <div class="item-card">
-      <div class="item-image" style="background-image:url('excursion-1.jpg');"><span class="item-tag"><span data-en="Full-Day" data-fr="Journée Complète" data-es="Día Completo" data-de="Ganzer Tag">Full-Day</span></span></div>
-      <div class="item-body">
-        <h3><span data-en="Day Trip to Essaouira from Agadir and Taghazout" data-fr="Excursion à Essaouira depuis Agadir et Taghazout" data-es="Excursión a Essaouira desde Agadir y Taghazout" data-de="Tagesausflug nach Essaouira ab Agadir und Taghazout">Day Trip to Essaouira from Agadir and Taghazout</span></h3>
-        <p class="item-desc"><span data-en="A full day exploring the coastal city of Essaouira, its historic medina, fishing port, and windswept beaches." data-fr="Une journée complète à explorer la ville côtière d'Essaouira, sa médina historique, son port de pêche et ses plages venteuses." data-es="Un día completo explorando la ciudad costera de Essaouira, su medina histórica, puerto pesquero y playas ventosas." data-de="Ein ganzer Tag zur Erkundung der Küstenstadt Essaouira, ihrer historischen Medina, des Fischerhafens und der windigen Strände.">A full day exploring the coastal city of Essaouira, its historic medina, fishing port, and windswept beaches.</span></p>
-        <div class="item-price"><span data-en="From €50" data-fr="À partir de 50 €" data-es="Desde 50 €" data-de="Ab 50 €">From €50</span></div>
-        <a href="contact.html" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
-    </div>
-    <div class="item-card">
-      <div class="item-image" style="background-image:url('excursion-2.jpg');"><span class="item-tag"><span data-en="Full-Day" data-fr="Journée Complète" data-es="Día Completo" data-de="Ganzer Tag">Full-Day</span></span></div>
-      <div class="item-body">
-        <h3><span data-en="Day Trip to Marrakech: Explore the Red City's Vibrant Culture" data-fr="Excursion à Marrakech : La Culture Vibrante de la Ville Rouge" data-es="Excursión a Marrakech: La Vibrante Cultura de la Ciudad Roja" data-de="Tagesausflug nach Marrakesch: Die Lebendige Kultur der Roten Stadt">Day Trip to Marrakech: Explore the Red City's Vibrant Culture</span></h3>
-        <p class="item-desc"><span data-en="Discover Marrakech's souks, palaces, and the iconic Jemaa el-Fnaa square on a full-day excursion from the coast." data-fr="Découvrez les souks, les palais et la célèbre place Jemaa el-Fnaa de Marrakech lors d'une excursion d'une journée depuis la côte." data-es="Descubre los zocos, palacios y la icónica plaza Jemaa el-Fnaa de Marrakech en una excursión de un día desde la costa." data-de="Entdecken Sie die Souks, Paläste und den ikonischen Jemaa-el-Fnaa-Platz von Marrakesch bei einem Tagesausflug von der Küste aus.">Discover Marrakech's souks, palaces, and the iconic Jemaa el-Fnaa square on a full-day excursion from the coast.</span></p>
-        <div class="item-price"><span data-en="From €55" data-fr="À partir de 55 €" data-es="Desde 55 €" data-de="Ab 55 €">From €55</span></div>
-        <a href="contact.html" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
-    </div>
-    <div class="item-card">
-      <div class="item-image" style="background-image:url('excursion-3.jpg');"><span class="item-tag"><span data-en="8 Hours" data-fr="8 Heures" data-es="8 Horas" data-de="8 Stunden">8 Hours</span></span></div>
-      <div class="item-body">
-        <h3><span data-en="Day Trip to Paradise Valley from Agadir or Taghazout" data-fr="Excursion à Paradise Valley depuis Agadir ou Taghazout" data-es="Excursión a Paradise Valley desde Agadir o Taghazout" data-de="Tagesausflug zum Paradise Valley ab Agadir oder Taghazout">Day Trip to Paradise Valley from Agadir or Taghazout</span></h3>
-        <p class="item-desc"><span data-en="Explore Paradise Valley's lush palm groves and clear natural pools, finished with a relaxing lunch by the water." data-fr="Découvrez les palmeraies luxuriantes et les bassins naturels de Paradise Valley, suivis d'un déjeuner relaxant au bord de l'eau." data-es="Explora los frondosos palmerales y las piscinas naturales de Paradise Valley, terminando con un almuerzo relajante junto al agua." data-de="Entdecken Sie die üppigen Palmenhaine und klaren natürlichen Pools des Paradise Valley, mit einem entspannten Mittagessen am Wasser.">Explore Paradise Valley's lush palm groves and clear natural pools, finished with a relaxing lunch by the water.</span></p>
-        <div class="item-price"><span data-en="From €45" data-fr="À partir de 45 €" data-es="Desde 45 €" data-de="Ab 45 €">From €45</span></div>
-        <a href="contact.html" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
+  <div class="container">
+    <div class="tours-grid">
+      <a href="excursion-1.html" class="tour-card">
+        <div class="tour-image"><div class="tour-image-bg" style="background-image:url('excursion-1.jpg');"></div><span class="tour-tag"><span data-en="Full-Day" data-fr="Journée Complète" data-es="Día Completo" data-de="Ganzer Tag">Full-Day</span></span><span class="tour-price-badge"><span data-en="From €50" data-fr="À partir de 50 €" data-es="Desde 50 €" data-de="Ab 50 €">From €50</span></span></div>
+        <div class="tour-body">
+          <h3><span data-en="Day Trip to Essaouira from Agadir and Taghazout" data-fr="Excursion à Essaouira depuis Agadir et Taghazout" data-es="Excursión a Essaouira desde Agadir y Taghazout" data-de="Tagesausflug nach Essaouira ab Agadir und Taghazout">Day Trip to Essaouira from Agadir and Taghazout</span></h3>
+          <p class="tour-desc"><span data-en="A full day exploring the coastal city of Essaouira, its historic medina, fishing port, and windswept beaches." data-fr="Une journée complète à explorer la ville côtière d'Essaouira, sa médina historique, son port de pêche et ses plages venteuses." data-es="Un día completo explorando la ciudad costera de Essaouira, su medina histórica, puerto pesquero y playas ventosas." data-de="Ein ganzer Tag zur Erkundung der Küstenstadt Essaouira, ihrer historischen Medina, des Fischerhafens und der windigen Strände.">A full day exploring the coastal city of Essaouira, its historic medina, fishing port, and windswept beaches.</span></p>
+        </div>
+      </a>
+      <a href="excursion-2.html" class="tour-card">
+        <div class="tour-image"><div class="tour-image-bg" style="background-image:url('excursion-2.jpg');"></div><span class="tour-tag"><span data-en="Full-Day" data-fr="Journée Complète" data-es="Día Completo" data-de="Ganzer Tag">Full-Day</span></span><span class="tour-price-badge"><span data-en="From €55" data-fr="À partir de 55 €" data-es="Desde 55 €" data-de="Ab 55 €">From €55</span></span></div>
+        <div class="tour-body">
+          <h3><span data-en="Day Trip to Marrakech: Explore the Red City's Vibrant Culture" data-fr="Excursion à Marrakech : La Culture Vibrante de la Ville Rouge" data-es="Excursión a Marrakech: La Vibrante Cultura de la Ciudad Roja" data-de="Tagesausflug nach Marrakesch: Die Lebendige Kultur der Roten Stadt">Day Trip to Marrakech: Explore the Red City's Vibrant Culture</span></h3>
+          <p class="tour-desc"><span data-en="Discover Marrakech's souks, palaces, and the iconic Jemaa el-Fnaa square on a full-day excursion from the coast." data-fr="Découvrez les souks, les palais et la célèbre place Jemaa el-Fnaa de Marrakech lors d'une excursion d'une journée depuis la côte." data-es="Descubre los zocos, palacios y la icónica plaza Jemaa el-Fnaa de Marrakech en una excursión de un día desde la costa." data-de="Entdecken Sie die Souks, Paläste und den ikonischen Jemaa-el-Fnaa-Platz von Marrakesch bei einem Tagesausflug von der Küste aus.">Discover Marrakech's souks, palaces, and the iconic Jemaa el-Fnaa square on a full-day excursion from the coast.</span></p>
+        </div>
+      </a>
+      <a href="excursion-3.html" class="tour-card">
+        <div class="tour-image"><div class="tour-image-bg" style="background-image:url('excursion-3.jpg');"></div><span class="tour-tag"><span data-en="8 Hours" data-fr="8 Heures" data-es="8 Horas" data-de="8 Stunden">8 Hours</span></span><span class="tour-price-badge"><span data-en="From €45" data-fr="À partir de 45 €" data-es="Desde 45 €" data-de="Ab 45 €">From €45</span></span></div>
+        <div class="tour-body">
+          <h3><span data-en="Day Trip to Paradise Valley from Agadir or Taghazout" data-fr="Excursion à Paradise Valley depuis Agadir ou Taghazout" data-es="Excursión a Paradise Valley desde Agadir o Taghazout" data-de="Tagesausflug zum Paradise Valley ab Agadir oder Taghazout">Day Trip to Paradise Valley from Agadir or Taghazout</span></h3>
+          <p class="tour-desc"><span data-en="Explore Paradise Valley's lush palm groves and clear natural pools, finished with a relaxing lunch by the water." data-fr="Découvrez les palmeraies luxuriantes et les bassins naturels de Paradise Valley, suivis d'un déjeuner relaxant au bord de l'eau." data-es="Explora los frondosos palmerales y las piscinas naturales de Paradise Valley, terminando con un almuerzo relajante junto al agua." data-de="Entdecken Sie die üppigen Palmenhaine und klaren natürlichen Pools des Paradise Valley, mit einem entspannten Mittagessen am Wasser.">Explore Paradise Valley's lush palm groves and clear natural pools, finished with a relaxing lunch by the water.</span></p>
+        </div>
+      </a>
     </div>
     <p style="text-align:center;font-size:13px;color:var(--text-gray);font-style:italic;margin-top:30px;"><span data-en="* Prices shown are estimates and may vary by group size, season, and customization." data-fr="* Les prix indiqués sont des estimations et peuvent varier selon la taille du groupe, la saison et la personnalisation." data-es="* Los precios mostrados son estimados y pueden variar según el tamaño del grupo, la temporada y la personalización." data-de="* Die angegebenen Preise sind Schätzungen und können je nach Gruppengröße, Saison und Anpassung variieren.">* Prices shown are estimates and may vary by group size, season, and customization.</span></p>
   </div>

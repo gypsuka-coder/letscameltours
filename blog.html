@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog | Let's Camel Tours</title>
+<title>Blogs | Let's Camel Tours</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -12,6 +12,7 @@
     --navy: #003366; --navy-dark: #001f3f; --gold: #E07A3E; --gold-light: #ea9868;
     --white: #ffffff; --off-white: #F8FAFC; --text-gray: #5c6474; --line: #e6e9ef;
   }
+  html { scroll-behavior: smooth; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Poppins', sans-serif; color: #1a1a1a; line-height: 1.6; }
   a { text-decoration: none; color: inherit; }
@@ -22,11 +23,10 @@
   .navbar {
     position: fixed;
     top: 0; left: 0; width: 100%;
-    z-index: 200;
+    z-index: 260;
     background: transparent;
     backdrop-filter: none;
     box-shadow: none;
-    padding: 16px 0;
     transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
   }
   .navbar.scrolled {
@@ -35,13 +35,14 @@
     box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   }
   .navbar.scrolled .nav-menu a { color: var(--navy); }
-  .navbar.scrolled .lang-toggle { color: var(--navy); border-color: var(--line); }
   .navbar.scrolled .burger { color: var(--navy); }
-  .nav-container { max-width: 1300px; margin: 0 auto; padding: 0 30px; display: flex; align-items: center; justify-content: space-between; }
-  .logo img { height: 42px; }
-  .nav-menu { display: flex; align-items: center; gap: 22px; }
-  .nav-menu a { color: #F8FAFC; font-size: 14px; font-weight: 500; }
+  .nav-container { max-width: 1300px; margin: 0 auto; padding: 16px 30px; display: flex; align-items: center; justify-content: space-between; }
+  .logo img { height: 46px; width: auto; }
+  .nav-menu { display: flex; align-items: center; gap: 30px; }
+  .nav-menu a { color: var(--off-white); font-size: 14.5px; font-weight: 500; transition: color 0.25s ease; position: relative; }
   .nav-menu a:hover { color: var(--gold); }
+  .nav-menu a.active { color: var(--gold); }
+  .nav-menu a.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; background: var(--gold); border-radius: 2px; }
 
   .nav-dropdown { position: relative; }
   .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
@@ -72,43 +73,39 @@
     border-radius: 5px;
   }
   .nav-dropdown-menu a:hover { background: var(--off-white); color: var(--gold) !important; }
-  .nav-container { max-width: 1300px; margin: 0 auto; padding: 0 30px; display: flex; align-items: center; justify-content: space-between; }
-  .logo img { height: 42px; }
-  .nav-right { display: flex; align-items: center; gap: 14px; position: relative; }
-  .lang-toggle { display: flex; align-items: center; gap: 6px; background: none; border: 1px solid rgba(255,255,255,0.4); color: #F8FAFC; padding: 8px 12px; border-radius: 4px; font-size: 13px; font-weight: 600; cursor: pointer; }
+  .nav-right { display: flex; align-items: center; gap: 18px; position: relative; }
+  .lang-toggle { display: flex; align-items: center; gap: 6px; background: var(--gold); color: var(--white); border: none; padding: 8px 14px; border-radius: 50px; font-size: 13px; font-weight: 700; cursor: pointer; transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
+  .lang-toggle:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 22px rgba(224,122,62,0.35); }
   .lang-toggle svg { width: 15px; height: 15px; }
   .lang-menu { position: absolute; top: calc(100% + 8px); right: 0; background: var(--white); border-radius: 6px; box-shadow: 0 12px 30px rgba(0,0,0,0.15); padding: 6px; display: none; min-width: 140px; z-index: 50; }
   .lang-menu.open { display: block; }
   .lang-option { display: block; width: 100%; text-align: left; background: none; border: none; padding: 9px 12px; font-size: 13.5px; font-weight: 500; color: var(--navy); border-radius: 4px; cursor: pointer; }
   .lang-option:hover { background: var(--off-white); }
   .lang-option.active { color: var(--gold); font-weight: 700; }
-  .btn-book { background: var(--gold); color: var(--white); padding: 10px 22px; border-radius: 4px; font-size: 14px; font-weight: 700; }
-  .btn-book:hover { background: var(--gold-light); }
-  .burger { display: none; background: none; border: none; color: #F8FAFC; cursor: pointer; padding: 4px; }
+  .btn-book { background: var(--gold); color: var(--white); padding: 11px 24px; border-radius: 50px; font-size: 14px; font-weight: 700; transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
+  .btn-book:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 22px rgba(224,122,62,0.35); }
+  .burger { display: none; background: none; border: none; color: var(--off-white); cursor: pointer; padding: 4px; }
   .burger svg { width: 24px; height: 24px; }
   .mobile-menu-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 240; }
   .mobile-menu-overlay.open { display: block; }
   .mobile-menu { position: fixed; top: 0; right: -100%; width: 78%; max-width: 320px; height: 100vh; background: var(--white); box-shadow: -10px 0 30px rgba(0,0,0,0.2); z-index: 250; padding: 80px 30px 30px; transition: right 0.3s ease; display: flex; flex-direction: column; }
   .mobile-menu.open { right: 0; }
   .mobile-menu a { display: block; padding: 15px 0; border-bottom: 1px solid var(--line); color: var(--navy); font-weight: 600; font-size: 15.5px; }
+  .mobile-menu a.active { color: var(--gold); }
   .mobile-menu-close { position: absolute; top: 24px; right: 24px; background: none; border: none; color: var(--navy); cursor: pointer; }
   .mobile-menu-close svg { width: 22px; height: 22px; }
 
   .hero {
     position: relative;
-    min-height: 55vh;
-    display: flex;
-    align-items: flex-end;
-    padding: 60px 30px 60px;
-    background-image: linear-gradient(180deg, rgba(0,51,102,0.35) 0%, rgba(0,31,63,0.7) 100%), url('blog-hero.jpg');
-    background-size: cover;
-    background-position: center;
-    color: #fff;
+    min-height: 440px;
+    background: linear-gradient(180deg, rgba(0,51,102,0.45) 0%, rgba(0,31,63,0.72) 100%), url('blog-hero.jpg');
+    background-size: cover; background-position: center;
+    padding: 150px 30px 56px; color: #fff;
   }
-  .hero-inner { max-width: 700px; }
-  .hero span.label { color: var(--gold); font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; display: block; margin-bottom: 14px; }
-  .hero h1 { font-size: clamp(30px, 4.8vw, 48px); font-weight: 800; margin-bottom: 14px; }
-  .hero p { color: #e8e8e8; font-size: 15.5px; max-width: 60ch; }
+  .hero-inner { max-width: 700px; margin: 0 auto; }
+  .hero-badge-top { display: inline-block; background: var(--gold); color: #fff; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 6px 14px; border-radius: 50px; margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(28px, 4.2vw, 44px); font-weight: 800; margin-bottom: 10px; max-width: 800px; }
+  .hero-lead { font-size: 15.5px; color: #e8edf4; max-width: 640px; }
 
   .gallery-section { padding: 70px 0 0; }
   .gallery-carousel-wrap { position: relative; }
@@ -130,22 +127,24 @@
   }
 
   .listing { padding: 80px 0; }
-  .listing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
 
-  .item-card { background: var(--white); border-radius: 10px; overflow: hidden; border: 1px solid var(--line); transition: transform 0.25s ease, box-shadow 0.25s ease; }
-  .item-card:hover { transform: translateY(-6px); box-shadow: 0 20px 44px rgba(0,51,102,0.16); }
-  .item-image { height: 210px; position: relative; overflow: hidden; }
-  .item-image-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.45s ease; }
-  .item-card:hover .item-image-bg { transform: scale(1.09); }
-  .item-tag { position: absolute; top: 14px; left: 14px; z-index: 2; background: var(--gold); color: var(--white); font-size: 11.5px; font-weight: 700; padding: 6px 12px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.04em; }
-  .item-body { padding: 22px 22px 24px; }
-  .item-body h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
-  .item-desc { color: var(--text-gray); font-size: 13.5px; margin-bottom: 16px; line-height: 1.6; }
+  .blog-card { background: var(--white); border-radius: 10px; overflow: hidden; border: 1px solid var(--line); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+  .blog-card:hover { transform: translateY(-6px); box-shadow: 0 20px 44px rgba(0,51,102,0.16); }
+  .blog-image { height: 190px; position: relative; overflow: hidden; }
+  .blog-image-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.45s ease; }
+  .blog-card:hover .blog-image-bg { transform: scale(1.09); }
+  .blog-tag { position: absolute; top: 14px; left: 14px; z-index: 2; background: var(--gold); color: var(--white); font-size: 11.5px; font-weight: 700; padding: 6px 12px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .blog-body { padding: 22px 22px 24px; }
+  .blog-meta { display: flex; gap: 10px; font-size: 12px; color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 10px; }
+  .blog-body h3 { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 10px; line-height: 1.35; }
+  .blog-body p { font-size: 13.5px; color: var(--text-gray); margin-bottom: 16px; }
   .btn-arrow { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 14px; color: var(--navy); }
   .btn-arrow svg { width: 16px; height: 16px; transition: transform 0.2s ease; }
   .btn-arrow:hover svg { transform: translateX(4px); }
 
-  .whatsapp-btn { position: fixed; bottom: 26px; right: 26px; z-index: 300; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+  .whatsapp-btn { position: fixed; bottom: 26px; right: 26px; z-index: 300; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0,0,0,0.25); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+  .whatsapp-btn:hover { transform: translateY(-3px) scale(1.08); box-shadow: 0 14px 30px rgba(37,211,102,0.45); }
   .whatsapp-btn svg { width: 30px; height: 30px; fill: #fff; }
 
   .footer { background: var(--off-white); color: var(--text-gray); padding: 60px 0 24px; border-top: 1px solid var(--line); }
@@ -186,17 +185,17 @@
   .footer-lang-btn img { border-radius: 2px; flex-shrink: 0; }
   .footer-lang-btn:hover, .footer-lang-btn.active { color: var(--gold); font-weight: 600; }
 
-  .socials { display: flex; gap: 12px; margin-top: 18px; }
+  .socials { display: flex; gap: 12px; margin-top: 28px; }
   .socials a {
-    width: 36px; height: 36px;
+    width: 40px; height: 40px;
     border: 1px solid var(--line);
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     color: var(--navy);
     transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   }
-  .socials a:hover { background: var(--gold); border-color: var(--gold); color: #fff; }
-  .socials svg { width: 16px; height: 16px; flex-shrink: 0; }
+  .socials a:hover { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+  .socials svg { width: 18px; height: 18px; flex-shrink: 0; }
 
   .footer-bottom {
     padding-top: 6px;
@@ -216,12 +215,12 @@
     .footer-grid { grid-template-columns: 1fr; }
   }
 
-  @media (max-width: 900px) { .listing-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 700px) {
     .nav-menu { display: none; }
     .nav-right .btn-book { display: none; }
     .burger { display: block; }
-    .listing-grid { grid-template-columns: 1fr; }
+    .blog-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -271,7 +270,7 @@
       <a href="index.html#transfers"><span data-en="Transfers" data-fr="Transferts" data-es="Traslados" data-de="Transfers">Transfers</span></a>
       <a href="index.html#services"><span data-en="Services" data-fr="Services" data-es="Servicios" data-de="Leistungen">Services</span></a>
       <a href="about-us.html"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
-      <a href="index.html#blog"><span data-en="Blogs" data-fr="Blogs" data-es="Blogs" data-de="Blogs">Blogs</span></a>
+      <a href="index.html#blog" class="active"><span data-en="Blogs" data-fr="Blogs" data-es="Blogs" data-de="Blogs">Blogs</span></a>
       <a href="contact.html"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
     </nav>
     <div class="nav-right">
@@ -313,39 +312,47 @@
 
 <section class="hero">
   <div class="hero-inner">
-    <span class="label"><span data-en="Blog" data-fr="Blog" data-es="Blog" data-de="Blog">Blog</span></span>
-    <h1><span data-en="Let's Read & Explore" data-fr="Lisons & Explorons" data-es="Leamos y Exploremos" data-de="Lasst uns Lesen & Entdecken">Let's Read & Explore</span></h1>
-    <p><span data-en="Travel tips, stories, and guides to help you plan the perfect Morocco trip." data-fr="Conseils de voyage, récits et guides pour préparer le voyage parfait au Maroc." data-es="Consejos de viaje, historias y guías para planear el viaje perfecto a Marruecos." data-de="Reisetipps, Geschichten und Guides für die perfekte Marokko-Reise.">Travel tips, stories, and guides to help you plan the perfect Morocco trip.</span></p>
+    <span class="hero-badge-top"><span data-en="Blogs" data-fr="Blogs" data-es="Blogs" data-de="Blogs">Blogs</span></span>
+    <h1><span data-en="Blogs" data-fr="Blogs" data-es="Blogs" data-de="Blogs">Blogs</span></h1>
+    <p class="hero-lead"><span data-en="Travel tips, stories, and guides to help you plan the perfect Morocco trip." data-fr="Conseils de voyage, récits et guides pour préparer le voyage parfait au Maroc." data-es="Consejos de viaje, historias y guías para planear el viaje perfecto a Marruecos." data-de="Reisetipps, Geschichten und Guides für die perfekte Marokko-Reise.">Travel tips, stories, and guides to help you plan the perfect Morocco trip.</span></p>
   </div>
 </section>
 
 <section class="listing">
-  <div class="container listing-grid">
-    <div class="item-card">
-      <div class="item-image">
-        <div class="item-image-bg" style="background-image:url('blog-1.jpg');"></div><span class="item-tag"><span data-en="Desert Travel" data-fr="Voyage Désert" data-es="Viaje al Desierto" data-de="Wüstenreise">Desert Travel</span></span></div>
-      <div class="item-body">
-        <h3><span data-en="Merzouga Desert Tour: The Complete Guide" data-fr="Circuit Désert Merzouga : Le Guide Complet" data-es="Tour al Desierto de Merzouga: La Guía Completa" data-de="Merzouga-Wüstentour: Der Komplette Guide">Merzouga Desert Tour: The Complete Guide</span></h3>
-        <p class="item-desc"><span data-en="Camel treks, Erg Chebbi dunes, desert camps, and the best route from Marrakech, everything you need to plan your Sahara trip." data-fr="Treks à dos de chameau, dunes de l'Erg Chebbi, camps désert et meilleur itinéraire depuis Marrakech, tout pour préparer votre voyage au Sahara." data-es="Paseos en camello, dunas de Erg Chebbi, campamentos y la mejor ruta desde Marrakech, todo para planear tu viaje al Sahara." data-de="Kamelritte, Erg-Chebbi-Dünen, Wüstencamps und die beste Route ab Marrakesch, alles für Ihre Sahara-Reise.">Camel treks, Erg Chebbi dunes, desert camps, and the best route from Marrakech, everything you need to plan your Sahara trip.</span></p>
-        <a href="blog-1.html" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <div class="container">
+    <div class="blog-grid">
+      <div class="blog-card">
+        <div class="blog-image">
+          <div class="blog-image-bg" style="background-image:url('blog-1.jpg');"></div><span class="blog-tag"><span data-en="Desert Travel" data-fr="Voyage Désert" data-es="Viaje al Desierto" data-de="Wüstenreise">Desert Travel</span></span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>August 2026</span></div>
+          <h3><span data-en="Merzouga Desert Tour: The Complete Guide" data-fr="Circuit Désert Merzouga : Le Guide Complet" data-es="Tour al Desierto de Merzouga: La Guía Completa" data-de="Merzouga-Wüstentour: Der Komplette Guide">Merzouga Desert Tour: The Complete Guide</span></h3>
+          <p><span data-en="Camel treks, Erg Chebbi dunes, desert camps, and the best route from Marrakech, everything you need to plan your Sahara trip." data-fr="Treks à dos de chameau, dunes de l'Erg Chebbi, camps désert et meilleur itinéraire depuis Marrakech, tout pour préparer votre voyage au Sahara." data-es="Paseos en camello, dunas de Erg Chebbi, campamentos y la mejor ruta desde Marrakech, todo para planear tu viaje al Sahara." data-de="Kamelritte, Erg-Chebbi-Dünen, Wüstencamps und die beste Route ab Marrakesch, alles für Ihre Sahara-Reise.">Camel treks, Erg Chebbi dunes, desert camps, and the best route from Marrakech, everything you need to plan your Sahara trip.</span></p>
+          <a href="blog-1.html" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
       </div>
-    </div>
-    <div class="item-card">
-      <div class="item-image">
-        <div class="item-image-bg" style="background-image:url('blog-2.jpg'); background-position: center 75%;"></div><span class="item-tag"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></span></div>
-      <div class="item-body">
-        <h3><span data-en="Marrakech Day Trip from Agadir: Everything You Need to Know" data-fr="Excursion à Marrakech depuis Agadir : Tout Savoir" data-es="Excursión a Marrakech desde Agadir: Todo lo que Necesitas Saber" data-de="Marrakesch-Tagesausflug ab Agadir: Alles Was Sie Wissen Müssen">Marrakech Day Trip from Agadir: Everything You Need to Know</span></h3>
-        <p class="item-desc"><span data-en="From the souks of the Medina to Jemaa el-Fnaa square, here's how to make the most of a day trip to the Red City." data-fr="Des souks de la médina à la place Jemaa el-Fnaa, voici comment profiter au maximum d'une excursion à la Ville Rouge." data-es="Desde los zocos de la medina hasta la plaza Jemaa el-Fnaa, aquí te contamos cómo aprovechar al máximo una excursión a la Ciudad Roja." data-de="Von den Souks der Medina bis zum Jemaa-el-Fnaa-Platz, so machen Sie das Beste aus einem Tagesausflug in die Rote Stadt.">From the souks of the Medina to Jemaa el-Fnaa square, here's how to make the most of a day trip to the Red City.</span></p>
-        <a href="blog-2.html" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div class="blog-card">
+        <div class="blog-image">
+          <div class="blog-image-bg" style="background-image:url('blog-2.jpg'); background-position: center 75%;"></div><span class="blog-tag"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>August 2026</span></div>
+          <h3><span data-en="Marrakech Day Trip from Agadir: Everything You Need to Know" data-fr="Excursion à Marrakech depuis Agadir : Tout Savoir" data-es="Excursión a Marrakech desde Agadir: Todo lo que Necesitas Saber" data-de="Marrakesch-Tagesausflug ab Agadir: Alles Was Sie Wissen Müssen">Marrakech Day Trip from Agadir: Everything You Need to Know</span></h3>
+          <p><span data-en="From the souks of the Medina to Jemaa el-Fnaa square, here's how to make the most of a day trip to the Red City." data-fr="Des souks de la médina à la place Jemaa el-Fnaa, voici comment profiter au maximum d'une excursion à la Ville Rouge." data-es="Desde los zocos de la medina hasta la plaza Jemaa el-Fnaa, aquí te contamos cómo aprovechar al máximo una excursión a la Ciudad Roja." data-de="Von den Souks der Medina bis zum Jemaa-el-Fnaa-Platz, so machen Sie das Beste aus einem Tagesausflug in die Rote Stadt.">From the souks of the Medina to Jemaa el-Fnaa square, here's how to make the most of a day trip to the Red City.</span></p>
+          <a href="blog-2.html" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
       </div>
-    </div>
-    <div class="item-card">
-      <div class="item-image">
-        <div class="item-image-bg" style="background-image:url('blog-3.jpg');"></div><span class="item-tag"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span></span></div>
-      <div class="item-body">
-        <h3><span data-en="Things to Do in Taghazout: Surfing, Camel Rides & Quad Tours" data-fr="Choses à Faire à Taghazout : Surf, Chameaux & Quad" data-es="Cosas que Hacer en Taghazout: Surf, Camellos y Quads" data-de="Dinge zu Tun in Taghazout: Surfen, Kamelritte & Quad-Touren">Things to Do in Taghazout: Surfing, Camel Rides & Quad Tours</span></h3>
-        <p class="item-desc"><span data-en="From beginner surf lessons to sunset camel rides, here are the best ways to fill your days in Taghazout." data-fr="Des cours de surf pour débutants aux balades à dos de chameau au coucher du soleil, voici les meilleures façons d'occuper vos journées à Taghazout." data-es="Desde clases de surf para principiantes hasta paseos en camello al atardecer, estas son las mejores formas de llenar tus días en Taghazout." data-de="Von Surfkursen für Anfänger bis zu Kamelritten bei Sonnenuntergang, so füllen Sie Ihre Tage in Taghazout am besten.">From beginner surf lessons to sunset camel rides, here are the best ways to fill your days in Taghazout.</span></p>
-        <a href="blog-3.html" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div class="blog-card">
+        <div class="blog-image">
+          <div class="blog-image-bg" style="background-image:url('blog-3.jpg');"></div><span class="blog-tag"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span></span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>August 2026</span></div>
+          <h3><span data-en="Things to Do in Taghazout: Surfing, Camel Rides & Quad Tours" data-fr="Choses à Faire à Taghazout : Surf, Chameaux & Quad" data-es="Cosas que Hacer en Taghazout: Surf, Camellos y Quads" data-de="Dinge zu Tun in Taghazout: Surfen, Kamelritte & Quad-Touren">Things to Do in Taghazout: Surfing, Camel Rides & Quad Tours</span></h3>
+          <p><span data-en="From beginner surf lessons to sunset camel rides, here are the best ways to fill your days in Taghazout." data-fr="Des cours de surf pour débutants aux balades à dos de chameau au coucher du soleil, voici les meilleures façons d'occuper vos journées à Taghazout." data-es="Desde clases de surf para principiantes hasta paseos en camello al atardecer, estas son las mejores formas de llenar tus días en Taghazout." data-de="Von Surfkursen für Anfänger bis zu Kamelritten bei Sonnenuntergang, so füllen Sie Ihre Tage in Taghazout am besten.">From beginner surf lessons to sunset camel rides, here are the best ways to fill your days in Taghazout.</span></p>
+          <a href="blog-3.html" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
       </div>
     </div>
   </div>
