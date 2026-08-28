@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Us | Let's Camel Tours</title>
+<title>About Us | A Family-Run Morocco Travel Agency | Let's Camel Tours</title>
+<meta name="description" content="Meet the family behind Let's Camel Tours: four decades of desert life between the dunes of Merzouga and the waves of Taghazout, guiding travelers through the real Morocco.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -13,20 +14,74 @@
     --white: #ffffff; --off-white: #F8FAFC; --text-gray: #5c6474; --line: #e6e9ef;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Poppins', sans-serif; color: #1a1a1a; line-height: 1.6; }
+  body { font-family: 'Poppins', sans-serif; color: #1a1a1a; line-height: 1.7; }
   a { text-decoration: none; color: inherit; }
   ul { list-style: none; }
   img { max-width: 100%; display: block; }
-  .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 30px; }
 
+  /* Buttons — identical to tour-1.html */
+  .btn-gold {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--white);
+    padding: 14px 30px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 14.5px;
+    letter-spacing: 0.02em;
+    border: none;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 26px rgba(224,122,62,0.4); }
+
+  .btn-outline-navy {
+    display: inline-block;
+    background: transparent;
+    border: 2px solid var(--navy);
+    color: var(--navy);
+    padding: 13px 28px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 14.5px;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+  }
+  .btn-outline-navy:hover { background: var(--navy); color: #fff; transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 26px rgba(0,51,102,0.3); }
+
+  .btn-outline-white {
+    display: inline-block;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.7);
+    color: #fff;
+    padding: 13px 28px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 14.5px;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .btn-outline-white:hover { background: rgba(255,255,255,0.12); border-color: #fff; transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 26px rgba(0,0,0,0.25); }
+
+  .section-label {
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  /* Navbar — identical structure/styling/scripts to tour-1.html */
   .navbar {
     position: fixed;
     top: 0; left: 0; width: 100%;
-    z-index: 200;
+    z-index: 260;
     background: transparent;
     backdrop-filter: none;
     box-shadow: none;
-    padding: 16px 0;
     transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
   }
   .navbar.scrolled {
@@ -34,13 +89,14 @@
     backdrop-filter: blur(6px);
     box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   }
-  .navbar.scrolled .nav-menu a { color: var(--navy); }
-  .navbar.scrolled .burger { color: var(--navy); }
-  .nav-container { max-width: 1300px; margin: 0 auto; padding: 0 30px; display: flex; align-items: center; justify-content: space-between; }
-  .logo img { height: 46px; }
+  .nav-container { max-width: 1300px; margin: 0 auto; padding: 16px 30px; display: flex; align-items: center; justify-content: space-between; }
+  .logo img { height: 46px; width: auto; }
   .nav-menu { display: flex; align-items: center; gap: 30px; }
-  .nav-menu a { color: #F8FAFC; font-size: 14.5px; font-weight: 500; }
+  .nav-menu a { color: var(--off-white); font-size: 14.5px; font-weight: 500; transition: color 0.25s ease; position: relative; }
+  .navbar.scrolled .nav-menu a { color: var(--navy); }
   .nav-menu a:hover { color: var(--gold); }
+  .nav-menu a.active { color: var(--gold); }
+  .nav-menu a.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; background: var(--gold); border-radius: 2px; }
 
   .nav-dropdown { position: relative; }
   .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
@@ -73,184 +129,68 @@
   .nav-dropdown-menu a:hover { background: var(--off-white); color: var(--gold) !important; }
 
   .nav-right { display: flex; align-items: center; gap: 18px; position: relative; }
-  .lang-toggle { display: flex; align-items: center; gap: 6px; background: transparent; color: #F8FAFC; border: 1.5px solid rgba(255,255,255,0.5); padding: 8px 14px; border-radius: 50px; font-size: 13px; font-weight: 600; cursor: pointer; transition: border-color 0.25s ease, color 0.25s ease; }
-  .lang-toggle:hover { border-color: var(--gold); color: var(--gold); }
-  .navbar.scrolled .lang-toggle { color: var(--navy); border-color: var(--line); }
-  .lang-toggle svg { width: 15px; height: 15px; }
-  .lang-menu { position: absolute; top: calc(100% + 8px); right: 0; background: var(--white); border-radius: 6px; box-shadow: 0 12px 30px rgba(0,0,0,0.15); padding: 6px; display: none; min-width: 140px; z-index: 50; }
-  .lang-menu.open { display: block; }
-  .lang-option { display: block; width: 100%; text-align: left; background: none; border: none; padding: 9px 12px; font-size: 13.5px; font-weight: 500; color: var(--navy); border-radius: 4px; cursor: pointer; }
-  .lang-option:hover { background: var(--off-white); }
-  .lang-option.active { color: var(--gold); font-weight: 700; }
-  .btn-book { background: var(--gold); color: var(--white); padding: 11px 24px; border-radius: 50px; font-size: 14px; font-weight: 700; transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
-  .btn-book:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 22px rgba(224,122,62,0.35); }
 
-  .hero {
-    min-height: 92vh;
+  .lang-toggle {
     display: flex;
-    align-items: flex-end;
-    padding: 60px 40px 80px;
-    background-size: cover;
-    background-position: center;
-    background-image: url('about-hero.jpg');
-    position: relative;
-  }
-  .hero::after {
-    content: "";
-    position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(0,51,102,0.1) 0%, rgba(0,31,63,0.6) 100%);
-  }
-  .hero-content { position: relative; z-index: 2; max-width: 680px; color: #fff; }
-  .hero-eyebrow { font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 16px; display: block; }
-  .hero h1 { font-size: clamp(32px, 5.4vw, 52px); font-weight: 800; line-height: 1.15; margin-bottom: 18px; }
-  .hero h1 em { font-style: italic; color: var(--gold); font-weight: 600; }
-  .hero p { font-size: 16px; color: #e8e8e8; max-width: 55ch; margin-bottom: 28px; }
-  .btn-gold { display: inline-block; background: var(--gold); color: #fff; padding: 15px 32px; border-radius: 4px; font-weight: 700; font-size: 15px; }
-  .btn-gold:hover { background: var(--gold-light); }
-
-  .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-  .story-grid img { border-radius: 10px; height: 380px; object-fit: cover; width: 100%; }
-  .story-images { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 100px; }
-  .story-images img { height: 260px; }
-  .story-text p { color: var(--text-gray); font-size: 15.5px; margin-bottom: 16px; }
-
-  .stats-section { background: var(--off-white); padding: 60px 0; }
-  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; text-align: center; }
-  .stat-box .num { font-size: 34px; font-weight: 800; color: var(--gold); margin-bottom: 6px; }
-  .stat-box .label { font-size: 13px; color: var(--text-gray); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
-
-  .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
-  .value-card { background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 30px 26px; text-align: center; }
-  .value-icon { width: 50px; height: 50px; background: rgba(224,122,62,0.12); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
-  .value-icon svg { width: 24px; height: 24px; color: var(--gold); }
-  .value-card h3 { font-size: 16.5px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
-  .value-card p { color: var(--text-gray); font-size: 13.5px; }
-
-  .cta-section { background: var(--navy); color: #fff; padding: 70px 0; text-align: center; }
-  .cta-section h2 { font-size: clamp(24px, 3.2vw, 32px); margin-bottom: 16px; }
-  .cta-section p { color: #dbe2ee; margin-bottom: 26px; }
-
-
-  .gallery-section { padding: 90px 0; }
-  .gallery-carousel-wrap { position: relative; }
-  .gallery-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 6px; }
-  .gallery-track::-webkit-scrollbar { display: none; }
-  .gallery-track img { flex: 0 0 70%; max-width: 520px; height: 380px; object-fit: cover; border-radius: 10px; scroll-snap-align: center; }
-  .g-carousel-arrow {
-    position: absolute; top: 50%; transform: translateY(-50%); z-index: 5;
-    width: 44px; height: 44px; border-radius: 50%; background: var(--white);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center;
-    border: none; color: var(--navy); cursor: pointer;
-  }
-  .g-carousel-arrow svg { width: 18px; height: 18px; }
-  .g-carousel-arrow.left { left: -10px; }
-  .g-carousel-arrow.right { right: -10px; }
-
-  @media (max-width: 800px) {
-    .nav-menu { display: none; } .burger { display: block; } .nav-right .btn-book { display: none; }
-    .story-grid { grid-template-columns: 1fr; }
-    .story-images { position: static; }
-    .stats-grid { grid-template-columns: 1fr 1fr; }
-    .values-grid { grid-template-columns: 1fr; }
-    .gallery-track img { flex-basis: 84%; height: 260px; }
-    .g-carousel-arrow { width: 36px; height: 36px; }
-  }
-
-  .section { padding: 80px 0; }
-  .section-label { color: var(--gold); font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; display: block; }
-  .section-title { font-size: clamp(26px, 3.6vw, 36px); font-weight: 700; color: var(--navy); margin-bottom: 16px; }
-
-  .btn-gold { display: inline-block; background: var(--gold); color: #fff; padding: 15px 32px; border-radius: 4px; font-weight: 700; font-size: 15px; }
-  .btn-gold:hover { background: var(--gold-light); }
-
-  .whatsapp-btn { position: fixed; bottom: 26px; right: 26px; z-index: 300; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
-  .whatsapp-btn svg { width: 30px; height: 30px; fill: #fff; }
-
-  .footer { background: var(--off-white); color: var(--text-gray); padding: 60px 0 24px; border-top: 1px solid var(--line); }
-
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr 1fr;
-    gap: 40px;
-    padding-bottom: 36px;
-    margin-bottom: 24px;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .footer-logo img { height: 40px; margin-bottom: 18px; }
-
-  .footer-col-brand p { font-size: 13.5px; line-height: 1.7; color: var(--text-gray); max-width: 44ch; margin-bottom: 20px; }
-
-  .footer-col h4 {
-    color: var(--navy);
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 16px;
-    font-weight: 700;
-  }
-
-  .footer-col li { margin-bottom: 11px; }
-  .footer-col a { font-size: 14px; color: var(--text-gray); transition: color 0.25s ease; }
-  .footer-col a:hover { color: var(--gold); }
-
-  .footer-lang-row { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 18px; }
-  .footer-lang-btn {
-    background: none; border: none; padding: 0; cursor: pointer;
-    font-family: 'Poppins', sans-serif; font-size: 14px; color: var(--text-gray);
-    transition: color 0.25s ease; text-align: left;
-    display: flex; align-items: center; gap: 8px;
-  }
-  .footer-lang-btn img { border-radius: 2px; flex-shrink: 0; }
-  .footer-lang-btn:hover, .footer-lang-btn.active { color: var(--gold); font-weight: 600; }
-
-  .socials { display: flex; gap: 12px; margin-top: 18px; }
-  .socials a {
-    width: 36px; height: 36px;
-    border: 1px solid var(--line);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--navy);
-    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-  }
-  .socials a:hover { background: var(--gold); border-color: var(--gold); color: #fff; }
-  .socials svg { width: 16px; height: 16px; flex-shrink: 0; }
-
-  .footer-bottom {
-    padding-top: 6px;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 14px;
-    font-size: 12.5px;
-    color: var(--text-gray);
+    gap: 6px;
+    background: var(--gold);
+    color: var(--white);
+    border: none;
+    padding: 8px 14px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
   }
+  .lang-toggle:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 22px rgba(224,122,62,0.35); }
+  .lang-toggle svg { width: 15px; height: 15px; }
 
-  @media (max-width: 800px) {
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-  }
-  @media (max-width: 600px) {
-    .footer-grid { grid-template-columns: 1fr; }
-  }
-
-  .burger {
+  .lang-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: var(--white);
+    border-radius: 6px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    padding: 6px;
     display: none;
+    min-width: 140px;
+  }
+  .lang-menu.open { display: block; }
+  .lang-option {
+    display: block;
+    width: 100%;
+    text-align: left;
     background: none;
     border: none;
-    color: #F8FAFC;
+    padding: 9px 12px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--navy);
+    border-radius: 4px;
     cursor: pointer;
-    padding: 4px;
   }
-  .burger svg { width: 24px; height: 24px; }
+  .lang-option:hover { background: var(--off-white); }
+  .lang-option.active { color: var(--gold); font-weight: 700; }
 
-  .mobile-menu-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.45);
-    z-index: 240;
+  .btn-book {
+    background: var(--gold);
+    color: var(--white);
+    padding: 11px 24px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
   }
+  .btn-book:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 22px rgba(224,122,62,0.35); }
+
+  .burger { display: none; background: none; border: none; color: var(--off-white); cursor: pointer; padding: 4px; }
+  .burger svg { width: 24px; height: 24px; }
+  .navbar.scrolled .burger { color: var(--navy); }
+
+  .mobile-menu-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 240; }
   .mobile-menu-overlay.open { display: block; }
 
   .mobile-menu {
@@ -276,6 +216,7 @@
     font-weight: 600;
     font-size: 15.5px;
   }
+  .mobile-menu a.active { color: var(--gold); }
   .mobile-menu-close {
     position: absolute;
     top: 24px; right: 24px;
@@ -285,6 +226,146 @@
     cursor: pointer;
   }
   .mobile-menu-close svg { width: 22px; height: 22px; }
+
+  @media (max-width: 768px) {
+    .nav-menu { display: none; }
+    .nav-right .btn-book { display: none; }
+    .burger { display: block; }
+  }
+
+  /* Hero — same pattern as tour-1.html / blog-3.html */
+  .hero {
+    position: relative;
+    background: linear-gradient(180deg, rgba(0,51,102,0.45) 0%, rgba(0,31,63,0.72) 100%), url('about-hero.jpg');
+    background-size: cover; background-position: center;
+    padding: 150px 30px 56px; color: #fff;
+  }
+  .hero-inner { max-width: 1080px; margin: 0 auto; }
+  .hero-badge-top { display: inline-block; background: var(--gold); color: #fff; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 6px 14px; border-radius: 50px; margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(28px, 4.2vw, 44px); font-weight: 800; margin-bottom: 10px; max-width: 800px; }
+  .hero h1 em { font-style: italic; color: var(--gold-light); font-weight: 700; }
+  .hero-tagline { font-size: 16.5px; font-weight: 600; color: var(--gold-light); margin-bottom: 14px; }
+  .hero-lead { font-size: 15.5px; color: #e8edf4; max-width: 640px; margin-bottom: 26px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  /* Breadcrumb — identical to tour-1.html */
+  .breadcrumb { background: var(--off-white); padding: 12px 0; font-size: 13px; color: var(--text-gray); }
+  .breadcrumb a { color: var(--navy); font-weight: 600; }
+  .breadcrumb a:hover { color: var(--gold); }
+
+  .section { padding: 80px 0; }
+  .section-title { font-size: clamp(24px, 3.6vw, 34px); font-weight: 800; color: var(--navy); margin-bottom: 16px; }
+  .section-head { text-align: center; max-width: 640px; margin: 0 auto 50px; }
+  .section-head p { color: var(--text-gray); font-size: 15px; }
+
+  /* Our Story */
+  .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+  .story-images { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 100px; }
+  .story-images img { height: 260px; width: 100%; object-fit: cover; border-radius: 12px; }
+  .story-text p { color: var(--text-gray); font-size: 15.5px; margin-bottom: 16px; }
+  .story-text p:last-child { margin-bottom: 0; }
+
+  /* Stats */
+  .stats-section { background: var(--off-white); padding: 60px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .stat-box { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 26px 20px; text-align: center; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+  .stat-box:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(0,51,102,0.10); }
+  .stat-box .num { font-size: 32px; font-weight: 800; color: var(--gold); margin-bottom: 6px; line-height: 1.2; }
+  .stat-box .label { font-size: 12.5px; color: var(--text-gray); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.5; }
+
+  /* Values */
+  .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+  .value-card { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 30px 26px; text-align: center; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+  .value-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,51,102,0.12); border-color: var(--gold); }
+  .value-icon { width: 52px; height: 52px; background: rgba(224,122,62,0.12); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+  .value-icon svg { width: 24px; height: 24px; color: var(--gold); }
+  .value-card h3 { font-size: 16.5px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .value-card p { color: var(--text-gray); font-size: 13.8px; }
+  .value-card-clone { display: none; }
+
+  /* Mobile carousel for the Values cards — same infinite-loop pattern as the
+     "What Makes Us Different" carousel on index.html (services-carousel) */
+  .carousel-arrow { display: none; }
+  @media (max-width: 768px) {
+    .carousel-container { position: relative; }
+    .carousel-arrow {
+      display: flex;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 5;
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: var(--white);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+      align-items: center;
+      justify-content: center;
+      border: none;
+      color: var(--navy);
+      cursor: pointer;
+    }
+    .carousel-arrow svg { width: 16px; height: 16px; }
+    .carousel-arrow.left { left: -4px; }
+    .carousel-arrow.right { right: -4px; }
+
+    .values-grid {
+      display: flex;
+      grid-template-columns: none;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 14px;
+      padding: 4px 30px 10px;
+      scrollbar-width: none;
+    }
+    .values-grid::-webkit-scrollbar { display: none; }
+    .value-card { flex: 0 0 78%; scroll-snap-align: center; padding: 22px 18px; }
+    .value-card-clone { display: block; }
+    .value-card h3 { font-size: 15.5px; }
+    .value-card p { font-size: 13px; }
+  }
+
+  /* Closing CTA */
+  .cta-section { background: var(--navy); color: #fff; padding: 76px 0; text-align: center; }
+  .cta-section h2 { font-size: clamp(24px, 3.4vw, 34px); font-weight: 800; margin-bottom: 14px; }
+  .cta-section p { color: #dbe2ee; margin-bottom: 28px; font-size: 15.5px; max-width: 560px; margin-left: auto; margin-right: auto; }
+  .cta-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+
+  .whatsapp-btn { position: fixed; bottom: 26px; right: 26px; z-index: 300; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0,0,0,0.25); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+  .whatsapp-btn:hover { transform: translateY(-3px) scale(1.08); box-shadow: 0 14px 30px rgba(37,211,102,0.45); }
+  .whatsapp-btn svg { width: 30px; height: 30px; fill: #fff; }
+
+  /* Footer — identical structure/styling to the current index.html */
+  .footer { background: var(--off-white); color: var(--text-gray); padding: 60px 0 24px; border-top: 1px solid var(--line); }
+  .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 36px; margin-bottom: 24px; border-bottom: 1px solid var(--line); }
+  .footer-logo img { height: 40px; margin-bottom: 18px; }
+  .footer-col-brand p { font-size: 13.5px; line-height: 1.7; color: var(--text-gray); max-width: 44ch; margin-bottom: 20px; }
+  .footer-col h4 { color: var(--navy); font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; font-weight: 700; }
+  .footer-col li { margin-bottom: 11px; }
+  .footer-col a { font-size: 14px; color: var(--text-gray); transition: color 0.25s ease; }
+  .footer-col a:hover { color: var(--gold); }
+  .footer-lang-row { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 18px; }
+  .footer-lang-btn { background: none; border: none; padding: 0; cursor: pointer; font-family: 'Poppins', sans-serif; font-size: 14px; color: var(--text-gray); transition: color 0.25s ease; text-align: left; display: flex; align-items: center; gap: 8px; }
+  .footer-lang-btn img { border-radius: 2px; flex-shrink: 0; }
+  .footer-lang-btn:hover, .footer-lang-btn.active { color: var(--gold); font-weight: 600; }
+  .socials { display: flex; gap: 12px; margin-top: 28px; }
+  .socials a { width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--navy); transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
+  .socials a:hover { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+  .socials svg { width: 18px; height: 18px; flex-shrink: 0; }
+  .footer-bottom { padding-top: 6px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-size: 12.5px; color: var(--text-gray); }
+
+  @media (max-width: 900px) {
+    .story-grid { grid-template-columns: 1fr; gap: 34px; }
+    .story-images { position: static; flex-direction: row; overflow-x: auto; scrollbar-width: none; }
+    .story-images::-webkit-scrollbar { display: none; }
+    .story-images img { flex: 0 0 78%; height: 220px; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .values-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 700px) {
+    .section { padding: 56px 0; }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -300,11 +381,11 @@
         <a href="tours.html"><span data-en="Morocco Tours" data-fr="Circuits Maroc" data-es="Tours Marruecos" data-de="Marokko Touren">Morocco Tours</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
         <div class="nav-dropdown-menu">
           <div class="nav-dropdown-menu-inner">
-            <a href="tour-1.html">8-Day Grand Morocco Tour: Sahara & Rif Mountains</a>
-            <a href="tour-2.html">5-Day Marrakech to Merzouga Desert Tour</a>
-            <a href="tour-3.html">12-Day Morocco Tour: Casablanca to Marrakech & Sahara</a>
-            <a href="tour-4.html">9-Day Morocco Adventure: Marrakech, Sahara & Atlantic</a>
-            <a href="tours.html" style="color:var(--gold) !important;font-weight:700;">View All Tours →</a>
+            <a href="tour-1.html"><span data-en="8-Day Grand Morocco Tour: Sahara & Rif Mountains" data-fr="Circuit de 8 Jours au Maroc : Sahara et Rif" data-es="Tour de 8 Días por Marruecos: Sahara y Rif" data-de="8-Tägige Marokko-Tour: Sahara & Rif-Gebirge">8-Day Grand Morocco Tour: Sahara & Rif Mountains</span></a>
+            <a href="tour-2.html"><span data-en="5-Day Marrakech to Merzouga Desert Tour" data-fr="Circuit de 5 Jours : Marrakech à Merzouga" data-es="Tour de 5 Días: Marrakech a Merzouga" data-de="5-Tägige Tour: Marrakesch bis Merzouga">5-Day Marrakech to Merzouga Desert Tour</span></a>
+            <a href="tour-3.html"><span data-en="12-Day Morocco Tour: Casablanca to Marrakech & Sahara" data-fr="Circuit de 12 Jours : Casablanca à Marrakech et Sahara" data-es="Tour de 12 Días: Casablanca a Marrakech y Sahara" data-de="12-Tägige Marokko-Tour: Casablanca bis Marrakesch & Sahara">12-Day Morocco Tour: Casablanca to Marrakech & Sahara</span></a>
+            <a href="tour-4.html"><span data-en="9-Day Morocco Adventure: Marrakech, Sahara & Atlantic" data-fr="Aventure de 9 Jours : Marrakech, Sahara et Atlantique" data-es="Aventura de 9 Días: Marrakech, Sahara y Atlántico" data-de="9-Tägiges Marokko-Abenteuer: Marrakesch, Sahara & Atlantik">9-Day Morocco Adventure: Marrakech, Sahara & Atlantic</span></a>
+            <a href="tours.html" style="color:var(--gold) !important;font-weight:700;"><span data-en="View All Tours →" data-fr="Voir Tous les Circuits →" data-es="Ver Todos los Tours →" data-de="Alle Touren Ansehen →">View All Tours →</span></a>
           </div>
         </div>
       </div>
@@ -312,10 +393,10 @@
         <a href="excursions.html"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
         <div class="nav-dropdown-menu">
           <div class="nav-dropdown-menu-inner">
-            <a href="excursion-1.html">Day Trip to Essaouira</a>
-            <a href="excursion-2.html">Day Trip to Marrakech</a>
-            <a href="excursion-3.html">Paradise Valley</a>
-            <a href="excursions.html" style="color:var(--gold) !important;font-weight:700;">View All Excursions →</a>
+            <a href="excursion-1.html"><span data-en="Day Trip to Essaouira" data-fr="Excursion à Essaouira" data-es="Excursión a Essaouira" data-de="Tagesausflug nach Essaouira">Day Trip to Essaouira</span></a>
+            <a href="excursion-2.html"><span data-en="Day Trip to Marrakech" data-fr="Excursion à Marrakech" data-es="Excursión a Marrakech" data-de="Tagesausflug nach Marrakesch">Day Trip to Marrakech</span></a>
+            <a href="excursion-3.html"><span data-en="Paradise Valley" data-fr="Paradise Valley" data-es="Paradise Valley" data-de="Paradise Valley">Paradise Valley</span></a>
+            <a href="excursions.html" style="color:var(--gold) !important;font-weight:700;"><span data-en="View All Excursions →" data-fr="Voir Toutes les Excursions →" data-es="Ver Todas las Excursiones →" data-de="Alle Ausflüge Ansehen →">View All Excursions →</span></a>
           </div>
         </div>
       </div>
@@ -323,16 +404,16 @@
         <a href="activities.html"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
         <div class="nav-dropdown-menu">
           <div class="nav-dropdown-menu-inner">
-            <a href="activity-1.html">Beach Horse Riding</a>
-            <a href="activity-2.html">Quad Biking</a>
-            <a href="activity-3.html">Private Surf Lesson</a>
-            <a href="activities.html" style="color:var(--gold) !important;font-weight:700;">View All Activities →</a>
+            <a href="activity-1.html"><span data-en="Beach Horse Riding" data-fr="Équitation sur la Plage" data-es="Paseo a Caballo en la Playa" data-de="Strandreiten">Beach Horse Riding</span></a>
+            <a href="activity-2.html"><span data-en="Quad Biking" data-fr="Quad" data-es="Quad" data-de="Quad-Fahren">Quad Biking</span></a>
+            <a href="activity-3.html"><span data-en="Private Surf Lesson" data-fr="Cours de Surf Privé" data-es="Clase de Surf Privada" data-de="Privater Surfkurs">Private Surf Lesson</span></a>
+            <a href="activities.html" style="color:var(--gold) !important;font-weight:700;"><span data-en="View All Activities →" data-fr="Voir Toutes les Activités →" data-es="Ver Todas las Actividades →" data-de="Alle Aktivitäten Ansehen →">View All Activities →</span></a>
           </div>
         </div>
       </div>
       <a href="index.html#transfers"><span data-en="Transfers" data-fr="Transferts" data-es="Traslados" data-de="Transfers">Transfers</span></a>
       <a href="index.html#services"><span data-en="Services" data-fr="Services" data-es="Servicios" data-de="Leistungen">Services</span></a>
-      <a href="about-us.html"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
+      <a href="about-us.html" class="active"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
       <a href="index.html#blog"><span data-en="Blogs" data-fr="Blogs" data-es="Blogs" data-de="Blogs">Blogs</span></a>
       <a href="contact.html"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
     </nav>
@@ -362,24 +443,35 @@
   </button>
   <a href="index.html#home"><span data-en="Home" data-fr="Accueil" data-es="Inicio" data-de="Startseite">Home</span></a>
   <a href="index.html#tours"><span data-en="Morocco Tours" data-fr="Circuits Maroc" data-es="Tours Marruecos" data-de="Marokko Touren">Morocco Tours</span></a>
-      <a href="index.html#excursions"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></a>
-      <a href="index.html#activities"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span></a>
+  <a href="index.html#excursions"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></a>
+  <a href="index.html#activities"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span></a>
   <a href="index.html#transfers"><span data-en="Transfers" data-fr="Transferts" data-es="Traslados" data-de="Transfers">Transfers</span></a>
   <a href="index.html#services"><span data-en="Services" data-fr="Services" data-es="Servicios" data-de="Leistungen">Services</span></a>
-  <a href="about-us.html"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
+  <a href="about-us.html" class="active"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
   <a href="index.html#blog"><span data-en="Blogs" data-fr="Blogs" data-es="Blogs" data-de="Blogs">Blogs</span></a>
   <a href="contact.html"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
   <a href="contact.html" class="btn-book" style="display:block;text-align:center;margin-top:16px;"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
 </div>
 
-
 <section class="hero">
-  <div class="hero-content">
+  <div class="hero-inner">
+    <span class="hero-badge-top"><span data-en="About Us" data-fr="À Propos" data-es="Sobre Nosotros" data-de="Über Uns">About Us</span></span>
     <h1><span data-en="Born and Raised in the Dunes of" data-fr="Née et Élevée dans les Dunes de" data-es="Nacida y Criada en las Dunas de" data-de="Geboren und Aufgewachsen in den Dünen von">Born and Raised in the Dunes of</span> <em>Merzouga</em></h1>
-    <p><span data-en="Meet the family behind Let's Camel Tours, four decades of desert life, shared with travelers who want to see the real Morocco." data-fr="Découvrez la famille derrière Let's Camel Tours, quatre décennies de vie dans le désert, partagées avec des voyageurs en quête du vrai Maroc." data-es="Conoce a la familia detrás de Let's Camel Tours, cuatro décadas de vida en el desierto, compartidas con viajeros que buscan el verdadero Marruecos." data-de="Lernen Sie die Familie hinter Let's Camel Tours kennen, vier Jahrzehnte Wüstenleben, geteilt mit Reisenden, die das echte Marokko suchen.">Meet the family behind Let's Camel Tours, four decades of desert life, shared with travelers who want to see the real Morocco.</span></p>
-    <a href="contact.html" class="btn-gold"><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></a>
+    <p class="hero-tagline"><span data-en="A family-run agency between the Sahara and the Atlantic" data-fr="Une agence familiale entre le Sahara et l'Atlantique" data-es="Una agencia familiar entre el Sahara y el Atlántico" data-de="Eine familiengeführte Agentur zwischen Sahara und Atlantik">A family-run agency between the Sahara and the Atlantic</span></p>
+    <p class="hero-lead"><span data-en="Meet the family behind Let's Camel Tours, four decades of desert life, shared with travelers who want to see the real Morocco." data-fr="Découvrez la famille derrière Let's Camel Tours, quatre décennies de vie dans le désert, partagées avec des voyageurs en quête du vrai Maroc." data-es="Conoce a la familia detrás de Let's Camel Tours, cuatro décadas de vida en el desierto, compartidas con viajeros que buscan el verdadero Marruecos." data-de="Lernen Sie die Familie hinter Let's Camel Tours kennen, vier Jahrzehnte Wüstenleben, geteilt mit Reisenden, die das echte Marokko suchen.">Meet the family behind Let's Camel Tours, four decades of desert life, shared with travelers who want to see the real Morocco.</span></p>
+    <div class="hero-actions">
+      <a href="contact.html" class="btn-gold"><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></a>
+      <a href="tours.html" class="btn-outline-white"><span data-en="Browse Our Tours" data-fr="Découvrir Nos Circuits" data-es="Ver Nuestros Tours" data-de="Unsere Touren Ansehen">Browse Our Tours</span></a>
+    </div>
   </div>
 </section>
+
+<div class="breadcrumb">
+  <div class="container">
+    <a href="index.html"><span data-en="Home" data-fr="Accueil" data-es="Inicio" data-de="Startseite">Home</span></a> ›
+    <span data-en="About Us" data-fr="À Propos" data-es="Sobre Nosotros" data-de="Über Uns">About Us</span>
+  </div>
+</div>
 
 <section class="section">
   <div class="container story-grid">
@@ -412,11 +504,18 @@
 
 <section class="section">
   <div class="container">
-    <div style="text-align:center;max-width:600px;margin:0 auto 50px;">
+    <div class="section-head">
       <span class="section-label"><span data-en="Our Values" data-fr="Nos Valeurs" data-es="Nuestros Valores" data-de="Unsere Werte">Our Values</span></span>
       <h2 class="section-title"><span data-en="What Guides Every Trip We Plan" data-fr="Ce Qui Guide Chaque Voyage" data-es="Lo Que Guía Cada Viaje" data-de="Was Jede Reise Leitet">What Guides Every Trip We Plan</span></h2>
     </div>
-    <div class="values-grid">
+    <div class="carousel-container">
+      <button class="carousel-arrow left" data-target="values-carousel" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <div class="values-grid" id="values-carousel">
+      <div class="value-card value-card-clone" data-clone-of="last" aria-hidden="true" tabindex="-1">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 18c1-4 3-6 5-6s2 2 3 2 2-2 3-2 4 2 5 6M7 12c0-2 1-4 2-4M17 12c0-2-1-4-2-4"/><circle cx="9" cy="7" r="1"/><circle cx="15" cy="7" r="1"/></svg></div>
+        <h3><span data-en="We Value the Camel" data-fr="Nous Valorisons le Chameau" data-es="Valoramos al Camello" data-de="Wir Schätzen das Kamel">We Value the Camel</span></h3>
+        <p><span data-en="It's why we're called Let's Camel Tours, the animal that has carried our family for generations is treated with care on every trek." data-fr="C'est pourquoi nous nous appelons Let's Camel Tours, l'animal qui porte notre famille depuis des générations est traité avec soin à chaque trek." data-es="Por eso nos llamamos Let's Camel Tours, el animal que ha llevado a nuestra familia durante generaciones recibe cuidado en cada trekking." data-de="Deshalb heißen wir Let's Camel Tours, das Tier, das unsere Familie seit Generationen trägt, wird bei jedem Trekking mit Sorgfalt behandelt.">It's why we're called Let's Camel Tours, the animal that has carried our family for generations is treated with care on every trek.</span></p>
+      </div>
       <div class="value-card">
         <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
         <h3><span data-en="Local First" data-fr="Local Avant Tout" data-es="Local Primero" data-de="Lokal Zuerst">Local First</span></h3>
@@ -437,26 +536,13 @@
         <h3><span data-en="We Value the Camel" data-fr="Nous Valorisons le Chameau" data-es="Valoramos al Camello" data-de="Wir Schätzen das Kamel">We Value the Camel</span></h3>
         <p><span data-en="It's why we're called Let's Camel Tours, the animal that has carried our family for generations is treated with care on every trek." data-fr="C'est pourquoi nous nous appelons Let's Camel Tours, l'animal qui porte notre famille depuis des générations est traité avec soin à chaque trek." data-es="Por eso nos llamamos Let's Camel Tours, el animal que ha llevado a nuestra familia durante generaciones recibe cuidado en cada trekking." data-de="Deshalb heißen wir Let's Camel Tours, das Tier, das unsere Familie seit Generationen trägt, wird bei jedem Trekking mit Sorgfalt behandelt.">It's why we're called Let's Camel Tours, the animal that has carried our family for generations is treated with care on every trek.</span></p>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="gallery-section">
-  <div class="container">
-    <div class="section-head" style="text-align:center;max-width:600px;margin:0 auto 50px;">
-      <span class="section-label"><span data-en="Gallery" data-fr="Galerie" data-es="Galería" data-de="Galerie">Gallery</span></span>
-      <h2 class="section-title"><span data-en="Step Into Our Morocco" data-fr="Entrez dans Notre Maroc" data-es="Entra en Nuestro Marruecos" data-de="Betreten Sie Unser Marokko">Step Into Our Morocco</span></h2>
-      <p style="color:var(--text-gray);font-size:15px;"><span data-en="A glimpse of the desert, the mountains, and the coast, through our own eyes." data-fr="Un aperçu du désert, des montagnes et de la côte, à travers nos propres yeux." data-es="Un vistazo al desierto, las montañas y la costa, a través de nuestros propios ojos." data-de="Ein Blick auf die Wüste, die Berge und die Küste, mit unseren eigenen Augen.">A glimpse of the desert, the mountains, and the coast, through our own eyes.</span></p>
-    </div>
-    <div class="gallery-carousel-wrap">
-      <button class="g-carousel-arrow left" id="gallery-prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 6l-6 6 6 6"/></svg></button>
-      <div class="gallery-track" id="gallery-track">
-        <img src="gallery-1.jpg" alt="Merzouga dunes">
-        <img src="gallery-2.jpg" alt="Atlas mountains">
-        <img src="gallery-3.jpg" alt="Taghazout coast">
-        <img src="gallery-4.jpg" alt="Merzouga family">
+      <div class="value-card value-card-clone" data-clone-of="first" aria-hidden="true" tabindex="-1">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+        <h3><span data-en="Local First" data-fr="Local Avant Tout" data-es="Local Primero" data-de="Lokal Zuerst">Local First</span></h3>
+        <p><span data-en="Every guide and driver we work with is Moroccan, and knows these roads personally." data-fr="Chaque guide et chauffeur avec qui nous travaillons est marocain et connaît ces routes personnellement." data-es="Cada guía y conductor con el que trabajamos es marroquí y conoce estas rutas personalmente." data-de="Jeder Guide und Fahrer, mit dem wir arbeiten, ist Marokkaner und kennt diese Wege persönlich.">Every guide and driver we work with is Moroccan, and knows these roads personally.</span></p>
       </div>
-      <button class="g-carousel-arrow right" id="gallery-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+      <button class="carousel-arrow right" data-target="values-carousel" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></button>
     </div>
   </div>
 </section>
@@ -465,9 +551,16 @@
   <div class="container">
     <h2><span data-en="Ready to Plan Your Trip?" data-fr="Prêt à Planifier Votre Voyage ?" data-es="¿Listo para Planear tu Viaje?" data-de="Bereit, Ihre Reise zu Planen?">Ready to Plan Your Trip?</span></h2>
     <p><span data-en="Tell us what you're looking for and we'll put together an itinerary just for you." data-fr="Dites-nous ce que vous cherchez et nous vous préparerons un itinéraire sur mesure." data-es="Cuéntanos lo que buscas y prepararemos un itinerario solo para ti." data-de="Sagen Sie uns, was Sie suchen, und wir stellen eine Reiseroute nur für Sie zusammen.">Tell us what you're looking for and we'll put together an itinerary just for you.</span></p>
-    <a href="index.html#contact" class="btn-gold"><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></a>
+    <div class="cta-actions">
+      <a href="contact.html" class="btn-gold"><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></a>
+      <a href="https://wa.me/212600000000" target="_blank" class="btn-outline-white"><span data-en="Chat on WhatsApp" data-fr="Discuter sur WhatsApp" data-es="Chatear por WhatsApp" data-de="Auf WhatsApp Chatten">Chat on WhatsApp</span></a>
+    </div>
   </div>
 </section>
+
+<a href="https://wa.me/212600000000" class="whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.7 4.61 1.905 6.48L4 29l7.72-1.858A11.94 11.94 0 0016.001 27C22.63 27 28 21.627 28 15S22.63 3 16.001 3zm6.997 16.63c-.29.816-1.68 1.56-2.32 1.646-.593.08-1.34.114-2.16-.135-.498-.15-1.137-.362-1.958-.71-3.447-1.488-5.699-4.94-5.874-5.17-.174-.23-1.41-1.874-1.41-3.575 0-1.7.89-2.535 1.207-2.883.318-.348.694-.435.926-.435.232 0 .464.002.667.012.213.01.5-.081.782.596.29.696.986 2.4 1.073 2.574.087.174.145.377.03.608-.116.232-.174.377-.348.58-.174.203-.365.453-.522.608-.174.174-.355.363-.153.71.203.348.902 1.487 1.936 2.408 1.33 1.186 2.452 1.554 2.8 1.728.348.174.55.145.754-.087.203-.232.87-1.015 1.102-1.363.232-.348.464-.29.783-.174.319.116 2.02.952 2.367 1.125.348.174.58.26.667.406.087.145.087.841-.203 1.657z"/></svg>
+</a>
 
 <footer class="footer">
   <div class="container">
@@ -530,43 +623,16 @@
 </footer>
 
 <script>
-
-  var galleryTrack = document.getElementById('gallery-track');
-  var galleryPrev = document.getElementById('gallery-prev');
-  var galleryNext = document.getElementById('gallery-next');
-  if (galleryTrack && galleryPrev && galleryNext) {
-    galleryPrev.addEventListener('click', function() {
-      var w = galleryTrack.querySelector('img').offsetWidth + 16;
-      galleryTrack.scrollBy({ left: -w, behavior: 'smooth' });
-    });
-    galleryNext.addEventListener('click', function() {
-      var w = galleryTrack.querySelector('img').offsetWidth + 16;
-      galleryTrack.scrollBy({ left: w, behavior: 'smooth' });
-    });
-  }
-
-  window.addEventListener('scroll', function() {
-    var navbar = document.querySelector('.navbar');
-    if (window.scrollY > 60) { navbar.classList.add('scrolled'); } else { navbar.classList.remove('scrolled'); }
-  });
-
-  var burgerToggle = document.getElementById('burger-toggle');
-  var mobileMenu = document.getElementById('mobile-menu');
-  var mobileOverlay = document.getElementById('mobile-overlay');
-  var mobileMenuClose = document.getElementById('mobile-menu-close');
-  function openMobileMenu() { mobileMenu.classList.add('open'); mobileOverlay.classList.add('open'); }
-  function closeMobileMenu() { mobileMenu.classList.remove('open'); mobileOverlay.classList.remove('open'); }
-  burgerToggle.addEventListener('click', openMobileMenu);
-  mobileMenuClose.addEventListener('click', closeMobileMenu);
-  mobileOverlay.addEventListener('click', closeMobileMenu);
-  document.querySelectorAll('.mobile-menu a').forEach(function(link) { link.addEventListener('click', closeMobileMenu); });
-
   var currentLang = 'en';
   function applyLang(lang) {
-    document.querySelectorAll('[data-en]').forEach(function(el) { el.textContent = el.dataset[lang]; });
+    document.querySelectorAll('[data-en]').forEach(function(el) {
+      el.textContent = el.dataset[lang];
+    });
     document.getElementById('lang-label').textContent = lang.toUpperCase();
     document.documentElement.lang = lang;
-    document.querySelectorAll('.lang-option').forEach(function(btn) { btn.classList.toggle('active', btn.dataset.lang === lang); });
+    document.querySelectorAll('.lang-option').forEach(function(btn) {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
     currentLang = lang;
     try { localStorage.setItem("lct-lang", lang); } catch (e) {}
   }
@@ -576,14 +642,174 @@
 
   var langToggle = document.getElementById("lang-toggle");
   var langMenu = document.getElementById('lang-menu');
-  langToggle.addEventListener('click', function(e) { e.stopPropagation(); langMenu.classList.toggle('open'); });
+  langToggle.addEventListener('click', function(e) {
+    e.stopPropagation();
+    langMenu.classList.toggle('open');
+  });
   document.addEventListener('click', function() { langMenu.classList.remove('open'); });
   document.querySelectorAll('.lang-option').forEach(function(btn) {
-    btn.addEventListener('click', function() { applyLang(btn.dataset.lang); langMenu.classList.remove('open'); });
+    btn.addEventListener('click', function() {
+      applyLang(btn.dataset.lang);
+      langMenu.classList.remove('open');
+    });
   });
+
   document.querySelectorAll('.footer-lang-btn').forEach(function(btn) {
     btn.addEventListener('click', function() { applyLang(btn.dataset.lang); });
   });
+
+  // Navbar scroll state (transparent-over-hero, solid once scrolled)
+  window.addEventListener('scroll', function() {
+    var navbar = document.querySelector('.navbar');
+    if (window.scrollY > 80) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // Mobile menu
+  var burgerToggle = document.getElementById('burger-toggle');
+  var mobileMenu = document.getElementById('mobile-menu');
+  var mobileOverlay = document.getElementById('mobile-overlay');
+  var mobileMenuClose = document.getElementById('mobile-menu-close');
+  function openMobileMenu() {
+    mobileMenu.classList.add('open');
+    mobileOverlay.classList.add('open');
+  }
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('open');
+    mobileOverlay.classList.remove('open');
+  }
+  burgerToggle.addEventListener('click', openMobileMenu);
+  mobileMenuClose.addEventListener('click', closeMobileMenu);
+  mobileOverlay.addEventListener('click', closeMobileMenu);
+  document.querySelectorAll('.mobile-menu a').forEach(function(link) {
+    link.addEventListener('click', closeMobileMenu);
+  });
+
+  // Values carousel (mobile) — same infinite-loop pattern as the
+  // "What Makes Us Different" carousel on index.html (services-carousel)
+  document.querySelectorAll('.carousel-arrow').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var target = document.getElementById(btn.dataset.target);
+      var scrollAmount = target.querySelector('.value-card').offsetWidth + 14;
+      target.scrollBy({ left: btn.classList.contains('left') ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+    });
+  });
+
+  function initInfiniteCarousel(trackId, cardClass, autoplay) {
+    var track = document.getElementById(trackId);
+    if (!track) return;
+    var cloneClass = cardClass + '-clone';
+    var mq = window.matchMedia('(max-width: 768px)');
+    var AUTOPLAY_MS = 3500;
+    var RESUME_DELAY_MS = 4000;
+    var autoplayTimer = null;
+    var resumeTimer = null;
+    var programmatic = false;
+
+    function realCards() {
+      return Array.prototype.slice.call(track.querySelectorAll('.' + cardClass)).filter(function(c) {
+        return !c.classList.contains(cloneClass);
+      });
+    }
+
+    function positionAt(el, smooth) {
+      var target = el.offsetLeft - (track.clientWidth - el.clientWidth) / 2;
+      programmatic = true;
+      track.scrollTo({ left: target, behavior: smooth ? 'smooth' : 'auto' });
+    }
+
+    function initPosition() {
+      if (!mq.matches) return;
+      var cards = realCards();
+      if (cards.length) positionAt(cards[0], false);
+    }
+
+    function stopAutoplay() {
+      clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+
+    function startAutoplay() {
+      if (!autoplay || !mq.matches || document.hidden) return;
+      stopAutoplay();
+      autoplayTimer = setInterval(function() {
+        var card = track.querySelector('.' + cardClass);
+        if (!card) return;
+        var cardWidth = card.offsetWidth + 14;
+        programmatic = true;
+        track.scrollBy({ left: cardWidth, behavior: 'smooth' });
+      }, AUTOPLAY_MS);
+    }
+
+    function scheduleResume() {
+      if (!autoplay) return;
+      clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(startAutoplay, RESUME_DELAY_MS);
+    }
+
+    function onInteractionStart() {
+      if (!mq.matches) return;
+      stopAutoplay();
+      clearTimeout(resumeTimer);
+    }
+
+    function onInteractionEnd() {
+      if (!mq.matches) return;
+      scheduleResume();
+    }
+
+    var scrollTimeout;
+    track.addEventListener('scroll', function() {
+      if (!mq.matches) return;
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(function() {
+        var cards = Array.prototype.slice.call(track.querySelectorAll('.' + cardClass));
+        var trackRect = track.getBoundingClientRect();
+        var center = trackRect.left + trackRect.width / 2;
+        var closest = null, closestDist = Infinity;
+        cards.forEach(function(c) {
+          var r = c.getBoundingClientRect();
+          var dist = Math.abs((r.left + r.width / 2) - center);
+          if (dist < closestDist) { closestDist = dist; closest = c; }
+        });
+        if (closest && closest.classList.contains(cloneClass)) {
+          var real = realCards();
+          var target = closest.dataset.cloneOf === 'first' ? real[0] : real[real.length - 1];
+          positionAt(target, false);
+        }
+        if (!programmatic) scheduleResume();
+        programmatic = false;
+      }, 120);
+    });
+
+    track.addEventListener('touchstart', onInteractionStart, { passive: true });
+    track.addEventListener('pointerdown', onInteractionStart);
+    track.addEventListener('touchend', onInteractionEnd, { passive: true });
+    track.addEventListener('pointerup', onInteractionEnd);
+    document.querySelectorAll('.carousel-arrow[data-target="' + trackId + '"]').forEach(function(btn) {
+      btn.addEventListener('click', onInteractionStart);
+    });
+
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) stopAutoplay();
+      else if (mq.matches) scheduleResume();
+    });
+
+    initPosition();
+    startAutoplay();
+    window.addEventListener('resize', function() {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(function() {
+        initPosition();
+        if (mq.matches) startAutoplay(); else stopAutoplay();
+      }, 150);
+    });
+  }
+
+  initInfiniteCarousel('values-carousel', 'value-card', true);
 </script>
 
 </body>
