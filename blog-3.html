@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+?<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Best Taghazout Day Trips | Paradise Valley, Imsouane & Legzira</title>
-<meta name="description" content="From Paradise Valley's pools to Imsouane's famous wave, here are the best day trips from Taghazout to fill your Morocco surf trip.">
+<title>Things to Do in Taghazout: Surfing, Camel Rides & Quad Tours | Let's Camel Tours</title>
+<meta name="description" content="Looking for things to do in Taghazout? Our local guide covers surfing Taghazout, camel rides near Agadir, quad biking Morocco, best time to visit, and what to pack.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -22,11 +22,10 @@
   .navbar {
     position: fixed;
     top: 0; left: 0; width: 100%;
-    z-index: 200;
+    z-index: 260;
     background: transparent;
     backdrop-filter: none;
     box-shadow: none;
-    padding: 16px 0;
     transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
   }
   .navbar.scrolled {
@@ -34,75 +33,165 @@
     backdrop-filter: blur(6px);
     box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   }
-  .navbar.scrolled .nav-links a { color: var(--navy); }
-  .navbar.scrolled .lang-toggle { color: var(--navy); border-color: var(--line); }
-  .navbar.scrolled .burger { color: var(--navy); }
-  .nav-container { max-width: 1300px; margin: 0 auto; padding: 0 30px; display: flex; align-items: center; justify-content: space-between; }
-  .logo img { height: 42px; }
-  .nav-links { display: flex; align-items: center; gap: 22px; }
-  .nav-links a { color: #F8FAFC; font-size: 14px; font-weight: 500; }
-  .nav-links a:hover { color: var(--gold); }
-  .nav-right { display: flex; align-items: center; gap: 14px; position: relative; }
-  .lang-toggle { display: flex; align-items: center; gap: 6px; background: none; border: 1px solid rgba(255,255,255,0.4); color: #F8FAFC; padding: 8px 12px; border-radius: 4px; font-size: 13px; font-weight: 600; cursor: pointer; }
+  .nav-container { max-width: 1300px; margin: 0 auto; padding: 16px 30px; display: flex; align-items: center; justify-content: space-between; }
+  .logo img { height: 46px; width: auto; }
+  .nav-menu { display: flex; align-items: center; gap: 30px; }
+  .nav-menu a { color: var(--off-white); font-size: 14.5px; font-weight: 500; transition: color 0.25s ease; position: relative; }
+  .navbar.scrolled .nav-menu a { color: var(--navy); }
+  .nav-menu a:hover { color: var(--gold); }
+  .nav-menu a.active { color: var(--gold); }
+  .nav-menu a.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; background: var(--gold); border-radius: 2px; }
+
+  .nav-dropdown { position: relative; }
+  .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
+  .nav-dropdown-caret { width: 10px; height: 10px; transition: transform 0.2s ease; }
+  .nav-dropdown:hover .nav-dropdown-caret { transform: rotate(180deg); }
+  .nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding-top: 14px;
+    z-index: 60;
+  }
+  .nav-dropdown-menu-inner {
+    background: var(--white);
+    min-width: 240px;
+    border-radius: 8px;
+    box-shadow: 0 16px 36px rgba(0,0,0,0.18);
+    padding: 8px;
+  }
+  .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+  .nav-dropdown-menu { display: none; }
+  .nav-dropdown-menu a {
+    display: block;
+    padding: 10px 14px;
+    color: var(--navy) !important;
+    font-size: 13.5px;
+    font-weight: 500;
+    border-radius: 5px;
+  }
+  .nav-dropdown-menu a:hover { background: var(--off-white); color: var(--gold) !important; }
+
+  .nav-right { display: flex; align-items: center; gap: 18px; position: relative; }
+
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--gold);
+    color: var(--white);
+    border: none;
+    padding: 8px 14px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .lang-toggle:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 22px rgba(224,122,62,0.35); }
   .lang-toggle svg { width: 15px; height: 15px; }
-  .lang-menu { position: absolute; top: calc(100% + 8px); right: 0; background: var(--white); border-radius: 6px; box-shadow: 0 12px 30px rgba(0,0,0,0.15); padding: 6px; display: none; min-width: 140px; z-index: 50; }
+
+  .lang-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: var(--white);
+    border-radius: 6px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    padding: 6px;
+    display: none;
+    min-width: 140px;
+  }
   .lang-menu.open { display: block; }
-  .lang-option { display: block; width: 100%; text-align: left; background: none; border: none; padding: 9px 12px; font-size: 13.5px; font-weight: 500; color: var(--navy); border-radius: 4px; cursor: pointer; }
+  .lang-option {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 9px 12px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--navy);
+    border-radius: 4px;
+    cursor: pointer;
+  }
   .lang-option:hover { background: var(--off-white); }
   .lang-option.active { color: var(--gold); font-weight: 700; }
-  .btn-book { background: var(--gold); color: var(--white); padding: 10px 22px; border-radius: 4px; font-size: 14px; font-weight: 700; }
-  .btn-book:hover { background: var(--gold-light); }
-  @media (max-width: 800px) { .nav-links { display: none; } .burger { display: block; } .nav-right .btn-book { display: none; } }
 
-  .hero {
-    position: relative; height: 40vh; min-height: 280px;
-    background-image: linear-gradient(180deg, rgba(0,51,102,0.35) 0%, rgba(0,31,63,0.65) 100%), url('blog-3.jpg');
-    background-size: cover; background-position: center;
-    display: flex; align-items: flex-end; padding: 40px;
+  .btn-book {
+    background: var(--gold);
+    color: var(--white);
+    padding: 11px 24px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
   }
-  .hero-inner { max-width: 760px; margin: 0 auto; width: 100%; color: #fff; }
-  .hero-tag { display: inline-block; background: var(--gold); color: #fff; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 6px 14px; border-radius: 4px; margin-bottom: 14px; }
-  .hero h1 { font-size: clamp(24px, 3.6vw, 36px); font-weight: 800; margin-bottom: 8px; }
-  .hero .meta { font-size: 13.5px; color: #e8e8e8; }
+  .btn-book:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 22px rgba(224,122,62,0.35); }
 
-  .article { padding: 60px 0 90px; }
+  .burger { display: none; background: none; border: none; color: var(--off-white); cursor: pointer; padding: 4px; }
+  .burger svg { width: 24px; height: 24px; }
+  .navbar.scrolled .burger { color: var(--navy); }
+
+  @media (max-width: 768px) {
+    .nav-menu { display: none; }
+    .nav-right .btn-book { display: none; }
+    .burger { display: block; }
+  }
+
+  /* Hero — structure matches tour-1.html (badge + heading + tagline), width adapted to the blog column */
+  .hero {
+    position: relative;
+    background: linear-gradient(180deg, rgba(0,51,102,0.45) 0%, rgba(0,31,63,0.72) 100%), url('blog-3.jpg');
+    background-size: cover; background-position: center;
+    padding: 150px 30px 56px; color: #fff;
+  }
+  .hero-inner { max-width: 700px; margin: 0 auto; }
+  .hero-badge-top { display: inline-block; background: var(--gold); color: #fff; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 6px 14px; border-radius: 50px; margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(28px, 4.2vw, 44px); font-weight: 800; margin-bottom: 10px; max-width: 800px; }
+  .hero-tagline { font-size: 16.5px; font-weight: 600; color: var(--gold-light); margin-bottom: 14px; }
+  .hero-lead { font-size: 15.5px; color: #e8edf4; max-width: 640px; margin-bottom: 16px; }
+  .hero-meta { font-size: 13.5px; color: rgba(255,255,255,0.78); font-weight: 500; }
+
+  /* Breadcrumb — identical to tour-1.html */
+  .breadcrumb { background: var(--off-white); padding: 12px 0; font-size: 13px; color: var(--text-gray); }
+  .breadcrumb a { color: var(--navy); font-weight: 600; }
+  .breadcrumb a:hover { color: var(--gold); }
+
+  /* Horizontal padding restated here: this element is `class="container article"`, and a
+     `padding: 60px 0 90px` shorthand would silently zero out .container's `0 30px` side padding. */
+  .article { padding: 60px 30px 90px; }
   .article p { color: var(--text-gray); font-size: 15.5px; margin-bottom: 18px; }
   .article h2 { font-size: 20px; font-weight: 700; color: var(--navy); margin: 34px 0 14px; }
+  .article h3 { font-size: 16.5px; font-weight: 700; color: var(--navy); margin: 24px 0 10px; }
   .article ul { margin: 0 0 18px 20px; }
   .article li { color: var(--text-gray); font-size: 15px; margin-bottom: 8px; }
 
+  /* In-article photos — same radius/spacing language as image treatments elsewhere on the site */
+  .article-img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 10px; margin: 28px 0; display: block; background: var(--off-white); }
+
+  .pro-tip { background: rgba(224,122,62,0.08); border-left: 3px solid var(--gold); border-radius: 6px; padding: 16px 18px; margin: 22px 0; }
+  .pro-tip p { margin: 0; color: var(--navy); font-size: 14.5px; }
+  .pro-tip p strong { color: var(--gold); }
+
+  .faq-block { margin-bottom: 22px; }
+  .faq-block h3 { margin: 0 0 6px; font-size: 15.5px; }
+  .faq-block p { margin-bottom: 0; }
+
+  .related-links { margin: 0 0 18px 20px; }
+  .related-links li { margin-bottom: 8px; }
+  .related-links a { color: var(--navy); font-weight: 700; text-decoration: underline; }
+
   .article-cta { background: var(--off-white); border: 1px solid var(--line); border-radius: 10px; padding: 26px; text-align: center; margin-top: 30px; }
   .article-cta p { margin-bottom: 14px; font-weight: 600; color: var(--navy); }
-  .btn-gold { display: inline-block; background: var(--gold); color: #fff; padding: 13px 28px; border-radius: 4px; font-weight: 700; font-size: 14.5px; }
-  .btn-gold:hover { background: var(--gold-light); }
+  .btn-gold { display: inline-block; background: var(--gold); color: #fff; padding: 13px 28px; border-radius: 50px; font-weight: 700; font-size: 14.5px; transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 22px rgba(224,122,62,0.35); }
 
   .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--navy); font-weight: 600; font-size: 14px; margin-bottom: 26px; }
   .back-link svg { width: 15px; height: 15px; }
 
-  .whatsapp-btn { position: fixed; bottom: 26px; right: 26px; z-index: 300; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
-  .whatsapp-btn svg { width: 30px; height: 30px; fill: #fff; }
-
-  .footer { background: var(--navy-dark); color: #F8FAFC; padding: 34px 0; }
-  .footer-inner { max-width: 1300px; margin: 0 auto; padding: 0 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-size: 13px; color: rgba(248,250,252,0.7); }
-  .footer-inner a { color: var(--gold); }
-
-  .burger {
-    display: none;
-    background: none;
-    border: none;
-    color: #F8FAFC;
-    cursor: pointer;
-    padding: 4px;
-  }
-  .burger svg { width: 24px; height: 24px; }
-
-  .mobile-menu-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.45);
-    z-index: 240;
-  }
+  .mobile-menu-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 240; }
   .mobile-menu-overlay.open { display: block; }
 
   .mobile-menu {
@@ -137,21 +226,83 @@
     cursor: pointer;
   }
   .mobile-menu-close svg { width: 22px; height: 22px; }
+
+  .whatsapp-btn { position: fixed; bottom: 26px; right: 26px; z-index: 300; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0,0,0,0.25); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+  .whatsapp-btn:hover { transform: translateY(-3px) scale(1.08); box-shadow: 0 14px 30px rgba(37,211,102,0.45); }
+  .whatsapp-btn svg { width: 30px; height: 30px; fill: #fff; }
+
+  /* Footer — identical structure/styling to the current index.html */
+  .footer { background: var(--off-white); color: var(--text-gray); padding: 60px 0 24px; border-top: 1px solid var(--line); }
+  .footer .container { max-width: 1140px; }
+  .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 36px; margin-bottom: 24px; border-bottom: 1px solid var(--line); }
+  .footer-logo img { height: 40px; margin-bottom: 18px; }
+  .footer-col-brand p { font-size: 13.5px; line-height: 1.7; color: var(--text-gray); max-width: 44ch; margin-bottom: 20px; }
+  .footer-col h4 { color: var(--navy); font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; font-weight: 700; }
+  .footer-col li { margin-bottom: 11px; }
+  .footer-col a { font-size: 14px; color: var(--text-gray); transition: color 0.25s ease; }
+  .footer-col a:hover { color: var(--gold); }
+  .footer-lang-row { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 18px; }
+  .footer-lang-btn { background: none; border: none; padding: 0; cursor: pointer; font-family: 'Poppins', sans-serif; font-size: 14px; color: var(--text-gray); transition: color 0.25s ease; text-align: left; display: flex; align-items: center; gap: 8px; }
+  .footer-lang-btn img { border-radius: 2px; flex-shrink: 0; }
+  .footer-lang-btn:hover, .footer-lang-btn.active { color: var(--gold); font-weight: 600; }
+  .socials { display: flex; gap: 12px; margin-top: 28px; }
+  .socials a { width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--navy); transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
+  .socials a:hover { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+  .socials svg { width: 18px; height: 18px; flex-shrink: 0; }
+  .footer-bottom { padding-top: 6px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-size: 12.5px; color: var(--text-gray); }
+  @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 700px) { .footer-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 
 <header class="navbar">
   <div class="nav-container">
-    <a href="index.html" class="logo"><img src="logo.png" alt="Let's Camel Tours"></a>
-    <div class="nav-links">
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="Let's Camel Tours">
+    </a>
+    <nav class="nav-menu">
       <a href="index.html#home"><span data-en="Home" data-fr="Accueil" data-es="Inicio" data-de="Startseite">Home</span></a>
-      <a href="index.html#tours"><span data-en="Tours" data-fr="Circuits" data-es="Tours" data-de="Touren">Tours</span></a>
+      <div class="nav-dropdown">
+        <a href="tours.html"><span data-en="Morocco Tours" data-fr="Circuits Maroc" data-es="Tours Marruecos" data-de="Marokko Touren">Morocco Tours</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="tour-1.html"><span data-en="8-Day Grand Morocco Tour: Sahara & Rif Mountains" data-fr="Circuit de 8 Jours au Maroc : Sahara et Rif" data-es="Tour de 8 Días por Marruecos: Sahara y Rif" data-de="8-Tägige Marokko-Tour: Sahara & Rif-Gebirge">8-Day Grand Morocco Tour: Sahara & Rif Mountains</span></a>
+            <a href="tour-2.html"><span data-en="5-Day Marrakech to Merzouga Desert Tour" data-fr="Circuit de 5 Jours : Marrakech à Merzouga" data-es="Tour de 5 Días: Marrakech a Merzouga" data-de="5-Tägige Tour: Marrakesch bis Merzouga">5-Day Marrakech to Merzouga Desert Tour</span></a>
+            <a href="tour-3.html"><span data-en="12-Day Morocco Tour: Casablanca to Marrakech & Sahara" data-fr="Circuit de 12 Jours : Casablanca à Marrakech et Sahara" data-es="Tour de 12 Días: Casablanca a Marrakech y Sahara" data-de="12-Tägige Marokko-Tour: Casablanca bis Marrakesch & Sahara">12-Day Morocco Tour: Casablanca to Marrakech & Sahara</span></a>
+            <a href="tour-4.html"><span data-en="9-Day Morocco Adventure: Marrakech, Sahara & Atlantic" data-fr="Aventure de 9 Jours : Marrakech, Sahara et Atlantique" data-es="Aventura de 9 Días: Marrakech, Sahara y Atlántico" data-de="9-Tägiges Marokko-Abenteuer: Marrakesch, Sahara & Atlantik">9-Day Morocco Adventure: Marrakech, Sahara & Atlantic</span></a>
+            <a href="tours.html" style="color:var(--gold) !important;font-weight:700;"><span data-en="View All Tours →" data-fr="Voir Tous les Circuits →" data-es="Ver Todos los Tours →" data-de="Alle Touren Ansehen →">View All Tours →</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="excursions.html"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="excursion-1.html"><span data-en="Day Trip to Essaouira" data-fr="Excursion à Essaouira" data-es="Excursión a Essaouira" data-de="Tagesausflug nach Essaouira">Day Trip to Essaouira</span></a>
+            <a href="excursion-2.html"><span data-en="Day Trip to Marrakech" data-fr="Excursion à Marrakech" data-es="Excursión a Marrakech" data-de="Tagesausflug nach Marrakesch">Day Trip to Marrakech</span></a>
+            <a href="excursion-3.html"><span data-en="Paradise Valley" data-fr="Paradise Valley" data-es="Paradise Valley" data-de="Paradise Valley">Paradise Valley</span></a>
+            <a href="excursions.html" style="color:var(--gold) !important;font-weight:700;"><span data-en="View All Excursions →" data-fr="Voir Toutes les Excursions →" data-es="Ver Todas las Excursiones →" data-de="Alle Ausflüge Ansehen →">View All Excursions →</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="activities.html"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="activity-1.html"><span data-en="Beach Horse Riding" data-fr="Équitation sur la Plage" data-es="Paseo a Caballo en la Playa" data-de="Strandreiten">Beach Horse Riding</span></a>
+            <a href="activity-2.html"><span data-en="Quad Biking" data-fr="Quad" data-es="Quad" data-de="Quad-Fahren">Quad Biking</span></a>
+            <a href="activity-3.html"><span data-en="Private Surf Lesson" data-fr="Cours de Surf Privé" data-es="Clase de Surf Privada" data-de="Privater Surfkurs">Private Surf Lesson</span></a>
+            <a href="activities.html" style="color:var(--gold) !important;font-weight:700;"><span data-en="View All Activities →" data-fr="Voir Toutes les Activités →" data-es="Ver Todas las Actividades →" data-de="Alle Aktivitäten Ansehen →">View All Activities →</span></a>
+          </div>
+        </div>
+      </div>
+      <a href="index.html#transfers"><span data-en="Transfers" data-fr="Transferts" data-es="Traslados" data-de="Transfers">Transfers</span></a>
       <a href="index.html#services"><span data-en="Services" data-fr="Services" data-es="Servicios" data-de="Leistungen">Services</span></a>
       <a href="about-us.html"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
-      <a href="index.html#blog"><span data-en="Blog" data-fr="Blog" data-es="Blog" data-de="Blog">Blog</span></a>
-      <a href="index.html#contact"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
-    </div>
+      <a href="index.html#blog" class="active"><span data-en="Blogs" data-fr="Blogs" data-es="Blogs" data-de="Blogs">Blogs</span></a>
+      <a href="contact.html"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
+    </nav>
     <div class="nav-right">
       <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9z"/></svg>
@@ -163,11 +314,10 @@
         <button class="lang-option" data-lang="es">Español</button>
         <button class="lang-option" data-lang="de">Deutsch</button>
       </div>
-      <a href="index.html#contact" class="btn-book"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+      <a href="contact.html" class="btn-book"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
       <button class="burger" id="burger-toggle" aria-label="Menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
-    
     </div>
   </div>
 </header>
@@ -178,47 +328,144 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
   </button>
   <a href="index.html#home"><span data-en="Home" data-fr="Accueil" data-es="Inicio" data-de="Startseite">Home</span></a>
-      <a href="index.html#tours"><span data-en="Tours" data-fr="Circuits" data-es="Tours" data-de="Touren">Tours</span></a>
-      <a href="index.html#services"><span data-en="Services" data-fr="Services" data-es="Servicios" data-de="Leistungen">Services</span></a>
-      <a href="about-us.html"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
-      <a href="index.html#blog"><span data-en="Blog" data-fr="Blog" data-es="Blog" data-de="Blog">Blog</span></a>
-      <a href="index.html#contact"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
-  <a href="index.html#contact" class="btn-book" style="display:block;text-align:center;margin-top:16px;"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+  <a href="index.html#tours"><span data-en="Morocco Tours" data-fr="Circuits Maroc" data-es="Tours Marruecos" data-de="Marokko Touren">Morocco Tours</span></a>
+  <a href="index.html#excursions"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></a>
+  <a href="index.html#activities"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span></a>
+  <a href="index.html#transfers"><span data-en="Transfers" data-fr="Transferts" data-es="Traslados" data-de="Transfers">Transfers</span></a>
+  <a href="index.html#services"><span data-en="Services" data-fr="Services" data-es="Servicios" data-de="Leistungen">Services</span></a>
+  <a href="about-us.html"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
+  <a href="index.html#blog" class="active"><span data-en="Blogs" data-fr="Blogs" data-es="Blogs" data-de="Blogs">Blogs</span></a>
+  <a href="contact.html"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
+  <a href="contact.html" class="btn-book" style="display:block;text-align:center;margin-top:16px;"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
 </div>
-
 
 <section class="hero">
   <div class="hero-inner">
-    <span class="hero-tag">Travel Tips</span>
-    <h1>The Best Day Trips from Taghazout, Morocco</h1>
-    <p class="meta">August 2026</p>
+    <span class="hero-badge-top"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span></span>
+    <h1><span data-en="Things to Do in Taghazout: Surfing, Camel Rides & Quad Tours" data-fr="Que Faire à Taghazout : Surf, Balades à Chameau et Quad" data-es="Qué Hacer en Taghazout: Surf, Paseos en Camello y Quads" data-de="Was man in Taghazout Unternehmen Kann: Surfen, Kamelritte & Quad-Touren">Things to Do in Taghazout: Surfing, Camel Rides & Quad Tours</span></h1>
+    <p class="hero-tagline"><span data-en="Your local guide to Morocco's easygoing Atlantic surf village" data-fr="Votre guide local du village de surf atlantique le plus décontracté du Maroc" data-es="Tu guía local del relajado pueblo surfero atlántico de Marruecos" data-de="Ihr lokaler Guide für Marokkos entspanntes Surferdorf am Atlantik">Your local guide to Morocco's easygoing Atlantic surf village</span></p>
+    <p class="hero-lead"><span data-en="Everything we recommend to guests staying on the coast, from first surf lessons to sunset camel rides and quad tours through the argan forest." data-fr="Tout ce que nous recommandons à nos voyageurs séjournant sur la côte, des premiers cours de surf aux balades à chameau au coucher du soleil et aux excursions en quad à travers la forêt d'arganiers." data-es="Todo lo que recomendamos a nuestros viajeros alojados en la costa, desde las primeras clases de surf hasta los paseos en camello al atardecer y las rutas en quad por el bosque de argán." data-de="Alles, was wir unseren Gästen an der Küste empfehlen, von den ersten Surfstunden über Kamelritte bei Sonnenuntergang bis zu Quad-Touren durch den Arganwald.">Everything we recommend to guests staying on the coast, from first surf lessons to sunset camel rides and quad tours through the argan forest.</span></p>
+    <p class="hero-meta"><span data-en="August 2026 · 10 min read" data-fr="Août 2026 · 10 min de lecture" data-es="Agosto 2026 · 10 min de lectura" data-de="August 2026 · 10 Min. Lesezeit">August 2026 · 10 min read</span></p>
   </div>
 </section>
+
+<div class="breadcrumb">
+  <div class="container">
+    <a href="index.html"><span data-en="Home" data-fr="Accueil" data-es="Inicio" data-de="Startseite">Home</span></a> ›
+    <a href="index.html#blog"><span data-en="Blog" data-fr="Blog" data-es="Blog" data-de="Blog">Blog</span></a> ›
+    <span data-en="Things to Do in Taghazout" data-fr="Que Faire à Taghazout" data-es="Qué Hacer en Taghazout" data-de="Was man in Taghazout Unternehmen Kann">Things to Do in Taghazout</span>
+  </div>
+</div>
 
 <div class="container article">
   <a href="index.html#blog" class="back-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg> <span data-en="Back to Blog" data-fr="Retour au Blog" data-es="Volver al Blog" data-de="Zurück zum Blog">Back to Blog</span></a>
 
-  <p>Taghazout is compact, but the surrounding region is packed with easy day trips, from mountain pools to Africa's longest surf wave. Here are the best ones to fill your stay.</p>
+  <p><span data-en="Half of our family's story happens in the desert, and the other half happens here, on this stretch of Atlantic coast just north of Agadir. Taghazout was a quiet fishing village long before the surfboards arrived, and somehow it has kept that unhurried rhythm even as travelers from all over the world discovered its waves. Guests often arrive planning to spend two nights and end up staying a week, which tells you most of what you need to know. This guide covers the things to do in Taghazout that we actually recommend to our own guests, based on years of arranging these days out ourselves." data-fr="La moitié de l'histoire de notre famille se déroule dans le désert, et l'autre moitié ici, sur cette portion de côte atlantique juste au nord d'Agadir. Taghazout était un paisible village de pêcheurs bien avant l'arrivée des planches de surf, et il a gardé ce rythme tranquille même après que des voyageurs du monde entier ont découvert ses vagues. Nos voyageurs arrivent souvent en prévoyant deux nuits et finissent par rester une semaine, ce qui en dit long. Ce guide rassemble les choses à faire à Taghazout que nous recommandons vraiment à nos propres voyageurs, fruit d'années passées à organiser ces journées nous-mêmes." data-es="La mitad de la historia de nuestra familia ocurre en el desierto, y la otra mitad aquí, en este tramo de costa atlántica justo al norte de Agadir. Taghazout era un tranquilo pueblo de pescadores mucho antes de que llegaran las tablas de surf, y de algún modo ha conservado ese ritmo pausado incluso después de que viajeros de todo el mundo descubrieran sus olas. Nuestros viajeros suelen llegar con la idea de quedarse dos noches y acaban quedándose una semana, lo que ya dice bastante. Esta guía recoge las cosas que hacer en Taghazout que de verdad recomendamos a nuestros propios viajeros, tras años organizando estas jornadas nosotros mismos." data-de="Die eine Hälfte unserer Familiengeschichte spielt in der Wüste, die andere hier, an diesem Abschnitt der Atlantikküste nördlich von Agadir. Taghazout war lange vor den Surfbrettern ein ruhiges Fischerdorf, und irgendwie hat es diesen gemächlichen Rhythmus bewahrt, auch nachdem Reisende aus aller Welt seine Wellen entdeckt haben. Gäste kommen oft mit dem Plan, zwei Nächte zu bleiben, und bleiben am Ende eine Woche, was das Meiste schon sagt. Dieser Guide behandelt die Dinge, die man in Taghazout unternehmen kann und die wir unseren eigenen Gästen wirklich empfehlen, nach Jahren, in denen wir diese Tage selbst organisiert haben.">Half of our family's story happens in the desert, and the other half happens here, on this stretch of Atlantic coast just north of Agadir. Taghazout was a quiet fishing village long before the surfboards arrived, and somehow it has kept that unhurried rhythm even as travelers from all over the world discovered its waves. Guests often arrive planning to spend two nights and end up staying a week, which tells you most of what you need to know. This guide covers the things to do in Taghazout that we actually recommend to our own guests, based on years of arranging these days out ourselves.</span></p>
 
-  <h2>Paradise Valley, Natural Pools in the Atlas Foothills</h2>
-  <p>About 45 minutes inland, Paradise Valley is a palm-lined canyon with clear natural pools tucked between honey-colored cliffs. It's the classic flat-day trip from Taghazout, go early to beat the heat and the crowds, and bring water shoes for the rocky sections.</p>
+  <h2><span data-en="What Makes Taghazout Special?" data-fr="Qu'est-ce qui Rend Taghazout si Spécial ?" data-es="¿Qué Hace Especial a Taghazout?" data-de="Was Macht Taghazout so Besonders?">What Makes Taghazout Special?</span></h2>
 
-  <h2>Imsouane, Africa's Longest Surf Wave</h2>
-  <p>An hour up the coast, Imsouane is a laid-back fishing village known for one of the longest, gentlest surf waves on the continent. It's a favorite for beginner and intermediate surfers, and a great lunch stop even if you're not surfing.</p>
+  <h3><span data-en="A Surf Village That Never Lost Its Character" data-fr="Un Village de Surf qui n'a Jamais Perdu son Âme" data-es="Un Pueblo Surfero que Nunca Perdió su Carácter" data-de="Ein Surferdorf, das Seinen Charakter Nie Verloren Hat">A Surf Village That Never Lost Its Character</span></h3>
+  <p><span data-en="Taghazout is small enough to walk end to end in about fifteen minutes, and that scale is exactly the point. Blue and white houses stack up the hillside above the beach, fishing boats still pull in beside the surf schools, and the cafés fill with a mix of Moroccan families, long-stay surfers, and travelers who found the place by accident. Nothing here feels staged for visitors, which is increasingly rare on any coastline. We have watched the village grow for years, and the thing that keeps surprising us is how little its character has changed." data-fr="Taghazout est assez petit pour être traversé à pied d'un bout à l'autre en une quinzaine de minutes, et c'est précisément là tout son charme. Des maisons bleues et blanches s'étagent sur la colline au-dessus de la plage, les barques de pêche accostent toujours à côté des écoles de surf, et les cafés se remplissent d'un mélange de familles marocaines, de surfeurs installés à l'année et de voyageurs arrivés là par hasard. Rien ici ne semble mis en scène pour les visiteurs, ce qui devient rare sur n'importe quel littoral. Nous voyons le village évoluer depuis des années, et ce qui nous étonne toujours, c'est à quel point son caractère est resté intact." data-es="Taghazout es lo bastante pequeño para recorrerlo a pie de punta a punta en unos quince minutos, y esa escala es justamente lo que lo hace especial. Casas azules y blancas se escalonan por la ladera sobre la playa, las barcas de pesca siguen atracando junto a las escuelas de surf, y los cafés se llenan con una mezcla de familias marroquíes, surfistas de larga estancia y viajeros que llegaron por casualidad. Nada aquí parece montado para los visitantes, algo cada vez más raro en cualquier costa. Llevamos años viendo crecer el pueblo, y lo que no deja de sorprendernos es lo poco que ha cambiado su carácter." data-de="Taghazout ist klein genug, um es in etwa fünfzehn Minuten von einem Ende zum anderen zu durchqueren, und genau diese Größe macht den Reiz aus. Blau-weiße Häuser stapeln sich den Hang über dem Strand hinauf, Fischerboote legen noch immer neben den Surfschulen an, und die Cafés füllen sich mit einer Mischung aus marokkanischen Familien, Langzeit-Surfern und Reisenden, die zufällig hierher fanden. Nichts wirkt hier für Besucher inszeniert, was an jeder Küste zunehmend selten ist. Wir beobachten das Dorf seit Jahren, und was uns immer wieder überrascht, ist, wie wenig sich sein Charakter verändert hat.">Taghazout is small enough to walk end to end in about fifteen minutes, and that scale is exactly the point. Blue and white houses stack up the hillside above the beach, fishing boats still pull in beside the surf schools, and the cafés fill with a mix of Moroccan families, long-stay surfers, and travelers who found the place by accident. Nothing here feels staged for visitors, which is increasingly rare on any coastline. We have watched the village grow for years, and the thing that keeps surprising us is how little its character has changed.</span></p>
 
-  <h2>Tamri, Where Dunes Meet the Atlantic</h2>
-  <p>Just north of Taghazout, Tamri combines sand dunes with ocean views, a striking contrast that makes for great photos. The area is also known locally for its banana plantations, and it's an easy stop on the way to Imsouane.</p>
+  <h3><span data-en="Waves for Every Level, All Year Round" data-fr="Des Vagues pour Tous les Niveaux, Toute l'Année" data-es="Olas para Todos los Niveles, Todo el Año" data-de="Wellen für Jedes Level, das Ganze Jahr über">Waves for Every Level, All Year Round</span></h3>
+  <p><span data-en="What makes surfing Taghazout so unusual is the sheer variety packed into a few kilometers of coast. Beginners get gentle, forgiving beach breaks with sandy bottoms, while more experienced surfers have world-class right-hand point breaks within a short drive. Because the coastline faces different angles, there is almost always somewhere working, whatever the swell is doing that morning. That reliability is why surf schools cluster here rather than further along the coast." data-fr="Ce qui rend le surf à Taghazout si particulier, c'est la variété concentrée sur quelques kilomètres de côte. Les débutants trouvent des vagues de plage douces et indulgentes sur fond de sable, tandis que les surfeurs confirmés ont accès à des pointes de droite de classe mondiale à quelques minutes en voiture. Comme le littoral présente des orientations différentes, il y a presque toujours un spot qui fonctionne, quelle que soit la houle du matin. C'est cette fiabilité qui explique pourquoi les écoles de surf se concentrent ici plutôt que plus loin sur la côte." data-es="Lo que hace tan singular el surf en Taghazout es la enorme variedad concentrada en pocos kilómetros de costa. Los principiantes encuentran olas de playa suaves e indulgentes con fondo de arena, mientras que los surfistas con más experiencia tienen puntas de derecha de nivel mundial a pocos minutos en coche. Como el litoral mira en distintas direcciones, casi siempre hay algún spot funcionando, sea cual sea la marejada de esa mañana. Esa fiabilidad explica por qué las escuelas de surf se concentran aquí y no más adelante en la costa." data-de="Was das Surfen in Taghazout so ungewöhnlich macht, ist die schiere Vielfalt auf wenigen Küstenkilometern. Anfänger finden sanfte, gutmütige Beachbreaks mit Sandgrund, während erfahrenere Surfer wenige Autominuten entfernt Rechts-Pointbreaks von Weltklasse haben. Da die Küste in unterschiedliche Richtungen zeigt, funktioniert fast immer irgendein Spot, egal was die Dünung an diesem Morgen macht. Diese Verlässlichkeit ist der Grund, warum sich die Surfschulen hier und nicht weiter entlang der Küste ansiedeln.">What makes surfing Taghazout so unusual is the sheer variety packed into a few kilometers of coast. Beginners get gentle, forgiving beach breaks with sandy bottoms, while more experienced surfers have world-class right-hand point breaks within a short drive. Because the coastline faces different angles, there is almost always somewhere working, whatever the swell is doing that morning. That reliability is why surf schools cluster here rather than further along the coast.</span></p>
 
-  <h2>Legzira Beach & Tiznit</h2>
-  <p>Further south, Legzira Beach is famous for its dramatic red stone arches carved by wind and sea. Combine it with a stop in Tiznit, known for its silver jewelry souks and old city walls, for a fuller day trip.</p>
+  <h3><span data-en="Argan Country Just Behind the Beach" data-fr="Le Pays de l'Arganier Juste Derrière la Plage" data-es="La Tierra del Argán Justo Detrás de la Playa" data-de="Arganland Direkt Hinter dem Strand">Argan Country Just Behind the Beach</span></h3>
+  <p><span data-en="Turn inland from the coast road and the landscape changes within minutes into dry hills covered in argan trees, a species that grows almost nowhere else on earth. This is where the quad tours and horse trails run, past women's cooperatives pressing argan oil by hand and small Berber villages where goats genuinely do climb the trees. Most visitors never leave the beach, which means those inland tracks stay quiet even in high season. It is our favorite half of Taghazout, and the half almost nobody photographs." data-fr="Quittez la route côtière vers l'intérieur des terres et le paysage se transforme en quelques minutes en collines sèches couvertes d'arganiers, une espèce qui ne pousse presque nulle part ailleurs au monde. C'est là que passent les excursions en quad et les sentiers équestres, devant des coopératives féminines qui pressent l'huile d'argan à la main et de petits villages berbères où les chèvres grimpent réellement aux arbres. La plupart des visiteurs ne quittent jamais la plage, si bien que ces pistes intérieures restent calmes même en haute saison. C'est notre moitié préférée de Taghazout, et celle que presque personne ne photographie." data-es="Al alejarte de la carretera costera hacia el interior, el paisaje cambia en cuestión de minutos a colinas secas cubiertas de argán, una especie que apenas crece en ningún otro lugar del mundo. Ahí es donde discurren las rutas en quad y los senderos a caballo, junto a cooperativas de mujeres que prensan aceite de argán a mano y pequeños pueblos bereberes donde las cabras sí que se suben a los árboles. La mayoría de los visitantes nunca se aleja de la playa, así que esas pistas del interior permanecen tranquilas incluso en temporada alta. Es nuestra mitad favorita de Taghazout, y la que casi nadie fotografía." data-de="Biegen Sie von der Küstenstraße ins Landesinnere ab, und die Landschaft verwandelt sich binnen Minuten in trockene Hügel voller Arganbäume, einer Art, die fast nirgendwo sonst auf der Welt wächst. Hier verlaufen die Quad-Touren und Reitwege, vorbei an Frauenkooperativen, die Arganöl von Hand pressen, und kleinen Berberdörfern, wo Ziegen tatsächlich auf die Bäume klettern. Die meisten Besucher verlassen den Strand nie, weshalb diese Pisten im Landesinneren selbst in der Hochsaison ruhig bleiben. Das ist unsere Lieblingshälfte von Taghazout, und die, die fast niemand fotografiert.">Turn inland from the coast road and the landscape changes within minutes into dry hills covered in argan trees, a species that grows almost nowhere else on earth. This is where the quad tours and horse trails run, past women's cooperatives pressing argan oil by hand and small Berber villages where goats genuinely do climb the trees. Most visitors never leave the beach, which means those inland tracks stay quiet even in high season. It is our favorite half of Taghazout, and the half almost nobody photographs.</span></p>
 
-  <h2>Tafraout, Painted Rocks in the Anti-Atlas</h2>
-  <p>A little further inland, Tafraout sits among pink granite boulders, some of them painted blue by a local artist decades ago. It's a quieter, more offbeat trip for travelers who want to see a different side of southern Morocco.</p>
+  <img class="article-img" src="images/blog/taghazout-village-from-above.jpg" alt="Blue and white houses of Taghazout village stacked on the hillside above the beach" data-en-alt="Blue and white houses of Taghazout village stacked on the hillside above the beach" data-fr-alt="Les maisons bleues et blanches du village de Taghazout étagées sur la colline au-dessus de la plage" data-es-alt="Las casas azules y blancas del pueblo de Taghazout escalonadas en la ladera sobre la playa" data-de-alt="Die blau-weißen Häuser des Dorfes Taghazout am Hang über dem Strand">
 
-  <p>We're currently putting together dedicated excursions and activities around Taghazout, including surf-friendly day trips, yoga sessions, and Moroccan cooking classes. Get in touch if you'd like early details.</p>
+  <div class="pro-tip"><p><strong><span data-en="Pro Tip:" data-fr="Astuce de pro :" data-es="Consejo de experto:" data-de="Profi-Tipp:">Pro Tip:</span></strong> <span data-en="Book your surf lesson for the morning and your camel ride or quad tour for late afternoon. The wind on this coast typically picks up after midday, which makes the waves messier but has no effect at all on the beach and inland activities, so you get the best conditions for both in a single day." data-fr="Réservez votre cours de surf le matin et votre balade à chameau ou votre sortie en quad en fin d'après-midi. Le vent sur cette côte se lève généralement après midi, ce qui rend les vagues plus désordonnées mais n'a aucun effet sur les activités de plage et de l'intérieur : vous profitez ainsi des meilleures conditions pour les deux dans la même journée." data-es="Reserva tu clase de surf por la mañana y tu paseo en camello o ruta en quad para el final de la tarde. El viento en esta costa suele levantarse después del mediodía, lo que enturbia las olas pero no afecta en absoluto a las actividades de playa e interior, así que consigues las mejores condiciones para ambas en un solo día." data-de="Buchen Sie Ihre Surfstunde für den Vormittag und Ihren Kamelritt oder Ihre Quad-Tour für den späten Nachmittag. Der Wind an dieser Küste frischt typischerweise nach Mittag auf, was die Wellen unruhiger macht, auf die Strand- und Inlandaktivitäten aber überhaupt keine Auswirkung hat, so haben Sie an einem Tag für beides die besten Bedingungen.">Book your surf lesson for the morning and your camel ride or quad tour for late afternoon. The wind on this coast typically picks up after midday, which makes the waves messier but has no effect at all on the beach and inland activities, so you get the best conditions for both in a single day.</span></p></div>
+
+  <h2><span data-en="Best Time to Visit Taghazout" data-fr="Meilleure Période pour Visiter Taghazout" data-es="Mejor Época para Visitar Taghazout" data-de="Beste Reisezeit für Taghazout">Best Time to Visit Taghazout</span></h2>
+  <p><span data-en="Taghazout is one of the easiest places in Morocco to visit year-round, because the Atlantic keeps the temperature remarkably steady. Winter days, from December to February, usually sit between 18°C and 22°C (64°F to 72°F) and are often sunny, while summer rarely becomes uncomfortable, generally holding around 24°C to 28°C (75°F to 82°F) thanks to the ocean breeze. Compare that with Marrakech, three hours inland, where summer regularly passes 40°C, and you understand why so many Moroccan families come here in August." data-fr="Taghazout est l'un des endroits les plus faciles à visiter toute l'année au Maroc, car l'Atlantique maintient des températures remarquablement stables. Les journées d'hiver, de décembre à février, se situent généralement entre 18°C et 22°C et sont souvent ensoleillées, tandis que l'été devient rarement inconfortable, avec des températures autour de 24°C à 28°C grâce à la brise océanique. Comparez cela à Marrakech, à trois heures à l'intérieur des terres, où l'été dépasse régulièrement 40°C, et vous comprendrez pourquoi tant de familles marocaines viennent ici en août." data-es="Taghazout es uno de los lugares más fáciles de visitar durante todo el año en Marruecos, porque el Atlántico mantiene la temperatura notablemente estable. Los días de invierno, de diciembre a febrero, suelen situarse entre 18°C y 22°C y a menudo son soleados, mientras que el verano rara vez resulta incómodo, manteniéndose en general entre 24°C y 28°C gracias a la brisa oceánica. Compáralo con Marrakech, a tres horas tierra adentro, donde el verano supera con frecuencia los 40°C, y entenderás por qué tantas familias marroquíes vienen aquí en agosto." data-de="Taghazout ist einer der Orte in Marokko, die sich ganzjährig am einfachsten bereisen lassen, denn der Atlantik hält die Temperatur bemerkenswert stabil. Wintertage von Dezember bis Februar liegen meist zwischen 18°C und 22°C und sind oft sonnig, während der Sommer selten unangenehm wird und sich dank der Meeresbrise generell um 24°C bis 28°C hält. Vergleichen Sie das mit Marrakesch, drei Stunden landeinwärts, wo der Sommer regelmäßig über 40°C steigt, und Sie verstehen, warum so viele marokkanische Familien im August hierherkommen.">Taghazout is one of the easiest places in Morocco to visit year-round, because the Atlantic keeps the temperature remarkably steady. Winter days, from December to February, usually sit between 18°C and 22°C (64°F to 72°F) and are often sunny, while summer rarely becomes uncomfortable, generally holding around 24°C to 28°C (75°F to 82°F) thanks to the ocean breeze. Compare that with Marrakech, three hours inland, where summer regularly passes 40°C, and you understand why so many Moroccan families come here in August.</span></p>
+  <p><span data-en="For surfing specifically, the seasons matter more than the thermometer. September through April brings the bigger, more consistent Atlantic swells that experienced surfers travel here for, with the peak months usually falling between November and February. May through August delivers smaller, softer waves, which is genuinely better if you are taking your first lesson. The water sits around 16°C to 18°C in winter and 20°C to 22°C in summer, so a wetsuit is standard year-round and always included when you book a lesson with us." data-fr="Pour le surf en particulier, les saisons comptent plus que le thermomètre. De septembre à avril arrivent les houles atlantiques plus grosses et plus régulières pour lesquelles les surfeurs confirmés font le voyage, avec un pic généralement entre novembre et février. De mai à août, les vagues sont plus petites et plus douces, ce qui est en réalité bien mieux pour un premier cours. L'eau se situe autour de 16°C à 18°C en hiver et de 20°C à 22°C en été : une combinaison est donc la norme toute l'année, et elle est toujours incluse lorsque vous réservez un cours avec nous." data-es="Para el surf en concreto, las estaciones importan más que el termómetro. De septiembre a abril llegan las marejadas atlánticas más grandes y constantes por las que viajan hasta aquí los surfistas experimentados, con el punto álgido normalmente entre noviembre y febrero. De mayo a agosto las olas son más pequeñas y suaves, lo cual es realmente mejor si vas a tomar tu primera clase. El agua ronda los 16°C a 18°C en invierno y los 20°C a 22°C en verano, así que el neopreno es lo habitual todo el año y siempre va incluido al reservar una clase con nosotros." data-de="Speziell fürs Surfen zählen die Jahreszeiten mehr als das Thermometer. Von September bis April kommen die größeren, beständigeren Atlantikdünungen, für die erfahrene Surfer hierherreisen, mit dem Höhepunkt meist zwischen November und Februar. Von Mai bis August sind die Wellen kleiner und sanfter, was für die erste Surfstunde tatsächlich besser ist. Das Wasser liegt im Winter bei etwa 16°C bis 18°C und im Sommer bei 20°C bis 22°C, ein Neoprenanzug ist also ganzjährig Standard und bei einer Buchung mit uns immer inbegriffen.">For surfing specifically, the seasons matter more than the thermometer. September through April brings the bigger, more consistent Atlantic swells that experienced surfers travel here for, with the peak months usually falling between November and February. May through August delivers smaller, softer waves, which is genuinely better if you are taking your first lesson. The water sits around 16°C to 18°C in winter and 20°C to 22°C in summer, so a wetsuit is standard year-round and always included when you book a lesson with us.</span></p>
+
+  <img class="article-img" src="images/blog/taghazout-surfers-golden-hour.jpg" alt="Surfers paddling out at a Taghazout beach break in late afternoon light" data-en-alt="Surfers paddling out at a Taghazout beach break in late afternoon light" data-fr-alt="Des surfeurs rament vers le large sur un spot de Taghazout dans la lumière de fin d'après-midi" data-es-alt="Surfistas remando hacia las olas en una playa de Taghazout con la luz del atardecer" data-de-alt="Surfer paddeln bei Nachmittagslicht an einem Beachbreak in Taghazout hinaus">
+
+  <h2><span data-en="Top Things to Do in Taghazout" data-fr="Les Meilleures Choses à Faire à Taghazout" data-es="Las Mejores Cosas que Hacer en Taghazout" data-de="Top-Aktivitäten in Taghazout">Top Things to Do in Taghazout</span></h2>
+
+  <h3><span data-en="Take a Surf Lesson" data-fr="Prendre un Cours de Surf" data-es="Tomar una Clase de Surf" data-de="Eine Surfstunde Nehmen">Take a Surf Lesson</span></h3>
+  <p><span data-en="If you only do one thing here, make it this. A private lesson runs roughly two hours and includes board, wetsuit, and an instructor who adjusts the session to whatever level you arrive at, whether that means standing up for the very first time or finally fixing your bottom turn. Beginners start in whitewater on a soft-top board where falling off is genuinely part of the fun. Most of our guests are riding waves on their own by the end of the second session, which surprises almost all of them." data-fr="Si vous ne faites qu'une seule chose ici, que ce soit celle-là. Un cours privé dure environ deux heures et comprend la planche, la combinaison et un moniteur qui adapte la séance à votre niveau, qu'il s'agisse de se lever pour la toute première fois ou de corriger enfin votre bottom turn. Les débutants commencent dans la mousse sur une planche en mousse, où tomber fait vraiment partie du plaisir. La plupart de nos voyageurs surfent seuls dès la fin de la deuxième séance, ce qui les surprend presque tous." data-es="Si solo haces una cosa aquí, que sea esta. Una clase privada dura unas dos horas e incluye tabla, neopreno y un instructor que adapta la sesión a tu nivel, ya sea ponerte de pie por primera vez o corregir por fin tu bottom turn. Los principiantes empiezan en la espuma con una tabla blanda, donde caerse es realmente parte de la diversión. La mayoría de nuestros viajeros ya surfea por su cuenta al final de la segunda sesión, algo que sorprende a casi todos." data-de="Wenn Sie hier nur eine Sache machen, dann diese. Eine Privatstunde dauert etwa zwei Stunden und umfasst Board, Neoprenanzug und einen Lehrer, der die Session an Ihr Niveau anpasst, ob es nun ums allererste Aufstehen geht oder darum, endlich Ihren Bottom Turn zu korrigieren. Anfänger starten im Weißwasser auf einem Softboard, wo das Hinfallen wirklich zum Spaß gehört. Die meisten unserer Gäste surfen am Ende der zweiten Einheit eigenständig Wellen, was fast alle überrascht.">If you only do one thing here, make it this. A private lesson runs roughly two hours and includes board, wetsuit, and an instructor who adjusts the session to whatever level you arrive at, whether that means standing up for the very first time or finally fixing your bottom turn. Beginners start in whitewater on a soft-top board where falling off is genuinely part of the fun. Most of our guests are riding waves on their own by the end of the second session, which surprises almost all of them.</span></p>
+
+  <h3><span data-en="Ride a Camel Along the Beach" data-fr="Faire une Balade à Chameau sur la Plage" data-es="Pasear en Camello por la Playa" data-de="Auf einem Kamel am Strand Reiten">Ride a Camel Along the Beach</span></h3>
+  <p><span data-en="Camel rides near Agadir and Taghazout are a completely different experience from the desert treks we run in Merzouga, and we love them for their own reasons. Here you ride along wide, flat beaches with the Atlantic breaking beside you and the sun dropping into the water ahead, usually for an hour or so in the late afternoon. It is slow, gentle, and suitable for children and complete beginners, and it is the single most photographed thing our guests do on the coast. Given our name, you will understand why we take particular care over which animals we work with." data-fr="Les balades à chameau près d'Agadir et de Taghazout sont une expérience totalement différente des treks dans le désert que nous organisons à Merzouga, et nous les aimons pour d'autres raisons. Ici, vous chevauchez le long de larges plages plates, l'Atlantique déferlant à vos côtés et le soleil plongeant dans l'eau devant vous, généralement pendant une heure environ en fin d'après-midi. C'est lent, doux, adapté aux enfants et aux grands débutants, et c'est de loin l'activité la plus photographiée par nos voyageurs sur la côte. Avec notre nom, vous comprendrez pourquoi nous portons une attention particulière aux animaux avec lesquels nous travaillons." data-es="Los paseos en camello cerca de Agadir y Taghazout son una experiencia completamente distinta a las travesías por el desierto que organizamos en Merzouga, y nos gustan por motivos propios. Aquí cabalgas por playas anchas y llanas, con el Atlántico rompiendo a tu lado y el sol cayendo sobre el agua frente a ti, normalmente durante una hora a última hora de la tarde. Es lento, suave y apto para niños y principiantes absolutos, y es sin duda lo más fotografiado por nuestros viajeros en la costa. Con nuestro nombre, entenderás por qué cuidamos especialmente qué animales trabajan con nosotros." data-de="Kamelritte bei Agadir und Taghazout sind ein völlig anderes Erlebnis als die Wüstentrekkings, die wir in Merzouga durchführen, und wir lieben sie aus ganz eigenen Gründen. Hier reiten Sie über weite, flache Strände, während der Atlantik neben Ihnen bricht und die Sonne vor Ihnen ins Wasser sinkt, meist etwa eine Stunde lang am späten Nachmittag. Es ist langsam, sanft und für Kinder wie absolute Anfänger geeignet, und es ist mit Abstand das, was unsere Gäste an der Küste am häufigsten fotografieren. Bei unserem Namen verstehen Sie sicher, warum wir besonders sorgfältig auswählen, mit welchen Tieren wir arbeiten.">Camel rides near Agadir and Taghazout are a completely different experience from the desert treks we run in Merzouga, and we love them for their own reasons. Here you ride along wide, flat beaches with the Atlantic breaking beside you and the sun dropping into the water ahead, usually for an hour or so in the late afternoon. It is slow, gentle, and suitable for children and complete beginners, and it is the single most photographed thing our guests do on the coast. Given our name, you will understand why we take particular care over which animals we work with.</span></p>
+
+  <img class="article-img" src="images/blog/taghazout-camel-ride-beach-sunset.jpg" alt="Camels walking along the wide flat beach near Taghazout as the sun sets over the Atlantic" data-en-alt="Camels walking along the wide flat beach near Taghazout as the sun sets over the Atlantic" data-fr-alt="Des chameaux avancent sur la large plage plate près de Taghazout tandis que le soleil se couche sur l'Atlantique" data-es-alt="Camellos caminando por la amplia playa llana cerca de Taghazout mientras el sol se pone sobre el Atlántico" data-de-alt="Kamele laufen über den weiten, flachen Strand bei Taghazout, während die Sonne über dem Atlantik untergeht">
+
+  <h3><span data-en="Quad Biking Through the Dunes and Argan Forest" data-fr="Quad à Travers les Dunes et la Forêt d'Arganiers" data-es="Quad por las Dunas y el Bosque de Argán" data-de="Quad-Fahren durch Dünen und Arganwald">Quad Biking Through the Dunes and Argan Forest</span></h3>
+  <p><span data-en="Quad biking in Morocco tends to conjure images of the Sahara, but the terrain behind Taghazout is arguably more interesting to ride: coastal sand dunes, dry riverbeds, rocky tracks, and shaded argan groves, often all within the same two-hour circuit. No licence or previous experience is needed, a short briefing covers everything, and the guides set the pace to match the group rather than the other way round. Wear clothes you do not mind getting dusty, because you absolutely will." data-fr="Le quad au Maroc évoque souvent des images du Sahara, mais le terrain derrière Taghazout est sans doute plus intéressant à parcourir : dunes côtières, lits de rivières asséchés, pistes rocailleuses et bosquets d'arganiers ombragés, souvent réunis dans un même circuit de deux heures. Aucun permis ni expérience préalable n'est requis, un court briefing couvre l'essentiel, et les guides adaptent le rythme au groupe et non l'inverse. Portez des vêtements qui peuvent prendre la poussière, car ce sera assurément le cas." data-es="El quad en Marruecos suele evocar imágenes del Sahara, pero el terreno detrás de Taghazout es posiblemente más interesante de recorrer: dunas costeras, lechos de río secos, pistas rocosas y arboledas de argán con sombra, a menudo todo dentro del mismo circuito de dos horas. No se necesita carnet ni experiencia previa, un breve briefing cubre todo lo necesario, y los guías marcan el ritmo del grupo y no al revés. Ponte ropa que no te importe que se llene de polvo, porque sin duda se llenará." data-de="Quad-Fahren in Marokko lässt meist an die Sahara denken, doch das Gelände hinter Taghazout ist wohl noch interessanter zu befahren: Küstendünen, ausgetrocknete Flussbetten, felsige Pisten und schattige Arganhaine, oft alles innerhalb derselben Zwei-Stunden-Runde. Weder Führerschein noch Vorerfahrung sind nötig, ein kurzes Briefing deckt alles ab, und die Guides passen das Tempo der Gruppe an, nicht umgekehrt. Ziehen Sie Kleidung an, die staubig werden darf, denn das wird sie garantiert.">Quad biking in Morocco tends to conjure images of the Sahara, but the terrain behind Taghazout is arguably more interesting to ride: coastal sand dunes, dry riverbeds, rocky tracks, and shaded argan groves, often all within the same two-hour circuit. No licence or previous experience is needed, a short briefing covers everything, and the guides set the pace to match the group rather than the other way round. Wear clothes you do not mind getting dusty, because you absolutely will.</span></p>
+
+  <h3><span data-en="Horse Riding on the Coastal Trails" data-fr="Équitation sur les Sentiers Côtiers" data-es="Paseos a Caballo por los Senderos Costeros" data-de="Reiten auf den Küstenwegen">Horse Riding on the Coastal Trails</span></h3>
+  <p><span data-en="For anyone who prefers hooves to engines, a two-hour guided ride takes you through soft coastal dunes, along the beach, and out onto the Souss river trails, finishing with the traditional glass of mint tea. All skill levels are welcome, and the horses are well matched to riders, so nervous first-timers are put on the calmest animals. Hotel pickup from Taghazout and Agadir is included, which removes the only genuinely awkward part of arranging it yourself." data-fr="Pour ceux qui préfèrent les sabots aux moteurs, une randonnée guidée de deux heures vous emmène à travers de douces dunes côtières, le long de la plage, puis sur les sentiers du fleuve Souss, avec en conclusion le traditionnel verre de thé à la menthe. Tous les niveaux sont les bienvenus, et les chevaux sont bien assortis aux cavaliers : les débutants les plus inquiets se voient confier les montures les plus calmes. La prise en charge à l'hôtel depuis Taghazout et Agadir est incluse, ce qui élimine la seule partie vraiment pénible à organiser soi-même." data-es="Para quienes prefieren los cascos a los motores, un paseo guiado de dos horas te lleva por suaves dunas costeras, por la playa y hasta los senderos del río Souss, terminando con el tradicional vaso de té de menta. Todos los niveles son bienvenidos, y los caballos se asignan según el jinete, así que los principiantes más nerviosos montan los animales más tranquilos. La recogida en el hotel desde Taghazout y Agadir está incluida, lo que elimina la única parte realmente incómoda de organizarlo por tu cuenta." data-de="Für alle, die Hufe Motoren vorziehen, führt ein zweistündiger geführter Ausritt durch weiche Küstendünen, am Strand entlang und hinaus auf die Souss-Flusspfade, abgeschlossen mit dem traditionellen Glas Minztee. Alle Erfahrungsstufen sind willkommen, und die Pferde werden passend zu den Reitern ausgewählt, nervöse Erstreiter bekommen also die ruhigsten Tiere. Die Hotelabholung in Taghazout und Agadir ist inbegriffen, was den einzig wirklich mühsamen Teil der Eigenorganisation abnimmt.">For anyone who prefers hooves to engines, a two-hour guided ride takes you through soft coastal dunes, along the beach, and out onto the Souss river trails, finishing with the traditional glass of mint tea. All skill levels are welcome, and the horses are well matched to riders, so nervous first-timers are put on the calmest animals. Hotel pickup from Taghazout and Agadir is included, which removes the only genuinely awkward part of arranging it yourself.</span></p>
+
+  <img class="article-img" src="images/blog/taghazout-quad-biking-argan-forest.jpg" alt="Quad bikes on a dusty track winding through argan trees in the hills behind Taghazout" data-en-alt="Quad bikes on a dusty track winding through argan trees in the hills behind Taghazout" data-fr-alt="Des quads sur une piste poussiéreuse serpentant entre les arganiers dans les collines derrière Taghazout" data-es-alt="Quads en una pista polvorienta que serpentea entre árboles de argán en las colinas detrás de Taghazout" data-de-alt="Quads auf einer staubigen Piste, die sich durch Arganbäume in den Hügeln hinter Taghazout schlängelt">
+
+  <h3><span data-en="Escape to Paradise Valley for the Day" data-fr="S'échapper une Journée à Paradise Valley" data-es="Escaparse un Día a Paradise Valley" data-de="Einen Tag ins Paradise Valley Entfliehen">Escape to Paradise Valley for the Day</span></h3>
+  <p><span data-en="About an hour inland from the coast, Paradise Valley is a gorge of turquoise natural pools carved into pink rock and shaded by palm groves, and it is the perfect counterweight to a week of salt water and sun. A typical half-day trip includes swimming in the pools, a stop at an argan oil cooperative, and mint tea in a botanical garden on the way back. It is easily the excursion our Taghazout guests ask about most, and it works beautifully as a rest day between surf sessions." data-fr="À environ une heure à l'intérieur des terres, Paradise Valley est une gorge de bassins naturels turquoise creusée dans la roche rose et ombragée par des palmeraies, le contrepoids parfait à une semaine d'eau salée et de soleil. Une excursion classique d'une demi-journée comprend la baignade dans les bassins, une halte dans une coopérative d'huile d'argan et un thé à la menthe dans un jardin botanique sur le retour. C'est de loin l'excursion dont nos voyageurs de Taghazout nous parlent le plus, et elle constitue une magnifique journée de repos entre deux sessions de surf." data-es="A cerca de una hora tierra adentro, Paradise Valley es un desfiladero de piscinas naturales turquesa excavadas en roca rosada y a la sombra de palmerales, el contrapeso perfecto a una semana de agua salada y sol. Una excursión típica de medio día incluye bañarse en las pozas, una parada en una cooperativa de aceite de argán y té de menta en un jardín botánico a la vuelta. Es con diferencia la excursión por la que más nos preguntan nuestros viajeros de Taghazout, y funciona de maravilla como día de descanso entre sesiones de surf." data-de="Etwa eine Stunde landeinwärts liegt das Paradise Valley, eine Schlucht mit türkisfarbenen Naturbecken, in rosafarbenen Fels geschnitten und von Palmenhainen beschattet, das perfekte Gegengewicht zu einer Woche Salzwasser und Sonne. Ein typischer Halbtagesausflug umfasst das Schwimmen in den Becken, einen Halt bei einer Arganöl-Kooperative und Minztee in einem botanischen Garten auf dem Rückweg. Es ist mit Abstand der Ausflug, nach dem unsere Gäste in Taghazout am häufigsten fragen, und er eignet sich wunderbar als Ruhetag zwischen zwei Surf-Sessions.">About an hour inland from the coast, Paradise Valley is a gorge of turquoise natural pools carved into pink rock and shaded by palm groves, and it is the perfect counterweight to a week of salt water and sun. A typical half-day trip includes swimming in the pools, a stop at an argan oil cooperative, and mint tea in a botanical garden on the way back. It is easily the excursion our Taghazout guests ask about most, and it works beautifully as a rest day between surf sessions.</span></p>
+
+  <h3><span data-en="Watch the Sunset from a Rooftop Café" data-fr="Regarder le Coucher de Soleil depuis un Café en Terrasse" data-es="Ver la Puesta de Sol desde una Terraza" data-de="Den Sonnenuntergang von einer Dachterrasse Aus Beobachten">Watch the Sunset from a Rooftop Café</span></h3>
+  <p><span data-en="This one costs nothing and is somehow still the thing people describe when they get home. Taghazout faces due west, so every clear evening the entire village turns orange and half of it drifts up to the rooftops with a coffee or a fresh juice to watch. Surfers stay out in the water until the light goes completely. Find a terrace above the main beach around forty minutes before sunset, order something, and do absolutely nothing for an hour." data-fr="Celle-ci ne coûte rien et reste pourtant ce que les gens racontent une fois rentrés chez eux. Taghazout est exposé plein ouest : chaque soir dégagé, tout le village vire à l'orange et la moitié des habitants monte sur les toits avec un café ou un jus frais pour regarder. Les surfeurs restent à l'eau jusqu'à la disparition complète de la lumière. Trouvez une terrasse au-dessus de la plage principale une quarantaine de minutes avant le coucher du soleil, commandez quelque chose, et ne faites absolument rien pendant une heure." data-es="Esta no cuesta nada y aun así es lo que la gente describe al volver a casa. Taghazout mira justo al oeste, así que cada tarde despejada todo el pueblo se tiñe de naranja y la mitad sube a las azoteas con un café o un zumo natural para mirar. Los surfistas se quedan en el agua hasta que la luz desaparece del todo. Busca una terraza sobre la playa principal unos cuarenta minutos antes de la puesta de sol, pide algo y no hagas absolutamente nada durante una hora." data-de="Das hier kostet nichts und ist trotzdem das, was die Leute zu Hause erzählen. Taghazout liegt genau nach Westen, sodass sich an jedem klaren Abend das ganze Dorf orange färbt und die Hälfte davon mit einem Kaffee oder frischem Saft auf die Dächer zieht, um zuzusehen. Surfer bleiben im Wasser, bis das Licht ganz verschwunden ist. Suchen Sie sich etwa vierzig Minuten vor Sonnenuntergang eine Terrasse über dem Hauptstrand, bestellen Sie etwas, und tun Sie eine Stunde lang absolut nichts.">This one costs nothing and is somehow still the thing people describe when they get home. Taghazout faces due west, so every clear evening the entire village turns orange and half of it drifts up to the rooftops with a coffee or a fresh juice to watch. Surfers stay out in the water until the light goes completely. Find a terrace above the main beach around forty minutes before sunset, order something, and do absolutely nothing for an hour.</span></p>
+
+  <img class="article-img" src="images/blog/paradise-valley-natural-pools.jpg" alt="Turquoise natural pools of Paradise Valley set among pink rock and palm groves inland from Taghazout" data-en-alt="Turquoise natural pools of Paradise Valley set among pink rock and palm groves inland from Taghazout" data-fr-alt="Les bassins naturels turquoise de Paradise Valley entre la roche rose et les palmeraies, à l'intérieur des terres près de Taghazout" data-es-alt="Las piscinas naturales turquesa de Paradise Valley entre roca rosada y palmerales, tierra adentro desde Taghazout" data-de-alt="Die türkisfarbenen Naturbecken des Paradise Valley zwischen rosafarbenem Fels und Palmenhainen im Hinterland von Taghazout">
+
+  <h2><span data-en="What to Pack for Taghazout" data-fr="Que Mettre dans sa Valise pour Taghazout" data-es="Qué Llevar a Taghazout" data-de="Was Sie für Taghazout Einpacken Sollten">What to Pack for Taghazout</span></h2>
+  <ul>
+    <li><span data-en="Swimwear and a quick-dry towel, you will use both more than you expect" data-fr="Un maillot de bain et une serviette à séchage rapide, vous les utiliserez plus que prévu" data-es="Bañador y una toalla de secado rápido, los usarás más de lo que crees" data-de="Badebekleidung und ein schnelltrocknendes Handtuch, Sie werden beides öfter brauchen als gedacht">Swimwear and a quick-dry towel, you will use both more than you expect</span></li>
+    <li><span data-en="Reef-safe sunscreen, the Atlantic reflects a lot more sun than it feels like at the time" data-fr="Une crème solaire respectueuse des océans, l'Atlantique réfléchit bien plus de soleil qu'on ne le ressent sur le moment" data-es="Protector solar respetuoso con el mar, el Atlántico refleja mucho más sol del que parece en el momento" data-de="Riff-freundliche Sonnencreme, der Atlantik reflektiert weit mehr Sonne, als man im Moment spürt">Reef-safe sunscreen, the Atlantic reflects a lot more sun than it feels like at the time</span></li>
+    <li><span data-en="A light windproof layer for the evenings, the coastal breeze cools things quickly after sunset" data-fr="Une couche légère coupe-vent pour le soir, la brise côtière rafraîchit vite après le coucher du soleil" data-es="Una capa ligera cortavientos para las noches, la brisa costera refresca rápido tras la puesta de sol" data-de="Eine leichte winddichte Schicht für die Abende, die Küstenbrise kühlt nach Sonnenuntergang schnell ab">A light windproof layer for the evenings, the coastal breeze cools things quickly after sunset</span></li>
+    <li><span data-en="Closed shoes or trainers for the quad tour and inland trails, sandals fill with sand immediately" data-fr="Des chaussures fermées ou des baskets pour le quad et les sentiers de l'intérieur, les sandales se remplissent de sable instantanément" data-es="Zapatos cerrados o zapatillas para el quad y los senderos del interior, las sandalias se llenan de arena al instante" data-de="Geschlossene Schuhe oder Turnschuhe für die Quad-Tour und die Inlandpfade, Sandalen füllen sich sofort mit Sand">Closed shoes or trainers for the quad tour and inland trails, sandals fill with sand immediately</span></li>
+    <li><span data-en="Sunglasses with a strap if you plan to surf, and a hat for everything else" data-fr="Des lunettes de soleil avec cordon si vous comptez surfer, et un chapeau pour tout le reste" data-es="Gafas de sol con cordón si piensas surfear, y un sombrero para todo lo demás" data-de="Eine Sonnenbrille mit Band, wenn Sie surfen möchten, und einen Hut für alles andere">Sunglasses with a strap if you plan to surf, and a hat for everything else</span></li>
+    <li><span data-en="Cash in Moroccan dirhams, many of the smaller cafés and beach vendors do not take cards" data-fr="De l'argent liquide en dirhams marocains, beaucoup de petits cafés et vendeurs de plage n'acceptent pas la carte" data-es="Efectivo en dírhams marroquíes, muchos cafés pequeños y vendedores de playa no aceptan tarjeta" data-de="Bargeld in marokkanischen Dirham, viele kleinere Cafés und Strandverkäufer akzeptieren keine Karten">Cash in Moroccan dirhams, many of the smaller cafés and beach vendors do not take cards</span></li>
+    <li><span data-en="A dry bag or waterproof phone pouch for beach and pool days" data-fr="Un sac étanche ou une pochette imperméable pour téléphone, pour les journées à la plage et aux bassins" data-es="Una bolsa estanca o funda impermeable para el móvil, para los días de playa y piscinas naturales" data-de="Einen Drybag oder eine wasserdichte Handyhülle für Strand- und Badetage">A dry bag or waterproof phone pouch for beach and pool days</span></li>
+    <li><span data-en="Modest clothing for walking through the village itself, Taghazout is relaxed but it is still a working Moroccan village" data-fr="Une tenue pudique pour se promener dans le village, Taghazout est détendu mais reste un village marocain habité" data-es="Ropa discreta para pasear por el pueblo, Taghazout es relajado pero sigue siendo un pueblo marroquí con vida propia" data-de="Zurückhaltende Kleidung für den Weg durch das Dorf selbst, Taghazout ist entspannt, aber immer noch ein lebendiges marokkanisches Dorf">Modest clothing for walking through the village itself, Taghazout is relaxed but it is still a working Moroccan village</span></li>
+  </ul>
+  <div class="pro-tip"><p><strong><span data-en="Pro Tip:" data-fr="Astuce de pro :" data-es="Consejo de experto:" data-de="Profi-Tipp:">Pro Tip:</span></strong> <span data-en="Do not buy a wetsuit or board before you arrive. Every surf lesson we arrange includes both, and rental in the village is inexpensive and easy, so your luggage is far better spent on other things. The one item genuinely worth bringing is your own pair of well-fitting sunglasses with a strap." data-fr="N'achetez pas de combinaison ni de planche avant d'arriver. Chaque cours de surf que nous organisons inclut les deux, et la location au village est bon marché et simple : votre valise sera bien mieux employée à autre chose. Le seul article vraiment utile à apporter est une bonne paire de lunettes de soleil avec cordon." data-es="No compres neopreno ni tabla antes de llegar. Cada clase de surf que organizamos incluye ambos, y el alquiler en el pueblo es barato y sencillo, así que tu maleta estará mucho mejor aprovechada con otras cosas. Lo único que de verdad merece la pena traer es tu propio par de gafas de sol bien ajustadas con cordón." data-de="Kaufen Sie vor der Anreise weder Neoprenanzug noch Board. Jede Surfstunde, die wir organisieren, beinhaltet beides, und die Leihe im Dorf ist günstig und unkompliziert, Ihr Gepäck ist also für anderes besser genutzt. Das Einzige, was sich wirklich mitzubringen lohnt, ist eine gut sitzende Sonnenbrille mit Band.">Do not buy a wetsuit or board before you arrive. Every surf lesson we arrange includes both, and rental in the village is inexpensive and easy, so your luggage is far better spent on other things. The one item genuinely worth bringing is your own pair of well-fitting sunglasses with a strap.</span></p></div>
+
+  <h2><span data-en="Frequently Asked Questions" data-fr="Questions Fréquentes" data-es="Preguntas Frecuentes" data-de="Häufig Gestellte Fragen">Frequently Asked Questions</span></h2>
+
+  <div class="faq-block">
+    <h3><span data-en="Is Taghazout good for complete beginner surfers?" data-fr="Taghazout convient-il aux surfeurs vraiment débutants ?" data-es="¿Es Taghazout bueno para surfistas principiantes absolutos?" data-de="Ist Taghazout für absolute Surf-Anfänger geeignet?">Is Taghazout good for complete beginner surfers?</span></h3>
+    <p><span data-en="Yes, it is one of the best places in Morocco to learn. The beaches around the village have sandy bottoms and gentle whitewater sections designed by nature for exactly this, and the surf schools here teach beginners every single day of the year. Summer, from roughly May to August, has the smallest and friendliest waves, so if you are nervous, that is the season to come." data-fr="Oui, c'est l'un des meilleurs endroits du Maroc pour apprendre. Les plages autour du village ont des fonds sableux et des zones de mousse douces, faites par la nature exactement pour cela, et les écoles de surf y enseignent aux débutants tous les jours de l'année. L'été, environ de mai à août, offre les vagues les plus petites et les plus accueillantes : si vous êtes inquiet, c'est la saison idéale pour venir." data-es="Sí, es uno de los mejores lugares de Marruecos para aprender. Las playas alrededor del pueblo tienen fondo de arena y zonas de espuma suaves, diseñadas por la naturaleza justo para esto, y las escuelas de surf enseñan a principiantes todos los días del año. El verano, aproximadamente de mayo a agosto, tiene las olas más pequeñas y amables, así que si estás nervioso, esa es la temporada para venir." data-de="Ja, es ist einer der besten Orte in Marokko zum Lernen. Die Strände rund um das Dorf haben Sandgrund und sanfte Weißwasserzonen, von der Natur genau dafür gemacht, und die Surfschulen unterrichten hier an jedem Tag des Jahres Anfänger. Der Sommer, etwa von Mai bis August, hat die kleinsten und freundlichsten Wellen, wenn Sie also nervös sind, ist das die richtige Saison.">Yes, it is one of the best places in Morocco to learn. The beaches around the village have sandy bottoms and gentle whitewater sections designed by nature for exactly this, and the surf schools here teach beginners every single day of the year. Summer, from roughly May to August, has the smallest and friendliest waves, so if you are nervous, that is the season to come.</span></p>
+  </div>
+
+  <div class="faq-block">
+    <h3><span data-en="How far is Taghazout from Agadir and the airport?" data-fr="À quelle distance se trouve Taghazout d'Agadir et de l'aéroport ?" data-es="¿A qué distancia está Taghazout de Agadir y del aeropuerto?" data-de="Wie weit ist Taghazout von Agadir und dem Flughafen entfernt?">How far is Taghazout from Agadir and the airport?</span></h3>
+    <p><span data-en="Taghazout sits about 20 kilometers north of Agadir, which is a straightforward 25 to 30 minute drive along the coast road. From Agadir Al Massira Airport the journey is longer, usually somewhere between 45 minutes and an hour depending on traffic. We arrange private airport transfers for guests staying in Taghazout, so you are met at arrivals rather than negotiating with taxis after a flight." data-fr="Taghazout se trouve à environ 20 kilomètres au nord d'Agadir, soit un trajet simple de 25 à 30 minutes par la route côtière. Depuis l'aéroport d'Agadir Al Massira, le trajet est plus long, généralement entre 45 minutes et une heure selon la circulation. Nous organisons des transferts privés depuis l'aéroport pour les voyageurs séjournant à Taghazout : vous êtes accueilli à l'arrivée plutôt que d'avoir à négocier avec des taxis après un vol." data-es="Taghazout está a unos 20 kilómetros al norte de Agadir, un trayecto sencillo de 25 a 30 minutos por la carretera de la costa. Desde el aeropuerto de Agadir Al Massira el viaje es más largo, normalmente entre 45 minutos y una hora según el tráfico. Organizamos traslados privados desde el aeropuerto para los viajeros que se alojan en Taghazout, así te reciben a la llegada en lugar de tener que negociar con taxis después de un vuelo." data-de="Taghazout liegt etwa 20 Kilometer nördlich von Agadir, eine unkomplizierte Fahrt von 25 bis 30 Minuten über die Küstenstraße. Vom Flughafen Agadir Al Massira dauert die Fahrt länger, meist zwischen 45 Minuten und einer Stunde, je nach Verkehr. Wir organisieren private Flughafentransfers für Gäste in Taghazout, sodass Sie bei der Ankunft abgeholt werden, statt nach einem Flug mit Taxis verhandeln zu müssen.">Taghazout sits about 20 kilometers north of Agadir, which is a straightforward 25 to 30 minute drive along the coast road. From Agadir Al Massira Airport the journey is longer, usually somewhere between 45 minutes and an hour depending on traffic. We arrange private airport transfers for guests staying in Taghazout, so you are met at arrivals rather than negotiating with taxis after a flight.</span></p>
+  </div>
+
+  <div class="faq-block">
+    <h3><span data-en="How much do activities in Taghazout cost?" data-fr="Combien coûtent les activités à Taghazout ?" data-es="¿Cuánto cuestan las actividades en Taghazout?" data-de="Wie viel kosten Aktivitäten in Taghazout?">How much do activities in Taghazout cost?</span></h3>
+    <p><span data-en="It depends on the activity, the group size, and whether you want a private or shared session, and prices also shift a little with the season. Rather than quote a number that may not match what you actually want, we prefer to build you an exact price once we know your dates and how many of you there are. Send us a message and we will come back quickly with a clear, all-inclusive quote." data-fr="Cela dépend de l'activité, de la taille du groupe et du choix entre une session privée ou partagée, et les prix varient aussi légèrement selon la saison. Plutôt que d'annoncer un chiffre qui pourrait ne pas correspondre à ce que vous voulez réellement, nous préférons établir un prix exact une fois que nous connaissons vos dates et le nombre de participants. Envoyez-nous un message et nous reviendrons rapidement vers vous avec un devis clair et tout compris." data-es="Depende de la actividad, del tamaño del grupo y de si quieres una sesión privada o compartida, y los precios también varían un poco según la temporada. En lugar de dar una cifra que puede no ajustarse a lo que realmente quieres, preferimos prepararte un precio exacto una vez que sepamos tus fechas y cuántos sois. Envíanos un mensaje y te responderemos rápidamente con un presupuesto claro y con todo incluido." data-de="Das hängt von der Aktivität, der Gruppengröße und davon ab, ob Sie eine private oder geteilte Session möchten, und die Preise verschieben sich auch etwas mit der Saison. Statt eine Zahl zu nennen, die möglicherweise nicht zu Ihren Wünschen passt, erstellen wir Ihnen lieber einen genauen Preis, sobald wir Ihre Reisedaten und die Personenzahl kennen. Schreiben Sie uns, und wir melden uns schnell mit einem klaren Komplettangebot zurück.">It depends on the activity, the group size, and whether you want a private or shared session, and prices also shift a little with the season. Rather than quote a number that may not match what you actually want, we prefer to build you an exact price once we know your dates and how many of you there are. Send us a message and we will come back quickly with a clear, all-inclusive quote.</span></p>
+  </div>
+
+  <div class="faq-block">
+    <h3><span data-en="Do I need to book activities in advance?" data-fr="Dois-je réserver les activités à l'avance ?" data-es="¿Necesito reservar las actividades con antelación?" data-de="Muss ich Aktivitäten im Voraus buchen?">Do I need to book activities in advance?</span></h3>
+    <p><span data-en="For most of the year you can arrange things a day ahead without any trouble, and we are happy to organize something at short notice. During the busiest periods, roughly Christmas and New Year, Easter, and August, private lessons and sunset camel rides do fill up, so a few days' notice helps. If you already know which dates you want, telling us early simply means you get the time slot you prefer rather than whatever is left." data-fr="La plupart de l'année, vous pouvez organiser les choses la veille sans aucun problème, et nous sommes ravis de prévoir quelque chose à la dernière minute. Pendant les périodes les plus chargées, environ Noël et le Nouvel An, Pâques et août, les cours privés et les balades à chameau au coucher du soleil se remplissent : quelques jours d'avance sont alors utiles. Si vous connaissez déjà vos dates, nous prévenir tôt vous garantit simplement le créneau que vous préférez plutôt que ce qu'il reste." data-es="La mayor parte del año puedes organizarlo con un día de antelación sin ningún problema, y estaremos encantados de preparar algo con poco margen. En los periodos de más afluencia, aproximadamente Navidad y Año Nuevo, Semana Santa y agosto, las clases privadas y los paseos en camello al atardecer sí se llenan, así que unos días de aviso ayudan. Si ya sabes qué fechas quieres, avisarnos pronto simplemente significa que consigues el horario que prefieres en lugar del que quede libre." data-de="Den größten Teil des Jahres können Sie alles problemlos einen Tag vorher arrangieren, und wir organisieren gerne auch kurzfristig etwas. In den Hochzeiten, etwa Weihnachten und Neujahr, Ostern und August, sind Privatstunden und Kamelritte bei Sonnenuntergang allerdings schnell ausgebucht, ein paar Tage Vorlauf helfen dann. Wenn Sie Ihre Wunschtermine schon kennen, bedeutet eine frühe Nachricht einfach, dass Sie die bevorzugte Uhrzeit bekommen und nicht das, was übrig bleibt.">For most of the year you can arrange things a day ahead without any trouble, and we are happy to organize something at short notice. During the busiest periods, roughly Christmas and New Year, Easter, and August, private lessons and sunset camel rides do fill up, so a few days' notice helps. If you already know which dates you want, telling us early simply means you get the time slot you prefer rather than whatever is left.</span></p>
+  </div>
+
+  <div class="faq-block">
+    <h3><span data-en="Is Taghazout suitable for families and solo travelers?" data-fr="Taghazout convient-il aux familles et aux voyageurs solo ?" data-es="¿Es Taghazout adecuado para familias y viajeros solos?" data-de="Ist Taghazout für Familien und Alleinreisende geeignet?">Is Taghazout suitable for families and solo travelers?</span></h3>
+    <p><span data-en="Both, genuinely. The village is small, walkable, and used to international visitors, and the beach activities scale easily for children, camel rides and beginner surf lessons in particular. Solo travelers tend to find the surf-camp culture makes meeting people almost automatic. As anywhere, normal common sense applies after dark, but Taghazout is a relaxed and welcoming place and we send guests of every age and configuration here without hesitation." data-fr="Les deux, sincèrement. Le village est petit, se parcourt à pied et est habitué aux visiteurs internationaux, et les activités de plage s'adaptent facilement aux enfants, en particulier les balades à chameau et les cours de surf pour débutants. Les voyageurs solo constatent que la culture des surf camps rend les rencontres presque automatiques. Comme partout, un peu de bon sens s'impose une fois la nuit tombée, mais Taghazout est un endroit détendu et accueillant, et nous y envoyons sans hésiter des voyageurs de tous âges et de toutes configurations." data-es="Ambos, de verdad. El pueblo es pequeño, se recorre a pie y está acostumbrado a los visitantes internacionales, y las actividades de playa se adaptan fácilmente a los niños, en especial los paseos en camello y las clases de surf para principiantes. Los viajeros que van solos suelen descubrir que la cultura de los surf camps hace que conocer gente sea casi automático. Como en cualquier sitio, conviene el sentido común después del anochecer, pero Taghazout es un lugar relajado y acogedor, y enviamos aquí sin dudarlo a viajeros de todas las edades y situaciones." data-de="Beides, wirklich. Das Dorf ist klein, gut zu Fuß zu erkunden und an internationale Besucher gewöhnt, und die Strandaktivitäten lassen sich leicht auf Kinder zuschneiden, besonders Kamelritte und Anfänger-Surfstunden. Alleinreisende stellen meist fest, dass die Surfcamp-Kultur das Kennenlernen fast von selbst erledigt. Wie überall gilt nach Einbruch der Dunkelheit der normale gesunde Menschenverstand, aber Taghazout ist ein entspannter und einladender Ort, und wir schicken Gäste jeden Alters und jeder Konstellation ohne Zögern hierher.">Both, genuinely. The village is small, walkable, and used to international visitors, and the beach activities scale easily for children, camel rides and beginner surf lessons in particular. Solo travelers tend to find the surf-camp culture makes meeting people almost automatic. As anywhere, normal common sense applies after dark, but Taghazout is a relaxed and welcoming place and we send guests of every age and configuration here without hesitation.</span></p>
+  </div>
+
+  <div class="faq-block">
+    <h3><span data-en="Can I combine Taghazout with a desert tour?" data-fr="Puis-je combiner Taghazout avec un circuit dans le désert ?" data-es="¿Puedo combinar Taghazout con un tour por el desierto?" data-de="Kann ich Taghazout mit einer Wüstentour Kombinieren?">Can I combine Taghazout with a desert tour?</span></h3>
+    <p><span data-en="Yes, and it is one of our favorite itineraries to build because the contrast is so complete. A typical combination gives you a few days of surf and coast here, then a multi-day route inland to the Sahara at Merzouga, with a camel trek and a night in a desert camp before returning. Because our family has roots on both the coast and in the dunes, we handle the whole journey ourselves rather than handing you between operators. Tell us how many days you have and we will shape it around them." data-fr="Oui, et c'est l'un de nos itinéraires préférés à construire, tant le contraste est total. Une combinaison classique vous offre quelques jours de surf et de côte ici, puis un parcours de plusieurs jours vers l'intérieur jusqu'au Sahara à Merzouga, avec un trek à dos de chameau et une nuit en camp du désert avant le retour. Comme notre famille a ses racines à la fois sur la côte et dans les dunes, nous gérons l'ensemble du voyage nous-mêmes plutôt que de vous confier à différents prestataires. Dites-nous de combien de jours vous disposez et nous construirons l'itinéraire autour." data-es="Sí, y es uno de nuestros itinerarios favoritos de diseñar, porque el contraste es total. Una combinación típica te da unos días de surf y costa aquí, y luego una ruta de varios días tierra adentro hasta el Sahara en Merzouga, con un paseo en camello y una noche en un campamento del desierto antes de regresar. Como nuestra familia tiene raíces tanto en la costa como en las dunas, gestionamos todo el viaje nosotros mismos en lugar de pasarte de un operador a otro. Dinos de cuántos días dispones y lo diseñaremos a tu medida." data-de="Ja, und es ist eine unserer liebsten Routen, weil der Kontrast so vollständig ist. Eine typische Kombination gibt Ihnen hier ein paar Tage Surfen und Küste und danach eine mehrtägige Route landeinwärts in die Sahara bei Merzouga, mit Kameltrekking und einer Nacht im Wüstencamp vor der Rückkehr. Da unsere Familie sowohl an der Küste als auch in den Dünen verwurzelt ist, betreuen wir die gesamte Reise selbst, statt Sie zwischen Anbietern weiterzureichen. Sagen Sie uns, wie viele Tage Sie haben, und wir gestalten die Route darum herum.">Yes, and it is one of our favorite itineraries to build because the contrast is so complete. A typical combination gives you a few days of surf and coast here, then a multi-day route inland to the Sahara at Merzouga, with a camel trek and a night in a desert camp before returning. Because our family has roots on both the coast and in the dunes, we handle the whole journey ourselves rather than handing you between operators. Tell us how many days you have and we will shape it around them.</span></p>
+  </div>
+
+  <p><span data-en="What we love about Taghazout is that it asks very little of you. There is no checklist of monuments to work through and no pressure to fill every hour, just good waves, long beaches, quiet inland trails, and a village that is happy to let you find your own pace. Whether you want to stand on a surfboard for the first time, watch the sun go down from a camel's back, or ride a quad through the argan hills, we can arrange all of it and get you there and back. Get in touch and tell us what sounds good, and we will build your days on the coast around it." data-fr="Ce que nous aimons à Taghazout, c'est qu'il n'exige presque rien de vous. Il n'y a pas de liste de monuments à cocher ni de pression pour remplir chaque heure, juste de belles vagues, de longues plages, des sentiers tranquilles à l'intérieur des terres, et un village heureux de vous laisser trouver votre propre rythme. Que vous vouliez tenir debout sur une planche pour la première fois, regarder le soleil se coucher depuis le dos d'un chameau ou parcourir les collines d'arganiers en quad, nous pouvons tout organiser et vous emmener sur place puis vous ramener. Contactez-nous et dites-nous ce qui vous tente, et nous construirons vos journées sur la côte autour de cela." data-es="Lo que nos encanta de Taghazout es que te exige muy poco. No hay una lista de monumentos que tachar ni presión por llenar cada hora, solo buenas olas, playas largas, senderos tranquilos tierra adentro y un pueblo que te deja encontrar tu propio ritmo. Ya quieras ponerte de pie en una tabla por primera vez, ver caer el sol desde el lomo de un camello o recorrer las colinas de argán en quad, podemos organizarlo todo y llevarte y traerte. Escríbenos y cuéntanos qué te apetece, y construiremos tus días en la costa a tu medida." data-de="Was wir an Taghazout lieben, ist, dass es sehr wenig von Ihnen verlangt. Es gibt keine Liste von Sehenswürdigkeiten abzuarbeiten und keinen Druck, jede Stunde zu füllen, nur gute Wellen, lange Strände, ruhige Pfade im Landesinneren und ein Dorf, das Sie gerne Ihr eigenes Tempo finden lässt. Ob Sie zum ersten Mal auf einem Surfbrett stehen, den Sonnenuntergang vom Rücken eines Kamels aus beobachten oder mit dem Quad durch die Arganhügel fahren möchten, wir organisieren all das und bringen Sie hin und zurück. Melden Sie sich und sagen Sie uns, was Sie anspricht, und wir gestalten Ihre Tage an der Küste darum herum.">What we love about Taghazout is that it asks very little of you. There is no checklist of monuments to work through and no pressure to fill every hour, just good waves, long beaches, quiet inland trails, and a village that is happy to let you find your own pace. Whether you want to stand on a surfboard for the first time, watch the sun go down from a camel's back, or ride a quad through the argan hills, we can arrange all of it and get you there and back. Get in touch and tell us what sounds good, and we will build your days on the coast around it.</span></p>
+
+  <h2><span data-en="Related Articles" data-fr="Articles Similaires" data-es="Artículos Relacionados" data-de="Ähnliche Artikel">Related Articles</span></h2>
+  <ul class="related-links">
+    <li><a href="blog-1.html"><span data-en="Merzouga Desert Tour: Your Complete Guide to an Unforgettable Sahara Adventure" data-fr="Circuit Désert Merzouga : Votre Guide Complet pour une Aventure Saharienne Inoubliable" data-es="Tour al Desierto de Merzouga: Tu Guía Completa para una Aventura Inolvidable en el Sahara" data-de="Merzouga-Wüstentour: Ihr Kompletter Guide für ein Unvergessliches Sahara-Abenteuer">Merzouga Desert Tour: Your Complete Guide to an Unforgettable Sahara Adventure</span></a></li>
+    <li><a href="blog-2.html"><span data-en="Marrakech Day Trip from Agadir: Your Ultimate Guide to the Red City" data-fr="Excursion à Marrakech depuis Agadir : Votre Guide Ultime de la Ville Rouge" data-es="Excursión a Marrakech desde Agadir: Tu Guía Definitiva de la Ciudad Roja" data-de="Marrakesch-Tagesausflug ab Agadir: Ihr Ultimativer Guide für die Rote Stadt">Marrakech Day Trip from Agadir: Your Ultimate Guide to the Red City</span></a></li>
+    <li><a href="activities.html"><span data-en="Browse All Our Taghazout & Agadir Activities" data-fr="Découvrir Toutes Nos Activités à Taghazout et Agadir" data-es="Ver Todas Nuestras Actividades en Taghazout y Agadir" data-de="Alle Unsere Aktivitäten in Taghazout & Agadir Ansehen">Browse All Our Taghazout & Agadir Activities</span></a></li>
+  </ul>
+
   <div class="article-cta">
     <p><span data-en="Ready to plan your own Morocco trip?" data-fr="Prêt à planifier votre voyage au Maroc ?" data-es="¿Listo para planear tu viaje a Marruecos?" data-de="Bereit, Ihre eigene Marokko-Reise zu planen?">Ready to plan your own Morocco trip?</span></p>
-    <a href="index.html#contact" class="btn-gold"><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></a>
+    <a href="contact.html" class="btn-gold"><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></a>
   </div>
 </div>
 
@@ -227,18 +474,69 @@
 </a>
 
 <footer class="footer">
-  <div class="footer-inner">
-    <span><span data-en="© 2026 Let's Camel Tours. All Rights Reserved." data-fr="© 2026 Let's Camel Tours. Tous droits réservés." data-es="© 2026 Let's Camel Tours. Todos los derechos reservados." data-de="© 2026 Let's Camel Tours. Alle Rechte vorbehalten.">© 2026 Let's Camel Tours. All Rights Reserved.</span></span>
-    <span><a href="index.html"><span data-en="Back to Home" data-fr="Retour à l'Accueil" data-es="Volver al Inicio" data-de="Zurück zur Startseite">Back to Home</span></a> · info.letscameltours@gmail.com</span>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-col-brand">
+        <div class="footer-logo"><img src="logo.png" alt="Let's Camel Tours"></div>
+        <p><span data-en="A family-run travel agency between the dunes of Merzouga and the waves of Taghazout, guiding travelers through real Morocco since day one." data-fr="Une agence de voyage familiale entre les dunes de Merzouga et les vagues de Taghazout, guidant les voyageurs à travers le vrai Maroc depuis le premier jour." data-es="Una agencia de viajes familiar entre las dunas de Merzouga y las olas de Taghazout, guiando a los viajeros por el verdadero Marruecos desde el primer día." data-de="Eine familiengeführte Reiseagentur zwischen den Dünen Merzougas und den Wellen Taghazouts, die Reisende von Anfang an durch das echte Marokko führt.">A family-run travel agency between the dunes of Merzouga and the waves of Taghazout, guiding travelers through real Morocco since day one.</span></p>
+        <div class="footer-lang-row">
+          <button type="button" class="footer-lang-btn" data-lang="en"><img src="https://flagcdn.com/20x15/gb.png" alt="EN" width="20" height="15"> EN</button>
+          <button type="button" class="footer-lang-btn" data-lang="fr"><img src="https://flagcdn.com/20x15/fr.png" alt="FR" width="20" height="15"> FR</button>
+          <button type="button" class="footer-lang-btn" data-lang="es"><img src="https://flagcdn.com/20x15/es.png" alt="ES" width="20" height="15"> ES</button>
+          <button type="button" class="footer-lang-btn" data-lang="de"><img src="https://flagcdn.com/20x15/de.png" alt="DE" width="20" height="15"> DE</button>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4><span data-en="What We Offer" data-fr="Nos Services" data-es="Lo Que Ofrecemos" data-de="Was Wir Bieten">What We Offer</span></h4>
+        <ul>
+          <li><a href="tours.html"><span data-en="Morocco Tours" data-fr="Circuits Maroc" data-es="Tours Marruecos" data-de="Marokko Touren">Morocco Tours</span></a></li>
+          <li><a href="excursions.html"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></a></li>
+          <li><a href="activities.html"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span></a></li>
+          <li><a href="index.html#transfers"><span data-en="Transfers" data-fr="Transferts" data-es="Traslados" data-de="Transfers">Transfers</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4><span data-en="Help & Info" data-fr="Aide & Infos" data-es="Ayuda e Información" data-de="Hilfe & Infos">Help & Info</span></h4>
+        <ul>
+          <li><a href="about-us.html"><span data-en="About Us" data-fr="À Propos" data-es="Sobre Nosotros" data-de="Über Uns">About Us</span></a></li>
+          <li><a href="index.html#blog"><span data-en="Blogs" data-fr="Blogs" data-es="Blogs" data-de="Blogs">Blogs</span></a></li>
+          <li><a href="index.html#faq"><span data-en="FAQ's" data-fr="FAQ" data-es="Preguntas Frecuentes" data-de="FAQ">FAQ's</span></a></li>
+          <li><a href="#"><span data-en="Terms & Conditions" data-fr="Conditions Générales" data-es="Términos y Condiciones" data-de="AGB">Terms & Conditions</span></a></li>
+          <li><a href="#"><span data-en="Privacy Policy" data-fr="Politique de Confidentialité" data-es="Política de Privacidad" data-de="Datenschutz">Privacy Policy</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></h4>
+        <ul>
+          <li><a href="tel:+212600000000">+212 6 00 00 00 00</a></li>
+          <li><a href="mailto:info.letscameltours@gmail.com">info.letscameltours@gmail.com</a></li>
+          <li><a href="https://wa.me/212600000000" target="_blank"><span data-en="WhatsApp Us" data-fr="WhatsApp" data-es="WhatsApp" data-de="WhatsApp">WhatsApp Us</span></a></li>
+        </ul>
+        <div class="socials">
+          <a href="#" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
+          </a>
+          <a href="#" target="_blank" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 3h-2a5 5 0 00-5 5v2H6v4h2v7h4v-7h3l1-4h-4V8a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="#" target="_blank" aria-label="TripAdvisor">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="13" r="3.2"/><circle cx="16" cy="13" r="3.2"/><path d="M8 13a4 4 0 014-4 4 4 0 014 4M2 8h6M16 8h6M12 5c-2.5 0-4.5 1.3-5.5 3M12 5c2.5 0 4.5 1.3 5.5 3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span data-en="© 2026 Let's Camel Tours. All Rights Reserved." data-fr="© 2026 Let's Camel Tours. Tous droits réservés." data-es="© 2026 Let's Camel Tours. Todos los derechos reservados." data-de="© 2026 Let's Camel Tours. Alle Rechte vorbehalten.">© 2026 Let's Camel Tours. All Rights Reserved.</span>
+      <span data-en="Based in Morocco" data-fr="Basé au Maroc" data-es="Con base en Marruecos" data-de="Ansässig in Marokko">Based in Morocco</span>
+    </div>
   </div>
 </footer>
 
 <script>
-
-
   window.addEventListener('scroll', function() {
     var navbar = document.querySelector('.navbar');
-    if (window.scrollY > 60) { navbar.classList.add('scrolled'); } else { navbar.classList.remove('scrolled'); }
+    if (window.scrollY > 80) { navbar.classList.add('scrolled'); } else { navbar.classList.remove('scrolled'); }
   });
 
   var burgerToggle = document.getElementById('burger-toggle');
@@ -255,6 +553,7 @@
   var currentLang = 'en';
   function applyLang(lang) {
     document.querySelectorAll('[data-en]').forEach(function(el) { el.textContent = el.dataset[lang]; });
+    document.querySelectorAll('[data-en-alt]').forEach(function(el) { el.setAttribute('alt', el.dataset[lang + 'Alt']); });
     document.getElementById('lang-label').textContent = lang.toUpperCase();
     document.documentElement.lang = lang;
     document.querySelectorAll('.lang-option').forEach(function(btn) { btn.classList.toggle('active', btn.dataset.lang === lang); });
@@ -271,6 +570,10 @@
   document.addEventListener('click', function() { langMenu.classList.remove('open'); });
   document.querySelectorAll('.lang-option').forEach(function(btn) {
     btn.addEventListener('click', function() { applyLang(btn.dataset.lang); langMenu.classList.remove('open'); });
+  });
+
+  document.querySelectorAll('.footer-lang-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() { applyLang(btn.dataset.lang); });
   });
 </script>
 
