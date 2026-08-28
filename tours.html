@@ -107,25 +107,6 @@
   .hero h1 { font-size: clamp(28px, 4.2vw, 44px); font-weight: 800; margin-bottom: 10px; max-width: 800px; }
   .hero-lead { font-size: 15.5px; color: #e8edf4; max-width: 640px; }
 
-  .gallery-section { padding: 70px 0 0; }
-  .gallery-carousel-wrap { position: relative; }
-  .gallery-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 6px; }
-  .gallery-track::-webkit-scrollbar { display: none; }
-  .gallery-track img { flex: 0 0 70%; max-width: 520px; height: 340px; object-fit: cover; border-radius: 10px; scroll-snap-align: center; }
-  .g-carousel-arrow {
-    position: absolute; top: 50%; transform: translateY(-50%); z-index: 5;
-    width: 44px; height: 44px; border-radius: 50%; background: var(--white);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center;
-    border: none; color: var(--navy); cursor: pointer;
-  }
-  .g-carousel-arrow svg { width: 18px; height: 18px; }
-  .g-carousel-arrow.left { left: -10px; }
-  .g-carousel-arrow.right { right: -10px; }
-  @media (max-width: 700px) {
-    .gallery-track img { flex-basis: 84%; height: 240px; }
-    .g-carousel-arrow { width: 36px; height: 36px; }
-  }
-
   .listing { padding: 80px 0; }
 
   .tours-grid {
@@ -414,21 +395,6 @@
   </div>
 </section>
 
-<section class="gallery-section">
-  <div class="container">
-    <div class="gallery-carousel-wrap">
-      <button class="g-carousel-arrow left" id="gallery-prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 6l-6 6 6 6"/></svg></button>
-      <div class="gallery-track" id="gallery-track">
-        <img src="tours-gallery-1.jpg" alt="Sahara desert dunes">
-        <img src="tours-gallery-2.jpg" alt="Chefchaouen blue streets">
-        <img src="tours-gallery-3.jpg" alt="Fes medina">
-        <img src="tours-gallery-4.jpg" alt="Marrakech souks">
-      </div>
-      <button class="g-carousel-arrow right" id="gallery-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></button>
-    </div>
-  </div>
-</section>
-
 <a href="https://wa.me/212600000000" class="whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 32 32"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.7 4.61 1.905 6.48L4 29l7.72-1.858A11.94 11.94 0 0016.001 27C22.63 27 28 21.627 28 15S22.63 3 16.001 3zm6.997 16.63c-.29.816-1.68 1.56-2.32 1.646-.593.08-1.34.114-2.16-.135-.498-.15-1.137-.362-1.958-.71-3.447-1.488-5.699-4.94-5.874-5.17-.174-.23-1.41-1.874-1.41-3.575 0-1.7.89-2.535 1.207-2.883.318-.348.694-.435.926-.435.232 0 .464.002.667.012.213.01.5-.081.782.596.29.696.986 2.4 1.073 2.574.087.174.145.377.03.608-.116.232-.174.377-.348.58-.174.203-.365.453-.522.608-.174.174-.355.363-.153.71.203.348.902 1.487 1.936 2.408 1.33 1.186 2.452 1.554 2.8 1.728.348.174.55.145.754-.087.203-.232.87-1.015 1.102-1.363.232-.348.464-.29.783-.174.319.116 2.02.952 2.367 1.125.348.174.58.26.667.406.087.145.087.841-.203 1.657z"/></svg>
 </a>
@@ -498,20 +464,6 @@
     var navbar = document.querySelector('.navbar');
     if (window.scrollY > 60) { navbar.classList.add('scrolled'); } else { navbar.classList.remove('scrolled'); }
   });
-
-  var galleryTrack = document.getElementById('gallery-track');
-  var galleryPrev = document.getElementById('gallery-prev');
-  var galleryNext = document.getElementById('gallery-next');
-  if (galleryTrack && galleryPrev && galleryNext) {
-    galleryPrev.addEventListener('click', function() {
-      var w = galleryTrack.querySelector('img').offsetWidth + 16;
-      galleryTrack.scrollBy({ left: -w, behavior: 'smooth' });
-    });
-    galleryNext.addEventListener('click', function() {
-      var w = galleryTrack.querySelector('img').offsetWidth + 16;
-      galleryTrack.scrollBy({ left: w, behavior: 'smooth' });
-    });
-  }
 
   var burgerToggle = document.getElementById('burger-toggle');
   var mobileMenu = document.getElementById('mobile-menu');
