@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Best Time to Visit Merzouga & Taghazout | Morocco Season Guide</title>
-<meta name="description" content="When's the best time to visit Morocco's desert and coast? Compare Merzouga's desert seasons with Taghazout's surf season to plan your trip.">
+<title>Marrakech Day Trip from Agadir: Your Ultimate Guide to the Red City | Let's Camel Tours</title>
+<meta name="description" content="Planning a Marrakech excursion from Agadir? Our complete guide covers Jemaa el-Fnaa, the souks, top sights, best time to visit, and honest travel times.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -22,11 +22,10 @@
   .navbar {
     position: fixed;
     top: 0; left: 0; width: 100%;
-    z-index: 200;
+    z-index: 260;
     background: transparent;
     backdrop-filter: none;
     box-shadow: none;
-    padding: 16px 0;
     transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
   }
   .navbar.scrolled {
@@ -34,25 +33,112 @@
     backdrop-filter: blur(6px);
     box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   }
-  .navbar.scrolled .nav-links a { color: var(--navy); }
-  .navbar.scrolled .lang-toggle { color: var(--navy); border-color: var(--line); }
-  .navbar.scrolled .burger { color: var(--navy); }
-  .nav-container { max-width: 1300px; margin: 0 auto; padding: 0 30px; display: flex; align-items: center; justify-content: space-between; }
-  .logo img { height: 42px; }
-  .nav-links { display: flex; align-items: center; gap: 22px; }
-  .nav-links a { color: #F8FAFC; font-size: 14px; font-weight: 500; }
-  .nav-links a:hover { color: var(--gold); }
-  .nav-right { display: flex; align-items: center; gap: 14px; position: relative; }
-  .lang-toggle { display: flex; align-items: center; gap: 6px; background: none; border: 1px solid rgba(255,255,255,0.4); color: #F8FAFC; padding: 8px 12px; border-radius: 4px; font-size: 13px; font-weight: 600; cursor: pointer; }
+  .nav-container { max-width: 1300px; margin: 0 auto; padding: 16px 30px; display: flex; align-items: center; justify-content: space-between; }
+  .logo img { height: 46px; width: auto; }
+  .nav-menu { display: flex; align-items: center; gap: 30px; }
+  .nav-menu a { color: var(--off-white); font-size: 14.5px; font-weight: 500; transition: color 0.25s ease; position: relative; }
+  .navbar.scrolled .nav-menu a { color: var(--navy); }
+  .nav-menu a:hover { color: var(--gold); }
+  .nav-menu a.active { color: var(--gold); }
+  .nav-menu a.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; background: var(--gold); border-radius: 2px; }
+
+  .nav-dropdown { position: relative; }
+  .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
+  .nav-dropdown-caret { width: 10px; height: 10px; transition: transform 0.2s ease; }
+  .nav-dropdown:hover .nav-dropdown-caret { transform: rotate(180deg); }
+  .nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding-top: 14px;
+    z-index: 60;
+  }
+  .nav-dropdown-menu-inner {
+    background: var(--white);
+    min-width: 240px;
+    border-radius: 8px;
+    box-shadow: 0 16px 36px rgba(0,0,0,0.18);
+    padding: 8px;
+  }
+  .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+  .nav-dropdown-menu { display: none; }
+  .nav-dropdown-menu a {
+    display: block;
+    padding: 10px 14px;
+    color: var(--navy) !important;
+    font-size: 13.5px;
+    font-weight: 500;
+    border-radius: 5px;
+  }
+  .nav-dropdown-menu a:hover { background: var(--off-white); color: var(--gold) !important; }
+
+  .nav-right { display: flex; align-items: center; gap: 18px; position: relative; }
+
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--gold);
+    color: var(--white);
+    border: none;
+    padding: 8px 14px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .lang-toggle:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 22px rgba(224,122,62,0.35); }
   .lang-toggle svg { width: 15px; height: 15px; }
-  .lang-menu { position: absolute; top: calc(100% + 8px); right: 0; background: var(--white); border-radius: 6px; box-shadow: 0 12px 30px rgba(0,0,0,0.15); padding: 6px; display: none; min-width: 140px; z-index: 50; }
+
+  .lang-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: var(--white);
+    border-radius: 6px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    padding: 6px;
+    display: none;
+    min-width: 140px;
+  }
   .lang-menu.open { display: block; }
-  .lang-option { display: block; width: 100%; text-align: left; background: none; border: none; padding: 9px 12px; font-size: 13.5px; font-weight: 500; color: var(--navy); border-radius: 4px; cursor: pointer; }
+  .lang-option {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 9px 12px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--navy);
+    border-radius: 4px;
+    cursor: pointer;
+  }
   .lang-option:hover { background: var(--off-white); }
   .lang-option.active { color: var(--gold); font-weight: 700; }
-  .btn-book { background: var(--gold); color: var(--white); padding: 10px 22px; border-radius: 4px; font-size: 14px; font-weight: 700; }
-  .btn-book:hover { background: var(--gold-light); }
-  @media (max-width: 800px) { .nav-links { display: none; } .burger { display: block; } .nav-right .btn-book { display: none; } }
+
+  .btn-book {
+    background: var(--gold);
+    color: var(--white);
+    padding: 11px 24px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .btn-book:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 22px rgba(224,122,62,0.35); }
+
+  .burger { display: none; background: none; border: none; color: var(--off-white); cursor: pointer; padding: 4px; }
+  .burger svg { width: 24px; height: 24px; }
+  .navbar.scrolled .burger { color: var(--navy); }
+
+  @media (max-width: 768px) {
+    .nav-menu { display: none; }
+    .nav-right .btn-book { display: none; }
+    .burger { display: block; }
+  }
 
   .hero {
     position: relative; height: 40vh; min-height: 280px;
@@ -65,44 +151,39 @@
   .hero h1 { font-size: clamp(24px, 3.6vw, 36px); font-weight: 800; margin-bottom: 8px; }
   .hero .meta { font-size: 13.5px; color: #e8e8e8; }
 
-  .article { padding: 60px 0 90px; }
+  /* Horizontal padding restated here: this element is `class="container article"`, and a
+     `padding: 60px 0 90px` shorthand would silently zero out .container's `0 30px` side padding. */
+  .article { padding: 60px 30px 90px; }
   .article p { color: var(--text-gray); font-size: 15.5px; margin-bottom: 18px; }
   .article h2 { font-size: 20px; font-weight: 700; color: var(--navy); margin: 34px 0 14px; }
+  .article h3 { font-size: 16.5px; font-weight: 700; color: var(--navy); margin: 24px 0 10px; }
   .article ul { margin: 0 0 18px 20px; }
   .article li { color: var(--text-gray); font-size: 15px; margin-bottom: 8px; }
 
+  /* In-article photos — same radius/spacing language as image treatments elsewhere on the site */
+  .article-img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 10px; margin: 28px 0; display: block; background: var(--off-white); }
+
+  .pro-tip { background: rgba(224,122,62,0.08); border-left: 3px solid var(--gold); border-radius: 6px; padding: 16px 18px; margin: 22px 0; }
+  .pro-tip p { margin: 0; color: var(--navy); font-size: 14.5px; }
+  .pro-tip p strong { color: var(--gold); }
+
+  .faq-block { margin-bottom: 22px; }
+  .faq-block h3 { margin: 0 0 6px; font-size: 15.5px; }
+  .faq-block p { margin-bottom: 0; }
+
+  .related-links { margin: 0 0 18px 20px; }
+  .related-links li { margin-bottom: 8px; }
+  .related-links a { color: var(--navy); font-weight: 700; text-decoration: underline; }
+
   .article-cta { background: var(--off-white); border: 1px solid var(--line); border-radius: 10px; padding: 26px; text-align: center; margin-top: 30px; }
   .article-cta p { margin-bottom: 14px; font-weight: 600; color: var(--navy); }
-  .btn-gold { display: inline-block; background: var(--gold); color: #fff; padding: 13px 28px; border-radius: 4px; font-weight: 700; font-size: 14.5px; }
-  .btn-gold:hover { background: var(--gold-light); }
+  .btn-gold { display: inline-block; background: var(--gold); color: #fff; padding: 13px 28px; border-radius: 50px; font-weight: 700; font-size: 14.5px; transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 22px rgba(224,122,62,0.35); }
 
   .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--navy); font-weight: 600; font-size: 14px; margin-bottom: 26px; }
   .back-link svg { width: 15px; height: 15px; }
 
-  .whatsapp-btn { position: fixed; bottom: 26px; right: 26px; z-index: 300; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
-  .whatsapp-btn svg { width: 30px; height: 30px; fill: #fff; }
-
-  .footer { background: var(--navy-dark); color: #F8FAFC; padding: 34px 0; }
-  .footer-inner { max-width: 1300px; margin: 0 auto; padding: 0 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-size: 13px; color: rgba(248,250,252,0.7); }
-  .footer-inner a { color: var(--gold); }
-
-  .burger {
-    display: none;
-    background: none;
-    border: none;
-    color: #F8FAFC;
-    cursor: pointer;
-    padding: 4px;
-  }
-  .burger svg { width: 24px; height: 24px; }
-
-  .mobile-menu-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.45);
-    z-index: 240;
-  }
+  .mobile-menu-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 240; }
   .mobile-menu-overlay.open { display: block; }
 
   .mobile-menu {
@@ -137,21 +218,83 @@
     cursor: pointer;
   }
   .mobile-menu-close svg { width: 22px; height: 22px; }
+
+  .whatsapp-btn { position: fixed; bottom: 26px; right: 26px; z-index: 300; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0,0,0,0.25); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+  .whatsapp-btn:hover { transform: translateY(-3px) scale(1.08); box-shadow: 0 14px 30px rgba(37,211,102,0.45); }
+  .whatsapp-btn svg { width: 30px; height: 30px; fill: #fff; }
+
+  /* Footer — identical structure/styling to the current index.html */
+  .footer { background: var(--off-white); color: var(--text-gray); padding: 60px 0 24px; border-top: 1px solid var(--line); }
+  .footer .container { max-width: 1140px; }
+  .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 36px; margin-bottom: 24px; border-bottom: 1px solid var(--line); }
+  .footer-logo img { height: 40px; margin-bottom: 18px; }
+  .footer-col-brand p { font-size: 13.5px; line-height: 1.7; color: var(--text-gray); max-width: 44ch; margin-bottom: 20px; }
+  .footer-col h4 { color: var(--navy); font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; font-weight: 700; }
+  .footer-col li { margin-bottom: 11px; }
+  .footer-col a { font-size: 14px; color: var(--text-gray); transition: color 0.25s ease; }
+  .footer-col a:hover { color: var(--gold); }
+  .footer-lang-row { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 18px; }
+  .footer-lang-btn { background: none; border: none; padding: 0; cursor: pointer; font-family: 'Poppins', sans-serif; font-size: 14px; color: var(--text-gray); transition: color 0.25s ease; text-align: left; display: flex; align-items: center; gap: 8px; }
+  .footer-lang-btn img { border-radius: 2px; flex-shrink: 0; }
+  .footer-lang-btn:hover, .footer-lang-btn.active { color: var(--gold); font-weight: 600; }
+  .socials { display: flex; gap: 12px; margin-top: 28px; }
+  .socials a { width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--navy); transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
+  .socials a:hover { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+  .socials svg { width: 18px; height: 18px; flex-shrink: 0; }
+  .footer-bottom { padding-top: 6px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-size: 12.5px; color: var(--text-gray); }
+  @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 700px) { .footer-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 
 <header class="navbar">
   <div class="nav-container">
-    <a href="index.html" class="logo"><img src="logo.png" alt="Let's Camel Tours"></a>
-    <div class="nav-links">
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="Let's Camel Tours">
+    </a>
+    <nav class="nav-menu">
       <a href="index.html#home"><span data-en="Home" data-fr="Accueil" data-es="Inicio" data-de="Startseite">Home</span></a>
-      <a href="index.html#tours"><span data-en="Tours" data-fr="Circuits" data-es="Tours" data-de="Touren">Tours</span></a>
+      <div class="nav-dropdown">
+        <a href="tours.html"><span data-en="Morocco Tours" data-fr="Circuits Maroc" data-es="Tours Marruecos" data-de="Marokko Touren">Morocco Tours</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="tour-1.html"><span data-en="8-Day Grand Morocco Tour: Sahara & Rif Mountains" data-fr="Circuit de 8 Jours au Maroc : Sahara et Rif" data-es="Tour de 8 Días por Marruecos: Sahara y Rif" data-de="8-Tägige Marokko-Tour: Sahara & Rif-Gebirge">8-Day Grand Morocco Tour: Sahara & Rif Mountains</span></a>
+            <a href="tour-2.html"><span data-en="5-Day Marrakech to Merzouga Desert Tour" data-fr="Circuit de 5 Jours : Marrakech à Merzouga" data-es="Tour de 5 Días: Marrakech a Merzouga" data-de="5-Tägige Tour: Marrakesch bis Merzouga">5-Day Marrakech to Merzouga Desert Tour</span></a>
+            <a href="tour-3.html"><span data-en="12-Day Morocco Tour: Casablanca to Marrakech & Sahara" data-fr="Circuit de 12 Jours : Casablanca à Marrakech et Sahara" data-es="Tour de 12 Días: Casablanca a Marrakech y Sahara" data-de="12-Tägige Marokko-Tour: Casablanca bis Marrakesch & Sahara">12-Day Morocco Tour: Casablanca to Marrakech & Sahara</span></a>
+            <a href="tour-4.html"><span data-en="9-Day Morocco Adventure: Marrakech, Sahara & Atlantic" data-fr="Aventure de 9 Jours : Marrakech, Sahara et Atlantique" data-es="Aventura de 9 Días: Marrakech, Sahara y Atlántico" data-de="9-Tägiges Marokko-Abenteuer: Marrakesch, Sahara & Atlantik">9-Day Morocco Adventure: Marrakech, Sahara & Atlantic</span></a>
+            <a href="tours.html" style="color:var(--gold) !important;font-weight:700;"><span data-en="View All Tours →" data-fr="Voir Tous les Circuits →" data-es="Ver Todos los Tours →" data-de="Alle Touren Ansehen →">View All Tours →</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="excursions.html"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="excursion-1.html"><span data-en="Day Trip to Essaouira" data-fr="Excursion à Essaouira" data-es="Excursión a Essaouira" data-de="Tagesausflug nach Essaouira">Day Trip to Essaouira</span></a>
+            <a href="excursion-2.html"><span data-en="Day Trip to Marrakech" data-fr="Excursion à Marrakech" data-es="Excursión a Marrakech" data-de="Tagesausflug nach Marrakesch">Day Trip to Marrakech</span></a>
+            <a href="excursion-3.html"><span data-en="Paradise Valley" data-fr="Paradise Valley" data-es="Paradise Valley" data-de="Paradise Valley">Paradise Valley</span></a>
+            <a href="excursions.html" style="color:var(--gold) !important;font-weight:700;"><span data-en="View All Excursions →" data-fr="Voir Toutes les Excursions →" data-es="Ver Todas las Excursiones →" data-de="Alle Ausflüge Ansehen →">View All Excursions →</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="activities.html"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="activity-1.html"><span data-en="Beach Horse Riding" data-fr="Équitation sur la Plage" data-es="Paseo a Caballo en la Playa" data-de="Strandreiten">Beach Horse Riding</span></a>
+            <a href="activity-2.html"><span data-en="Quad Biking" data-fr="Quad" data-es="Quad" data-de="Quad-Fahren">Quad Biking</span></a>
+            <a href="activity-3.html"><span data-en="Private Surf Lesson" data-fr="Cours de Surf Privé" data-es="Clase de Surf Privada" data-de="Privater Surfkurs">Private Surf Lesson</span></a>
+            <a href="activities.html" style="color:var(--gold) !important;font-weight:700;"><span data-en="View All Activities →" data-fr="Voir Toutes les Activités →" data-es="Ver Todas las Actividades →" data-de="Alle Aktivitäten Ansehen →">View All Activities →</span></a>
+          </div>
+        </div>
+      </div>
+      <a href="index.html#transfers"><span data-en="Transfers" data-fr="Transferts" data-es="Traslados" data-de="Transfers">Transfers</span></a>
       <a href="index.html#services"><span data-en="Services" data-fr="Services" data-es="Servicios" data-de="Leistungen">Services</span></a>
       <a href="about-us.html"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
-      <a href="index.html#blog"><span data-en="Blog" data-fr="Blog" data-es="Blog" data-de="Blog">Blog</span></a>
-      <a href="index.html#contact"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
-    </div>
+      <a href="index.html#blog" class="active"><span data-en="Blogs" data-fr="Blogs" data-es="Blogs" data-de="Blogs">Blogs</span></a>
+      <a href="contact.html"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
+    </nav>
     <div class="nav-right">
       <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9z"/></svg>
@@ -163,11 +306,10 @@
         <button class="lang-option" data-lang="es">Español</button>
         <button class="lang-option" data-lang="de">Deutsch</button>
       </div>
-      <a href="index.html#contact" class="btn-book"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+      <a href="contact.html" class="btn-book"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
       <button class="burger" id="burger-toggle" aria-label="Menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
-    
     </div>
   </div>
 </header>
@@ -178,47 +320,123 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
   </button>
   <a href="index.html#home"><span data-en="Home" data-fr="Accueil" data-es="Inicio" data-de="Startseite">Home</span></a>
-      <a href="index.html#tours"><span data-en="Tours" data-fr="Circuits" data-es="Tours" data-de="Touren">Tours</span></a>
-      <a href="index.html#services"><span data-en="Services" data-fr="Services" data-es="Servicios" data-de="Leistungen">Services</span></a>
-      <a href="about-us.html"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
-      <a href="index.html#blog"><span data-en="Blog" data-fr="Blog" data-es="Blog" data-de="Blog">Blog</span></a>
-      <a href="index.html#contact"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
-  <a href="index.html#contact" class="btn-book" style="display:block;text-align:center;margin-top:16px;"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+  <a href="index.html#tours"><span data-en="Morocco Tours" data-fr="Circuits Maroc" data-es="Tours Marruecos" data-de="Marokko Touren">Morocco Tours</span></a>
+  <a href="index.html#excursions"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></a>
+  <a href="index.html#activities"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span></a>
+  <a href="index.html#transfers"><span data-en="Transfers" data-fr="Transferts" data-es="Traslados" data-de="Transfers">Transfers</span></a>
+  <a href="index.html#services"><span data-en="Services" data-fr="Services" data-es="Servicios" data-de="Leistungen">Services</span></a>
+  <a href="about-us.html"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
+  <a href="index.html#blog" class="active"><span data-en="Blogs" data-fr="Blogs" data-es="Blogs" data-de="Blogs">Blogs</span></a>
+  <a href="contact.html"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
+  <a href="contact.html" class="btn-book" style="display:block;text-align:center;margin-top:16px;"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
 </div>
 
 
 <section class="hero">
   <div class="hero-inner">
-    <span class="hero-tag">Travel Tips</span>
-    <h1>Best Time to Visit Morocco: Merzouga Desert vs. Taghazout Coast</h1>
-    <p class="meta">August 2026</p>
+    <span class="hero-tag">Excursions</span>
+    <h1>Marrakech Day Trip from Agadir: Your Ultimate Guide to the Red City</h1>
+    <p class="meta"><span data-en="August 2026 · 11 min read" data-fr="Août 2026 · 11 min de lecture" data-es="Agosto 2026 · 11 min de lectura" data-de="August 2026 · 11 Min. Lesezeit">August 2026 · 11 min read</span></p>
   </div>
 </section>
 
 <div class="container article">
   <a href="index.html#blog" class="back-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg> <span data-en="Back to Blog" data-fr="Retour au Blog" data-es="Volver al Blog" data-de="Zurück zum Blog">Back to Blog</span></a>
 
-  <p>Morocco's desert and its Atlantic coast run on very different calendars. If your trip includes both Merzouga and Taghazout, here's how to time it right.</p>
+  <p><span data-en="My father has been driving the road from Agadir to Marrakech for more than forty years, and he still smiles every time the red walls of the old city rise up against the Atlas Mountains. There is something about Marrakech that never wears off, no matter how many times you arrive, the colors seem brighter, the air smells of spice and orange blossom, and the whole city hums with a kind of energy you feel in your chest before you can explain it. We created our Marrakech excursion because so many of our guests staying in Agadir and Taghazout told us they dreamed of seeing the Red City but did not know where to begin. This guide is everything we have learned from years of making that journey, written for you the way we would explain it to a friend sitting in our office over a glass of mint tea." data-fr="Mon père parcourt la route entre Agadir et Marrakech depuis plus de quarante ans, et il sourit encore à chaque fois que les murs rouges de la vieille ville se dressent devant les montagnes de l'Atlas. Il y a quelque chose à Marrakech qui ne s'estompe jamais, peu importe le nombre de fois où l'on y arrive : les couleurs semblent plus vives, l'air sent l'épice et la fleur d'oranger, et toute la ville vibre d'une énergie que l'on ressent avant même de pouvoir l'expliquer. Nous avons créé notre excursion à Marrakech parce que beaucoup de nos voyageurs séjournant à Agadir et Taghazout nous disaient rêver de voir la Ville Rouge sans savoir par où commencer. Ce guide rassemble tout ce que nous avons appris au fil des années à faire ce trajet, écrit comme nous l'expliquerions à un ami assis dans notre bureau devant un verre de thé à la menthe." data-es="Mi padre lleva más de cuarenta años recorriendo la carretera de Agadir a Marrakech, y todavía sonríe cada vez que las murallas rojas de la ciudad vieja se alzan frente a las montañas del Atlas. Hay algo en Marrakech que nunca se desgasta, sin importar cuántas veces llegues: los colores parecen más brillantes, el aire huele a especias y azahar, y toda la ciudad vibra con una energía que sientes en el pecho antes de poder explicarla. Creamos nuestra excursión a Marrakech porque muchos de nuestros viajeros alojados en Agadir y Taghazout nos contaban que soñaban con ver la Ciudad Roja pero no sabían por dónde empezar. Esta guía reúne todo lo que hemos aprendido a lo largo de los años haciendo ese trayecto, escrita como se la explicaríamos a un amigo sentado en nuestra oficina frente a un vaso de té de menta." data-de="Mein Vater fährt seit über vierzig Jahren die Straße von Agadir nach Marrakesch, und er lächelt immer noch jedes Mal, wenn sich die roten Mauern der Altstadt vor den Atlasbergen erheben. Marrakesch hat etwas, das sich nie abnutzt, egal wie oft man ankommt: die Farben wirken leuchtender, die Luft duftet nach Gewürzen und Orangenblüten, und die ganze Stadt summt vor einer Energie, die man in der Brust spürt, bevor man sie erklären kann. Wir haben unseren Marrakesch-Ausflug ins Leben gerufen, weil uns so viele Gäste aus Agadir und Taghazout erzählten, dass sie davon träumten, die Rote Stadt zu sehen, aber nicht wussten, wo sie anfangen sollten. Dieser Guide ist alles, was wir über Jahre auf dieser Fahrt gelernt haben, geschrieben, wie wir es einem Freund in unserem Büro bei einem Glas Minztee erzählen würden.">My father has been driving the road from Agadir to Marrakech for more than forty years, and he still smiles every time the red walls of the old city rise up against the Atlas Mountains. There is something about Marrakech that never wears off, no matter how many times you arrive, the colors seem brighter, the air smells of spice and orange blossom, and the whole city hums with a kind of energy you feel in your chest before you can explain it. We created our Marrakech excursion because so many of our guests staying in Agadir and Taghazout told us they dreamed of seeing the Red City but did not know where to begin. This guide is everything we have learned from years of making that journey, written for you the way we would explain it to a friend sitting in our office over a glass of mint tea.</span></p>
 
-  <h2>Merzouga Desert Seasons</h2>
-  <p>October to April is the sweet spot for the Sahara, warm days, cool nights, and none of the extreme summer heat that can make midday activities in Merzouga uncomfortable. December and January bring the coldest desert nights, so pack layers even if the days feel warm.</p>
+  <h2><span data-en="What Makes a Marrakech Day Trip from Agadir Special?" data-fr="Qu'est-ce qui Rend une Excursion à Marrakech depuis Agadir si Spéciale ?" data-es="¿Qué Hace que una Excursión a Marrakech desde Agadir Sea Tan Especial?" data-de="Was Macht einen Marrakesch-Tagesausflug ab Agadir so Besonders?">What Makes a Marrakech Day Trip from Agadir Special?</span></h2>
 
-  <h2>Taghazout Surf Seasons</h2>
-  <p>Taghazout surfs well year-round, which is part of what makes it famous. Autumn and winter (September to February) tend to bring the biggest, most consistent swells and suit more experienced surfers, while spring and summer offer smaller, friendlier waves that are ideal for beginners.</p>
+  <h3><span data-en="Jemaa el-Fnaa: A Square That Comes Alive" data-fr="Jemaa el-Fnaa : Une Place qui Prend Vie" data-es="Jemaa el-Fnaa: Una Plaza que Cobra Vida" data-de="Jemaa el-Fnaa: Ein Platz, der Lebendig Wird">Jemaa el-Fnaa: A Square That Comes Alive</span></h3>
+  <p><span data-en="We always try to time our arrival so that you experience Jemaa el-Fnaa twice, once in the calm of midday, and again as the light softens and the square transforms. By late afternoon, the smoke from dozens of food stalls begins to curl into the sky, storytellers gather their circles of listeners, musicians tune their instruments, and the whole square swells into one of the greatest open-air spectacles on earth. We have stood in that square hundreds of times, and we still stop to watch. There is simply nothing else like it in Morocco, or anywhere." data-fr="Nous essayons toujours de planifier votre arrivée pour que vous découvriez Jemaa el-Fnaa deux fois : une première fois dans le calme de midi, puis à nouveau lorsque la lumière s'adoucit et que la place se transforme. En fin d'après-midi, la fumée de dizaines de stands de nourriture commence à s'élever dans le ciel, les conteurs rassemblent leurs cercles d'auditeurs, les musiciens accordent leurs instruments, et toute la place se gonfle en l'un des plus grands spectacles à ciel ouvert du monde. Nous nous sommes tenus sur cette place des centaines de fois, et nous nous arrêtons encore pour regarder. Il n'existe tout simplement rien de comparable, ni au Maroc, ni ailleurs." data-es="Siempre intentamos organizar tu llegada para que vivas Jemaa el-Fnaa dos veces: una primera en la calma del mediodía, y otra cuando la luz se suaviza y la plaza se transforma. Al caer la tarde, el humo de decenas de puestos de comida empieza a subir hacia el cielo, los cuentacuentos reúnen sus círculos de oyentes, los músicos afinan sus instrumentos, y toda la plaza se convierte en uno de los mayores espectáculos al aire libre del mundo. Hemos estado en esa plaza cientos de veces, y todavía nos detenemos a mirar. Sencillamente no hay nada parecido, ni en Marruecos ni en ningún otro lugar." data-de="Wir versuchen immer, Ihre Ankunft so zu planen, dass Sie Jemaa el-Fnaa zweimal erleben, einmal in der Ruhe des Mittags, und noch einmal, wenn sich das Licht abschwächt und der Platz sich verwandelt. Am späten Nachmittag steigt der Rauch Dutzender Essensstände in den Himmel, Geschichtenerzähler versammeln ihre Zuhörerkreise, Musiker stimmen ihre Instrumente, und der ganze Platz wächst zu einem der größten Freiluftspektakel der Welt heran. Wir haben hunderte Male auf diesem Platz gestanden, und wir bleiben immer noch stehen, um zuzusehen. So etwas gibt es einfach nirgendwo sonst, weder in Marokko noch anderswo.">We always try to time our arrival so that you experience Jemaa el-Fnaa twice, once in the calm of midday, and again as the light softens and the square transforms. By late afternoon, the smoke from dozens of food stalls begins to curl into the sky, storytellers gather their circles of listeners, musicians tune their instruments, and the whole square swells into one of the greatest open-air spectacles on earth. We have stood in that square hundreds of times, and we still stop to watch. There is simply nothing else like it in Morocco, or anywhere.</span></p>
 
-  <h2>Combining Both in One Trip</h2>
-  <p>Because the desert prefers cooler months and Taghazout works well nearly year-round, October through April is generally the easiest window to combine both regions comfortably, cool enough for the Sahara, and still good surf on the coast.</p>
+  <h3><span data-en="The Souks: A Maze of Color, Craft, and Perfume" data-fr="Les Souks : Un Labyrinthe de Couleurs, d'Artisanat et de Parfums" data-es="Los Zocos: Un Laberinto de Color, Artesanía y Perfume" data-de="Die Souks: Ein Labyrinth aus Farben, Handwerk und Duft">The Souks: A Maze of Color, Craft, and Perfume</span></h3>
+  <p><span data-en="Step through an archway off the main square and you enter the souks, a labyrinth of narrow covered alleys where Marrakech has traded for nearly a thousand years. Pyramids of saffron and cumin glow under shafts of sunlight, coppersmiths hammer trays into shining patterns, and hand-woven rugs hang like waterfalls of color from every wall. The air changes every few steps, leather, cedar wood, fresh mint, argan oil, and getting a little lost is honestly half the pleasure. We always tell our guests to slow down here, because the souks reward the traveler who wanders rather than rushes." data-fr="Franchissez une arche depuis la place principale et vous entrez dans les souks, un labyrinthe de ruelles couvertes et étroites où Marrakech commerce depuis près de mille ans. Des pyramides de safran et de cumin brillent sous des rais de lumière, les dinandiers martèlent des plateaux aux motifs étincelants, et des tapis tissés main pendent comme des cascades de couleurs le long de chaque mur. L'air change à chaque pas, cuir, bois de cèdre, menthe fraîche, huile d'argan, et se perdre un peu fait honnêtement partie du plaisir. Nous disons toujours à nos voyageurs de ralentir ici, car les souks récompensent celui qui flâne plutôt que celui qui se presse." data-es="Cruza un arco desde la plaza principal y entrarás en los zocos, un laberinto de callejones estrechos y cubiertos donde Marrakech comercia desde hace casi mil años. Pirámides de azafrán y comino brillan bajo rayos de luz, los caldereros golpean bandejas hasta darles brillantes patrones, y alfombras tejidas a mano cuelgan como cascadas de color en cada pared. El aire cambia a cada paso, cuero, madera de cedro, menta fresca, aceite de argán, y perderse un poco es, sinceramente, parte del placer. Siempre decimos a nuestros viajeros que vayan despacio aquí, porque los zocos premian a quien pasea, no a quien corre." data-de="Treten Sie durch einen Torbogen abseits des Hauptplatzes, und Sie betreten die Souks, ein Labyrinth aus engen, überdachten Gassen, in denen Marrakesch seit fast tausend Jahren Handel treibt. Pyramiden aus Safran und Kreuzkümmel leuchten im einfallenden Sonnenlicht, Kupferschmiede hämmern Tabletts zu glänzenden Mustern, und handgewebte Teppiche hängen wie Farbkaskaden an jeder Wand. Die Luft ändert sich mit jedem Schritt, Leder, Zedernholz, frische Minze, Arganöl, und sich ein wenig zu verlaufen ist ehrlich gesagt die halbe Freude. Wir sagen unseren Gästen immer, sie sollen hier langsamer werden, denn die Souks belohnen den, der schlendert, nicht den, der hetzt.">Step through an archway off the main square and you enter the souks, a labyrinth of narrow covered alleys where Marrakech has traded for nearly a thousand years. Pyramids of saffron and cumin glow under shafts of sunlight, coppersmiths hammer trays into shining patterns, and hand-woven rugs hang like waterfalls of color from every wall. The air changes every few steps, leather, cedar wood, fresh mint, argan oil, and getting a little lost is honestly half the pleasure. We always tell our guests to slow down here, because the souks reward the traveler who wanders rather than rushes.</span></p>
 
-  <h2>Quick Month-by-Month Guide</h2>
+  <h3><span data-en="Bahia Palace: A Masterpiece Hidden Behind Plain Walls" data-fr="Le Palais Bahia : Un Chef-d'Œuvre Caché Derrière des Murs Discrets" data-es="El Palacio de la Bahía: Una Obra Maestra Oculta Tras Muros Sencillos" data-de="Bahia-Palast: Ein Meisterwerk Hinter Schlichten Mauern">Bahia Palace: A Masterpiece Hidden Behind Plain Walls</span></h3>
+  <p><span data-en="One of our favorite moments on this day trip from Agadir is watching a guest's face when they step from a dusty medina street into the courtyards of Bahia Palace. Behind an unremarkable doorway waits one of the finest examples of Moroccan craftsmanship in existence, ceilings painted in intricate floral patterns, walls of carved cedar and sculpted plaster, and marble courtyards shaded by orange trees. The palace was built in the nineteenth century to be the most beautiful residence of its time, and standing in its quiet gardens, you understand that its builders succeeded. It is a peaceful counterpoint to the wonderful chaos outside its walls." data-fr="L'un de nos moments préférés lors de cette excursion depuis Agadir est de voir le visage de nos voyageurs lorsqu'ils passent d'une rue poussiéreuse de la médina aux cours du Palais Bahia. Derrière une porte sans prétention se cache l'un des plus beaux exemples de l'artisanat marocain, des plafonds peints de motifs floraux complexes, des murs de cèdre sculpté et de plâtre ouvragé, et des cours de marbre ombragées par des orangers. Le palais fut construit au XIXe siècle pour être la plus belle résidence de son époque, et en se tenant dans ses jardins paisibles, on comprend que ses bâtisseurs ont réussi. C'est un contrepoint apaisant au merveilleux chaos qui règne hors de ses murs." data-es="Uno de nuestros momentos favoritos en esta excursión desde Agadir es ver la cara de nuestros viajeros cuando pasan de una polvorienta calle de la medina a los patios del Palacio de la Bahía. Tras una puerta discreta espera uno de los mejores ejemplos de artesanía marroquí que existen, techos pintados con intrincados motivos florales, muros de cedro tallado y yeso esculpido, y patios de mármol a la sombra de naranjos. El palacio se construyó en el siglo XIX para ser la residencia más bella de su época, y de pie en sus tranquilos jardines se entiende que sus constructores lo lograron. Es un contrapunto sereno al maravilloso caos que se vive fuera de sus muros." data-de="Einer unserer liebsten Momente auf diesem Tagesausflug ab Agadir ist es, das Gesicht unserer Gäste zu beobachten, wenn sie von einer staubigen Medina-Straße in die Höfe des Bahia-Palasts treten. Hinter einer unscheinbaren Tür wartet eines der schönsten Beispiele marokkanischer Handwerkskunst, Decken mit kunstvollen floralen Mustern bemalt, Wände aus geschnitztem Zedernholz und verziertem Stuck, und marmorne Innenhöfe im Schatten von Orangenbäumen. Der Palast wurde im neunzehnten Jahrhundert erbaut, um die schönste Residenz seiner Zeit zu sein, und wenn man in seinen ruhigen Gärten steht, versteht man, dass seinen Erbauern das gelungen ist. Er ist ein friedlicher Gegenpol zum wunderbaren Trubel vor seinen Mauern.">One of our favorite moments on this day trip from Agadir is watching a guest's face when they step from a dusty medina street into the courtyards of Bahia Palace. Behind an unremarkable doorway waits one of the finest examples of Moroccan craftsmanship in existence, ceilings painted in intricate floral patterns, walls of carved cedar and sculpted plaster, and marble courtyards shaded by orange trees. The palace was built in the nineteenth century to be the most beautiful residence of its time, and standing in its quiet gardens, you understand that its builders succeeded. It is a peaceful counterpoint to the wonderful chaos outside its walls.</span></p>
+
+  <div class="pro-tip"><p><strong><span data-en="Pro Tip:" data-fr="Astuce de pro :" data-es="Consejo de experto:" data-de="Profi-Tipp:">Pro Tip:</span></strong> <span data-en="In the medina, the easiest way to keep your bearings is the Koutoubia Mosque's minaret, at 77 meters tall, it is visible from almost everywhere and always points you back toward Jemaa el-Fnaa. If a friendly stranger insists on &quot;helping&quot; you find your way and then asks for money, a polite but firm &quot;la, shukran&quot; (no, thank you) and a smile is all you need. Our guides handle all of this for you, but it is a useful phrase to know if you explore on your own for an hour." data-fr="Dans la médina, le plus simple pour ne pas se perdre est de repérer le minaret de la mosquée Koutoubia : haut de 77 mètres, il est visible depuis presque partout et vous ramène toujours vers Jemaa el-Fnaa. Si un inconnu insiste pour vous « aider » à trouver votre chemin puis vous demande de l'argent, un « la, choukrane » (non, merci) poli mais ferme et un sourire suffisent. Nos guides s'occupent de tout cela pour vous, mais c'est une phrase utile à connaître si vous explorez seul pendant une heure." data-es="En la medina, la forma más fácil de no perder la orientación es el minarete de la mezquita Koutoubia: con 77 metros de altura, es visible desde casi cualquier punto y siempre te lleva de vuelta hacia Jemaa el-Fnaa. Si un desconocido insiste en «ayudarte» a encontrar el camino y luego te pide dinero, basta con un «la, shukran» (no, gracias) educado pero firme y una sonrisa. Nuestros guías se encargan de todo esto por ti, pero es una frase útil si exploras solo durante una hora." data-de="In der Medina orientiert man sich am einfachsten am Minarett der Koutoubia-Moschee: Mit 77 Metern Höhe ist es fast überall sichtbar und weist immer den Weg zurück zur Jemaa el-Fnaa. Wenn ein freundlicher Fremder darauf besteht, Ihnen „zu helfen&quot; und danach Geld verlangt, reicht ein höfliches, aber bestimmtes „la, shukran&quot; (nein, danke) mit einem Lächeln. Unsere Guides übernehmen das alles für Sie, aber es ist eine nützliche Phrase, wenn Sie eine Stunde lang auf eigene Faust erkunden.">In the medina, the easiest way to keep your bearings is the Koutoubia Mosque's minaret, at 77 meters tall, it is visible from almost everywhere and always points you back toward Jemaa el-Fnaa. If a friendly stranger insists on "helping" you find your way and then asks for money, a polite but firm "la, shukran" (no, thank you) and a smile is all you need. Our guides handle all of this for you, but it is a useful phrase to know if you explore on your own for an hour.</span></p></div>
+
+  <h2><span data-en="Best Time to Visit Marrakech" data-fr="Meilleure Période pour Visiter Marrakech" data-es="Mejor Época para Visitar Marrakech" data-de="Beste Reisezeit für Marrakesch">Best Time to Visit Marrakech</span></h2>
+  <p><span data-en="Marrakech sits inland, away from the cooling breezes we enjoy on the coast in Agadir, so its seasons are more extreme and worth planning around. Spring, from March to May, is in our opinion the perfect window, daytime temperatures usually sit between 22°C and 28°C (72°F to 82°F), the Atlas Mountains behind the city are still capped with snow, and the gardens are in full bloom. Autumn, from late September through November, is nearly as good, with warm, golden days in the mid-20s Celsius and comfortable evenings." data-fr="Marrakech se trouve à l'intérieur des terres, loin des brises rafraîchissantes dont nous profitons sur la côte à Agadir, ses saisons sont donc plus marquées et méritent d'être bien planifiées. Le printemps, de mars à mai, est selon nous la période idéale : les températures diurnes se situent généralement entre 22°C et 28°C, les montagnes de l'Atlas derrière la ville sont encore enneigées, et les jardins sont en pleine floraison. L'automne, de fin septembre à novembre, est presque aussi agréable, avec des journées chaudes et dorées autour de 25°C et des soirées confortables." data-es="Marrakech está tierra adentro, lejos de las brisas refrescantes que disfrutamos en la costa de Agadir, así que sus estaciones son más marcadas y merece la pena planificarlas bien. La primavera, de marzo a mayo, es en nuestra opinión la ventana perfecta: las temperaturas diurnas suelen rondar entre 22°C y 28°C, las montañas del Atlas detrás de la ciudad todavía tienen nieve, y los jardines están en plena floración. El otoño, de finales de septiembre a noviembre, es casi tan bueno, con días cálidos y dorados de unos 25°C y noches agradables." data-de="Marrakesch liegt im Landesinneren, fernab der kühlenden Brisen, die wir an der Küste in Agadir genießen, weshalb die Jahreszeiten dort extremer ausfallen und gut geplant werden sollten. Der Frühling, von März bis Mai, ist unserer Meinung nach das perfekte Zeitfenster: Die Tagestemperaturen liegen meist zwischen 22°C und 28°C, die Atlasberge hinter der Stadt tragen noch Schnee, und die Gärten stehen in voller Blüte. Der Herbst, von Ende September bis November, ist fast ebenso schön, mit warmen, goldenen Tagen um die 25°C und angenehmen Abenden.">Marrakech sits inland, away from the cooling breezes we enjoy on the coast in Agadir, so its seasons are more extreme and worth planning around. Spring, from March to May, is in our opinion the perfect window, daytime temperatures usually sit between 22°C and 28°C (72°F to 82°F), the Atlas Mountains behind the city are still capped with snow, and the gardens are in full bloom. Autumn, from late September through November, is nearly as good, with warm, golden days in the mid-20s Celsius and comfortable evenings.</span></p>
+  <p><span data-en="Summer is a different story, and we are always honest with our guests about it. From June to August, Marrakech regularly climbs above 38°C (100°F) and can push past 45°C (113°F) in a heat wave. A summer day trip is still absolutely possible, we simply structure it around shaded palaces, gardens, and long, cool lunch stops, and we save the open square for the evening. Winter, from December to February, surprises many visitors in the best way: days are typically sunny and mild at 18°C to 21°C (64°F to 70°F), ideal for walking, though you will want a jacket once the sun sets. If you have flexibility, we recommend April, May, October, or November for the most comfortable Marrakech excursion." data-fr="L'été est une autre histoire, et nous sommes toujours honnêtes avec nos voyageurs à ce sujet. De juin à août, Marrakech dépasse régulièrement 38°C et peut atteindre plus de 45°C lors des vagues de chaleur. Une excursion estivale reste tout à fait possible, nous l'organisons simplement autour des palais ombragés, des jardins et de longues pauses déjeuner au frais, en gardant la place à ciel ouvert pour le soir. L'hiver, de décembre à février, surprend agréablement beaucoup de voyageurs : les journées sont généralement ensoleillées et douces, entre 18°C et 21°C, idéales pour marcher, même s'il vous faudra une veste une fois le soleil couché. Si votre emploi du temps le permet, nous recommandons avril, mai, octobre ou novembre pour l'excursion à Marrakech la plus agréable." data-es="El verano es otra historia, y siempre somos honestos con nuestros viajeros al respecto. De junio a agosto, Marrakech supera regularmente los 38°C y puede llegar a más de 45°C en olas de calor. Una excursión de verano sigue siendo totalmente posible, simplemente la organizamos alrededor de palacios con sombra, jardines y largas paradas frescas para el almuerzo, dejando la plaza abierta para la noche. El invierno, de diciembre a febrero, sorprende gratamente a muchos viajeros: los días suelen ser soleados y suaves, entre 18°C y 21°C, ideales para caminar, aunque necesitarás una chaqueta al ponerse el sol. Si tienes flexibilidad, recomendamos abril, mayo, octubre o noviembre para la excursión a Marrakech más agradable." data-de="Der Sommer ist eine andere Geschichte, und wir sind unseren Gästen gegenüber immer ehrlich darüber. Von Juni bis August steigt die Temperatur in Marrakesch regelmäßig über 38°C und kann bei Hitzewellen 45°C übersteigen. Ein Sommerausflug ist dennoch absolut möglich, wir gestalten ihn einfach rund um schattige Paläste, Gärten und lange, kühle Mittagspausen und heben uns den offenen Platz für den Abend auf. Der Winter, von Dezember bis Februar, überrascht viele Besucher auf die beste Art: Die Tage sind meist sonnig und mild bei 18°C bis 21°C, ideal zum Spazieren, auch wenn nach Sonnenuntergang eine Jacke nötig ist. Bei zeitlicher Flexibilität empfehlen wir April, Mai, Oktober oder November für den angenehmsten Marrakesch-Ausflug.">Summer is a different story, and we are always honest with our guests about it. From June to August, Marrakech regularly climbs above 38°C (100°F) and can push past 45°C (113°F) in a heat wave. A summer day trip is still absolutely possible, we simply structure it around shaded palaces, gardens, and long, cool lunch stops, and we save the open square for the evening. Winter, from December to February, surprises many visitors in the best way: days are typically sunny and mild at 18°C to 21°C (64°F to 70°F), ideal for walking, though you will want a jacket once the sun sets. If you have flexibility, we recommend April, May, October, or November for the most comfortable Marrakech excursion.</span></p>
+
+  <h2><span data-en="Top Things to Do" data-fr="Les Meilleures Choses à Faire" data-es="Las Mejores Cosas que Hacer" data-de="Top-Aktivitäten">Top Things to Do</span></h2>
+
+  <h3><span data-en="Jemaa el-Fnaa and the Souks" data-fr="Jemaa el-Fnaa et les Souks" data-es="Jemaa el-Fnaa y los Zocos" data-de="Jemaa el-Fnaa und die Souks">Jemaa el-Fnaa and the Souks</span></h3>
+  <p><span data-en="Begin where Marrakech itself begins. Spend time in Jemaa el-Fnaa watching the juice sellers, herbalists, and performers, then dive into the souks behind it. Each section of the market has its own specialty, spices, lanterns, babouche slippers, ceramics, silver jewelry, and our guides know the workshops where you can watch artisans at work rather than simply browse the stalls. Give yourself at least ninety minutes here, and keep small cash handy for the treasures you will inevitably fall in love with." data-fr="Commencez là où Marrakech elle-même commence. Passez du temps sur Jemaa el-Fnaa à observer les vendeurs de jus, les herboristes et les artistes de rue, puis plongez dans les souks qui s'étendent derrière. Chaque section du marché a sa propre spécialité, épices, lanternes, babouches, céramiques, bijoux en argent, et nos guides connaissent les ateliers où vous pouvez observer les artisans au travail plutôt que de simplement parcourir les étals. Prévoyez au moins quatre-vingt-dix minutes ici, et gardez de la petite monnaie à portée de main pour les trésors dont vous tomberez inévitablement amoureux." data-es="Empieza donde comienza la propia Marrakech. Pasa un rato en Jemaa el-Fnaa observando a los vendedores de zumo, los herbolarios y los artistas callejeros, y luego adéntrate en los zocos que se extienden detrás. Cada sección del mercado tiene su propia especialidad, especias, faroles, babuchas, cerámica, joyería de plata, y nuestros guías conocen los talleres donde puedes ver a los artesanos trabajar en lugar de solo mirar los puestos. Date al menos noventa minutos aquí, y lleva algo de efectivo a mano para los tesoros de los que inevitablemente te enamorarás." data-de="Beginnen Sie dort, wo Marrakesch selbst beginnt. Verbringen Sie Zeit auf der Jemaa el-Fnaa und beobachten Sie die Safthändler, Kräuterkundigen und Straßenkünstler, und tauchen Sie dann in die dahinterliegenden Souks ein. Jeder Marktbereich hat seine eigene Spezialität, Gewürze, Laternen, Babouche-Pantoffeln, Keramik, Silberschmuck, und unsere Guides kennen die Werkstätten, in denen Sie Handwerkern bei der Arbeit zusehen können, statt nur die Stände zu durchstöbern. Nehmen Sie sich hier mindestens neunzig Minuten Zeit und halten Sie etwas Kleingeld bereit für die Schätze, in die Sie sich unweigerlich verlieben werden.">Begin where Marrakech itself begins. Spend time in Jemaa el-Fnaa watching the juice sellers, herbalists, and performers, then dive into the souks behind it. Each section of the market has its own specialty, spices, lanterns, babouche slippers, ceramics, silver jewelry, and our guides know the workshops where you can watch artisans at work rather than simply browse the stalls. Give yourself at least ninety minutes here, and keep small cash handy for the treasures you will inevitably fall in love with.</span></p>
+
+  <h3><span data-en="Bahia Palace" data-fr="Le Palais Bahia" data-es="El Palacio de la Bahía" data-de="Bahia-Palast">Bahia Palace</span></h3>
+  <p><span data-en="Set aside about an hour for Bahia Palace, and take it slowly. Look up constantly, the painted cedar ceilings are the great glory of the place, and each room's design is different from the last. Mornings are quieter, and the light falling into the marble courtyards is beautiful for photographs. The palace floors are original and uneven in places, so this is where those comfortable shoes earn their keep." data-fr="Réservez environ une heure au Palais Bahia, et prenez votre temps. Levez sans cesse les yeux : les plafonds de cèdre peints sont la grande fierté du lieu, et chaque pièce a un décor différent de la précédente. Les matinées y sont plus calmes, et la lumière qui tombe dans les cours de marbre est magnifique en photo. Les sols du palais sont d'origine et parfois irréguliers, c'est ici que vos chaussures confortables se rendent vraiment utiles." data-es="Reserva alrededor de una hora para el Palacio de la Bahía, y tómatelo con calma. Mira hacia arriba constantemente: los techos pintados de cedro son el gran orgullo del lugar, y el diseño de cada sala es distinto al anterior. Las mañanas son más tranquilas, y la luz que entra en los patios de mármol es preciosa para fotografías. Los suelos del palacio son originales y en algunos puntos irregulares, así que aquí es donde tus zapatos cómodos demuestran su valor." data-de="Nehmen Sie sich etwa eine Stunde für den Bahia-Palast, und lassen Sie sich Zeit. Schauen Sie ständig nach oben, die bemalten Zedernholzdecken sind der große Stolz des Ortes, und jeder Raum ist anders gestaltet als der letzte. Die Vormittage sind ruhiger, und das Licht, das in die marmornen Innenhöfe fällt, ist wunderschön für Fotos. Die Böden des Palasts sind original und stellenweise uneben, hier zahlen sich bequeme Schuhe wirklich aus.">Set aside about an hour for Bahia Palace, and take it slowly. Look up constantly, the painted cedar ceilings are the great glory of the place, and each room's design is different from the last. Mornings are quieter, and the light falling into the marble courtyards is beautiful for photographs. The palace floors are original and uneven in places, so this is where those comfortable shoes earn their keep.</span></p>
+
+  <h3><span data-en="Koutoubia Mosque and Its Gardens" data-fr="La Mosquée Koutoubia et ses Jardins" data-es="La Mezquita Koutoubia y sus Jardines" data-de="Die Koutoubia-Moschee und Ihre Gärten">Koutoubia Mosque and Its Gardens</span></h3>
+  <p><span data-en="The Koutoubia is the symbol of Marrakech, a twelfth-century minaret whose design later inspired towers in Seville and Rabat. Non-Muslim visitors cannot enter the mosque itself, but the exterior is magnificent from every angle, and the rose gardens beside it are one of the most pleasant free strolls in the city. We often stop here in the late afternoon, when the stone glows a deep pink and the call to prayer drifts across the square. It is a moment of calm that stays with people long after the trip ends." data-fr="La Koutoubia est le symbole de Marrakech, un minaret du XIIe siècle dont le style a inspiré plus tard les tours de Séville et de Rabat. Les visiteurs non musulmans ne peuvent pas entrer dans la mosquée elle-même, mais l'extérieur est magnifique sous tous les angles, et les jardins de roses qui la bordent offrent l'une des plus agréables promenades gratuites de la ville. Nous nous y arrêtons souvent en fin d'après-midi, lorsque la pierre prend une teinte rose profond et que l'appel à la prière résonne sur la place. C'est un moment de calme qui reste longtemps en mémoire après le voyage." data-es="La Koutoubia es el símbolo de Marrakech, un minarete del siglo XII cuyo diseño inspiró más tarde torres en Sevilla y Rabat. Los visitantes no musulmanes no pueden entrar en la mezquita, pero el exterior es magnífico desde cualquier ángulo, y los jardines de rosas a su lado ofrecen uno de los paseos gratuitos más agradables de la ciudad. Solemos parar aquí al final de la tarde, cuando la piedra brilla en un rosa intenso y la llamada a la oración flota sobre la plaza. Es un momento de calma que perdura mucho después de terminar el viaje." data-de="Die Koutoubia ist das Symbol von Marrakesch, ein Minarett aus dem zwölften Jahrhundert, dessen Bauweise später Türme in Sevilla und Rabat inspirierte. Nicht-muslimische Besucher dürfen die Moschee selbst nicht betreten, aber das Äußere ist aus jedem Blickwinkel großartig, und die Rosengärten daneben bieten einen der schönsten kostenlosen Spaziergänge der Stadt. Wir halten hier oft am späten Nachmittag, wenn der Stein tief rosa leuchtet und der Ruf zum Gebet über den Platz weht. Es ist ein Moment der Ruhe, der noch lange nach der Reise in Erinnerung bleibt.">The Koutoubia is the symbol of Marrakech, a twelfth-century minaret whose design later inspired towers in Seville and Rabat. Non-Muslim visitors cannot enter the mosque itself, but the exterior is magnificent from every angle, and the rose gardens beside it are one of the most pleasant free strolls in the city. We often stop here in the late afternoon, when the stone glows a deep pink and the call to prayer drifts across the square. It is a moment of calm that stays with people long after the trip ends.</span></p>
+
+  <h3><span data-en="Jardin Majorelle" data-fr="Le Jardin Majorelle" data-es="El Jardín Majorelle" data-de="Jardin Majorelle">Jardin Majorelle</span></h3>
+  <p><span data-en="If gardens and photography are your passion, Jardin Majorelle in the newer part of the city is worth the detour. Created by the French painter Jacques Majorelle and later restored by Yves Saint Laurent, it is a dreamlike collection of towering cacti, bamboo groves, and lily ponds set against walls painted in an electric cobalt blue found nowhere else. Tickets should be booked online in advance, as it is one of the most visited spots in Morocco. Tell us when you book your day trip and we will happily build it into your itinerary." data-fr="Si les jardins et la photographie vous passionnent, le Jardin Majorelle, dans la partie plus récente de la ville, vaut le détour. Créé par le peintre français Jacques Majorelle et restauré plus tard par Yves Saint Laurent, c'est une collection onirique de cactus imposants, de bambouseraies et de bassins de nénuphars, sur fond de murs peints d'un bleu cobalt électrique introuvable ailleurs. Il est conseillé de réserver les billets en ligne à l'avance, car c'est l'un des sites les plus visités du Maroc. Dites-le-nous lors de la réservation de votre excursion et nous l'intégrerons volontiers à votre itinéraire." data-es="Si los jardines y la fotografía son tu pasión, el Jardín Majorelle, en la parte más moderna de la ciudad, merece el desvío. Creado por el pintor francés Jacques Majorelle y restaurado más tarde por Yves Saint Laurent, es una colección de ensueño de cactus imponentes, bosquecillos de bambú y estanques de nenúfares, sobre muros pintados de un azul cobalto eléctrico que no se encuentra en ningún otro lugar. Conviene reservar las entradas en línea con antelación, ya que es uno de los lugares más visitados de Marruecos. Avísanos al reservar tu excursión y con gusto lo incluiremos en tu itinerario." data-de="Wenn Gärten und Fotografie Ihre Leidenschaft sind, lohnt sich der Abstecher zum Jardin Majorelle im neueren Teil der Stadt. Angelegt vom französischen Maler Jacques Majorelle und später von Yves Saint Laurent restauriert, ist er eine traumhafte Sammlung hoch aufragender Kakteen, Bambushaine und Seerosenteiche vor Mauern in einem elektrischen Kobaltblau, das es sonst nirgendwo gibt. Tickets sollten online im Voraus gebucht werden, da es einer der meistbesuchten Orte Marokkos ist. Sagen Sie uns bei der Buchung Ihres Tagesausflugs Bescheid, und wir bauen ihn gerne in Ihre Route ein.">If gardens and photography are your passion, Jardin Majorelle in the newer part of the city is worth the detour. Created by the French painter Jacques Majorelle and later restored by Yves Saint Laurent, it is a dreamlike collection of towering cacti, bamboo groves, and lily ponds set against walls painted in an electric cobalt blue found nowhere else. Tickets should be booked online in advance, as it is one of the most visited spots in Morocco. Tell us when you book your day trip and we will happily build it into your itinerary.</span></p>
+
+  <h3><span data-en="Mint Tea and a Real Moroccan Lunch" data-fr="Thé à la Menthe et un Vrai Déjeuner Marocain" data-es="Té de Menta y un Auténtico Almuerzo Marroquí" data-de="Minztee und ein Echtes Marokkanisches Mittagessen">Mint Tea and a Real Moroccan Lunch</span></h3>
+  <p><span data-en="No visit to Marrakech is complete without sitting down properly for food. We take our guests to restaurants we trust, places serving slow-cooked lamb tagine, fluffy couscous, and tangia, the pot-roasted specialty that Marrakech claims as its own. And of course there is mint tea, poured from a height into small glasses, sweet and fragrant and endlessly refilled. In Morocco we say tea is not a drink but a conversation, and lunch on this trip is where many of our favorite conversations with guests have happened." data-fr="Aucune visite à Marrakech n'est complète sans un vrai moment autour d'un repas. Nous emmenons nos voyageurs dans des restaurants de confiance, où l'on sert un tajine d'agneau mijoté longuement, du couscous moelleux, et la tangia, cette spécialité cuite lentement que Marrakech revendique comme la sienne. Et bien sûr, il y a le thé à la menthe, versé de haut dans de petits verres, sucré, parfumé et sans cesse resservi. Au Maroc, on dit que le thé n'est pas une boisson mais une conversation, et le déjeuner de cette excursion est souvent le moment où naissent nos plus belles conversations avec nos voyageurs." data-es="Ninguna visita a Marrakech está completa sin sentarse como es debido a comer. Llevamos a nuestros viajeros a restaurantes de confianza, lugares que sirven tayín de cordero cocinado a fuego lento, cuscús esponjoso y tangia, la especialidad cocida a fuego lento que Marrakech reclama como propia. Y, por supuesto, está el té de menta, servido desde lo alto en pequeños vasos, dulce, aromático y servido una y otra vez. En Marruecos decimos que el té no es una bebida sino una conversación, y el almuerzo de esta excursión es donde han surgido muchas de nuestras conversaciones favoritas con los viajeros." data-de="Kein Besuch in Marrakesch ist vollständig ohne ein richtiges Essen. Wir bringen unsere Gäste zu Restaurants, denen wir vertrauen, Orte, die langsam geschmorten Lamm-Tajine, lockeren Couscous und Tangia servieren, die geschmorte Spezialität, die Marrakesch für sich beansprucht. Und natürlich gibt es Minztee, aus der Höhe in kleine Gläser gegossen, süß, duftend und immer wieder nachgefüllt. In Marokko sagen wir, Tee sei kein Getränk, sondern ein Gespräch, und beim Mittagessen auf diesem Ausflug sind viele unserer liebsten Gespräche mit Gästen entstanden.">No visit to Marrakech is complete without sitting down properly for food. We take our guests to restaurants we trust, places serving slow-cooked lamb tagine, fluffy couscous, and tangia, the pot-roasted specialty that Marrakech claims as its own. And of course there is mint tea, poured from a height into small glasses, sweet and fragrant and endlessly refilled. In Morocco we say tea is not a drink but a conversation, and lunch on this trip is where many of our favorite conversations with guests have happened.</span></p>
+
+  <h2><span data-en="What to Pack for the Day" data-fr="Que Mettre dans sa Valise pour la Journée" data-es="Qué Llevar para el Día" data-de="Was Sie für den Tag Einpacken Sollten">What to Pack for the Day</span></h2>
   <ul>
-    <li><strong>Sept–Nov:</strong> Great all-round, mild desert heat, strong early-season swell in Taghazout</li>
-    <li><strong>Dec–Feb:</strong> Coldest desert nights, but the best surf season on the coast</li>
-    <li><strong>Mar–May:</strong> Comfortable everywhere, wildflowers in the Atlas foothills</li>
-    <li><strong>Jun–Aug:</strong> Hot in the desert during the day, mellow beginner-friendly waves in Taghazout</li>
+    <li><span data-en="Comfortable, broken-in walking shoes, the medina's lanes are cobbled and uneven, and you will cover several kilometers without noticing" data-fr="Des chaussures de marche confortables et déjà faites, les ruelles de la médina sont pavées et irrégulières, et vous parcourrez plusieurs kilomètres sans vous en rendre compte" data-es="Zapatos cómodos y ya usados, las callejuelas de la medina son empedradas e irregulares, y recorrerás varios kilómetros sin darte cuenta" data-de="Bequeme, eingelaufene Wanderschuhe, die Gassen der Medina sind gepflastert und uneben, und Sie legen mehrere Kilometer zurück, ohne es zu merken">Comfortable, broken-in walking shoes, the medina's lanes are cobbled and uneven, and you will cover several kilometers without noticing</span></li>
+    <li><span data-en="Sun protection: sunscreen, sunglasses, and a hat, in every season" data-fr="Une protection solaire : crème solaire, lunettes de soleil et chapeau, quelle que soit la saison" data-es="Protección solar: protector solar, gafas de sol y sombrero, en cualquier temporada" data-de="Sonnenschutz: Sonnencreme, Sonnenbrille und ein Hut, zu jeder Jahreszeit">Sun protection: sunscreen, sunglasses, and a hat, in every season</span></li>
+    <li><span data-en="A refillable water bottle, especially from May through September" data-fr="Une gourde réutilisable, surtout de mai à septembre" data-es="Una botella de agua reutilizable, especialmente de mayo a septiembre" data-de="Eine wiederbefüllbare Wasserflasche, besonders von Mai bis September">A refillable water bottle, especially from May through September</span></li>
+    <li><span data-en="Cash in Moroccan dirhams, in small notes, for the souks, tips, and street snacks" data-fr="De l'argent liquide en dirhams marocains, en petites coupures, pour les souks, les pourboires et les en-cas de rue" data-es="Efectivo en dírhams marroquíes, en billetes pequeños, para los zocos, propinas y tentempiés callejeros" data-de="Bargeld in marokkanischen Dirham, in kleinen Scheinen, für die Souks, Trinkgelder und Snacks unterwegs">Cash in Moroccan dirhams, in small notes, for the souks, tips, and street snacks</span></li>
+    <li><span data-en="Modest clothing that covers shoulders and knees, out of respect at religious and historic sites" data-fr="Des vêtements pudiques couvrant les épaules et les genoux, par respect pour les sites religieux et historiques" data-es="Ropa modesta que cubra hombros y rodillas, por respeto en los sitios religiosos e históricos" data-de="Zurückhaltende Kleidung, die Schultern und Knie bedeckt, aus Respekt vor religiösen und historischen Stätten">Modest clothing that covers shoulders and knees, out of respect at religious and historic sites</span></li>
+    <li><span data-en="A light jacket or layer for winter visits, when evenings turn cool quickly" data-fr="Une veste légère ou une couche supplémentaire pour les visites hivernales, lorsque les soirées se rafraîchissent vite" data-es="Una chaqueta ligera o una capa extra para las visitas de invierno, cuando las noches se enfrían rápido" data-de="Eine leichte Jacke oder Schicht für Winterbesuche, wenn die Abende schnell kühl werden">A light jacket or layer for winter visits, when evenings turn cool quickly</span></li>
+    <li><span data-en="Your camera or a fully charged phone, plus a power bank" data-fr="Votre appareil photo ou un téléphone entièrement chargé, ainsi qu'une batterie externe" data-es="Tu cámara o un teléfono totalmente cargado, además de una batería externa" data-de="Ihre Kamera oder ein voll aufgeladenes Handy, plus eine Powerbank">Your camera or a fully charged phone, plus a power bank</span></li>
+    <li><span data-en="A small daypack that zips closed, worn in front in crowded areas" data-fr="Un petit sac à dos qui se ferme avec une fermeture éclair, à porter devant vous dans les zones fréquentées" data-es="Una pequeña mochila que se cierre con cremallera, llevada por delante en zonas concurridas" data-de="Einen kleinen Tagesrucksack mit Reißverschluss, in belebten Bereichen vorne getragen">A small daypack that zips closed, worn in front in crowded areas</span></li>
+    <li><span data-en="Any medications you need during the day, since it is a long outing" data-fr="Les médicaments dont vous avez besoin dans la journée, car il s'agit d'une longue sortie" data-es="Cualquier medicamento que necesites durante el día, ya que es una salida larga" data-de="Alle Medikamente, die Sie tagsüber benötigen, da es sich um einen langen Ausflug handelt">Any medications you need during the day, since it is a long outing</span></li>
   </ul>
+  <div class="pro-tip"><p><strong><span data-en="Pro Tip:" data-fr="Astuce de pro :" data-es="Consejo de experto:" data-de="Profi-Tipp:">Pro Tip:</span></strong> <span data-en="Bring more small-denomination cash than you think you need. Many souk vendors and food stalls do not accept cards, and having exact or near-exact change makes bargaining smoother and tipping easier. ATMs exist near Jemaa el-Fnaa, but the queues can eat into precious exploring time." data-fr="Emportez plus de petites coupures que vous ne pensez en avoir besoin. De nombreux vendeurs des souks et stands de nourriture n'acceptent pas les cartes, et avoir l'appoint facilite le marchandage et les pourboires. Il existe des distributeurs près de Jemaa el-Fnaa, mais les files d'attente peuvent gruger un temps précieux d'exploration." data-es="Lleva más efectivo en billetes pequeños del que crees que necesitarás. Muchos vendedores de los zocos y puestos de comida no aceptan tarjeta, y tener el cambio exacto o casi exacto facilita el regateo y las propinas. Hay cajeros cerca de Jemaa el-Fnaa, pero las colas pueden robarte tiempo valioso de exploración." data-de="Nehmen Sie mehr Bargeld in kleinen Scheinen mit, als Sie zu brauchen glauben. Viele Souk-Händler und Essensstände akzeptieren keine Karten, und passendes oder fast passendes Wechselgeld erleichtert das Feilschen und Trinkgeldgeben. In der Nähe der Jemaa el-Fnaa gibt es Geldautomaten, aber die Warteschlangen können wertvolle Erkundungszeit kosten.">Bring more small-denomination cash than you think you need. Many souk vendors and food stalls do not accept cards, and having exact or near-exact change makes bargaining smoother and tipping easier. ATMs exist near Jemaa el-Fnaa, but the queues can eat into precious exploring time.</span></p></div>
+
+  <h2><span data-en="Frequently Asked Questions" data-fr="Questions Fréquentes" data-es="Preguntas Frecuentes" data-de="Häufig Gestellte Fragen">Frequently Asked Questions</span></h2>
+
+  <div class="faq-block">
+    <h3><span data-en="Is it safe to visit Marrakech?" data-fr="Est-il sûr de visiter Marrakech ?" data-es="¿Es seguro visitar Marrakech?" data-de="Ist es sicher, Marrakesch zu besuchen?">Is it safe to visit Marrakech?</span></h3>
+    <p><span data-en="Yes. Marrakech is one of the most visited cities in Africa and welcomes millions of travelers every year, and Morocco as a whole is considered a safe destination for tourists. Like any busy city, it asks for common sense: keep an eye on your belongings in crowds, use registered taxis, and be politely firm with overly persistent vendors or unofficial &quot;guides.&quot; On our Marrakech excursion you are accompanied throughout the day by a local guide who knows the city intimately, which removes almost all of these small stresses entirely." data-fr="Oui. Marrakech est l'une des villes les plus visitées d'Afrique et accueille des millions de voyageurs chaque année, et le Maroc dans son ensemble est considéré comme une destination sûre pour les touristes. Comme dans toute grande ville, un peu de bon sens suffit : surveillez vos affaires dans la foule, utilisez des taxis agréés, et restez poliment fermes face aux vendeurs trop insistants ou aux « guides » non officiels. Lors de notre excursion à Marrakech, vous êtes accompagné toute la journée par un guide local qui connaît la ville intimement, ce qui élimine presque tous ces petits tracas." data-es="Sí. Marrakech es una de las ciudades más visitadas de África y recibe a millones de viajeros cada año, y Marruecos en general se considera un destino seguro para los turistas. Como en cualquier ciudad concurrida, basta con sentido común: vigila tus pertenencias entre la multitud, usa taxis registrados, y sé educadamente firme con vendedores demasiado insistentes o «guías» no oficiales. En nuestra excursión a Marrakech vas acompañado durante todo el día por un guía local que conoce la ciudad a fondo, lo que elimina casi todas estas pequeñas molestias." data-de="Ja. Marrakesch ist eine der meistbesuchten Städte Afrikas und empfängt jedes Jahr Millionen Reisende, und Marokko insgesamt gilt als sicheres Reiseziel für Touristen. Wie in jeder belebten Stadt ist gesunder Menschenverstand gefragt: Behalten Sie Ihre Sachen in Menschenmengen im Auge, nutzen Sie registrierte Taxis, und bleiben Sie höflich, aber bestimmt gegenüber allzu aufdringlichen Verkäufern oder inoffiziellen „Guides&quot;. Bei unserem Marrakesch-Ausflug werden Sie den ganzen Tag von einem lokalen Guide begleitet, der die Stadt bestens kennt, was fast all diese kleinen Unannehmlichkeiten beseitigt.">Yes. Marrakech is one of the most visited cities in Africa and welcomes millions of travelers every year, and Morocco as a whole is considered a safe destination for tourists. Like any busy city, it asks for common sense: keep an eye on your belongings in crowds, use registered taxis, and be politely firm with overly persistent vendors or unofficial "guides." On our Marrakech excursion you are accompanied throughout the day by a local guide who knows the city intimately, which removes almost all of these small stresses entirely.</span></p>
+  </div>
+
+  <div class="faq-block">
+    <h3><span data-en="How much does a day trip from Agadir to Marrakech cost?" data-fr="Combien coûte une excursion d'Agadir à Marrakech ?" data-es="¿Cuánto cuesta una excursión de Agadir a Marrakech?" data-de="Wie viel kostet ein Tagesausflug von Agadir nach Marrakesch?">How much does a day trip from Agadir to Marrakech cost?</span></h3>
+    <p><span data-en="The honest answer is that it depends on your group size, the season, and how you would like to customize the day, a private tour for two is priced differently from a family group, and options like Jardin Majorelle tickets or a special lunch affect the total. Rather than publish a number that may not fit your situation, we prefer to give every traveler an exact, transparent quote with no hidden costs. Send us a message with your dates and group size, and we will reply quickly with a clear price." data-fr="La réponse honnête est que cela dépend de la taille de votre groupe, de la saison et de la manière dont vous souhaitez personnaliser la journée : un circuit privé pour deux personnes n'a pas le même prix qu'un groupe familial, et des options comme les billets pour le Jardin Majorelle ou un déjeuner spécial modifient le total. Plutôt que d'afficher un chiffre qui pourrait ne pas correspondre à votre situation, nous préférons offrir à chaque voyageur un devis exact et transparent, sans frais cachés. Envoyez-nous vos dates et la taille de votre groupe, et nous vous répondrons rapidement avec un prix clair." data-es="La respuesta honesta es que depende del tamaño de tu grupo, la temporada y cómo quieras personalizar el día: un tour privado para dos personas tiene un precio distinto al de un grupo familiar, y opciones como las entradas al Jardín Majorelle o un almuerzo especial afectan al total. En lugar de publicar una cifra que puede no ajustarse a tu situación, preferimos dar a cada viajero un presupuesto exacto y transparente, sin costes ocultos. Envíanos un mensaje con tus fechas y el tamaño de tu grupo, y te responderemos rápidamente con un precio claro." data-de="Die ehrliche Antwort ist, dass es von Ihrer Gruppengröße, der Saison und den gewünschten individuellen Anpassungen des Tages abhängt, eine private Tour für zwei ist anders bepreist als eine Familiengruppe, und Optionen wie Tickets für den Jardin Majorelle oder ein besonderes Mittagessen wirken sich auf den Gesamtpreis aus. Statt eine Zahl zu veröffentlichen, die möglicherweise nicht zu Ihrer Situation passt, geben wir jedem Reisenden lieber ein genaues, transparentes Angebot ohne versteckte Kosten. Schicken Sie uns eine Nachricht mit Ihren Reisedaten und Ihrer Gruppengröße, und wir antworten Ihnen umgehend mit einem klaren Preis.">The honest answer is that it depends on your group size, the season, and how you would like to customize the day, a private tour for two is priced differently from a family group, and options like Jardin Majorelle tickets or a special lunch affect the total. Rather than publish a number that may not fit your situation, we prefer to give every traveler an exact, transparent quote with no hidden costs. Send us a message with your dates and group size, and we will reply quickly with a clear price.</span></p>
+  </div>
+
+  <div class="faq-block">
+    <h3><span data-en="How long is the drive from Agadir to Marrakech?" data-fr="Combien de temps dure le trajet d'Agadir à Marrakech ?" data-es="¿Cuánto dura el trayecto de Agadir a Marrakech?" data-de="Wie lange dauert die Fahrt von Agadir nach Marrakesch?">How long is the drive from Agadir to Marrakech?</span></h3>
+    <p><span data-en="We will always be honest with you: it is a real journey. The drive takes roughly 3 to 3.5 hours each way on a good modern highway, so you should expect around six to seven hours of total travel in the day. We soften this with early starts, comfortable air-conditioned vehicles, and a scenic rest stop along the way, and most of our guests tell us the anticipation of watching the landscape change from coast to plains to the red city itself becomes part of the experience." data-fr="Nous serons toujours honnêtes avec vous : c'est un vrai voyage. Le trajet dure environ 3 à 3,5 heures dans chaque sens sur une bonne autoroute moderne, il faut donc compter environ six à sept heures de route au total dans la journée. Nous atténuons cela par des départs matinaux, des véhicules climatisés confortables et une pause pittoresque en chemin, et la plupart de nos voyageurs nous disent que voir le paysage passer de la côte aux plaines puis à la ville rouge elle-même fait partie de l'expérience." data-es="Siempre seremos honestos contigo: es un viaje de verdad. El trayecto dura entre 3 y 3,5 horas en cada dirección por una buena autopista moderna, así que hay que contar unas seis a siete horas de carretera en total durante el día. Suavizamos esto con salidas tempranas, vehículos cómodos y con aire acondicionado, y una parada panorámica en el camino, y la mayoría de nuestros viajeros nos cuenta que ver el paisaje cambiar de la costa a las llanuras y luego a la ciudad roja se convierte en parte de la experiencia." data-de="Wir sind immer ehrlich zu Ihnen: Es ist eine echte Reise. Die Fahrt dauert auf einer guten modernen Autobahn etwa 3 bis 3,5 Stunden pro Strecke, rechnen Sie also mit insgesamt etwa sechs bis sieben Stunden Fahrzeit am Tag. Wir mildern das durch frühe Abfahrten, komfortable klimatisierte Fahrzeuge und einen landschaftlich schönen Zwischenstopp, und die meisten unserer Gäste erzählen uns, dass die Vorfreude, die Landschaft von der Küste über die Ebenen bis zur Roten Stadt selbst wechseln zu sehen, Teil des Erlebnisses wird.">We will always be honest with you: it is a real journey. The drive takes roughly 3 to 3.5 hours each way on a good modern highway, so you should expect around six to seven hours of total travel in the day. We soften this with early starts, comfortable air-conditioned vehicles, and a scenic rest stop along the way, and most of our guests tell us the anticipation of watching the landscape change from coast to plains to the red city itself becomes part of the experience.</span></p>
+  </div>
+
+  <div class="faq-block">
+    <h3><span data-en="Is a day trip enough time to see Marrakech, or should I stay overnight?" data-fr="Une journée suffit-elle pour voir Marrakech, ou faut-il y passer une nuit ?" data-es="¿Es suficiente un día para ver Marrakech, o debería quedarme a dormir?" data-de="Reicht ein Tagesausflug, um Marrakesch zu sehen, oder sollte ich übernachten?">Is a day trip enough time to see Marrakech, or should I stay overnight?</span></h3>
+    <p><span data-en="A well-planned day trip gives you the essential Marrakech, Jemaa el-Fnaa, the souks, a major palace or monument, and a proper Moroccan lunch, and for travelers based in Agadir or Taghazout with limited holiday time, it is a wonderful and complete experience. That said, Marrakech rewards time, and if your schedule allows, an overnight stay lets you experience the square after dark at full intensity and explore at a gentler pace. We arrange both day trips and multi-day itineraries, so tell us what you are dreaming of and we will design around it." data-fr="Une excursion bien organisée vous permet de découvrir l'essentiel de Marrakech, Jemaa el-Fnaa, les souks, un palais ou monument majeur, et un vrai déjeuner marocain, et pour les voyageurs basés à Agadir ou Taghazout disposant de peu de temps, c'est une expérience merveilleuse et complète. Cela dit, Marrakech mérite du temps, et si votre emploi du temps le permet, une nuit sur place vous permet de vivre la place à la tombée de la nuit dans toute son intensité et d'explorer à un rythme plus tranquille. Nous organisons aussi bien des excursions d'une journée que des itinéraires de plusieurs jours, alors dites-nous ce dont vous rêvez et nous l'organiserons pour vous." data-es="Una excursión bien planificada te permite descubrir lo esencial de Marrakech, Jemaa el-Fnaa, los zocos, un palacio o monumento importante, y un auténtico almuerzo marroquí, y para los viajeros que se alojan en Agadir o Taghazout con tiempo limitado, es una experiencia maravillosa y completa. Dicho esto, Marrakech merece tiempo, y si tu agenda lo permite, pasar la noche te permite vivir la plaza al anochecer en toda su intensidad y explorar a un ritmo más tranquilo. Organizamos tanto excursiones de un día como itinerarios de varios días, así que cuéntanos lo que sueñas y lo diseñaremos a tu medida." data-de="Ein gut geplanter Tagesausflug bietet Ihnen das Wesentliche von Marrakesch, Jemaa el-Fnaa, die Souks, einen bedeutenden Palast oder ein Monument und ein richtiges marokkanisches Mittagessen, und für Reisende mit Sitz in Agadir oder Taghazout mit begrenzter Urlaubszeit ist das eine wunderbare und vollständige Erfahrung. Allerdings belohnt Marrakesch mehr Zeit, und wenn Ihr Zeitplan es zulässt, können Sie bei einer Übernachtung den Platz nach Einbruch der Dunkelheit in voller Intensität erleben und in ruhigerem Tempo erkunden. Wir organisieren sowohl Tagesausflüge als auch mehrtägige Reiserouten, sagen Sie uns einfach, wovon Sie träumen, und wir gestalten es passend.">A well-planned day trip gives you the essential Marrakech, Jemaa el-Fnaa, the souks, a major palace or monument, and a proper Moroccan lunch, and for travelers based in Agadir or Taghazout with limited holiday time, it is a wonderful and complete experience. That said, Marrakech rewards time, and if your schedule allows, an overnight stay lets you experience the square after dark at full intensity and explore at a gentler pace. We arrange both day trips and multi-day itineraries, so tell us what you are dreaming of and we will design around it.</span></p>
+  </div>
+
+  <div class="faq-block">
+    <h3><span data-en="What should I wear in the souks and medina?" data-fr="Que dois-je porter dans les souks et la médina ?" data-es="¿Qué debo usar en los zocos y la medina?" data-de="Was sollte ich in den Souks und der Medina tragen?">What should I wear in the souks and medina?</span></h3>
+    <p><span data-en="Morocco is a welcoming and relatively relaxed country, but the medina is a traditional space and modest dress is both respectful and practical. For all travelers, we suggest lightweight clothing that covers shoulders and knees, loose trousers, midi skirts, or long shorts with a t-shirt or light blouse are perfect. Women do not need to cover their hair except when a specific religious site requires it. Modest dress also has a pleasant side effect: vendors tend to treat you a little more like a traveler and a little less like a tourist." data-fr="Le Maroc est un pays accueillant et relativement décontracté, mais la médina est un espace traditionnel où une tenue pudique est à la fois respectueuse et pratique. Pour tous les voyageurs, nous conseillons des vêtements légers couvrant les épaules et les genoux : pantalons amples, jupes mi-longues ou bermudas avec un t-shirt ou un chemisier léger sont parfaits. Les femmes n'ont pas besoin de se couvrir les cheveux, sauf sur certains sites religieux spécifiques. Une tenue pudique a aussi un effet agréable : les vendeurs ont tendance à vous traiter un peu plus comme un voyageur et un peu moins comme un touriste." data-es="Marruecos es un país acogedor y relativamente relajado, pero la medina es un espacio tradicional y vestir con modestia es a la vez respetuoso y práctico. Para todos los viajeros, recomendamos ropa ligera que cubra hombros y rodillas: pantalones holgados, faldas midi o bermudas con camiseta o blusa ligera son perfectos. Las mujeres no necesitan cubrirse el cabello salvo en algún sitio religioso específico que lo requiera. Vestir con modestia también tiene un efecto agradable: los vendedores tienden a tratarte un poco más como viajero y un poco menos como turista." data-de="Marokko ist ein einladendes und relativ entspanntes Land, aber die Medina ist ein traditioneller Ort, an dem zurückhaltende Kleidung sowohl respektvoll als auch praktisch ist. Für alle Reisenden empfehlen wir leichte Kleidung, die Schultern und Knie bedeckt, weite Hosen, Midiröcke oder lange Shorts mit T-Shirt oder leichter Bluse sind ideal. Frauen müssen ihr Haar nicht bedecken, außer an bestimmten religiösen Stätten, die dies verlangen. Zurückhaltende Kleidung hat auch einen angenehmen Nebeneffekt: Verkäufer behandeln Sie dann eher als Reisenden und weniger als Touristen.">Morocco is a welcoming and relatively relaxed country, but the medina is a traditional space and modest dress is both respectful and practical. For all travelers, we suggest lightweight clothing that covers shoulders and knees, loose trousers, midi skirts, or long shorts with a t-shirt or light blouse are perfect. Women do not need to cover their hair except when a specific religious site requires it. Modest dress also has a pleasant side effect: vendors tend to treat you a little more like a traveler and a little less like a tourist.</span></p>
+  </div>
+
+  <div class="faq-block">
+    <h3><span data-en="Can I bargain in the souks?" data-fr="Peut-on marchander dans les souks ?" data-es="¿Puedo regatear en los zocos?" data-de="Kann ich in den Souks handeln?">Can I bargain in the souks?</span></h3>
+    <p><span data-en="Absolutely, in fact, bargaining is expected, and vendors quote their first price assuming you will negotiate. A good rule of thumb is to counter at roughly a third to half of the opening price and settle somewhere in the middle, always with a smile, because haggling in Morocco is a friendly ritual rather than a confrontation. Never start bargaining for an item you have no intention of buying, and remember that walking away slowly is the oldest negotiating tactic in the medina. Our guides are happy to advise on fair prices for rugs, leather, and argan oil so you shop with confidence." data-fr="Absolument, le marchandage est même attendu, et les vendeurs annoncent leur premier prix en sachant que vous allez négocier. Une bonne règle est de proposer environ le tiers ou la moitié du prix de départ, puis de trouver un compromis, toujours avec le sourire, car marchander au Maroc est un rituel amical plutôt qu'une confrontation. Ne commencez jamais à négocier un article que vous n'avez pas l'intention d'acheter, et rappelez-vous que s'éloigner lentement est la plus vieille tactique de négociation de la médina. Nos guides se feront un plaisir de vous conseiller sur les prix justes des tapis, du cuir et de l'huile d'argan pour que vous fassiez vos achats en toute confiance." data-es="Por supuesto, de hecho, se espera que regatees, y los vendedores dan su primer precio sabiendo que vas a negociar. Una buena regla es ofrecer entre un tercio y la mitad del precio inicial y llegar a un punto intermedio, siempre con una sonrisa, porque regatear en Marruecos es un ritual amistoso y no una confrontación. Nunca empieces a negociar por algo que no tienes intención de comprar, y recuerda que alejarte despacio es la táctica de negociación más antigua de la medina. Nuestros guías estarán encantados de aconsejarte sobre precios justos de alfombras, cuero y aceite de argán para que compres con confianza." data-de="Auf jeden Fall, tatsächlich wird das Feilschen erwartet, und Verkäufer nennen ihren ersten Preis in dem Wissen, dass Sie verhandeln werden. Eine gute Faustregel ist, etwa ein Drittel bis die Hälfte des Ausgangspreises zu bieten und sich irgendwo in der Mitte zu einigen, immer mit einem Lächeln, denn Feilschen ist in Marokko ein freundliches Ritual und keine Konfrontation. Beginnen Sie niemals, um einen Artikel zu handeln, den Sie gar nicht kaufen möchten, und denken Sie daran, dass langsames Weggehen die älteste Verhandlungstaktik der Medina ist. Unsere Guides beraten Sie gerne zu fairen Preisen für Teppiche, Leder und Arganöl, damit Sie selbstbewusst einkaufen können.">Absolutely, in fact, bargaining is expected, and vendors quote their first price assuming you will negotiate. A good rule of thumb is to counter at roughly a third to half of the opening price and settle somewhere in the middle, always with a smile, because haggling in Morocco is a friendly ritual rather than a confrontation. Never start bargaining for an item you have no intention of buying, and remember that walking away slowly is the oldest negotiating tactic in the medina. Our guides are happy to advise on fair prices for rugs, leather, and argan oil so you shop with confidence.</span></p>
+  </div>
+
+  <p><span data-en="Some cities you visit; Marrakech you feel. It stays with you, the drumbeats rising over Jemaa el-Fnaa at dusk, the flash of a copper lamp in a dark souk alley, the taste of sweet mint tea after a morning of wandering. For us, sharing that feeling is not just a job but a family tradition, built on decades my father has spent showing travelers the roads and stories of this region. If the Red City is calling you, let us answer together, contact Let's Camel Tours today to plan your Marrakech day trip from Agadir or Taghazout, and let our family show you the Morocco we know and love." data-fr="Certaines villes se visitent ; Marrakech, elle, se ressent. Elle reste en vous : le battement des tambours qui monte au crépuscule sur Jemaa el-Fnaa, l'éclat d'une lampe en cuivre dans une ruelle sombre des souks, le goût du thé à la menthe sucré après une matinée de flânerie. Pour nous, partager ce sentiment n'est pas seulement un métier mais une tradition familiale, bâtie sur les décennies que mon père a passées à faire découvrir aux voyageurs les routes et les histoires de cette région. Si la Ville Rouge vous appelle, répondons-y ensemble : contactez Let's Camel Tours dès aujourd'hui pour organiser votre excursion à Marrakech depuis Agadir ou Taghazout, et laissez notre famille vous faire découvrir le Maroc que nous connaissons et aimons." data-es="Algunas ciudades se visitan; Marrakech se siente. Se queda contigo: el redoble de tambores que se eleva sobre Jemaa el-Fnaa al anochecer, el destello de una lámpara de cobre en un callejón oscuro del zoco, el sabor del dulce té de menta tras una mañana de paseo. Para nosotros, compartir esa sensación no es solo un trabajo sino una tradición familiar, construida sobre las décadas que mi padre ha pasado mostrando a los viajeros los caminos e historias de esta región. Si la Ciudad Roja te está llamando, respondamos juntos: contacta hoy mismo con Let's Camel Tours para planear tu excursión a Marrakech desde Agadir o Taghazout, y deja que nuestra familia te muestre el Marruecos que conocemos y amamos." data-de="Manche Städte besucht man; Marrakesch fühlt man. Sie bleibt in einem, der Trommelschlag, der bei Einbruch der Dämmerung über der Jemaa el-Fnaa aufsteigt, der Schimmer einer Kupferlampe in einer dunklen Souk-Gasse, der Geschmack von süßem Minztee nach einem Vormittag des Umherschlenderns. Für uns ist es nicht nur ein Beruf, dieses Gefühl zu teilen, sondern eine Familientradition, aufgebaut auf den Jahrzehnten, die mein Vater damit verbracht hat, Reisenden die Wege und Geschichten dieser Region zu zeigen. Wenn die Rote Stadt nach Ihnen ruft, lassen Sie uns gemeinsam antworten, kontaktieren Sie Let's Camel Tours noch heute, um Ihren Marrakesch-Tagesausflug ab Agadir oder Taghazout zu planen, und lassen Sie unsere Familie Ihnen das Marokko zeigen, das wir kennen und lieben.">Some cities you visit; Marrakech you feel. It stays with you, the drumbeats rising over Jemaa el-Fnaa at dusk, the flash of a copper lamp in a dark souk alley, the taste of sweet mint tea after a morning of wandering. For us, sharing that feeling is not just a job but a family tradition, built on decades my father has spent showing travelers the roads and stories of this region. If the Red City is calling you, let us answer together, contact Let's Camel Tours today to plan your Marrakech day trip from Agadir or Taghazout, and let our family show you the Morocco we know and love.</span></p>
+
+  <h2><span data-en="Related Articles" data-fr="Articles Similaires" data-es="Artículos Relacionados" data-de="Ähnliche Artikel">Related Articles</span></h2>
+  <ul class="related-links">
+    <li><a href="blog-1.html"><span data-en="Merzouga Desert Tour: Your Complete Guide to an Unforgettable Sahara Adventure" data-fr="Circuit Désert Merzouga : Votre Guide Complet pour une Aventure Saharienne Inoubliable" data-es="Tour al Desierto de Merzouga: Tu Guía Completa para una Aventura Inolvidable en el Sahara" data-de="Merzouga-Wüstentour: Ihr Kompletter Guide für ein Unvergessliches Sahara-Abenteuer">Merzouga Desert Tour: Your Complete Guide to an Unforgettable Sahara Adventure</span></a></li>
+    <li><a href="blog-3.html"><span data-en="Things to Do in Taghazout: Surfing, Camel Rides & Quad Tours" data-fr="Que Faire à Taghazout : Surf, Balades à Chameau et Quad" data-es="Qué Hacer en Taghazout: Surf, Paseos en Camello y Quads" data-de="Was man in Taghazout Unternehmen Kann: Surfen, Kamelritte & Quad-Touren">Things to Do in Taghazout: Surfing, Camel Rides & Quad Tours</span></a></li>
+    <li><a href="excursion-2.html"><span data-en="Book This Marrakech Day Trip" data-fr="Réserver cette Excursion à Marrakech" data-es="Reservar esta Excursión a Marrakech" data-de="Diesen Marrakesch-Ausflug Buchen">Book This Marrakech Day Trip</span></a></li>
+  </ul>
+
   <div class="article-cta">
     <p><span data-en="Ready to plan your own Morocco trip?" data-fr="Prêt à planifier votre voyage au Maroc ?" data-es="¿Listo para planear tu viaje a Marruecos?" data-de="Bereit, Ihre eigene Marokko-Reise zu planen?">Ready to plan your own Morocco trip?</span></p>
-    <a href="index.html#contact" class="btn-gold"><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></a>
+    <a href="contact.html" class="btn-gold"><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></a>
   </div>
 </div>
 
@@ -227,18 +445,69 @@
 </a>
 
 <footer class="footer">
-  <div class="footer-inner">
-    <span><span data-en="© 2026 Let's Camel Tours. All Rights Reserved." data-fr="© 2026 Let's Camel Tours. Tous droits réservés." data-es="© 2026 Let's Camel Tours. Todos los derechos reservados." data-de="© 2026 Let's Camel Tours. Alle Rechte vorbehalten.">© 2026 Let's Camel Tours. All Rights Reserved.</span></span>
-    <span><a href="index.html"><span data-en="Back to Home" data-fr="Retour à l'Accueil" data-es="Volver al Inicio" data-de="Zurück zur Startseite">Back to Home</span></a> · info.letscameltours@gmail.com</span>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-col-brand">
+        <div class="footer-logo"><img src="logo.png" alt="Let's Camel Tours"></div>
+        <p><span data-en="A family-run travel agency between the dunes of Merzouga and the waves of Taghazout, guiding travelers through real Morocco since day one." data-fr="Une agence de voyage familiale entre les dunes de Merzouga et les vagues de Taghazout, guidant les voyageurs à travers le vrai Maroc depuis le premier jour." data-es="Una agencia de viajes familiar entre las dunas de Merzouga y las olas de Taghazout, guiando a los viajeros por el verdadero Marruecos desde el primer día." data-de="Eine familiengeführte Reiseagentur zwischen den Dünen Merzougas und den Wellen Taghazouts, die Reisende von Anfang an durch das echte Marokko führt.">A family-run travel agency between the dunes of Merzouga and the waves of Taghazout, guiding travelers through real Morocco since day one.</span></p>
+        <div class="footer-lang-row">
+          <button type="button" class="footer-lang-btn" data-lang="en"><img src="https://flagcdn.com/20x15/gb.png" alt="EN" width="20" height="15"> EN</button>
+          <button type="button" class="footer-lang-btn" data-lang="fr"><img src="https://flagcdn.com/20x15/fr.png" alt="FR" width="20" height="15"> FR</button>
+          <button type="button" class="footer-lang-btn" data-lang="es"><img src="https://flagcdn.com/20x15/es.png" alt="ES" width="20" height="15"> ES</button>
+          <button type="button" class="footer-lang-btn" data-lang="de"><img src="https://flagcdn.com/20x15/de.png" alt="DE" width="20" height="15"> DE</button>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4><span data-en="What We Offer" data-fr="Nos Services" data-es="Lo Que Ofrecemos" data-de="Was Wir Bieten">What We Offer</span></h4>
+        <ul>
+          <li><a href="tours.html"><span data-en="Morocco Tours" data-fr="Circuits Maroc" data-es="Tours Marruecos" data-de="Marokko Touren">Morocco Tours</span></a></li>
+          <li><a href="excursions.html"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></a></li>
+          <li><a href="activities.html"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span></a></li>
+          <li><a href="index.html#transfers"><span data-en="Transfers" data-fr="Transferts" data-es="Traslados" data-de="Transfers">Transfers</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4><span data-en="Help & Info" data-fr="Aide & Infos" data-es="Ayuda e Información" data-de="Hilfe & Infos">Help & Info</span></h4>
+        <ul>
+          <li><a href="about-us.html"><span data-en="About Us" data-fr="À Propos" data-es="Sobre Nosotros" data-de="Über Uns">About Us</span></a></li>
+          <li><a href="index.html#blog"><span data-en="Blogs" data-fr="Blogs" data-es="Blogs" data-de="Blogs">Blogs</span></a></li>
+          <li><a href="index.html#faq"><span data-en="FAQ's" data-fr="FAQ" data-es="Preguntas Frecuentes" data-de="FAQ">FAQ's</span></a></li>
+          <li><a href="#"><span data-en="Terms & Conditions" data-fr="Conditions Générales" data-es="Términos y Condiciones" data-de="AGB">Terms & Conditions</span></a></li>
+          <li><a href="#"><span data-en="Privacy Policy" data-fr="Politique de Confidentialité" data-es="Política de Privacidad" data-de="Datenschutz">Privacy Policy</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></h4>
+        <ul>
+          <li><a href="tel:+212600000000">+212 6 00 00 00 00</a></li>
+          <li><a href="mailto:info.letscameltours@gmail.com">info.letscameltours@gmail.com</a></li>
+          <li><a href="https://wa.me/212600000000" target="_blank"><span data-en="WhatsApp Us" data-fr="WhatsApp" data-es="WhatsApp" data-de="WhatsApp">WhatsApp Us</span></a></li>
+        </ul>
+        <div class="socials">
+          <a href="#" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
+          </a>
+          <a href="#" target="_blank" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 3h-2a5 5 0 00-5 5v2H6v4h2v7h4v-7h3l1-4h-4V8a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="#" target="_blank" aria-label="TripAdvisor">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="13" r="3.2"/><circle cx="16" cy="13" r="3.2"/><path d="M8 13a4 4 0 014-4 4 4 0 014 4M2 8h6M16 8h6M12 5c-2.5 0-4.5 1.3-5.5 3M12 5c2.5 0 4.5 1.3 5.5 3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span data-en="© 2026 Let's Camel Tours. All Rights Reserved." data-fr="© 2026 Let's Camel Tours. Tous droits réservés." data-es="© 2026 Let's Camel Tours. Todos los derechos reservados." data-de="© 2026 Let's Camel Tours. Alle Rechte vorbehalten.">© 2026 Let's Camel Tours. All Rights Reserved.</span>
+      <span data-en="Based in Morocco" data-fr="Basé au Maroc" data-es="Con base en Marruecos" data-de="Ansässig in Marokko">Based in Morocco</span>
+    </div>
   </div>
 </footer>
 
 <script>
-
-
   window.addEventListener('scroll', function() {
     var navbar = document.querySelector('.navbar');
-    if (window.scrollY > 60) { navbar.classList.add('scrolled'); } else { navbar.classList.remove('scrolled'); }
+    if (window.scrollY > 80) { navbar.classList.add('scrolled'); } else { navbar.classList.remove('scrolled'); }
   });
 
   var burgerToggle = document.getElementById('burger-toggle');
@@ -255,6 +524,7 @@
   var currentLang = 'en';
   function applyLang(lang) {
     document.querySelectorAll('[data-en]').forEach(function(el) { el.textContent = el.dataset[lang]; });
+    document.querySelectorAll('[data-en-alt]').forEach(function(el) { el.setAttribute('alt', el.dataset[lang + 'Alt']); });
     document.getElementById('lang-label').textContent = lang.toUpperCase();
     document.documentElement.lang = lang;
     document.querySelectorAll('.lang-option').forEach(function(btn) { btn.classList.toggle('active', btn.dataset.lang === lang); });
@@ -271,6 +541,10 @@
   document.addEventListener('click', function() { langMenu.classList.remove('open'); });
   document.querySelectorAll('.lang-option').forEach(function(btn) {
     btn.addEventListener('click', function() { applyLang(btn.dataset.lang); langMenu.classList.remove('open'); });
+  });
+
+  document.querySelectorAll('.footer-lang-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() { applyLang(btn.dataset.lang); });
   });
 </script>
 

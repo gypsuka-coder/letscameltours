@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Merzouga Desert Tour Guide 2026 | Sahara Camel Trek & Erg Chebbi Dunes</title>
-<meta name="description" content="Planning a Merzouga desert tour? A complete guide to camel treks, Erg Chebbi dunes, desert camps, and the best route from Marrakech.">
+<title>Merzouga Desert Tour: Your Complete Guide to an Unforgettable Sahara Adventure | Let's Camel Tours</title>
+<meta name="description" content="Planning a Sahara desert tour to Merzouga? Our complete guide covers Erg Chebbi's dunes, camel treks, desert camps, best time to visit, and the route from Marrakech to Merzouga.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -22,11 +22,10 @@
   .navbar {
     position: fixed;
     top: 0; left: 0; width: 100%;
-    z-index: 200;
+    z-index: 260;
     background: transparent;
     backdrop-filter: none;
     box-shadow: none;
-    padding: 16px 0;
     transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
   }
   .navbar.scrolled {
@@ -34,25 +33,112 @@
     backdrop-filter: blur(6px);
     box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   }
-  .navbar.scrolled .nav-links a { color: var(--navy); }
-  .navbar.scrolled .lang-toggle { color: var(--navy); border-color: var(--line); }
-  .navbar.scrolled .burger { color: var(--navy); }
-  .nav-container { max-width: 1300px; margin: 0 auto; padding: 0 30px; display: flex; align-items: center; justify-content: space-between; }
-  .logo img { height: 42px; }
-  .nav-links { display: flex; align-items: center; gap: 22px; }
-  .nav-links a { color: #F8FAFC; font-size: 14px; font-weight: 500; }
-  .nav-links a:hover { color: var(--gold); }
-  .nav-right { display: flex; align-items: center; gap: 14px; position: relative; }
-  .lang-toggle { display: flex; align-items: center; gap: 6px; background: none; border: 1px solid rgba(255,255,255,0.4); color: #F8FAFC; padding: 8px 12px; border-radius: 4px; font-size: 13px; font-weight: 600; cursor: pointer; }
+  .nav-container { max-width: 1300px; margin: 0 auto; padding: 16px 30px; display: flex; align-items: center; justify-content: space-between; }
+  .logo img { height: 46px; width: auto; }
+  .nav-menu { display: flex; align-items: center; gap: 30px; }
+  .nav-menu a { color: var(--off-white); font-size: 14.5px; font-weight: 500; transition: color 0.25s ease; position: relative; }
+  .navbar.scrolled .nav-menu a { color: var(--navy); }
+  .nav-menu a:hover { color: var(--gold); }
+  .nav-menu a.active { color: var(--gold); }
+  .nav-menu a.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; background: var(--gold); border-radius: 2px; }
+
+  .nav-dropdown { position: relative; }
+  .nav-dropdown > a { display: flex; align-items: center; gap: 4px; }
+  .nav-dropdown-caret { width: 10px; height: 10px; transition: transform 0.2s ease; }
+  .nav-dropdown:hover .nav-dropdown-caret { transform: rotate(180deg); }
+  .nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding-top: 14px;
+    z-index: 60;
+  }
+  .nav-dropdown-menu-inner {
+    background: var(--white);
+    min-width: 240px;
+    border-radius: 8px;
+    box-shadow: 0 16px 36px rgba(0,0,0,0.18);
+    padding: 8px;
+  }
+  .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+  .nav-dropdown-menu { display: none; }
+  .nav-dropdown-menu a {
+    display: block;
+    padding: 10px 14px;
+    color: var(--navy) !important;
+    font-size: 13.5px;
+    font-weight: 500;
+    border-radius: 5px;
+  }
+  .nav-dropdown-menu a:hover { background: var(--off-white); color: var(--gold) !important; }
+
+  .nav-right { display: flex; align-items: center; gap: 18px; position: relative; }
+
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--gold);
+    color: var(--white);
+    border: none;
+    padding: 8px 14px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .lang-toggle:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 22px rgba(224,122,62,0.35); }
   .lang-toggle svg { width: 15px; height: 15px; }
-  .lang-menu { position: absolute; top: calc(100% + 8px); right: 0; background: var(--white); border-radius: 6px; box-shadow: 0 12px 30px rgba(0,0,0,0.15); padding: 6px; display: none; min-width: 140px; z-index: 50; }
+
+  .lang-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: var(--white);
+    border-radius: 6px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    padding: 6px;
+    display: none;
+    min-width: 140px;
+  }
   .lang-menu.open { display: block; }
-  .lang-option { display: block; width: 100%; text-align: left; background: none; border: none; padding: 9px 12px; font-size: 13.5px; font-weight: 500; color: var(--navy); border-radius: 4px; cursor: pointer; }
+  .lang-option {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 9px 12px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--navy);
+    border-radius: 4px;
+    cursor: pointer;
+  }
   .lang-option:hover { background: var(--off-white); }
   .lang-option.active { color: var(--gold); font-weight: 700; }
-  .btn-book { background: var(--gold); color: var(--white); padding: 10px 22px; border-radius: 4px; font-size: 14px; font-weight: 700; }
-  .btn-book:hover { background: var(--gold-light); }
-  @media (max-width: 800px) { .nav-links { display: none; } .burger { display: block; } .nav-right .btn-book { display: none; } }
+
+  .btn-book {
+    background: var(--gold);
+    color: var(--white);
+    padding: 11px 24px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .btn-book:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 22px rgba(224,122,62,0.35); }
+
+  .burger { display: none; background: none; border: none; color: var(--off-white); cursor: pointer; padding: 4px; }
+  .burger svg { width: 24px; height: 24px; }
+  .navbar.scrolled .burger { color: var(--navy); }
+
+  @media (max-width: 768px) {
+    .nav-menu { display: none; }
+    .nav-right .btn-book { display: none; }
+    .burger { display: block; }
+  }
 
   .hero {
     position: relative; height: 40vh; min-height: 280px;
@@ -65,44 +151,47 @@
   .hero h1 { font-size: clamp(24px, 3.6vw, 36px); font-weight: 800; margin-bottom: 8px; }
   .hero .meta { font-size: 13.5px; color: #e8e8e8; }
 
-  .article { padding: 60px 0 90px; }
+  /* Horizontal padding restated here: this element is `class="container article"`, and a
+     `padding: 60px 0 90px` shorthand would silently zero out .container's `0 30px` side padding. */
+  .article { padding: 60px 30px 90px; }
   .article p { color: var(--text-gray); font-size: 15.5px; margin-bottom: 18px; }
   .article h2 { font-size: 20px; font-weight: 700; color: var(--navy); margin: 34px 0 14px; }
+  .article h3 { font-size: 16.5px; font-weight: 700; color: var(--navy); margin: 24px 0 10px; }
   .article ul { margin: 0 0 18px 20px; }
   .article li { color: var(--text-gray); font-size: 15px; margin-bottom: 8px; }
 
+  /* In-article photos — same radius/spacing language as image treatments elsewhere on the site */
+  .article-img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 10px; margin: 28px 0; display: block; background: var(--off-white); }
+
+  .pro-tip { background: rgba(224,122,62,0.08); border-left: 3px solid var(--gold); border-radius: 6px; padding: 16px 18px; margin: 22px 0; }
+  .pro-tip p { margin: 0; color: var(--navy); font-size: 14.5px; }
+  .pro-tip p strong { color: var(--gold); }
+
+  .compare-table-wrap { overflow-x: auto; margin: 22px 0; border: 1px solid var(--line); border-radius: 8px; }
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 560px; }
+  .compare-table th, .compare-table td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--line); }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table th { color: var(--navy); font-weight: 700; background: var(--off-white); font-size: 12px; text-transform: uppercase; letter-spacing: 0.03em; }
+  .compare-table td { color: var(--text-gray); }
+  .compare-table td a { color: var(--navy); font-weight: 700; }
+
+  .faq-block { margin-bottom: 22px; }
+  .faq-block h3 { margin: 0 0 6px; font-size: 15.5px; }
+  .faq-block p { margin-bottom: 0; }
+
+  .related-links { margin: 0 0 18px 20px; }
+  .related-links li { margin-bottom: 8px; }
+  .related-links a { color: var(--navy); font-weight: 700; text-decoration: underline; }
+
   .article-cta { background: var(--off-white); border: 1px solid var(--line); border-radius: 10px; padding: 26px; text-align: center; margin-top: 30px; }
   .article-cta p { margin-bottom: 14px; font-weight: 600; color: var(--navy); }
-  .btn-gold { display: inline-block; background: var(--gold); color: #fff; padding: 13px 28px; border-radius: 4px; font-weight: 700; font-size: 14.5px; }
-  .btn-gold:hover { background: var(--gold-light); }
+  .btn-gold { display: inline-block; background: var(--gold); color: #fff; padding: 13px 28px; border-radius: 50px; font-weight: 700; font-size: 14.5px; transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 22px rgba(224,122,62,0.35); }
 
   .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--navy); font-weight: 600; font-size: 14px; margin-bottom: 26px; }
   .back-link svg { width: 15px; height: 15px; }
 
-  .whatsapp-btn { position: fixed; bottom: 26px; right: 26px; z-index: 300; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
-  .whatsapp-btn svg { width: 30px; height: 30px; fill: #fff; }
-
-  .footer { background: var(--navy-dark); color: #F8FAFC; padding: 34px 0; }
-  .footer-inner { max-width: 1300px; margin: 0 auto; padding: 0 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-size: 13px; color: rgba(248,250,252,0.7); }
-  .footer-inner a { color: var(--gold); }
-
-  .burger {
-    display: none;
-    background: none;
-    border: none;
-    color: #F8FAFC;
-    cursor: pointer;
-    padding: 4px;
-  }
-  .burger svg { width: 24px; height: 24px; }
-
-  .mobile-menu-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.45);
-    z-index: 240;
-  }
+  .mobile-menu-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 240; }
   .mobile-menu-overlay.open { display: block; }
 
   .mobile-menu {
@@ -137,21 +226,83 @@
     cursor: pointer;
   }
   .mobile-menu-close svg { width: 22px; height: 22px; }
+
+  .whatsapp-btn { position: fixed; bottom: 26px; right: 26px; z-index: 300; width: 58px; height: 58px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0,0,0,0.25); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+  .whatsapp-btn:hover { transform: translateY(-3px) scale(1.08); box-shadow: 0 14px 30px rgba(37,211,102,0.45); }
+  .whatsapp-btn svg { width: 30px; height: 30px; fill: #fff; }
+
+  /* Footer — identical structure/styling to the current index.html */
+  .footer { background: var(--off-white); color: var(--text-gray); padding: 60px 0 24px; border-top: 1px solid var(--line); }
+  .footer .container { max-width: 1140px; }
+  .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 36px; margin-bottom: 24px; border-bottom: 1px solid var(--line); }
+  .footer-logo img { height: 40px; margin-bottom: 18px; }
+  .footer-col-brand p { font-size: 13.5px; line-height: 1.7; color: var(--text-gray); max-width: 44ch; margin-bottom: 20px; }
+  .footer-col h4 { color: var(--navy); font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; font-weight: 700; }
+  .footer-col li { margin-bottom: 11px; }
+  .footer-col a { font-size: 14px; color: var(--text-gray); transition: color 0.25s ease; }
+  .footer-col a:hover { color: var(--gold); }
+  .footer-lang-row { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 18px; }
+  .footer-lang-btn { background: none; border: none; padding: 0; cursor: pointer; font-family: 'Poppins', sans-serif; font-size: 14px; color: var(--text-gray); transition: color 0.25s ease; text-align: left; display: flex; align-items: center; gap: 8px; }
+  .footer-lang-btn img { border-radius: 2px; flex-shrink: 0; }
+  .footer-lang-btn:hover, .footer-lang-btn.active { color: var(--gold); font-weight: 600; }
+  .socials { display: flex; gap: 12px; margin-top: 28px; }
+  .socials a { width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--navy); transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
+  .socials a:hover { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+  .socials svg { width: 18px; height: 18px; flex-shrink: 0; }
+  .footer-bottom { padding-top: 6px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-size: 12.5px; color: var(--text-gray); }
+  @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 700px) { .footer-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 
 <header class="navbar">
   <div class="nav-container">
-    <a href="index.html" class="logo"><img src="logo.png" alt="Let's Camel Tours"></a>
-    <div class="nav-links">
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="Let's Camel Tours">
+    </a>
+    <nav class="nav-menu">
       <a href="index.html#home"><span data-en="Home" data-fr="Accueil" data-es="Inicio" data-de="Startseite">Home</span></a>
-      <a href="index.html#tours"><span data-en="Tours" data-fr="Circuits" data-es="Tours" data-de="Touren">Tours</span></a>
+      <div class="nav-dropdown">
+        <a href="tours.html"><span data-en="Morocco Tours" data-fr="Circuits Maroc" data-es="Tours Marruecos" data-de="Marokko Touren">Morocco Tours</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="tour-1.html"><span data-en="8-Day Grand Morocco Tour: Sahara & Rif Mountains" data-fr="Circuit de 8 Jours au Maroc : Sahara et Rif" data-es="Tour de 8 Días por Marruecos: Sahara y Rif" data-de="8-Tägige Marokko-Tour: Sahara & Rif-Gebirge">8-Day Grand Morocco Tour: Sahara & Rif Mountains</span></a>
+            <a href="tour-2.html"><span data-en="5-Day Marrakech to Merzouga Desert Tour" data-fr="Circuit de 5 Jours : Marrakech à Merzouga" data-es="Tour de 5 Días: Marrakech a Merzouga" data-de="5-Tägige Tour: Marrakesch bis Merzouga">5-Day Marrakech to Merzouga Desert Tour</span></a>
+            <a href="tour-3.html"><span data-en="12-Day Morocco Tour: Casablanca to Marrakech & Sahara" data-fr="Circuit de 12 Jours : Casablanca à Marrakech et Sahara" data-es="Tour de 12 Días: Casablanca a Marrakech y Sahara" data-de="12-Tägige Marokko-Tour: Casablanca bis Marrakesch & Sahara">12-Day Morocco Tour: Casablanca to Marrakech & Sahara</span></a>
+            <a href="tour-4.html"><span data-en="9-Day Morocco Adventure: Marrakech, Sahara & Atlantic" data-fr="Aventure de 9 Jours : Marrakech, Sahara et Atlantique" data-es="Aventura de 9 Días: Marrakech, Sahara y Atlántico" data-de="9-Tägiges Marokko-Abenteuer: Marrakesch, Sahara & Atlantik">9-Day Morocco Adventure: Marrakech, Sahara & Atlantic</span></a>
+            <a href="tours.html" style="color:var(--gold) !important;font-weight:700;"><span data-en="View All Tours →" data-fr="Voir Tous les Circuits →" data-es="Ver Todos los Tours →" data-de="Alle Touren Ansehen →">View All Tours →</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="excursions.html"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="excursion-1.html"><span data-en="Day Trip to Essaouira" data-fr="Excursion à Essaouira" data-es="Excursión a Essaouira" data-de="Tagesausflug nach Essaouira">Day Trip to Essaouira</span></a>
+            <a href="excursion-2.html"><span data-en="Day Trip to Marrakech" data-fr="Excursion à Marrakech" data-es="Excursión a Marrakech" data-de="Tagesausflug nach Marrakesch">Day Trip to Marrakech</span></a>
+            <a href="excursion-3.html"><span data-en="Paradise Valley" data-fr="Paradise Valley" data-es="Paradise Valley" data-de="Paradise Valley">Paradise Valley</span></a>
+            <a href="excursions.html" style="color:var(--gold) !important;font-weight:700;"><span data-en="View All Excursions →" data-fr="Voir Toutes les Excursions →" data-es="Ver Todas las Excursiones →" data-de="Alle Ausflüge Ansehen →">View All Excursions →</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="activities.html"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="activity-1.html"><span data-en="Beach Horse Riding" data-fr="Équitation sur la Plage" data-es="Paseo a Caballo en la Playa" data-de="Strandreiten">Beach Horse Riding</span></a>
+            <a href="activity-2.html"><span data-en="Quad Biking" data-fr="Quad" data-es="Quad" data-de="Quad-Fahren">Quad Biking</span></a>
+            <a href="activity-3.html"><span data-en="Private Surf Lesson" data-fr="Cours de Surf Privé" data-es="Clase de Surf Privada" data-de="Privater Surfkurs">Private Surf Lesson</span></a>
+            <a href="activities.html" style="color:var(--gold) !important;font-weight:700;"><span data-en="View All Activities →" data-fr="Voir Toutes les Activités →" data-es="Ver Todas las Actividades →" data-de="Alle Aktivitäten Ansehen →">View All Activities →</span></a>
+          </div>
+        </div>
+      </div>
+      <a href="index.html#transfers"><span data-en="Transfers" data-fr="Transferts" data-es="Traslados" data-de="Transfers">Transfers</span></a>
       <a href="index.html#services"><span data-en="Services" data-fr="Services" data-es="Servicios" data-de="Leistungen">Services</span></a>
       <a href="about-us.html"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
-      <a href="index.html#blog"><span data-en="Blog" data-fr="Blog" data-es="Blog" data-de="Blog">Blog</span></a>
-      <a href="index.html#contact"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
-    </div>
+      <a href="index.html#blog" class="active"><span data-en="Blogs" data-fr="Blogs" data-es="Blogs" data-de="Blogs">Blogs</span></a>
+      <a href="contact.html"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
+    </nav>
     <div class="nav-right">
       <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9z"/></svg>
@@ -163,11 +314,10 @@
         <button class="lang-option" data-lang="es">Español</button>
         <button class="lang-option" data-lang="de">Deutsch</button>
       </div>
-      <a href="index.html#contact" class="btn-book"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+      <a href="contact.html" class="btn-book"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
       <button class="burger" id="burger-toggle" aria-label="Menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
-    
     </div>
   </div>
 </header>
@@ -178,45 +328,166 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
   </button>
   <a href="index.html#home"><span data-en="Home" data-fr="Accueil" data-es="Inicio" data-de="Startseite">Home</span></a>
-      <a href="index.html#tours"><span data-en="Tours" data-fr="Circuits" data-es="Tours" data-de="Touren">Tours</span></a>
-      <a href="index.html#services"><span data-en="Services" data-fr="Services" data-es="Servicios" data-de="Leistungen">Services</span></a>
-      <a href="about-us.html"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
-      <a href="index.html#blog"><span data-en="Blog" data-fr="Blog" data-es="Blog" data-de="Blog">Blog</span></a>
-      <a href="index.html#contact"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
-  <a href="index.html#contact" class="btn-book" style="display:block;text-align:center;margin-top:16px;"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
+  <a href="index.html#tours"><span data-en="Morocco Tours" data-fr="Circuits Maroc" data-es="Tours Marruecos" data-de="Marokko Touren">Morocco Tours</span></a>
+  <a href="index.html#excursions"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></a>
+  <a href="index.html#activities"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span></a>
+  <a href="index.html#transfers"><span data-en="Transfers" data-fr="Transferts" data-es="Traslados" data-de="Transfers">Transfers</span></a>
+  <a href="index.html#services"><span data-en="Services" data-fr="Services" data-es="Servicios" data-de="Leistungen">Services</span></a>
+  <a href="about-us.html"><span data-en="About" data-fr="À propos" data-es="Nosotros" data-de="Über Uns">About</span></a>
+  <a href="index.html#blog" class="active"><span data-en="Blogs" data-fr="Blogs" data-es="Blogs" data-de="Blogs">Blogs</span></a>
+  <a href="contact.html"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
+  <a href="contact.html" class="btn-book" style="display:block;text-align:center;margin-top:16px;"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
 </div>
 
 
 <section class="hero">
   <div class="hero-inner">
     <span class="hero-tag">Desert Travel</span>
-    <h1>Merzouga Desert Tour: The Complete Guide to Morocco's Sahara</h1>
-    <p class="meta">August 2026</p>
+    <h1>Merzouga Desert Tour: Your Complete Guide to an Unforgettable Sahara Adventure</h1>
+    <p class="meta"><span data-en="August 2026 · 8 min read" data-fr="Août 2026 · 8 min de lecture" data-es="Agosto 2026 · 8 min de lectura" data-de="August 2026 · 8 Min. Lesezeit">August 2026 · 8 min read</span></p>
   </div>
 </section>
 
 <div class="container article">
   <a href="index.html#blog" class="back-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg> <span data-en="Back to Blog" data-fr="Retour au Blog" data-es="Volver al Blog" data-de="Zurück zum Blog">Back to Blog</span></a>
 
-  <p>If you're planning a trip to Morocco, chances are the Sahara is on your list, and Merzouga is where most travelers experience it. Here's what you need to know before booking a Merzouga desert tour.</p>
+  <p><span data-en="We've been guiding travelers into the Erg Chebbi dunes for years, and there's a moment that gets every single one of them: the instant the engine of the 4x4 falls silent, the dust settles, and the Sahara stretches out in front of you like nothing else on earth. Merzouga isn't just a stop on a Morocco itinerary; for many of our guests it becomes the moment they remember the whole trip by. In this guide, we're sharing everything we've learned from running Merzouga desert tours firsthand, so you can plan a trip that actually matches the dream you had in your head when you first searched for a Sahara desert tour." data-fr="Nous guidons des voyageurs dans les dunes de l'Erg Chebbi depuis des années, et il y a toujours ce moment qui marque chacun d'entre eux : celui où le moteur du 4x4 s'éteint, la poussière retombe, et le Sahara s'étend devant vous comme nulle part ailleurs sur terre. Merzouga n'est pas qu'une étape sur un itinéraire marocain ; pour beaucoup de nos voyageurs, c'est le moment dont ils se souviennent le plus de tout le séjour. Dans ce guide, nous partageons tout ce que nous avons appris en organisant des tours du désert à Merzouga, pour que vous puissiez planifier un voyage à la hauteur du rêve que vous aviez en tapant « tour du désert du Sahara »." data-es="Llevamos años guiando a viajeros hacia las dunas de Erg Chebbi, y hay un momento que atrapa a todos por igual: el instante en que el motor del 4x4 se apaga, el polvo se asienta, y el Sahara se extiende ante ti como ningún otro lugar en la tierra. Merzouga no es solo una parada en un itinerario por Marruecos; para muchos de nuestros viajeros, se convierte en el momento que define todo el viaje. En esta guía compartimos todo lo que hemos aprendido organizando tours al desierto de Merzouga, para que puedas planear un viaje que realmente esté a la altura de lo que imaginaste al buscar un tour al desierto del Sahara." data-de="Wir führen seit Jahren Reisende in die Dünen von Erg Chebbi, und es gibt diesen einen Moment, der jeden Einzelnen von ihnen packt: wenn der Motor des Geländewagens verstummt, der Staub sich legt und sich die Sahara vor einem ausbreitet wie nirgendwo sonst auf der Welt. Merzouga ist nicht einfach nur eine Station auf einer Marokko-Reise; für viele unserer Gäste wird es zu dem Moment, an den sie sich an die ganze Reise erinnern. In diesem Guide teilen wir alles, was wir beim Durchführen von Wüstentouren in Merzouga gelernt haben, damit Sie eine Reise planen können, die wirklich dem Traum entspricht, den Sie bei der Suche nach einer Sahara-Wüstentour im Kopf hatten.">We've been guiding travelers into the Erg Chebbi dunes for years, and there's a moment that gets every single one of them: the instant the engine of the 4x4 falls silent, the dust settles, and the Sahara stretches out in front of you like nothing else on earth. Merzouga isn't just a stop on a Morocco itinerary; for many of our guests it becomes the moment they remember the whole trip by. In this guide, we're sharing everything we've learned from running Merzouga desert tours firsthand, so you can plan a trip that actually matches the dream you had in your head when you first searched for a Sahara desert tour.</span></p>
 
-  <h2>Where Is Merzouga, and Why Go There?</h2>
-  <p>Merzouga is a small town in southeastern Morocco, sitting right at the edge of the Erg Chebbi dunes, some of the tallest and most photogenic sand dunes in the country, reaching up to 150 meters. It's the most popular gateway to the Sahara for travelers coming from Marrakech or Fes.</p>
+  <h2><span data-en="What Makes the Merzouga Desert Special?" data-fr="Qu'est-ce qui Rend le Désert de Merzouga si Spécial ?" data-es="¿Qué Hace que el Desierto de Merzouga Sea Tan Especial?" data-de="Was Macht die Wüste von Merzouga so Besonders?">What Makes the Merzouga Desert Special?</span></h2>
 
-  <h2>Getting to Merzouga from Marrakech</h2>
-  <p>Most Merzouga desert tours from Marrakech take 2 to 3 days, crossing the High Atlas Mountains via the Tizi n'Tichka pass, stopping at the UNESCO-listed kasbah of Aït Ben Haddou, and often continuing through the Dades or Todra Gorges before reaching the dunes. It's a long drive, around 9 hours in total, which is why most tours break the journey into stages rather than doing it in one go.</p>
+  <h3><span data-en="The Dunes of Erg Chebbi" data-fr="Les Dunes de l'Erg Chebbi" data-es="Las Dunas de Erg Chebbi" data-de="Die Dünen von Erg Chebbi">The Dunes of Erg Chebbi</span></h3>
+  <p><span data-en="Erg Chebbi is what most people picture when they imagine the Sahara: dunes that climb up to 150 meters, their ridgelines shifting color from pale gold to deep amber as the sun moves across the sky. Walking barefoot up a dune here, feeling the sand cool underfoot in the early morning and almost too hot to touch by midday, is part of what makes the experience so physical and memorable. We always tell first-time visitors that photos genuinely don't do it justice, the scale only really hits you once you're standing at the top looking out over ridge after ridge of sand." data-fr="L'Erg Chebbi, c'est l'image que la plupart des gens ont en tête quand ils pensent au Sahara : des dunes qui montent jusqu'à 150 mètres, leurs crêtes changeant de couleur, du doré pâle à l'ambre profond, au fil de la course du soleil. Marcher pieds nus sur une dune ici, sentir le sable frais sous les pieds tôt le matin puis presque brûlant à midi, fait partie de ce qui rend l'expérience si physique et mémorable. Nous disons toujours à ceux qui viennent pour la première fois que les photos ne rendent vraiment pas justice au lieu, l'échelle ne se ressent vraiment qu'une fois au sommet, face à une succession de crêtes de sable à perte de vue." data-es="Erg Chebbi es la imagen que la mayoría tiene en mente al pensar en el Sahara: dunas que se elevan hasta 150 metros, con crestas que cambian de color, de dorado pálido a ámbar intenso, según el movimiento del sol. Caminar descalzo por una duna aquí, sintiendo la arena fresca bajo los pies por la mañana y casi ardiendo al mediodía, es parte de lo que hace la experiencia tan física y memorable. Siempre les decimos a quienes vienen por primera vez que las fotos realmente no le hacen justicia, la escala solo se siente de verdad al llegar arriba y ver crestas de arena una tras otra hasta donde alcanza la vista." data-de="Erg Chebbi ist das Bild, das die meisten Menschen vor Augen haben, wenn sie an die Sahara denken: Dünen, die bis zu 150 Meter aufragen, deren Kämme sich im Lauf der Sonne von blassem Gold zu tiefem Bernstein verfärben. Barfuß eine Düne hinaufzugehen, morgens den kühlen Sand unter den Füßen zu spüren und mittags fast zu heißen, ist Teil dessen, was das Erlebnis so körperlich und unvergesslich macht. Wir sagen Erstbesuchern immer, dass Fotos dem wirklich nicht gerecht werden, das Ausmaß spürt man erst richtig, wenn man oben steht und auf Sandkamm um Sandkamm blickt.">Erg Chebbi is what most people picture when they imagine the Sahara: dunes that climb up to 150 meters, their ridgelines shifting color from pale gold to deep amber as the sun moves across the sky. Walking barefoot up a dune here, feeling the sand cool underfoot in the early morning and almost too hot to touch by midday, is part of what makes the experience so physical and memorable. We always tell first-time visitors that photos genuinely don't do it justice, the scale only really hits you once you're standing at the top looking out over ridge after ridge of sand.</span></p>
 
-  <h2>What to Expect on a Camel Trek</h2>
-  <p>The classic Merzouga experience is a sunset camel trek into Erg Chebbi, usually lasting 45 minutes to an hour. You'll ride out as the light turns gold, then spend the night at a desert camp before waking up early for sunrise over the dunes.</p>
+  <h3><span data-en="Life in a Berber Desert Camp" data-fr="La Vie dans un Camp Berbère" data-es="La Vida en un Campamento Bereber" data-de="Das Leben in einem Berber-Wüstencamp">Life in a Berber Desert Camp</span></h3>
+  <p><span data-en="Spending a night in a desert camp is where the trip stops being a sightseeing stop and starts being an experience. Our camps are run by Berber families who have lived alongside these dunes for generations, and dinner is usually served under a canopy of stars, tagine simmered slowly, mint tea poured from a height the way it's meant to be, and drums coming out once the plates are cleared. It's a completely different rhythm from anywhere else on a Morocco trip, and most guests tell us afterward that the night in camp was the highlight of the whole journey." data-fr="Passer une nuit dans un camp du désert, c'est le moment où le voyage cesse d'être une simple visite et devient une vraie expérience. Nos camps sont tenus par des familles berbères qui vivent aux côtés de ces dunes depuis des générations, et le dîner est généralement servi sous un ciel étoilé, un tajine mijoté lentement, du thé à la menthe versé de haut comme il se doit, et les tambours qui sortent une fois les assiettes débarrassées. C'est un rythme complètement différent du reste du voyage au Maroc, et la plupart de nos voyageurs nous disent ensuite que cette nuit en camp a été le point fort de tout leur séjour." data-es="Pasar una noche en un campamento del desierto es cuando el viaje deja de ser una simple visita turística y se convierte en una experiencia real. Nuestros campamentos están dirigidos por familias bereberes que llevan generaciones viviendo junto a estas dunas, y la cena suele servirse bajo un manto de estrellas, tajín cocinado a fuego lento, té de menta servido desde lo alto como debe ser, y tambores que aparecen en cuanto se retiran los platos. Es un ritmo completamente distinto al resto de un viaje por Marruecos, y la mayoría de nuestros viajeros nos cuentan después que esa noche en el campamento fue lo más destacado de todo el viaje." data-de="Eine Nacht in einem Wüstencamp zu verbringen ist der Moment, in dem die Reise aufhört, eine bloße Besichtigung zu sein, und zu einem echten Erlebnis wird. Unsere Camps werden von Berberfamilien geführt, die seit Generationen neben diesen Dünen leben, und das Abendessen wird meist unter einem Sternenhimmel serviert, langsam geschmorter Tajine, Minztee, der aus der Höhe eingeschenkt wird, wie es sich gehört, und Trommeln, die zum Vorschein kommen, sobald die Teller abgeräumt sind. Das ist ein völlig anderer Rhythmus als der Rest einer Marokko-Reise, und die meisten unserer Gäste erzählen uns hinterher, dass die Nacht im Camp der Höhepunkt der ganzen Reise war.">Spending a night in a desert camp is where the trip stops being a sightseeing stop and starts being an experience. Our camps are run by Berber families who have lived alongside these dunes for generations, and dinner is usually served under a canopy of stars, tagine simmered slowly, mint tea poured from a height the way it's meant to be, and drums coming out once the plates are cleared. It's a completely different rhythm from anywhere else on a Morocco trip, and most guests tell us afterward that the night in camp was the highlight of the whole journey.</span></p>
 
-  <h2>Choosing a Desert Camp</h2>
-  <p>Camps in Merzouga range from simple shared tents to private luxury setups with real beds and en-suite bathrooms. If privacy and comfort matter to you, ask specifically whether your camp is private or shared before booking, this varies a lot between operators.</p>
+  <h3><span data-en="Sunrise and Sunset Over the Dunes" data-fr="Lever et Coucher de Soleil sur les Dunes" data-es="Amanecer y Atardecer sobre las Dunas" data-de="Sonnenauf- und -untergang über den Dünen">Sunrise and Sunset Over the Dunes</span></h3>
+  <p><span data-en="The light in Merzouga does something we still haven't gotten used to, even after years of watching it. At sunset, the dunes turn a deep orange-red that seems to glow from within; at sunrise, the same landscape is soft and pink, the shadows long and sharp before the heat of the day settles in. We build our camel treks around these two windows on purpose, because the desert simply looks like a different place under the midday sun." data-fr="La lumière à Merzouga fait quelque chose à laquelle nous ne nous sommes toujours pas habitués, même après des années à l'observer. Au coucher du soleil, les dunes prennent une teinte orange profond, presque rougeoyante de l'intérieur ; au lever du jour, le même paysage devient doux et rose, les ombres longues et nettes avant que la chaleur de la journée ne s'installe. Nous organisons nos treks à dos de chameau autour de ces deux moments précis, car le désert a tout simplement l'air d'un endroit différent sous le soleil de midi." data-es="La luz en Merzouga hace algo a lo que todavía no nos acostumbramos, incluso después de años observándola. Al atardecer, las dunas adquieren un tono naranja intenso que parece brillar desde dentro; al amanecer, el mismo paisaje se vuelve suave y rosado, con sombras largas y definidas antes de que llegue el calor del día. Organizamos nuestros paseos en camello a propósito alrededor de estos dos momentos, porque el desierto simplemente parece un lugar distinto bajo el sol del mediodía." data-de="Das Licht in Merzouga macht etwas, an das wir uns auch nach Jahren des Beobachtens noch nicht gewöhnt haben. Bei Sonnenuntergang färben sich die Dünen tief orangerot und scheinen von innen zu leuchten; bei Sonnenaufgang wird dieselbe Landschaft weich und rosa, mit langen, scharfen Schatten, bevor die Tageshitze einsetzt. Wir planen unsere Kameltrekkings bewusst um diese beiden Zeitfenster herum, denn die Wüste wirkt unter der Mittagssonne einfach wie ein anderer Ort.">The light in Merzouga does something we still haven't gotten used to, even after years of watching it. At sunset, the dunes turn a deep orange-red that seems to glow from within; at sunrise, the same landscape is soft and pink, the shadows long and sharp before the heat of the day settles in. We build our camel treks around these two windows on purpose, because the desert simply looks like a different place under the midday sun.</span></p>
 
-  <h2>Best Time for a Sahara Desert Tour</h2>
-  <p>October to April offers the most comfortable temperatures for a Merzouga desert tour, with warm days and cool (sometimes cold) nights. Summer can be extremely hot during the day, though nights remain pleasant.</p>
+  <img class="article-img" src="images/blog/merzouga-erg-chebbi-dunes-sunrise.jpg" alt="The ridgelines of the Erg Chebbi dunes glowing orange at sunrise near Merzouga" data-en-alt="The ridgelines of the Erg Chebbi dunes glowing orange at sunrise near Merzouga" data-fr-alt="Les crêtes des dunes de l'Erg Chebbi teintées d'orange au lever du soleil près de Merzouga" data-es-alt="Las crestas de las dunas de Erg Chebbi teñidas de naranja al amanecer cerca de Merzouga" data-de-alt="Die Kämme der Erg-Chebbi-Dünen leuchten bei Sonnenaufgang nahe Merzouga orange">
 
-  <h2>A Sample Itinerary</h2>
-  <p>Our <a href="tour-1.html">Grand Morocco Tour: North to South</a> includes a full Merzouga desert experience, camel trekking, a night in Erg Chebbi, and the Aït Ben Haddou kasbah along the way, combined with the blue streets of Chefchaouen and the medina of Fes.</p>
+  <div class="pro-tip"><p><strong><span data-en="Pro Tip:" data-fr="Astuce de pro :" data-es="Consejo de experto:" data-de="Profi-Tipp:">Pro Tip:</span></strong> <span data-en="If you want the dunes mostly to yourself for photos, ask your guide about a short walk to a quieter ridge just beyond the main camp cluster, most tour groups stay close to camp, so even five extra minutes of walking can put you somewhere considerably calmer." data-fr="Si vous voulez avoir les dunes presque pour vous seul pour vos photos, demandez à votre guide de vous emmener faire une courte marche vers une crête plus tranquille, juste au-delà du camp principal. La plupart des groupes restent près du camp, donc même cinq minutes de marche en plus peuvent vous placer dans un endroit nettement plus calme." data-es="Si quieres tener las dunas casi solo para ti para tus fotos, pídele a tu guía un paseo corto hasta una cresta más tranquila, justo más allá del grupo principal de campamentos. La mayoría de los grupos se quedan cerca del campamento, así que incluso cinco minutos más de caminata pueden llevarte a un lugar considerablemente más tranquilo." data-de="Wenn Sie die Dünen für Ihre Fotos fast für sich allein haben möchten, fragen Sie Ihren Guide nach einem kurzen Spaziergang zu einem ruhigeren Kamm etwas abseits der Hauptcamps. Die meisten Gruppen bleiben in Camp-Nähe, daher können schon fünf zusätzliche Gehminuten Sie an einen deutlich ruhigeren Ort bringen.">If you want the dunes mostly to yourself for photos, ask your guide about a short walk to a quieter ridge just beyond the main camp cluster, most tour groups stay close to camp, so even five extra minutes of walking can put you somewhere considerably calmer.</span></p></div>
+
+  <h2><span data-en="Best Time to Visit Merzouga" data-fr="Meilleure Période pour Visiter Merzouga" data-es="Mejor Época para Visitar Merzouga" data-de="Beste Reisezeit für Merzouga">Best Time to Visit Merzouga</span></h2>
+  <p><span data-en="Timing genuinely changes what a Merzouga desert tour feels like. Between June and August, daytime temperatures regularly climb past 40°C (104°F), which makes camel trekking during the day fairly punishing, though the desert nights stay warm and comfortable. From October through April, days are pleasant, generally 20-28°C (68-82°F), while nights can drop close to freezing in December and January, so a proper warm layer for the evening is essential no matter when you go." data-fr="Le moment choisi change vraiment ce que l'on ressent lors d'un tour du désert à Merzouga. Entre juin et août, les températures diurnes dépassent régulièrement 40°C, ce qui rend la randonnée à dos de chameau en journée assez éprouvante, même si les nuits du désert restent chaudes et agréables. D'octobre à avril, les journées sont agréables, généralement entre 20 et 28°C, tandis que les nuits peuvent frôler le gel en décembre et janvier, une bonne couche chaude pour le soir est donc indispensable, quelle que soit la période choisie." data-es="El momento del año realmente cambia cómo se vive un tour al desierto de Merzouga. Entre junio y agosto, las temperaturas diurnas suelen superar los 40°C, lo que hace bastante duro pasear en camello durante el día, aunque las noches del desierto se mantienen cálidas y agradables. De octubre a abril, los días son agradables, generalmente entre 20 y 28°C, mientras que las noches pueden acercarse a cero grados en diciembre y enero, por lo que llevar una capa de abrigo para la noche es imprescindible sin importar cuándo viajes." data-de="Der Zeitpunkt verändert wirklich, wie sich eine Wüstentour in Merzouga anfühlt. Zwischen Juni und August steigen die Tagestemperaturen regelmäßig über 40°C, was Kameltrekking tagsüber ziemlich anstrengend macht, auch wenn die Wüstennächte warm und angenehm bleiben. Von Oktober bis April sind die Tage angenehm, meist zwischen 20 und 28°C, während die Nächte im Dezember und Januar nahe am Gefrierpunkt liegen können, weshalb eine warme Schicht für den Abend unabhängig von der Reisezeit unverzichtbar ist.">Timing genuinely changes what a Merzouga desert tour feels like. Between June and August, daytime temperatures regularly climb past 40°C (104°F), which makes camel trekking during the day fairly punishing, though the desert nights stay warm and comfortable. From October through April, days are pleasant, generally 20-28°C (68-82°F), while nights can drop close to freezing in December and January, so a proper warm layer for the evening is essential no matter when you go.</span></p>
+  <p><span data-en="We personally recommend late September through November, or March through May, when you get warm, clear days without the extreme summer heat, plus cool but not bone-chilling nights around the campfire. Winter has its own appeal too, quieter camps, dramatically clear skies for stargazing, and a crispness to the air that a lot of our returning guests actually prefer." data-fr="Nous recommandons personnellement fin septembre à novembre, ou mars à mai, pour profiter de journées chaudes et claires sans la chaleur extrême de l'été, avec des nuits fraîches mais pas glaciales autour du feu de camp. L'hiver a aussi son propre charme : des camps plus calmes, un ciel remarquablement clair pour observer les étoiles, et une fraîcheur dans l'air que beaucoup de nos voyageurs fidèles préfèrent en réalité." data-es="Personalmente recomendamos de finales de septiembre a noviembre, o de marzo a mayo, para disfrutar de días cálidos y despejados sin el calor extremo del verano, junto con noches frescas pero no gélidas alrededor de la hoguera. El invierno también tiene su propio encanto: campamentos más tranquilos, cielos espectacularmente despejados para observar las estrellas, y un aire fresco que muchos de nuestros viajeros habituales en realidad prefieren." data-de="Wir empfehlen persönlich Ende September bis November oder März bis Mai, wenn Sie warme, klare Tage ohne die extreme Sommerhitze erleben, dazu kühle, aber nicht eisige Nächte am Lagerfeuer. Der Winter hat ebenfalls seinen eigenen Reiz: ruhigere Camps, spektakulär klare Himmel zum Sternebeobachten und eine Frische in der Luft, die viele unserer Stammgäste tatsächlich bevorzugen.">We personally recommend late September through November, or March through May, when you get warm, clear days without the extreme summer heat, plus cool but not bone-chilling nights around the campfire. Winter has its own appeal too, quieter camps, dramatically clear skies for stargazing, and a crispness to the air that a lot of our returning guests actually prefer.</span></p>
+
+  <img class="article-img" src="images/blog/merzouga-berber-desert-camp-night.jpg" alt="Berber desert camp tents lit against the dunes after dark at Erg Chebbi" data-en-alt="Berber desert camp tents lit against the dunes after dark at Erg Chebbi" data-fr-alt="Les tentes d'un camp berbère éclairées devant les dunes de l'Erg Chebbi à la tombée de la nuit" data-es-alt="Las tiendas de un campamento bereber iluminadas frente a las dunas de Erg Chebbi al anochecer" data-de-alt="Beleuchtete Zelte eines Berber-Wüstencamps vor den Dünen des Erg Chebbi nach Einbruch der Dunkelheit">
+
+  <h2><span data-en="Top Activities in Merzouga" data-fr="Les Meilleures Activités à Merzouga" data-es="Las Mejores Actividades en Merzouga" data-de="Top-Aktivitäten in Merzouga">Top Activities in Merzouga</span></h2>
+
+  <h3><span data-en="Camel Trekking into Erg Chebbi" data-fr="Randonnée à Dos de Chameau dans l'Erg Chebbi" data-es="Paseo en Camello por Erg Chebbi" data-de="Kameltrekking in den Erg Chebbi">Camel Trekking into Erg Chebbi</span></h3>
+  <p><span data-en="A camel trek at sunset is the classic way to enter the dunes, usually 45 minutes to an hour of swaying gently across the sand as the light turns gold around you. It's slower and quieter than you'd expect, which is exactly the point, this is meant to be a transition from the noise of the road into the stillness of the desert, not a race to get anywhere." data-fr="Un trek à dos de chameau au coucher du soleil est la façon classique d'entrer dans les dunes, généralement 45 minutes à une heure à se balancer doucement sur le sable pendant que la lumière devient dorée autour de vous. C'est plus lent et plus silencieux qu'on ne l'imagine, et c'est justement le but : il s'agit de passer du bruit de la route au calme du désert, pas d'aller vite quelque part." data-es="Un paseo en camello al atardecer es la forma clásica de entrar en las dunas, normalmente entre 45 minutos y una hora balanceándose suavemente sobre la arena mientras la luz se vuelve dorada a tu alrededor. Es más lento y silencioso de lo que uno esperaría, y ese es precisamente el punto: se trata de pasar del ruido de la carretera a la quietud del desierto, no de llegar rápido a ningún sitio." data-de="Ein Kameltrekking bei Sonnenuntergang ist die klassische Art, in die Dünen einzutauchen, meist 45 Minuten bis eine Stunde sanftes Schaukeln über den Sand, während sich das Licht um Sie herum golden färbt. Es ist langsamer und stiller, als man erwarten würde, und genau das ist der Sinn: Es geht um den Übergang vom Lärm der Straße zur Stille der Wüste, nicht darum, schnell irgendwo hinzukommen.">A camel trek at sunset is the classic way to enter the dunes, usually 45 minutes to an hour of swaying gently across the sand as the light turns gold around you. It's slower and quieter than you'd expect, which is exactly the point, this is meant to be a transition from the noise of the road into the stillness of the desert, not a race to get anywhere.</span></p>
+
+  <img class="article-img" src="images/blog/merzouga-camel-trek-sunset.jpg" alt="A line of camels and riders silhouetted on a dune ridge at sunset in Erg Chebbi" data-en-alt="A line of camels and riders silhouetted on a dune ridge at sunset in Erg Chebbi" data-fr-alt="Une file de chameaux et de cavaliers en ombres chinoises sur une crête de dune au coucher du soleil dans l'Erg Chebbi" data-es-alt="Una fila de camellos y jinetes recortados sobre una cresta de duna al atardecer en Erg Chebbi" data-de-alt="Eine Reihe von Kamelen und Reitern als Silhouetten auf einem Dünenkamm im Erg Chebbi bei Sonnenuntergang">
+
+  <h3><span data-en="Sandboarding Down the Dunes" data-fr="Surf sur Sable dans les Dunes" data-es="Sandboard en las Dunas" data-de="Sandboarding auf den Dünen">Sandboarding Down the Dunes</span></h3>
+  <p><span data-en="Most of our desert camps keep a couple of sandboards on hand, and while it looks easy from a distance, actually staying upright is a different story. It's free, it's genuinely funny to watch each other attempt, and climbing back up the dune afterward is a solid workout in itself." data-fr="La plupart de nos camps du désert gardent quelques planches de sandboard à disposition, et si cela paraît facile de loin, rester debout est une autre histoire. C'est gratuit, c'est vraiment amusant de se regarder essayer les uns les autres, et remonter la dune ensuite constitue déjà un bon exercice en soi." data-es="La mayoría de nuestros campamentos del desierto tienen a mano un par de tablas de sandboard, y aunque parezca fácil desde lejos, mantenerse de pie es otra historia. Es gratis, resulta genuinamente divertido verse intentarlo unos a otros, y subir de nuevo la duna después ya es todo un ejercicio en sí mismo." data-de="Die meisten unserer Wüstencamps haben ein paar Sandboards zur Hand, und was aus der Ferne einfach aussieht, ist in Wirklichkeit eine ganz andere Sache, wenn es ums Stehenbleiben geht. Es ist kostenlos, es macht wirklich Spaß, sich gegenseitig beim Versuch zuzusehen, und der Aufstieg zurück auf die Düne ist danach schon ein solides Workout für sich.">Most of our desert camps keep a couple of sandboards on hand, and while it looks easy from a distance, actually staying upright is a different story. It's free, it's genuinely funny to watch each other attempt, and climbing back up the dune afterward is a solid workout in itself.</span></p>
+
+  <h3><span data-en="4x4 Dune Bashing" data-fr="Excursion en 4x4 dans les Dunes" data-es="Excursión en 4x4 por las Dunas" data-de="4x4-Dünenfahrt">4x4 Dune Bashing</span></h3>
+  <p><span data-en="For travelers who want more adrenaline than a camel trek offers, a 4x4 excursion through the dunes delivers it, experienced local drivers who know the terrain well navigate the soft sand waves at a pace that feels like riding a slow rollercoaster. It's an optional add-on we can arrange for guests who want a bit more thrill built into their desert day." data-fr="Pour les voyageurs qui recherchent plus de sensations fortes qu'un trek à dos de chameau, une excursion en 4x4 dans les dunes le permet : des chauffeurs locaux expérimentés, qui connaissent bien le terrain, franchissent les vagues de sable doux à un rythme qui ressemble à des montagnes russes ralenties. C'est une option supplémentaire que nous pouvons organiser pour les voyageurs qui veulent un peu plus de sensations dans leur journée au désert." data-es="Para los viajeros que buscan más adrenalina que un paseo en camello, una excursión en 4x4 por las dunas la ofrece: conductores locales experimentados, que conocen bien el terreno, atraviesan las suaves olas de arena a un ritmo que se siente como una montaña rusa lenta. Es un complemento opcional que podemos organizar para quienes quieran algo más de emoción en su día en el desierto." data-de="Für Reisende, die mehr Adrenalin als ein Kameltrekking suchen, bietet eine 4x4-Dünenfahrt genau das: erfahrene lokale Fahrer, die das Gelände gut kennen, navigieren die weichen Sandwellen in einem Tempo, das sich wie eine langsame Achterbahnfahrt anfühlt. Das ist eine optionale Ergänzung, die wir für Gäste arrangieren können, die etwas mehr Nervenkitzel in ihrem Wüstentag möchten.">For travelers who want more adrenaline than a camel trek offers, a 4x4 excursion through the dunes delivers it, experienced local drivers who know the terrain well navigate the soft sand waves at a pace that feels like riding a slow rollercoaster. It's an optional add-on we can arrange for guests who want a bit more thrill built into their desert day.</span></p>
+
+  <h3><span data-en="Stargazing in the Sahara" data-fr="Observation des Étoiles dans le Sahara" data-es="Observación de Estrellas en el Sahara" data-de="Sternenbeobachtung in der Sahara">Stargazing in the Sahara</span></h3>
+  <p><span data-en="With essentially zero light pollution, the night sky over Erg Chebbi is one of the clearest you'll ever see, the Milky Way is visible to the naked eye on a clear night, and it's common for guests to spot shooting stars within minutes of lying back on the sand. We'd genuinely recommend setting an alarm for a couple of hours after dinner, stepping just outside the camp's lights, and giving your eyes ten minutes to adjust before looking up." data-fr="Avec une pollution lumineuse quasiment nulle, le ciel nocturne au-dessus de l'Erg Chebbi est l'un des plus clairs que vous verrez jamais : la Voie lactée est visible à l'œil nu par une nuit dégagée, et il est fréquent que les voyageurs repèrent des étoiles filantes quelques minutes seulement après s'être allongés sur le sable. Nous recommandons vraiment de régler une alarme deux heures environ après le dîner, de s'éloigner un peu des lumières du camp, et de laisser dix minutes à vos yeux pour s'adapter avant de lever les yeux." data-es="Con una contaminación lumínica prácticamente nula, el cielo nocturno sobre Erg Chebbi es uno de los más despejados que verás jamás: la Vía Láctea es visible a simple vista en una noche despejada, y es habitual que los viajeros vean estrellas fugaces a los pocos minutos de tumbarse en la arena. Recomendamos de verdad poner una alarma un par de horas después de cenar, alejarse un poco de las luces del campamento y dejar que los ojos se adapten durante diez minutos antes de mirar hacia arriba." data-de="Bei praktisch keiner Lichtverschmutzung ist der Nachthimmel über Erg Chebbi einer der klarsten, die Sie je sehen werden: Die Milchstraße ist in einer klaren Nacht mit bloßem Auge sichtbar, und es kommt häufig vor, dass Gäste bereits wenige Minuten nach dem Hinlegen auf den Sand Sternschnuppen entdecken. Wir empfehlen wirklich, sich einen Wecker für etwa zwei Stunden nach dem Abendessen zu stellen, ein paar Schritte aus dem Lichtkegel des Camps herauszugehen und den Augen zehn Minuten Zeit zur Anpassung zu geben, bevor man nach oben schaut.">With essentially zero light pollution, the night sky over Erg Chebbi is one of the clearest you'll ever see, the Milky Way is visible to the naked eye on a clear night, and it's common for guests to spot shooting stars within minutes of lying back on the sand. We'd genuinely recommend setting an alarm for a couple of hours after dinner, stepping just outside the camp's lights, and giving your eyes ten minutes to adjust before looking up.</span></p>
+
+  <h2><span data-en="Compare Our Merzouga Desert Tours" data-fr="Comparer Nos Circuits vers Merzouga" data-es="Compara Nuestros Tours a Merzouga" data-de="Vergleichen Sie Unsere Merzouga-Touren">Compare Our Merzouga Desert Tours</span></h2>
+  <!--
+    UPDATE THIS TABLE whenever a new tour page is added to the site — add a row here
+    with its duration, route, and best-for description. This table is static (plain
+    HTML rows), it does NOT pull from the tour pages automatically.
+  -->
+  <div class="compare-table-wrap">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th><span data-en="Tour" data-fr="Circuit" data-es="Tour" data-de="Tour">Tour</span></th>
+          <th><span data-en="Duration" data-fr="Durée" data-es="Duración" data-de="Dauer">Duration</span></th>
+          <th><span data-en="Route" data-fr="Itinéraire" data-es="Ruta" data-de="Route">Route</span></th>
+          <th><span data-en="Best For" data-fr="Idéal Pour" data-es="Ideal Para" data-de="Ideal Für">Best For</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="tour-2.html">5-Day Marrakech to Merzouga</a></td>
+          <td><span data-en="5 Days" data-fr="5 Jours" data-es="5 Días" data-de="5 Tage">5 Days</span></td>
+          <td>Marrakech → High Atlas → Aït Benhaddou → Dades Valley → Merzouga</td>
+          <td><span data-en="Shortest, dedicated Sahara trip" data-fr="Le trajet Sahara le plus court et le plus direct" data-es="El viaje al Sahara más corto y directo" data-de="Die kürzeste, reine Sahara-Reise">Shortest, dedicated Sahara trip</span></td>
+        </tr>
+        <tr>
+          <td><a href="tour-4.html">9-Day Marrakech, Sahara & Atlantic</a></td>
+          <td><span data-en="9 Days" data-fr="9 Jours" data-es="9 Días" data-de="9 Tage">9 Days</span></td>
+          <td>Marrakech → High Atlas → Sahara → Essaouira</td>
+          <td><span data-en="Desert combined with the Atlantic coast" data-fr="Le désert combiné à la côte Atlantique" data-es="El desierto combinado con la costa Atlántica" data-de="Wüste kombiniert mit der Atlantikküste">Desert combined with the Atlantic coast</span></td>
+        </tr>
+        <tr>
+          <td><a href="tour-1.html">8-Day Grand Morocco Tour</a></td>
+          <td><span data-en="8 Days" data-fr="8 Jours" data-es="8 Días" data-de="8 Tage">8 Days</span></td>
+          <td>Casablanca → Chefchaouen → Fes → Merzouga → Marrakech</td>
+          <td><span data-en="A north-to-south loop with the desert in the middle" data-fr="Une boucle nord-sud avec le désert au cœur du voyage" data-es="Un circuito norte-sur con el desierto en el centro del viaje" data-de="Eine Nord-Süd-Schleife mit der Wüste im Zentrum der Reise">A north-to-south loop with the desert in the middle</span></td>
+        </tr>
+        <tr>
+          <td><a href="tour-3.html">12-Day Casablanca to Marrakech & Sahara</a></td>
+          <td><span data-en="12 Days" data-fr="12 Jours" data-es="12 Días" data-de="12 Tage">12 Days</span></td>
+          <td>Casablanca → Chefchaouen → Merzouga → Aït Ben Haddou → Marrakech → Essaouira</td>
+          <td><span data-en="The most complete Morocco itinerary we offer" data-fr="L'itinéraire marocain le plus complet que nous proposons" data-es="El itinerario por Marruecos más completo que ofrecemos" data-de="Die umfassendste Marokko-Reiseroute, die wir anbieten">The most complete Morocco itinerary we offer</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2><span data-en="What to Pack for the Desert" data-fr="Que Mettre dans sa Valise pour le Désert" data-es="Qué Llevar para el Desierto" data-de="Was Sie für die Wüste Einpacken Sollten">What to Pack for the Desert</span></h2>
+  <ul>
+    <li><span data-en="A warm layer for desert nights, a fleece or light jacket, even in summer" data-fr="Une couche chaude pour les nuits du désert, une polaire ou une veste légère, même en été" data-es="Una prenda de abrigo para las noches del desierto, un forro polar o una chaqueta ligera, incluso en verano" data-de="Eine warme Schicht für Wüstennächte, ein Fleece oder eine leichte Jacke, auch im Sommer">A warm layer for desert nights, a fleece or light jacket, even in summer</span></li>
+    <li><span data-en="Light, breathable clothing for the day, long sleeves help against sun and blowing sand" data-fr="Des vêtements légers et respirants pour la journée, les manches longues protègent du soleil et du sable" data-es="Ropa ligera y transpirable para el día, las mangas largas ayudan contra el sol y la arena" data-de="Leichte, atmungsaktive Kleidung für den Tag, lange Ärmel helfen gegen Sonne und aufgewirbelten Sand">Light, breathable clothing for the day, long sleeves help against sun and blowing sand</span></li>
+    <li><span data-en="Closed shoes or trainers, sandals fill up with sand almost immediately" data-fr="Des chaussures fermées ou des baskets, les sandales se remplissent de sable presque instantanément" data-es="Zapatos cerrados o zapatillas, las sandalias se llenan de arena casi de inmediato" data-de="Geschlossene Schuhe oder Turnschuhe, Sandalen füllen sich fast sofort mit Sand">Closed shoes or trainers, sandals fill up with sand almost immediately</span></li>
+    <li><span data-en="Sunscreen, sunglasses, and a hat or cap" data-fr="Crème solaire, lunettes de soleil et un chapeau ou une casquette" data-es="Protector solar, gafas de sol y un sombrero o gorra" data-de="Sonnencreme, Sonnenbrille und ein Hut oder eine Kappe">Sunscreen, sunglasses, and a hat or cap</span></li>
+    <li><span data-en="A power bank, charging access is limited or unavailable at most camps" data-fr="Une batterie externe, l'accès à une prise est limité ou inexistant dans la plupart des camps" data-es="Una batería externa, el acceso a carga es limitado o inexistente en la mayoría de los campamentos" data-de="Eine Powerbank, Lademöglichkeiten sind in den meisten Camps begrenzt oder nicht vorhanden">A power bank, charging access is limited or unavailable at most camps</span></li>
+    <li><span data-en="A headlamp or small flashlight for getting around camp after dark" data-fr="Une lampe frontale ou une petite lampe de poche pour se déplacer dans le camp après la tombée de la nuit" data-es="Una linterna frontal o una pequeña linterna para moverte por el campamento después de anochecer" data-de="Eine Stirnlampe oder kleine Taschenlampe, um sich nach Einbruch der Dunkelheit im Camp zurechtzufinden">A headlamp or small flashlight for getting around camp after dark</span></li>
+    <li><span data-en="Wet wipes and hand sanitizer" data-fr="Lingettes humides et gel hydroalcoolique" data-es="Toallitas húmedas y gel desinfectante" data-de="Feuchttücher und Handdesinfektionsmittel">Wet wipes and hand sanitizer</span></li>
+  </ul>
+  <div class="pro-tip"><p><strong><span data-en="Pro Tip:" data-fr="Astuce de pro :" data-es="Consejo de experto:" data-de="Profi-Tipp:">Pro Tip:</span></strong> <span data-en="Download or print anything you need in advance, phone signal and Wi-Fi are unreliable at best in the desert and often nonexistent once you're deep in Erg Chebbi." data-fr="Téléchargez ou imprimez à l'avance tout ce dont vous avez besoin, le réseau et le Wi-Fi sont peu fiables dans le désert et souvent inexistants une fois au cœur de l'Erg Chebbi." data-es="Descarga o imprime con antelación todo lo que necesites, la señal telefónica y el Wi-Fi son poco fiables en el desierto y a menudo inexistentes una vez dentro de Erg Chebbi." data-de="Laden Sie alles, was Sie brauchen, vorab herunter oder drucken Sie es aus, Handyempfang und WLAN sind in der Wüste bestenfalls unzuverlässig und tief im Erg Chebbi oft gar nicht vorhanden.">Download or print anything you need in advance, phone signal and Wi-Fi are unreliable at best in the desert and often nonexistent once you're deep in Erg Chebbi.</span></p></div>
+
+  <h2><span data-en="Frequently Asked Questions" data-fr="Questions Fréquentes" data-es="Preguntas Frecuentes" data-de="Häufig Gestellte Fragen">Frequently Asked Questions</span></h2>
+
+  <div class="faq-block">
+    <h3><span data-en="Is a Merzouga desert tour safe?" data-fr="Un tour du désert à Merzouga est-il sûr ?" data-es="¿Es seguro un tour al desierto de Merzouga?" data-de="Ist eine Wüstentour in Merzouga sicher?">Is a Merzouga desert tour safe?</span></h3>
+    <p><span data-en="Yes. Merzouga is a well-established part of Morocco's tourism route, and desert tours are run by experienced local guides and drivers who know the terrain well. As with any trip, using a licensed operator, staying with your group at night, and following your guide's instructions on the dunes keeps things straightforward and safe." data-fr="Oui. Merzouga fait partie intégrante des routes touristiques bien établies du Maroc, et les tours du désert sont organisés par des guides et chauffeurs locaux expérimentés qui connaissent bien le terrain. Comme pour tout voyage, faire appel à un opérateur agréé, rester avec son groupe la nuit et suivre les consignes du guide sur les dunes suffit à rendre les choses simples et sûres." data-es="Sí. Merzouga forma parte de una ruta turística bien establecida en Marruecos, y los tours al desierto los llevan a cabo guías y conductores locales con experiencia que conocen bien el terreno. Como en cualquier viaje, usar un operador con licencia, quedarse con el grupo por la noche y seguir las indicaciones del guía en las dunas hace que todo sea sencillo y seguro." data-de="Ja. Merzouga ist Teil einer etablierten Reiseroute in Marokko, und Wüstentouren werden von erfahrenen lokalen Guides und Fahrern durchgeführt, die das Gelände gut kennen. Wie bei jeder Reise sorgen ein lizenzierter Anbieter, das Bleiben bei der Gruppe in der Nacht und das Befolgen der Anweisungen des Guides auf den Dünen für einen unkomplizierten und sicheren Ablauf.">Yes. Merzouga is a well-established part of Morocco's tourism route, and desert tours are run by experienced local guides and drivers who know the terrain well. As with any trip, using a licensed operator, staying with your group at night, and following your guide's instructions on the dunes keeps things straightforward and safe.</span></p>
+  </div>
+
+  <div class="faq-block">
+    <h3><span data-en="How much does a Merzouga desert tour cost?" data-fr="Combien coûte un tour du désert à Merzouga ?" data-es="¿Cuánto cuesta un tour al desierto de Merzouga?" data-de="Wie viel kostet eine Wüstentour in Merzouga?">How much does a Merzouga desert tour cost?</span></h3>
+    <p><span data-en="Pricing depends heavily on tour length, route, and camp comfort level. A private multi-day tour that includes Merzouga typically covers transport, an English-speaking driver-guide, camel trekking, and one or more nights in a desert camp. Contact us with your dates and preferences and we'll put together a quote tailored to what you want to see." data-fr="Le prix dépend beaucoup de la durée du circuit, de l'itinéraire et du niveau de confort du camp. Un circuit privé de plusieurs jours incluant Merzouga couvre généralement le transport, un chauffeur-guide francophone ou anglophone, la randonnée à dos de chameau et une ou plusieurs nuits en camp du désert. Contactez-nous avec vos dates et vos préférences, et nous vous préparerons un devis adapté à ce que vous souhaitez voir." data-es="El precio depende mucho de la duración del tour, la ruta y el nivel de confort del campamento. Un tour privado de varios días que incluya Merzouga suele cubrir el transporte, un conductor-guía de habla inglesa, el paseo en camello y una o más noches en un campamento del desierto. Contáctanos con tus fechas y preferencias y prepararemos un presupuesto adaptado a lo que quieras ver." data-de="Der Preis hängt stark von der Tourdauer, der Route und dem Komfortniveau des Camps ab. Eine private mehrtägige Tour mit Merzouga umfasst in der Regel Transport, einen englischsprachigen Fahrer-Guide, Kameltrekking sowie eine oder mehrere Nächte in einem Wüstencamp. Kontaktieren Sie uns mit Ihren Reisedaten und Wünschen, und wir erstellen ein Angebot, das auf das zugeschnitten ist, was Sie sehen möchten.">Pricing depends heavily on tour length, route, and camp comfort level. A private multi-day tour that includes Merzouga typically covers transport, an English-speaking driver-guide, camel trekking, and one or more nights in a desert camp. Contact us with your dates and preferences and we'll put together a quote tailored to what you want to see.</span></p>
+  </div>
+
+  <div class="faq-block">
+    <h3><span data-en="What should I wear in the desert?" data-fr="Que dois-je porter dans le désert ?" data-es="¿Qué debo usar en el desierto?" data-de="Was sollte ich in der Wüste tragen?">What should I wear in the desert?</span></h3>
+    <p><span data-en="Loose, breathable layers work best. Long sleeves and trousers protect against sun and blowing sand during the day, while a warm layer is essential for the evening, even in summer. Closed shoes are more practical than sandals once you're on the dunes." data-fr="Les vêtements amples et respirants sont ce qu'il y a de mieux. Les manches longues et les pantalons protègent du soleil et du sable soulevé par le vent en journée, tandis qu'une couche chaude est indispensable le soir, même en été. Des chaussures fermées sont plus pratiques que des sandales une fois sur les dunes." data-es="Lo mejor es la ropa holgada y transpirable. Las mangas largas y los pantalones protegen del sol y de la arena que levanta el viento durante el día, mientras que una prenda de abrigo es imprescindible por la noche, incluso en verano. Los zapatos cerrados son más prácticos que las sandalias una vez que estás en las dunas." data-de="Locker sitzende, atmungsaktive Kleidung eignet sich am besten. Lange Ärmel und Hosen schützen tagsüber vor Sonne und aufgewirbeltem Sand, während eine warme Schicht für den Abend unverzichtbar ist, selbst im Sommer. Geschlossene Schuhe sind auf den Dünen praktischer als Sandalen.">Loose, breathable layers work best. Long sleeves and trousers protect against sun and blowing sand during the day, while a warm layer is essential for the evening, even in summer. Closed shoes are more practical than sandals once you're on the dunes.</span></p>
+  </div>
+
+  <div class="faq-block">
+    <h3><span data-en="Can I visit Merzouga as a day trip?" data-fr="Puis-je visiter Merzouga en excursion d'une journée ?" data-es="¿Puedo visitar Merzouga como excursión de un día?" data-de="Kann ich Merzouga als Tagesausflug besuchen?">Can I visit Merzouga as a day trip?</span></h3>
+    <p><span data-en="Merzouga can technically be visited as part of a very fast round trip, but because it's roughly 9 hours from Marrakech by road, we'd genuinely discourage trying to do it in a single day, the drive alone would eat most of your time. A 2 to 3 day tour is the shortest sensible way to actually experience the desert rather than just glimpse it." data-fr="Techniquement, il est possible de visiter Merzouga dans le cadre d'un aller-retour très rapide, mais comme il faut environ 9 heures de route depuis Marrakech, nous déconseillons vraiment de tenter cela en une seule journée, la route seule vous prendrait presque tout votre temps. Un circuit de 2 à 3 jours est la formule la plus courte et la plus raisonnable pour réellement vivre le désert plutôt que de simplement l'apercevoir." data-es="Técnicamente se puede visitar Merzouga como parte de una ida y vuelta muy rápida, pero como está a unas 9 horas de Marrakech por carretera, realmente no lo recomendamos en un solo día, el trayecto por sí solo consumiría casi todo tu tiempo. Un tour de 2 a 3 días es la forma más corta y sensata de vivir realmente el desierto en lugar de solo verlo de pasada." data-de="Merzouga kann technisch gesehen im Rahmen einer sehr schnellen Hin- und Rückfahrt besucht werden, aber da die Fahrt von Marrakesch aus etwa 9 Stunden dauert, raten wir wirklich davon ab, dies an einem einzigen Tag zu versuchen, allein die Fahrt würde fast Ihre gesamte Zeit beanspruchen. Eine Tour von 2 bis 3 Tagen ist die kürzeste sinnvolle Möglichkeit, die Wüste tatsächlich zu erleben statt nur einen kurzen Blick darauf zu werfen.">Merzouga can technically be visited as part of a very fast round trip, but because it's roughly 9 hours from Marrakech by road, we'd genuinely discourage trying to do it in a single day, the drive alone would eat most of your time. A 2 to 3 day tour is the shortest sensible way to actually experience the desert rather than just glimpse it.</span></p>
+  </div>
+
+  <div class="faq-block">
+    <h3><span data-en="How far is Merzouga from Marrakech and Agadir?" data-fr="À quelle distance se trouve Merzouga de Marrakech et d'Agadir ?" data-es="¿A qué distancia está Merzouga de Marrakech y Agadir?" data-de="Wie weit ist Merzouga von Marrakesch und Agadir entfernt?">How far is Merzouga from Marrakech and Agadir?</span></h3>
+    <p><span data-en="Merzouga sits close to the Algerian border in southeastern Morocco, around 560 km (roughly 9 hours by road) from Marrakech, and a longer drive from Agadir, closer to 11 to 12 hours. That's why most of our Agadir-based guests combine it with a broader Morocco loop rather than treating it as a standalone trip." data-fr="Merzouga se trouve près de la frontière algérienne, dans le sud-est du Maroc, à environ 560 km (soit environ 9 heures de route) de Marrakech, et encore plus loin d'Agadir, plutôt 11 à 12 heures. C'est pourquoi la plupart de nos voyageurs partant d'Agadir la combinent avec une boucle plus large à travers le Maroc, plutôt que d'en faire un voyage isolé." data-es="Merzouga se encuentra cerca de la frontera con Argelia, en el sureste de Marruecos, a unos 560 km (aproximadamente 9 horas por carretera) de Marrakech, y aún más lejos de Agadir, más cerca de 11 a 12 horas. Por eso la mayoría de nuestros viajeros que salen desde Agadir la combinan con un circuito más amplio por Marruecos en lugar de hacerla como un viaje aparte." data-de="Merzouga liegt nahe der algerischen Grenze im Südosten Marokkos, etwa 560 km (rund 9 Stunden mit dem Auto) von Marrakesch entfernt, und noch weiter von Agadir, eher 11 bis 12 Stunden. Deshalb kombinieren die meisten unserer Gäste aus Agadir die Fahrt mit einer größeren Marokko-Rundreise, anstatt sie als eigenständige Reise zu unternehmen.">Merzouga sits close to the Algerian border in southeastern Morocco, around 560 km (roughly 9 hours by road) from Marrakech, and a longer drive from Agadir, closer to 11 to 12 hours. That's why most of our Agadir-based guests combine it with a broader Morocco loop rather than treating it as a standalone trip.</span></p>
+  </div>
+
+  <div class="faq-block">
+    <h3><span data-en="Do I need any special preparation or fitness level?" data-fr="Ai-je besoin d'une préparation ou d'une condition physique particulière ?" data-es="¿Necesito alguna preparación o condición física especial?" data-de="Brauche ich eine besondere Vorbereitung oder Fitness?">Do I need any special preparation or fitness level?</span></h3>
+    <p><span data-en="No special fitness or experience is required. Camel trekking is gentle and suitable for most ages and fitness levels, and the main physical demand is simply walking on sand, which is manageable for nearly everyone. It's worth mentioning any mobility concerns to us in advance so we can plan accordingly." data-fr="Aucune condition physique ni expérience particulière n'est nécessaire. La randonnée à dos de chameau est douce et adaptée à la plupart des âges et niveaux de forme physique, et l'effort principal consiste simplement à marcher sur le sable, ce qui reste tout à fait gérable pour presque tout le monde. N'hésitez pas à nous signaler à l'avance toute contrainte de mobilité afin que nous puissions organiser le voyage en conséquence." data-es="No se requiere ninguna condición física ni experiencia especial. El paseo en camello es suave y adecuado para la mayoría de edades y niveles de forma física, y el principal esfuerzo físico es simplemente caminar sobre arena, algo manejable para casi cualquiera. Merece la pena avisarnos con antelación de cualquier limitación de movilidad para poder planificar en consecuencia." data-de="Es ist keine besondere Fitness oder Erfahrung erforderlich. Kameltrekking ist sanft und für die meisten Altersgruppen und Fitnesslevel geeignet, und die körperliche Hauptanforderung besteht einfach im Gehen auf Sand, was für fast jeden zu bewältigen ist. Es lohnt sich, uns im Voraus auf etwaige Mobilitätseinschränkungen hinzuweisen, damit wir entsprechend planen können.">No special fitness or experience is required. Camel trekking is gentle and suitable for most ages and fitness levels, and the main physical demand is simply walking on sand, which is manageable for nearly everyone. It's worth mentioning any mobility concerns to us in advance so we can plan accordingly.</span></p>
+  </div>
+
+  <p><span data-en="There's a reason Merzouga keeps pulling travelers back to Morocco's southeastern edge, the dunes, the silence, the sky, all of it a genuine world away from anywhere else on a typical trip. If everything you've just read has you picturing yourself on top of Erg Chebbi at sunrise, we'd love to help make it happen, get in touch and we'll build a Merzouga desert tour around your dates, your pace, and how much desert you actually want." data-fr="Il y a une raison pour laquelle Merzouga continue d'attirer les voyageurs vers le sud-est du Maroc : les dunes, le silence, le ciel, tout cela appartient à un monde vraiment à part du reste d'un voyage classique. Si tout ce que vous venez de lire vous fait déjà vous imaginer au sommet de l'Erg Chebbi au lever du soleil, nous serions ravis de vous aider à concrétiser ce rêve, contactez-nous et nous construirons un tour du désert à Merzouga autour de vos dates, de votre rythme, et de la quantité de désert que vous souhaitez vraiment vivre." data-es="Hay una razón por la que Merzouga sigue atrayendo a los viajeros hacia el sureste de Marruecos: las dunas, el silencio, el cielo, todo ello pertenece a un mundo realmente aparte del resto de un viaje habitual. Si todo lo que acabas de leer ya te hace imaginarte en la cima de Erg Chebbi al amanecer, nos encantaría ayudarte a hacerlo realidad, contáctanos y prepararemos un tour al desierto de Merzouga a tu medida, a tu ritmo, y con la cantidad de desierto que realmente quieras vivir." data-de="Es gibt einen Grund, warum Merzouga Reisende immer wieder in den Südosten Marokkos zieht: die Dünen, die Stille, der Himmel, all das gehört zu einer Welt, die sich wirklich von allem anderen auf einer typischen Reise abhebt. Wenn Sie sich nach allem, was Sie gerade gelesen haben, bereits vorstellen, wie Sie bei Sonnenaufgang oben auf dem Erg Chebbi stehen, helfen wir Ihnen gerne, das Wirklichkeit werden zu lassen, kontaktieren Sie uns, und wir gestalten eine Wüstentour nach Merzouga passend zu Ihren Reisedaten, Ihrem Tempo und dem Maß an Wüste, das Sie wirklich erleben möchten.">There's a reason Merzouga keeps pulling travelers back to Morocco's southeastern edge, the dunes, the silence, the sky, all of it a genuine world away from anywhere else on a typical trip. If everything you've just read has you picturing yourself on top of Erg Chebbi at sunrise, we'd love to help make it happen, get in touch and we'll build a Merzouga desert tour around your dates, your pace, and how much desert you actually want.</span></p>
+
+  <h2><span data-en="Related Articles" data-fr="Articles Similaires" data-es="Artículos Relacionados" data-de="Ähnliche Artikel">Related Articles</span></h2>
+  <ul class="related-links">
+    <li><a href="blog-2.html"><span data-en="Marrakech Day Trip from Agadir: Everything You Need to Know" data-fr="Excursion à Marrakech depuis Agadir : Tout Savoir" data-es="Excursión a Marrakech desde Agadir: Todo lo que Necesitas Saber" data-de="Marrakesch-Tagesausflug ab Agadir: Alles Was Sie Wissen Müssen">Marrakech Day Trip from Agadir: Everything You Need to Know</span></a></li>
+    <li><a href="blog-3.html"><span data-en="Things to Do in Taghazout: Surfing, Camel Rides & Quad Tours" data-fr="Que Faire à Taghazout : Surf, Balades à Chameau et Quad" data-es="Qué Hacer en Taghazout: Surf, Paseos en Camello y Quads" data-de="Was man in Taghazout Unternehmen Kann: Surfen, Kamelritte & Quad-Touren">Things to Do in Taghazout: Surfing, Camel Rides & Quad Tours</span></a></li>
+    <li><a href="tours.html"><span data-en="Explore All Our Morocco Tours" data-fr="Découvrir Tous Nos Circuits au Maroc" data-es="Descubre Todos Nuestros Tours por Marruecos" data-de="Alle Unsere Marokko-Touren Entdecken">Explore All Our Morocco Tours</span></a></li>
+  </ul>
+
   <div class="article-cta">
     <p><span data-en="Ready to plan your own Morocco trip?" data-fr="Prêt à planifier votre voyage au Maroc ?" data-es="¿Listo para planear tu viaje a Marruecos?" data-de="Bereit, Ihre eigene Marokko-Reise zu planen?">Ready to plan your own Morocco trip?</span></p>
     <a href="index.html#contact" class="btn-gold"><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></a>
@@ -228,9 +499,62 @@
 </a>
 
 <footer class="footer">
-  <div class="footer-inner">
-    <span><span data-en="© 2026 Let's Camel Tours. All Rights Reserved." data-fr="© 2026 Let's Camel Tours. Tous droits réservés." data-es="© 2026 Let's Camel Tours. Todos los derechos reservados." data-de="© 2026 Let's Camel Tours. Alle Rechte vorbehalten.">© 2026 Let's Camel Tours. All Rights Reserved.</span></span>
-    <span><a href="index.html"><span data-en="Back to Home" data-fr="Retour à l'Accueil" data-es="Volver al Inicio" data-de="Zurück zur Startseite">Back to Home</span></a> · info.letscameltours@gmail.com</span>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-col-brand">
+        <div class="footer-logo"><img src="logo.png" alt="Let's Camel Tours"></div>
+        <p><span data-en="A family-run travel agency between the dunes of Merzouga and the waves of Taghazout, guiding travelers through real Morocco since day one." data-fr="Une agence de voyage familiale entre les dunes de Merzouga et les vagues de Taghazout, guidant les voyageurs à travers le vrai Maroc depuis le premier jour." data-es="Una agencia de viajes familiar entre las dunas de Merzouga y las olas de Taghazout, guiando a los viajeros por el verdadero Marruecos desde el primer día." data-de="Eine familiengeführte Reiseagentur zwischen den Dünen Merzougas und den Wellen Taghazouts, die Reisende von Anfang an durch das echte Marokko führt.">A family-run travel agency between the dunes of Merzouga and the waves of Taghazout, guiding travelers through real Morocco since day one.</span></p>
+        <div class="footer-lang-row">
+          <button type="button" class="footer-lang-btn" data-lang="en"><img src="https://flagcdn.com/20x15/gb.png" alt="EN" width="20" height="15"> EN</button>
+          <button type="button" class="footer-lang-btn" data-lang="fr"><img src="https://flagcdn.com/20x15/fr.png" alt="FR" width="20" height="15"> FR</button>
+          <button type="button" class="footer-lang-btn" data-lang="es"><img src="https://flagcdn.com/20x15/es.png" alt="ES" width="20" height="15"> ES</button>
+          <button type="button" class="footer-lang-btn" data-lang="de"><img src="https://flagcdn.com/20x15/de.png" alt="DE" width="20" height="15"> DE</button>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4><span data-en="What We Offer" data-fr="Nos Services" data-es="Lo Que Ofrecemos" data-de="Was Wir Bieten">What We Offer</span></h4>
+        <ul>
+          <li><a href="tours.html"><span data-en="Morocco Tours" data-fr="Circuits Maroc" data-es="Tours Marruecos" data-de="Marokko Touren">Morocco Tours</span></a></li>
+          <li><a href="excursions.html"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></a></li>
+          <li><a href="activities.html"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span></a></li>
+          <li><a href="index.html#transfers"><span data-en="Transfers" data-fr="Transferts" data-es="Traslados" data-de="Transfers">Transfers</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4><span data-en="Help & Info" data-fr="Aide & Infos" data-es="Ayuda e Información" data-de="Hilfe & Infos">Help & Info</span></h4>
+        <ul>
+          <li><a href="about-us.html"><span data-en="About Us" data-fr="À Propos" data-es="Sobre Nosotros" data-de="Über Uns">About Us</span></a></li>
+          <li><a href="index.html#blog"><span data-en="Blogs" data-fr="Blogs" data-es="Blogs" data-de="Blogs">Blogs</span></a></li>
+          <li><a href="index.html#faq"><span data-en="FAQ's" data-fr="FAQ" data-es="Preguntas Frecuentes" data-de="FAQ">FAQ's</span></a></li>
+          <li><a href="#"><span data-en="Terms & Conditions" data-fr="Conditions Générales" data-es="Términos y Condiciones" data-de="AGB">Terms & Conditions</span></a></li>
+          <li><a href="#"><span data-en="Privacy Policy" data-fr="Politique de Confidentialité" data-es="Política de Privacidad" data-de="Datenschutz">Privacy Policy</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></h4>
+        <ul>
+          <li><a href="tel:+212600000000">+212 6 00 00 00 00</a></li>
+          <li><a href="mailto:info.letscameltours@gmail.com">info.letscameltours@gmail.com</a></li>
+          <li><a href="https://wa.me/212600000000" target="_blank"><span data-en="WhatsApp Us" data-fr="WhatsApp" data-es="WhatsApp" data-de="WhatsApp">WhatsApp Us</span></a></li>
+        </ul>
+        <div class="socials">
+          <a href="#" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
+          </a>
+          <a href="#" target="_blank" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 3h-2a5 5 0 00-5 5v2H6v4h2v7h4v-7h3l1-4h-4V8a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="#" target="_blank" aria-label="TripAdvisor">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="13" r="3.2"/><circle cx="16" cy="13" r="3.2"/><path d="M8 13a4 4 0 014-4 4 4 0 014 4M2 8h6M16 8h6M12 5c-2.5 0-4.5 1.3-5.5 3M12 5c2.5 0 4.5 1.3 5.5 3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span data-en="© 2026 Let's Camel Tours. All Rights Reserved." data-fr="© 2026 Let's Camel Tours. Tous droits réservés." data-es="© 2026 Let's Camel Tours. Todos los derechos reservados." data-de="© 2026 Let's Camel Tours. Alle Rechte vorbehalten.">© 2026 Let's Camel Tours. All Rights Reserved.</span>
+      <span data-en="Based in Morocco" data-fr="Basé au Maroc" data-es="Con base en Marruecos" data-de="Ansässig in Marokko">Based in Morocco</span>
+    </div>
   </div>
 </footer>
 
@@ -239,7 +563,7 @@
 
   window.addEventListener('scroll', function() {
     var navbar = document.querySelector('.navbar');
-    if (window.scrollY > 60) { navbar.classList.add('scrolled'); } else { navbar.classList.remove('scrolled'); }
+    if (window.scrollY > 80) { navbar.classList.add('scrolled'); } else { navbar.classList.remove('scrolled'); }
   });
 
   var burgerToggle = document.getElementById('burger-toggle');
@@ -256,6 +580,7 @@
   var currentLang = 'en';
   function applyLang(lang) {
     document.querySelectorAll('[data-en]').forEach(function(el) { el.textContent = el.dataset[lang]; });
+    document.querySelectorAll('[data-en-alt]').forEach(function(el) { el.setAttribute('alt', el.dataset[lang + 'Alt']); });
     document.getElementById('lang-label').textContent = lang.toUpperCase();
     document.documentElement.lang = lang;
     document.querySelectorAll('.lang-option').forEach(function(btn) { btn.classList.toggle('active', btn.dataset.lang === lang); });
@@ -272,6 +597,10 @@
   document.addEventListener('click', function() { langMenu.classList.remove('open'); });
   document.querySelectorAll('.lang-option').forEach(function(btn) {
     btn.addEventListener('click', function() { applyLang(btn.dataset.lang); langMenu.classList.remove('open'); });
+  });
+
+  document.querySelectorAll('.footer-lang-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() { applyLang(btn.dataset.lang); });
   });
 </script>
 
