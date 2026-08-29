@@ -1096,7 +1096,7 @@
     <nav class="nav-menu">
       <a href="#home"><span data-en="Home" data-fr="Accueil" data-es="Inicio" data-de="Startseite">Home</span></a>
       <div class="nav-dropdown">
-        <a href="tours.html"><span data-en="Morocco Tours" data-fr="Circuits Maroc" data-es="Tours Marruecos" data-de="Marokko Touren">Morocco Tours</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+        <a href="#tours"><span data-en="Morocco Tours" data-fr="Circuits Maroc" data-es="Tours Marruecos" data-de="Marokko Touren">Morocco Tours</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
         <div class="nav-dropdown-menu">
           <div class="nav-dropdown-menu-inner">
             <a href="tour-1.html"><span data-en="8-Day Grand Morocco Tour: Sahara & Rif Mountains" data-fr="Circuit de 8 Jours au Maroc : Sahara et Rif" data-es="Tour de 8 Días por Marruecos: Sahara y Rif" data-de="8-Tägige Marokko-Tour: Sahara & Rif-Gebirge">8-Day Grand Morocco Tour: Sahara & Rif Mountains</span></a>
@@ -1108,7 +1108,7 @@
         </div>
       </div>
       <div class="nav-dropdown">
-        <a href="excursions.html"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+        <a href="#excursions"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
         <div class="nav-dropdown-menu">
           <div class="nav-dropdown-menu-inner">
             <a href="excursion-1.html"><span data-en="Day Trip to Essaouira" data-fr="Excursion à Essaouira" data-es="Excursión a Essaouira" data-de="Tagesausflug nach Essaouira">Day Trip to Essaouira</span></a>
@@ -1119,7 +1119,7 @@
         </div>
       </div>
       <div class="nav-dropdown">
-        <a href="activities.html"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+        <a href="#activities"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span> <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
         <div class="nav-dropdown-menu">
           <div class="nav-dropdown-menu-inner">
             <a href="activity-1.html"><span data-en="Beach Horse Riding" data-fr="Équitation sur la Plage" data-es="Paseo a Caballo en la Playa" data-de="Strandreiten">Beach Horse Riding</span></a>
@@ -1566,7 +1566,7 @@
       <button class="carousel-arrow right" data-target="blog-carousel" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></button>
     </div>
     <div class="tours-cta">
-      <a href="blog.html" class="btn-arrow-gold"><span data-en="View More Blogs" data-fr="Voir Plus d'Articles" data-es="Ver Más Artículos" data-de="Mehr Blogs Ansehen">View More Blogs</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="blog.html" class="btn-arrow-gold btn-pill"><span data-en="View More Blogs" data-fr="Voir Plus d'Articles" data-es="Ver Más Artículos" data-de="Mehr Blogs Ansehen">View More Blogs</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
   </div>
 </section>
@@ -1842,6 +1842,23 @@
   mobileOverlay.addEventListener('click', closeMobileMenu);
   document.querySelectorAll('.mobile-menu a').forEach(function(link) {
     link.addEventListener('click', closeMobileMenu);
+  });
+
+  // Smooth-scroll the "Morocco Tours" / "Excursions" / "Activities" nav
+  // links (and their mobile-menu equivalents) to the matching in-page
+  // section, offset for the fixed navbar. Only relevant on index.html,
+  // since these are the only pages where the sections actually exist.
+  document.querySelectorAll('a[href^="#tours"], a[href^="#excursions"], a[href^="#activities"]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      var targetId = link.getAttribute('href').slice(1);
+      var targetEl = document.getElementById(targetId);
+      if (!targetEl) return;
+      e.preventDefault();
+      var navbar = document.querySelector('.navbar');
+      var offset = navbar ? navbar.offsetHeight : 0;
+      var top = targetEl.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    });
   });
 
   var currentLang = 'en';
