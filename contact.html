@@ -418,6 +418,64 @@
   .breadcrumb a { color: var(--navy); font-weight: 600; }
   .breadcrumb a:hover { color: var(--gold); }
 
+  /* ===== Quick Search — same widget/styling as index.html's hero search bar,
+     laid out as a static in-flow section instead of overlapping a hero ===== */
+  .quick-search-section { padding: 46px 0 6px; background: var(--white); }
+  .search-bar {
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 92%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .search-field { flex: 1; border-right: 1px solid var(--line); padding-right: 20px; }
+  .search-field:last-of-type { border-right: none; }
+
+  .search-field label {
+    display: block;
+    font-size: 11px;
+    color: var(--text-gray);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+  }
+
+  .search-field select,
+  .search-field input {
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #1a1a1a;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .btn-search {
+    background: var(--gold);
+    color: var(--white);
+    border: none;
+    padding: 15px 28px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 14.5px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .btn-search:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 26px rgba(224,122,62,0.4); }
+
+  @media (max-width: 768px) {
+    .quick-search-section { display: none; }
+  }
+
   /* ===== Contact Section ===== */
   .contact-section { padding: 90px 0; background: var(--white); }
 
@@ -719,6 +777,51 @@
     <span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span>
   </div>
 </div>
+
+<section class="quick-search-section">
+  <div class="search-bar">
+    <div class="search-field">
+      <label><span data-en="Experience Type" data-fr="Type d'Expérience" data-es="Tipo de Experiencia" data-de="Erlebnisart">Experience Type</span></label>
+      <select>
+        <option data-en="Select Your Experience" data-fr="Choisissez votre expérience" data-es="Elige tu experiencia" data-de="Erlebnis Auswählen">Select Your Experience</option>
+        <optgroup label="Tours" data-en="Tours" data-fr="Circuits" data-es="Tours" data-de="Touren">
+          <option value="tour-1" data-en="8-Day Grand Morocco Tour: Sahara Desert & Rif Mountains" data-fr="Circuit de 8 Jours au Maroc : Désert du Sahara & Montagnes du Rif" data-es="Tour de 8 Días por Marruecos: Desierto del Sahara y Montañas del Rif" data-de="8-Tägige Große Marokko-Tour: Sahara-Wüste & Rif-Gebirge">8-Day Grand Morocco Tour: Sahara Desert & Rif Mountains</option>
+          <option value="tour-2" data-en="5-Day Marrakech to Merzouga Desert Tour" data-fr="Circuit de 5 Jours de Marrakech au Désert de Merzouga" data-es="Tour de 5 Días de Marrakech al Desierto de Merzouga" data-de="5-Tägige Tour von Marrakesch in die Merzouga-Wüste">5-Day Marrakech to Merzouga Desert Tour</option>
+          <option value="tour-3" data-en="12-Day Morocco Tour: Casablanca to Marrakech & Sahara" data-fr="Circuit de 12 Jours au Maroc : de Casablanca à Marrakech et au Sahara" data-es="Tour de 12 Días por Marruecos: de Casablanca a Marrakech y el Sahara" data-de="12-Tägige Marokko-Rundreise: von Casablanca nach Marrakesch und in die Sahara">12-Day Morocco Tour: Casablanca to Marrakech & Sahara</option>
+          <option value="tour-4" data-en="9 Days Morocco Adventure from Marrakech, Sahara to Atlantic Coast" data-fr="Aventure de 9 Jours au Maroc : de Marrakech au Sahara et à la Côte Atlantique" data-es="Aventura de 9 Días por Marruecos: de Marrakech al Sahara y la Costa Atlántica" data-de="9-Tägiges Marokko-Abenteuer: von Marrakesch über die Sahara bis zur Atlantikküste">9 Days Morocco Adventure from Marrakech, Sahara to Atlantic Coast</option>
+        </optgroup>
+        <optgroup label="Excursions" data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">
+          <option value="excursion-1" data-en="Essaouira Excursion from Agadir & Taghazout — UNESCO Medina" data-fr="Excursion à Essaouira depuis Agadir & Taghazout — Médina UNESCO" data-es="Excursión a Essaouira desde Agadir y Taghazout — Medina UNESCO" data-de="Essaouira-Ausflug ab Agadir & Taghazout — UNESCO-Medina">Essaouira Excursion from Agadir & Taghazout — UNESCO Medina</option>
+          <option value="excursion-2" data-en="Marrakech Day Trip from Agadir & Taghazout — UNESCO Medina & Souks" data-fr="Excursion d'une Journée à Marrakech depuis Agadir & Taghazout — Médina et Souks UNESCO" data-es="Excursión de un Día a Marrakech desde Agadir y Taghazout — Medina y Zocos UNESCO" data-de="Tagesausflug nach Marrakesch ab Agadir & Taghazout — UNESCO-Medina und Souks">Marrakech Day Trip from Agadir & Taghazout — UNESCO Medina & Souks</option>
+          <option value="excursion-3" data-en="Paradise Valley Day Trip from Agadir & Taghazout — Natural Pools" data-fr="Excursion d'une Journée à la Paradise Valley depuis Agadir & Taghazout — Piscines Naturelles" data-es="Excursión de un Día al Paradise Valley desde Agadir y Taghazout — Piscinas Naturales" data-de="Tagesausflug ins Paradise Valley ab Agadir & Taghazout — Natürliche Pools">Paradise Valley Day Trip from Agadir & Taghazout — Natural Pools</option>
+        </optgroup>
+        <optgroup label="Activities" data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">
+          <option value="activity-1" data-en="Agadir & Taghazout Horse Riding & Sunset Beach Trail" data-fr="Balade à Cheval : Équitation sur la Plage à Taghazout" data-es="Experiencia a Caballo: Paseo a Caballo en la Playa de Taghazout" data-de="Reiterlebnis: Strandreiten in Taghazout">Agadir & Taghazout Horse Riding & Sunset Beach Trail</option>
+          <option value="activity-2" data-en="Quad Biking Adventure: Sand Dunes & Argan Trails" data-fr="Aventure en Quad à Agadir et Taghazout : Dunes de Sable et Sentiers d'Arganiers" data-es="Aventura en Quad en Agadir y Taghazout: Dunas de Arena y Senderos de Argán" data-de="Quad-Abenteuer in Agadir & Taghazout: Sanddünen und Arganienpfade">Quad Biking Adventure: Sand Dunes & Argan Trails</option>
+          <option value="activity-3" data-en="Private Surf Lesson in Taghazout: Dedicated 1-on-1 Coaching" data-fr="Cours de Surf Privé à Taghazout & Agadir : Coaching Personnel et Instructeur Dédié" data-es="Clase Privada de Surf en Taghazout y Agadir: Coaching Personal e Instructor Dedicado" data-de="Privater Surfkurs in Taghazout & Agadir: Persönliches Coaching mit Eigenem Lehrer">Private Surf Lesson in Taghazout: Dedicated 1-on-1 Coaching</option>
+        </optgroup>
+      </select>
+    </div>
+    <div class="search-field">
+      <label><span data-en="Arrival Date" data-fr="Date d'arrivée" data-es="Fecha de Llegada" data-de="Ankunftsdatum">Arrival Date</span></label>
+      <input type="date">
+    </div>
+    <div class="search-field">
+      <label><span data-en="Departure Date" data-fr="Date de départ" data-es="Fecha de Salida" data-de="Abreisedatum">Departure Date</span></label>
+      <input type="date">
+    </div>
+    <div class="search-field">
+      <label><span data-en="Passengers" data-fr="Voyageurs" data-es="Pasajeros" data-de="Reisende">Passengers</span></label>
+      <select>
+        <option data-en="1 Passenger" data-fr="1 Voyageur" data-es="1 Pasajero" data-de="1 Reisender">1 Passenger</option>
+        <option data-en="2 Passengers" data-fr="2 Voyageurs" data-es="2 Pasajeros" data-de="2 Reisende">2 Passengers</option>
+        <option data-en="3 Passengers" data-fr="3 Voyageurs" data-es="3 Pasajeros" data-de="3 Reisende">3 Passengers</option>
+        <option data-en="4 Passengers" data-fr="4 Voyageurs" data-es="4 Pasajeros" data-de="4 Reisende">4 Passengers</option>
+      </select>
+    </div>
+    <button class="btn-search"><span data-en="Search" data-fr="Rechercher" data-es="Buscar" data-de="Suchen">Search</span></button>
+  </div>
+</section>
 
 <section class="contact-section">
   <div class="container">
@@ -1062,7 +1165,11 @@
   var currentLang = 'en';
   function applyLang(lang) {
     document.querySelectorAll('[data-en]').forEach(function(el) {
-      el.textContent = el.dataset[lang];
+      if (el.tagName === 'OPTGROUP') {
+        el.label = el.dataset[lang];
+      } else {
+        el.textContent = el.dataset[lang];
+      }
     });
     document.getElementById('lang-label').textContent = lang.toUpperCase();
     document.documentElement.lang = lang;
