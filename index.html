@@ -277,7 +277,7 @@
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.45);
-    z-index: 240;
+    z-index: 265;
   }
   .mobile-menu-overlay.open { display: block; }
 
@@ -301,7 +301,7 @@
     height: 100vh;
     background: var(--white);
     box-shadow: -10px 0 30px rgba(0,0,0,0.2);
-    z-index: 250;
+    z-index: 270;
     padding: 80px 30px 30px;
     transition: right 0.3s ease;
     display: flex;
@@ -312,6 +312,7 @@
   }
   .mobile-menu.open { right: 0; }
   .mobile-menu a.btn-book, .mobile-menu a.mobile-whatsapp-btn { color: var(--white); }
+  .mobile-menu a.mobile-whatsapp-btn { display: flex; }
   .mobile-menu a {
     display: block;
     padding: 15px 0;
@@ -2001,6 +2002,88 @@
     }
     closeMobileMenu();
   });
+
+  // Drag-to-close: the panel follows the finger in real time on a
+  // predominantly-horizontal, leftward drag starting on the panel itself.
+  // Releasing past ~35% of the panel's width completes the close; releasing
+  // short of that snaps it back open. Vertical scrolling inside the panel is
+  // left completely alone (direction is only decided once movement is
+  // clearly more horizontal than vertical).
+  (function() {
+    var startX = 0, startY = 0, dragX = 0, dragging = false, directionLocked = false, panelWidth = 0;
+
+    function settle(shouldClose) {
+      var finished = false;
+      function done() {
+        if (finished) return;
+        finished = true;
+        mobileMenu.removeEventListener('transitionend', done);
+        if (shouldClose) {
+          mobileMenu.style.transition = 'none';
+          closeMobileMenu();
+          mobileMenu.style.transform = '';
+          void mobileMenu.offsetHeight;
+          mobileMenu.style.transition = '';
+        } else {
+          mobileMenu.style.transition = '';
+          mobileMenu.style.transform = '';
+        }
+      }
+      mobileMenu.addEventListener('transitionend', done);
+      setTimeout(done, 350);
+    }
+
+    mobileMenu.addEventListener('touchstart', function(e) {
+      if (!mobileMenu.classList.contains('open')) return;
+      var t = e.touches[0];
+      startX = t.clientX;
+      startY = t.clientY;
+      dragX = 0;
+      dragging = false;
+      directionLocked = false;
+      panelWidth = mobileMenu.offsetWidth;
+    }, { passive: true });
+
+    mobileMenu.addEventListener('touchmove', function(e) {
+      if (!mobileMenu.classList.contains('open')) return;
+      var t = e.touches[0];
+      var dx = t.clientX - startX;
+      var dy = t.clientY - startY;
+
+      if (!directionLocked) {
+        if (Math.abs(dx) < 6 && Math.abs(dy) < 6) return;
+        directionLocked = true;
+        dragging = Math.abs(dx) > Math.abs(dy) && dx < 0;
+        if (dragging) mobileMenu.style.transition = 'none';
+      }
+      if (!dragging) return;
+
+      e.preventDefault();
+      dragX = Math.min(0, dx);
+      mobileMenu.style.transform = 'translateX(' + dragX + 'px)';
+    }, { passive: false });
+
+    function onRelease() {
+      if (!dragging) return;
+      dragging = false;
+      var threshold = panelWidth * 0.35;
+
+      if (Math.abs(dragX) > threshold) {
+        var panelRect = mobileMenu.getBoundingClientRect();
+        var shift = -(panelRect.right + 40);
+        mobileMenu.style.transition = 'transform 0.3s ease';
+        mobileMenu.style.transform = 'translateX(' + shift + 'px)';
+        settle(true);
+      } else {
+        mobileMenu.style.transition = 'transform 0.3s ease';
+        mobileMenu.style.transform = 'translateX(0)';
+        settle(false);
+      }
+    }
+
+    mobileMenu.addEventListener('touchend', onRelease);
+    mobileMenu.addEventListener('touchcancel', onRelease);
+  })();
   document.querySelectorAll('.mobile-menu a').forEach(function(link) {
     link.addEventListener('click', closeMobileMenu);
   });

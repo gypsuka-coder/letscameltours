@@ -227,7 +227,7 @@
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.45);
-    z-index: 240;
+    z-index: 265;
   }
   .mobile-menu-overlay.open { display: block; }
 
@@ -243,6 +243,35 @@
     display: none;
   }
 
+  .back-to-top {
+    position: fixed;
+    bottom: 96px;
+    right: 26px;
+    z-index: 300;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: background 0.25s ease, opacity 0.3s ease, transform 0.25s ease, visibility 0.3s ease, box-shadow 0.25s ease;
+  }
+  .back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+  .back-to-top:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 26px rgba(224,122,62,0.4); }
+  .back-to-top svg { width: 20px; height: 20px; color: #fff; display: block; }
+
+  @media (max-width: 768px) {
+    .back-to-top { width: 46px; height: 46px; bottom: 84px; right: 18px; }
+    .back-to-top svg { width: 18px; height: 18px; }
+  }
+
   .mobile-menu {
     position: fixed;
     top: 0; right: -100%;
@@ -251,7 +280,7 @@
     height: 100vh;
     background: var(--white);
     box-shadow: -10px 0 30px rgba(0,0,0,0.2);
-    z-index: 250;
+    z-index: 270;
     padding: 80px 30px 30px;
     transition: right 0.3s ease;
     display: flex;
@@ -262,6 +291,7 @@
   }
   .mobile-menu.open { right: 0; }
   .mobile-menu a.btn-book, .mobile-menu a.mobile-whatsapp-btn { color: var(--white); }
+  .mobile-menu a.mobile-whatsapp-btn { display: flex; }
   .mobile-menu a {
     display: block;
     padding: 15px 0;
@@ -579,6 +609,10 @@
   <span class="whatsapp-label"><span data-en="Chat with us now!" data-fr="Discutez avec nous !" data-es="¡Chatea con nosotros!" data-de="Jetzt Chatten!">Chat with us now!</span></span>
 </a>
 
+<button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
 <script>
   window.addEventListener('scroll', function() {
     var navbar = document.querySelector('.navbar');
@@ -597,6 +631,91 @@
   burgerToggle.addEventListener('click', openMobileMenu);
   mobileMenuClose.addEventListener('click', closeMobileMenu);
   mobileOverlay.addEventListener('click', function(e) { if (mobileMenuTouchStart) { var dx = Math.abs((e.clientX || 0) - mobileMenuTouchStart.x); var dy = Math.abs((e.clientY || 0) - mobileMenuTouchStart.y); mobileMenuTouchStart = null; if (dx > 10 || dy > 10) return; } closeMobileMenu(); });
+  var backToTop = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function() { backToTop.classList.toggle('visible', window.scrollY > 350); });
+  backToTop.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+  // Drag-to-close: the panel follows the finger in real time on a
+  // predominantly-horizontal, leftward drag starting on the panel itself.
+  // Releasing past ~35% of the panel's width completes the close; releasing
+  // short of that snaps it back open. Vertical scrolling inside the panel is
+  // left completely alone (direction is only decided once movement is
+  // clearly more horizontal than vertical).
+  (function() {
+    var startX = 0, startY = 0, dragX = 0, dragging = false, directionLocked = false, panelWidth = 0;
+
+    function settle(shouldClose) {
+      var finished = false;
+      function done() {
+        if (finished) return;
+        finished = true;
+        mobileMenu.removeEventListener('transitionend', done);
+        if (shouldClose) {
+          mobileMenu.style.transition = 'none';
+          closeMobileMenu();
+          mobileMenu.style.transform = '';
+          void mobileMenu.offsetHeight;
+          mobileMenu.style.transition = '';
+        } else {
+          mobileMenu.style.transition = '';
+          mobileMenu.style.transform = '';
+        }
+      }
+      mobileMenu.addEventListener('transitionend', done);
+      setTimeout(done, 350);
+    }
+
+    mobileMenu.addEventListener('touchstart', function(e) {
+      if (!mobileMenu.classList.contains('open')) return;
+      var t = e.touches[0];
+      startX = t.clientX;
+      startY = t.clientY;
+      dragX = 0;
+      dragging = false;
+      directionLocked = false;
+      panelWidth = mobileMenu.offsetWidth;
+    }, { passive: true });
+
+    mobileMenu.addEventListener('touchmove', function(e) {
+      if (!mobileMenu.classList.contains('open')) return;
+      var t = e.touches[0];
+      var dx = t.clientX - startX;
+      var dy = t.clientY - startY;
+
+      if (!directionLocked) {
+        if (Math.abs(dx) < 6 && Math.abs(dy) < 6) return;
+        directionLocked = true;
+        dragging = Math.abs(dx) > Math.abs(dy) && dx < 0;
+        if (dragging) mobileMenu.style.transition = 'none';
+      }
+      if (!dragging) return;
+
+      e.preventDefault();
+      dragX = Math.min(0, dx);
+      mobileMenu.style.transform = 'translateX(' + dragX + 'px)';
+    }, { passive: false });
+
+    function onRelease() {
+      if (!dragging) return;
+      dragging = false;
+      var threshold = panelWidth * 0.35;
+
+      if (Math.abs(dragX) > threshold) {
+        var panelRect = mobileMenu.getBoundingClientRect();
+        var shift = -(panelRect.right + 40);
+        mobileMenu.style.transition = 'transform 0.3s ease';
+        mobileMenu.style.transform = 'translateX(' + shift + 'px)';
+        settle(true);
+      } else {
+        mobileMenu.style.transition = 'transform 0.3s ease';
+        mobileMenu.style.transform = 'translateX(0)';
+        settle(false);
+      }
+    }
+
+    mobileMenu.addEventListener('touchend', onRelease);
+    mobileMenu.addEventListener('touchcancel', onRelease);
+  })();
   document.querySelectorAll('.mobile-menu a').forEach(function(link) { link.addEventListener('click', closeMobileMenu); });
 
   var currentLang = 'en';
