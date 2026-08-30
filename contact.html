@@ -22,7 +22,7 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  body { font-family: 'Poppins', sans-serif; color: #1a1a1a; line-height: 1.6; }
+  body { font-family: 'Poppins', sans-serif; color: #1a1a1a; line-height: 1.6; overflow-x: hidden; }
 
   a { text-decoration: none; color: inherit; }
 
@@ -93,7 +93,7 @@
   .btn-outline:hover { background: rgba(255,255,255,0.12); border-color: #fff; transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 26px rgba(0,0,0,0.25); }
 
   /* ===== Navbar — identical structure/styling/scripts to tour-1.html/blog-3.html ===== */
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
   .navbar {
     position: fixed;
     top: 0; left: 0; width: 100%;
@@ -598,6 +598,7 @@
     .nav-right .btn-book { display: none; }
     .burger { display: block; }
     .form-row { grid-template-columns: 1fr; gap: 0; }
+    .form-row > * { min-width: 0; }
   }
 
   /* ===== Footer ===== */
