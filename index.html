@@ -1267,7 +1267,11 @@
   }
   @media (max-width: 600px) {
     .footer-grid { grid-template-columns: 1fr; gap: 30px; }
-    .footer-bottom { justify-content: flex-start; }
+    .footer-col { text-align: center; }
+    .footer-lang-row { justify-content: center; }
+    .footer-col h4::after { left: 50%; transform: translateX(-50%); }
+    .socials { justify-content: center; }
+    .footer-bottom { justify-content: center; }
     /* keep the language pills at a ~44px touch target on phones */
     .footer-lang-btn { padding: 13px 18px; }
   }
@@ -1612,7 +1616,7 @@
     <div class="transfer-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 13l2-6a2 2 0 012-1h10a2 2 0 012 1l2 6M5 13h14v5a1 1 0 01-1 1h-1a1 1 0 01-1-1v-1H8v1a1 1 0 01-1 1H6a1 1 0 01-1-1v-5z"/><circle cx="7.5" cy="16.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="16.5" cy="16.5" r="1.2" fill="currentColor" stroke="none"/></svg></div>
     <h2><span data-en="Smooth Airport & City Transfers" data-fr="Transferts Aéroport & Ville Fluides" data-es="Traslados Suaves al Aeropuerto y la Ciudad" data-de="Reibungslose Flughafen- & Stadttransfers">Smooth Airport & City Transfers</span></h2>
     <p><span data-en="Reliable pickups and drop-offs to Agadir airport, your riad, or anywhere across the region, no waiting, no hassle." data-fr="Prises en charge et déposes fiables vers l'aéroport d'Agadir, votre riad, ou partout dans la région, sans attente, sans tracas." data-es="Recogidas y traslados fiables al aeropuerto de Agadir, tu riad, o cualquier lugar de la región, sin esperas, sin complicaciones." data-de="Zuverlässige Abholungen und Transfers zum Flughafen Agadir, Ihrem Riad, oder überall in der Region, ohne Wartezeit, ohne Aufwand.">Reliable pickups and drop-offs to Agadir airport, your riad, or anywhere across the region, no waiting, no hassle.</span></p>
-    <a href="contact.html" class="btn-gold"><span data-en="Book Your Transfer" data-fr="Réservez Votre Transfert" data-es="Reserva Tu Traslado" data-de="Buchen Sie Ihren Transfer">Book Your Transfer</span></a>
+    <a href="transfers.html" class="btn-arrow-gold btn-pill"><span data-en="Discover More Transfers" data-fr="Découvrir Plus de Transferts" data-es="Descubre Más Traslados" data-de="Mehr Transfers Entdecken">Discover More Transfers</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </section>
 
@@ -1859,7 +1863,7 @@
           <li><a href="tours.html"><span data-en="Morocco Tours" data-fr="Circuits Maroc" data-es="Tours Marruecos" data-de="Marokko Touren">Morocco Tours</span></a></li>
           <li><a href="excursions.html"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></a></li>
           <li><a href="activities.html"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span></a></li>
-          <li><a href="index.html#transfers"><span data-en="Transfers" data-fr="Transferts" data-es="Traslados" data-de="Transfers">Transfers</span></a></li>
+          <li><a href="transfers.html"><span data-en="Transfers" data-fr="Transferts" data-es="Traslados" data-de="Transfers">Transfers</span></a></li>
         </ul>
       </div>
       <div class="footer-col">
