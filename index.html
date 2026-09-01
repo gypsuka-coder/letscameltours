@@ -1,8 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <title>Let's Camel Tours</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -940,6 +943,15 @@
     border-left: 3px solid var(--gold);
   }
 
+  .testi-rating {
+    font-size: 14px;
+    color: var(--gold);
+    letter-spacing: 0.03em;
+    margin-bottom: 10px;
+  }
+
+  .testi-rating span { color: var(--text-gray); margin-left: 6px; font-size: 12.5px; }
+
   .testi-card p.quote {
     font-size: 15px;
     color: #333;
@@ -1376,53 +1388,11 @@
 <section class="hero" id="home">
   <div class="hero-content">
     <h1 class="hero-title"><span data-en="Let's Explore Morocco" data-fr="Explorons le Maroc" data-es="Exploremos Marruecos" data-de="Lasst uns Marokko Erkunden">Let's Explore Morocco</span></h1>
-    <p class="hero-subtitle"><span data-en="Let's experience the magic of Morocco with camel treks through golden dunes, luxury desert camps under the stars, and authentic Berber culture." data-fr="Vivons la magie du Maroc avec des treks à dos de chameau à travers les dunes dorées, des camps de luxe sous les étoiles et une culture berbère authentique." data-es="Vivamos la magia de Marruecos con paseos en camello por dunas doradas, campamentos de lujo bajo las estrellas y una auténtica cultura bereber." data-de="Erleben wir die Magie Marokkos mit Kamelritten durch goldene Dünen, luxuriösen Wüstencamps unter den Sternen und authentischer Berberkultur.">Let's experience the magic of Morocco with camel treks through golden dunes, luxury desert camps under the stars, and authentic Berber culture.</span></p>
+    <p class="hero-subtitle"><span data-en="Discover the magic of Morocco: golden Sahara dunes, luxury desert camps under the stars, and unforgettable coastal escapes in Taghazout." data-fr="Vivons la magie du Maroc avec des treks à dos de chameau à travers les dunes dorées, des camps de luxe sous les étoiles et une culture berbère authentique." data-es="Vivamos la magia de Marruecos con paseos en camello por dunas doradas, campamentos de lujo bajo las estrellas y una auténtica cultura bereber." data-de="Erleben wir die Magie Marokkos mit Kamelritten durch goldene Dünen, luxuriösen Wüstencamps unter den Sternen und authentischer Berberkultur.">Discover the magic of Morocco: golden Sahara dunes, luxury desert camps under the stars, and unforgettable coastal escapes in Taghazout.</span></p>
     <div class="hero-btns">
       <a href="contact.html" class="btn-gold"><span data-en="Book Now" data-fr="Réservez maintenant" data-es="Reserva Ya" data-de="Jetzt Buchen">Book Now</span></a>
       <a href="about-us.html" class="btn-outline"><span data-en="About Us" data-fr="À propos" data-es="Sobre Nosotros" data-de="Über Uns">About Us</span></a>
     </div>
-  </div>
-  <div class="search-bar">
-    <div class="search-field">
-      <label><span data-en="Experience Type" data-fr="Type d'Expérience" data-es="Tipo de Experiencia" data-de="Erlebnisart">Experience Type</span></label>
-      <select>
-        <option data-en="Select Your Experience" data-fr="Choisissez votre expérience" data-es="Elige tu experiencia" data-de="Erlebnis Auswählen">Select Your Experience</option>
-        <optgroup label="Tours" data-en="Tours" data-fr="Circuits" data-es="Tours" data-de="Touren">
-          <option value="tour-1" data-en="8-Day Grand Morocco Tour: Sahara Desert & Rif Mountains" data-fr="Circuit de 8 Jours au Maroc : Désert du Sahara & Montagnes du Rif" data-es="Tour de 8 Días por Marruecos: Desierto del Sahara y Montañas del Rif" data-de="8-Tägige Große Marokko-Tour: Sahara-Wüste & Rif-Gebirge">8-Day Grand Morocco Tour: Sahara Desert & Rif Mountains</option>
-          <option value="tour-2" data-en="5-Day Marrakech to Merzouga Desert Tour" data-fr="Circuit de 5 Jours de Marrakech au Désert de Merzouga" data-es="Tour de 5 Días de Marrakech al Desierto de Merzouga" data-de="5-Tägige Tour von Marrakesch in die Merzouga-Wüste">5-Day Marrakech to Merzouga Desert Tour</option>
-          <option value="tour-3" data-en="12-Day Morocco Tour: Casablanca to Marrakech & Sahara" data-fr="Circuit de 12 Jours au Maroc : de Casablanca à Marrakech et au Sahara" data-es="Tour de 12 Días por Marruecos: de Casablanca a Marrakech y el Sahara" data-de="12-Tägige Marokko-Rundreise: von Casablanca nach Marrakesch und in die Sahara">12-Day Morocco Tour: Casablanca to Marrakech & Sahara</option>
-          <option value="tour-4" data-en="9 Days Morocco Adventure from Marrakech, Sahara to Atlantic Coast" data-fr="Aventure de 9 Jours au Maroc : de Marrakech au Sahara et à la Côte Atlantique" data-es="Aventura de 9 Días por Marruecos: de Marrakech al Sahara y la Costa Atlántica" data-de="9-Tägiges Marokko-Abenteuer: von Marrakesch über die Sahara bis zur Atlantikküste">9 Days Morocco Adventure from Marrakech, Sahara to Atlantic Coast</option>
-        </optgroup>
-        <optgroup label="Excursions" data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">
-          <option value="excursion-1" data-en="Essaouira Excursion from Agadir & Taghazout — UNESCO Medina" data-fr="Excursion à Essaouira depuis Agadir & Taghazout — Médina UNESCO" data-es="Excursión a Essaouira desde Agadir y Taghazout — Medina UNESCO" data-de="Essaouira-Ausflug ab Agadir & Taghazout — UNESCO-Medina">Essaouira Excursion from Agadir & Taghazout — UNESCO Medina</option>
-          <option value="excursion-2" data-en="Marrakech Day Trip from Agadir & Taghazout — UNESCO Medina & Souks" data-fr="Excursion d'une Journée à Marrakech depuis Agadir & Taghazout — Médina et Souks UNESCO" data-es="Excursión de un Día a Marrakech desde Agadir y Taghazout — Medina y Zocos UNESCO" data-de="Tagesausflug nach Marrakesch ab Agadir & Taghazout — UNESCO-Medina und Souks">Marrakech Day Trip from Agadir & Taghazout — UNESCO Medina & Souks</option>
-          <option value="excursion-3" data-en="Paradise Valley Day Trip from Agadir & Taghazout — Natural Pools" data-fr="Excursion d'une Journée à la Paradise Valley depuis Agadir & Taghazout — Piscines Naturelles" data-es="Excursión de un Día al Paradise Valley desde Agadir y Taghazout — Piscinas Naturales" data-de="Tagesausflug ins Paradise Valley ab Agadir & Taghazout — Natürliche Pools">Paradise Valley Day Trip from Agadir & Taghazout — Natural Pools</option>
-        </optgroup>
-        <optgroup label="Activities" data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">
-          <option value="activity-1" data-en="Agadir & Taghazout Horse Riding & Sunset Beach Trail" data-fr="Balade à Cheval : Équitation sur la Plage à Taghazout" data-es="Experiencia a Caballo: Paseo a Caballo en la Playa de Taghazout" data-de="Reiterlebnis: Strandreiten in Taghazout">Agadir & Taghazout Horse Riding & Sunset Beach Trail</option>
-          <option value="activity-2" data-en="Quad Biking Adventure: Sand Dunes & Argan Trails" data-fr="Aventure en Quad à Agadir et Taghazout : Dunes de Sable et Sentiers d'Arganiers" data-es="Aventura en Quad en Agadir y Taghazout: Dunas de Arena y Senderos de Argán" data-de="Quad-Abenteuer in Agadir & Taghazout: Sanddünen und Arganienpfade">Quad Biking Adventure: Sand Dunes & Argan Trails</option>
-          <option value="activity-3" data-en="Private Surf Lesson in Taghazout: Dedicated 1-on-1 Coaching" data-fr="Cours de Surf Privé à Taghazout & Agadir : Coaching Personnel et Instructeur Dédié" data-es="Clase Privada de Surf en Taghazout y Agadir: Coaching Personal e Instructor Dedicado" data-de="Privater Surfkurs in Taghazout & Agadir: Persönliches Coaching mit Eigenem Lehrer">Private Surf Lesson in Taghazout: Dedicated 1-on-1 Coaching</option>
-        </optgroup>
-      </select>
-    </div>
-    <div class="search-field">
-      <label><span data-en="Arrival Date" data-fr="Date d'arrivée" data-es="Fecha de Llegada" data-de="Ankunftsdatum">Arrival Date</span></label>
-      <input type="date">
-    </div>
-    <div class="search-field">
-      <label><span data-en="Departure Date" data-fr="Date de départ" data-es="Fecha de Salida" data-de="Abreisedatum">Departure Date</span></label>
-      <input type="date">
-    </div>
-    <div class="search-field">
-      <label><span data-en="Passengers" data-fr="Voyageurs" data-es="Pasajeros" data-de="Reisende">Passengers</span></label>
-      <select>
-        <option data-en="1 Passenger" data-fr="1 Voyageur" data-es="1 Pasajero" data-de="1 Reisender">1 Passenger</option>
-        <option data-en="2 Passengers" data-fr="2 Voyageurs" data-es="2 Pasajeros" data-de="2 Reisende">2 Passengers</option>
-        <option data-en="3 Passengers" data-fr="3 Voyageurs" data-es="3 Pasajeros" data-de="3 Reisende">3 Passengers</option>
-        <option data-en="4 Passengers" data-fr="4 Voyageurs" data-es="4 Pasajeros" data-de="4 Reisende">4 Passengers</option>
-      </select>
-    </div>
-    <button class="btn-search"><span data-en="Search" data-fr="Rechercher" data-es="Buscar" data-de="Suchen">Search</span></button>
   </div>
 </section>
 
@@ -1675,22 +1645,27 @@
       <button class="carousel-arrow left" data-target="testi-carousel" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 6l-6 6 6 6"/></svg></button>
       <div class="testi-grid" id="testi-carousel">
       <div class="testi-card testi-card-clone" data-clone-of="last" aria-hidden="true" tabindex="-1">
+        <div class="testi-rating">★★★★★<span>5.0</span></div>
         <p class="quote"><span data-en="The riads and desert camp were lovely, and the camel ride through the Sahara was memorable and truly once in a lifetime. Our guide was phenomenal from start to finish." data-fr="Les riads et le camp désert étaient magnifiques, et la balade à dos de chameau dans le Sahara était mémorable, une expérience unique. Notre guide était exceptionnel du début à la fin." data-es="Los riads y el campamento del desierto fueron encantadores, y el paseo en camello por el Sahara fue memorable y verdaderamente único en la vida. Nuestro guía fue excepcional de principio a fin." data-de="Die Riads und das Wüstencamp waren wunderschön, und der Kamelritt durch die Sahara war unvergesslich und wirklich einmalig. Unser Guide war von Anfang bis Ende hervorragend.">The riads and desert camp were lovely, and the camel ride through the Sahara was memorable and truly once in a lifetime. Our guide was phenomenal from start to finish.</span></p>
         <div class="testi-who"><img src="testimonial-3.jpg" alt="Christine B." class="testi-avatar"><span class="testi-who-text">Christine B. <span>Kendal, United Kingdom</span></span></div>
       </div>
       <div class="testi-card">
+        <div class="testi-rating">★★★★★<span>5.0</span></div>
         <p class="quote"><span data-en="Our two-day tour from Marrakech to Merzouga was fantastic for our family. Our guide was knowledgeable and answered all our questions. The whole trip exceeded our expectations." data-fr="Notre circuit de deux jours de Marrakech à Merzouga était fantastique pour notre famille. Notre guide était compétent et a répondu à toutes nos questions. Le voyage a dépassé nos attentes." data-es="Nuestro tour de dos días de Marrakech a Merzouga fue fantástico para nuestra familia. Nuestro guía tenía mucho conocimiento y respondió todas nuestras preguntas. Todo el viaje superó nuestras expectativas." data-de="Unsere zweitägige Tour von Marrakesch nach Merzouga war fantastisch für unsere Familie. Unser Guide war kompetent und beantwortete all unsere Fragen. Die ganze Reise übertraf unsere Erwartungen.">Our two-day tour from Marrakech to Merzouga was fantastic for our family. Our guide was knowledgeable and answered all our questions. The whole trip exceeded our expectations.</span></p>
         <div class="testi-who"><img src="testimonial-1.jpg" alt="Kelsey S." class="testi-avatar"><span class="testi-who-text">Kelsey S. <span>Livingston, Montana</span></span></div>
       </div>
       <div class="testi-card">
+        <div class="testi-rating">★★★★☆<span>4.8</span></div>
         <p class="quote"><span data-en="Our custom 12-day tour was crafted around our interests, with great hotels and local guides. Free time was built in and changes were made along the way. An awesome experience overall." data-fr="Notre circuit sur mesure de 12 jours a été conçu selon nos intérêts, avec de superbes hôtels et guides locaux. Du temps libre était prévu et des ajustements ont été faits en cours de route. Une expérience géniale." data-es="Nuestro tour personalizado de 12 días fue diseñado según nuestros intereses, con excelentes hoteles y guías locales. Se incluyó tiempo libre y se hicieron cambios sobre la marcha. Una experiencia increíble en general." data-de="Unsere individuelle 12-tägige Tour wurde ganz nach unseren Interessen gestaltet, mit tollen Hotels und lokalen Guides. Freizeit war eingeplant und Änderungen wurden unterwegs vorgenommen. Insgesamt ein großartiges Erlebnis.">Our custom 12-day tour was crafted around our interests, with great hotels and local guides. Free time was built in and changes were made along the way. An awesome experience overall.</span></p>
         <div class="testi-who"><img src="testimonial-2.jpg" alt="Manish S." class="testi-avatar"><span class="testi-who-text">Manish S. <span>Los Angeles, CA</span></span></div>
       </div>
       <div class="testi-card">
+        <div class="testi-rating">★★★★★<span>5.0</span></div>
         <p class="quote"><span data-en="The riads and desert camp were lovely, and the camel ride through the Sahara was memorable and truly once in a lifetime. Our guide was phenomenal from start to finish." data-fr="Les riads et le camp désert étaient magnifiques, et la balade à dos de chameau dans le Sahara était mémorable, une expérience unique. Notre guide était exceptionnel du début à la fin." data-es="Los riads y el campamento del desierto fueron encantadores, y el paseo en camello por el Sahara fue memorable y verdaderamente único en la vida. Nuestro guía fue excepcional de principio a fin." data-de="Die Riads und das Wüstencamp waren wunderschön, und der Kamelritt durch die Sahara war unvergesslich und wirklich einmalig. Unser Guide war von Anfang bis Ende hervorragend.">The riads and desert camp were lovely, and the camel ride through the Sahara was memorable and truly once in a lifetime. Our guide was phenomenal from start to finish.</span></p>
         <div class="testi-who"><img src="testimonial-3.jpg" alt="Christine B." class="testi-avatar"><span class="testi-who-text">Christine B. <span>Kendal, United Kingdom</span></span></div>
       </div>
       <div class="testi-card testi-card-clone" data-clone-of="first" aria-hidden="true" tabindex="-1">
+        <div class="testi-rating">★★★★★<span>5.0</span></div>
         <p class="quote"><span data-en="Our two-day tour from Marrakech to Merzouga was fantastic for our family. Our guide was knowledgeable and answered all our questions. The whole trip exceeded our expectations." data-fr="Notre circuit de deux jours de Marrakech à Merzouga était fantastique pour notre famille. Notre guide était compétent et a répondu à toutes nos questions. Le voyage a dépassé nos attentes." data-es="Nuestro tour de dos días de Marrakech a Merzouga fue fantástico para nuestra familia. Nuestro guía tenía mucho conocimiento y respondió todas nuestras preguntas. Todo el viaje superó nuestras expectativas." data-de="Unsere zweitägige Tour von Marrakesch nach Merzouga war fantastisch für unsere Familie. Unser Guide war kompetent und beantwortete all unsere Fragen. Die ganze Reise übertraf unsere Erwartungen.">Our two-day tour from Marrakech to Merzouga was fantastic for our family. Our guide was knowledgeable and answered all our questions. The whole trip exceeded our expectations.</span></p>
         <div class="testi-who"><img src="testimonial-1.jpg" alt="Kelsey S." class="testi-avatar"><span class="testi-who-text">Kelsey S. <span>Livingston, Montana</span></span></div>
       </div>
