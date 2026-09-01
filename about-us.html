@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About Us | A Family-Run Morocco Travel Agency | Let's Camel Tours</title>
-<meta name="description" content="Meet the family behind Let's Camel Tours: four decades of desert life between the dunes of Merzouga and the waves of Taghazout, guiding travelers through the real Morocco.">
+<meta name="description" content="Meet the family behind Let's Camel Tours: four decades of desert life from the Sahara dunes of Merzouga to the Atlantic coast of Tamraght-Taghazout near Agadir, guiding travelers through the real Morocco.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -375,12 +375,18 @@
   .section-head { text-align: center; max-width: 640px; margin: 0 auto 50px; }
   .section-head p { color: var(--text-gray); font-size: 15px; }
 
-  /* Our Story */
-  .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
-  .story-images { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 100px; }
-  .story-images img { height: 260px; width: 100%; object-fit: cover; border-radius: 12px; }
-  .story-text p { color: var(--text-gray); font-size: 15.5px; margin-bottom: 16px; }
-  .story-text p:last-child { margin-bottom: 0; }
+  /* Our Story — alternating image/text blocks, same pattern as .camel-banner-grid on index.html */
+  .story-block { display: grid; grid-template-columns: 1fr 1.15fr; align-items: center; gap: 50px; margin-bottom: 70px; }
+  .story-block:last-child { margin-bottom: 0; }
+  .story-block.reverse .story-block-media { order: 2; }
+  .story-block.reverse .story-block-content { order: 1; }
+  .story-block-media { border-radius: 16px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.14); }
+  .story-block-media img { width: 100%; height: 100%; min-height: 320px; object-fit: cover; display: block; }
+  .story-block-content p { color: var(--text-gray); font-size: 15.5px; }
+  .story-block-content p + p { margin-top: 16px; }
+  .story-closing { max-width: 720px; margin: 0 auto; text-align: center; }
+  .story-closing p { color: var(--text-gray); font-size: 15.5px; margin-bottom: 16px; }
+  .story-closing p:last-child { margin-bottom: 0; }
 
   /* Stats */
   .stats-section { background: var(--off-white); padding: 60px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -441,11 +447,13 @@
     .value-card p { font-size: 13px; }
   }
 
-  /* Closing CTA */
-  .cta-section { background: var(--navy); color: #fff; padding: 76px 0; text-align: center; }
-  .cta-section h2 { font-size: clamp(24px, 3.4vw, 34px); font-weight: 800; margin-bottom: 14px; }
-  .cta-section p { color: #dbe2ee; margin-bottom: 28px; font-size: 15.5px; max-width: 560px; margin-left: auto; margin-right: auto; }
-  .cta-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  /* Closing CTA — contained card, same pattern as .final-cta-card on index.html /
+     .contact-cta-box on the tour detail pages, rather than a full-bleed flat banner */
+  .cta-section { background: var(--white); padding: 80px 0; text-align: center; }
+  .cta-section .cta-card { background: linear-gradient(135deg, var(--navy), var(--navy-dark)); color: #fff; padding: 56px 30px; border-radius: 14px; }
+  .cta-section h2 { color: #fff; font-size: clamp(26px, 3.6vw, 38px); font-weight: 800; margin-bottom: 14px; }
+  .cta-section p { color: #d3d9ec; margin-bottom: 30px; font-size: 15.5px; max-width: 55ch; margin-left: auto; margin-right: auto; }
+  .cta-actions { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
 
   .whatsapp-btn { position: fixed; bottom: 26px; right: 26px; z-index: 300; height: 54px; padding: 0 20px 0 16px; background: #25D366; border-radius: 30px; display: flex; align-items: center; gap: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.25); transition: transform 0.2s ease; }
   .whatsapp-label { color: #fff; font-size: 14px; font-weight: 700; white-space: nowrap; }
@@ -477,10 +485,9 @@
   .footer-bottom { padding-top: 6px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-size: 12.5px; color: var(--text-gray); }
 
   @media (max-width: 900px) {
-    .story-grid { grid-template-columns: 1fr; gap: 34px; }
-    .story-images { position: static; flex-direction: row; overflow-x: auto; scrollbar-width: none; }
-    .story-images::-webkit-scrollbar { display: none; }
-    .story-images img { flex: 0 0 78%; height: 220px; }
+    .story-block { grid-template-columns: 1fr; gap: 22px; margin-bottom: 40px; }
+    .story-block.reverse .story-block-media, .story-block.reverse .story-block-content { order: initial; }
+    .story-block-media img { min-height: 220px; }
     .stats-grid { grid-template-columns: 1fr 1fr; }
     .values-grid { grid-template-columns: 1fr 1fr; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -488,6 +495,8 @@
   @media (max-width: 700px) {
     .section { padding: 56px 0; }
     .footer-grid { grid-template-columns: 1fr; }
+    .cta-section { padding: 56px 0; }
+    .cta-section .cta-card { padding: 40px 22px; border-radius: 12px; }
   }
   /* ===== Footer (redesigned) â€” navy ground, gold accents, text-only language pills =====
      Appended after the original footer rules so it overrides them wholesale; the older
@@ -667,22 +676,41 @@
 </div>
 
 <section class="section">
-  <div class="container story-grid">
-    <div class="story-images">
-      <img src="about-1.jpg" alt="Let's Camel Tours">
-      <img src="about-2.jpg" alt="Merzouga desert">
-      <img src="about-3.jpg" alt="Taghazout coast">
-    </div>
-    <div class="story-text">
+  <div class="container">
+
+    <div class="section-head">
       <span class="section-label"><span data-en="Our Story" data-fr="Notre Histoire" data-es="Nuestra Historia" data-de="Unsere Geschichte">Our Story</span></span>
-      <h2 class="section-title"><span data-en="Nestled in the Heart of Merzouga" data-fr="Nichée au Cœur de Merzouga" data-es="Anidada en el Corazón de Merzouga" data-de="Eingebettet im Herzen von Merzouga">Nestled in the Heart of Merzouga</span></h2>
-      <p><span data-en="I'm Yassmina. a wife, a mother, and at heart, a proud Amazigh daughter of Merzouga. This golden corner of Morocco isn't just where I'm from; it's where my whole family's story has lived for generations." data-fr="Je m'appelle Yassmina. Épouse, maman et, avant tout, fière fille amazighe de Merzouga. Ce coin doré du Maroc n'est pas seulement mon lieu d'origine ; c'est là que vit l'histoire de toute ma famille depuis des générations." data-es="Soy Yassmina. Esposa, madre y, en el fondo, una orgullosa hija amazigh de Merzouga. Este rincón dorado de Marruecos no es solo de donde vengo; es donde ha vivido la historia de toda mi familia durante generaciones." data-de="Ich bin Yassmina. Ehefrau, Mutter und im Herzen eine stolze amazighische Tochter Merzougas. Dieser goldene Winkel Marokkos ist nicht nur mein Herkunftsort; hier lebt seit Generationen die Geschichte meiner ganzen Familie.">I'm Yassmina. a wife, a mother, and at heart, a proud Amazigh daughter of Merzouga. This golden corner of Morocco isn't just where I'm from; it's where my whole family's story has lived for generations.</span></p>
-      <p><span data-en="I grew up watching my father welcome international travelers into the dunes he has known since boyhood. Since the 1970s, with nearly 40 years of field experience as a trusted local guide and driver, he has shared the soul of our land with thousands of visitors." data-fr="J'ai grandi en regardant mon père accueillir des voyageurs internationaux dans les dunes qu'il connaît depuis son enfance. Depuis les années 1970, avec près de 40 ans d'expérience de terrain comme guide et chauffeur local de confiance, il a partagé l'âme de notre terre avec des milliers de visiteurs." data-es="Crecí viendo a mi padre dar la bienvenida a viajeros internacionales en las dunas que conoce desde niño. Desde los años 70, con casi 40 años de experiencia como guía y conductor local de confianza, ha compartido el alma de nuestra tierra con miles de visitantes." data-de="Ich bin aufgewachsen und habe gesehen, wie mein Vater internationale Reisende in den Dünen willkommen hieß, die er seit seiner Kindheit kennt. Seit den 1970er Jahren teilt er mit fast 40 Jahren praktischer Erfahrung als vertrauenswürdiger lokaler Guide und Fahrer die Seele unseres Landes mit Tausenden von Besuchern.">I grew up watching my father welcome international travelers into the dunes he has known since boyhood. Since the 1970s, with nearly 40 years of field experience as a trusted local guide and driver, he has shared the soul of our land with thousands of visitors.</span></p>
-      <p><span data-en="That upbringing inspired my passion for hospitality. To turn our living legacy into a seamless experience for modern travelers, I earned my degree in Hotel and Tourism Marketing from Morocco's official tourism Institut." data-fr="Cette enfance a nourri ma passion pour l'hospitalité. Pour transformer notre héritage vivant en une expérience fluide pour les voyageurs modernes, j'ai obtenu mon diplôme en Marketing Hôtelier et Touristique à l'Institut officiel du tourisme du Maroc." data-es="Esa crianza inspiró mi pasión por la hospitalidad. Para convertir nuestro legado vivo en una experiencia fluida para los viajeros modernos, obtuve mi título en Marketing Hotelero y Turístico en el Instituto oficial de turismo de Marruecos." data-de="Diese Erziehung weckte meine Leidenschaft für Gastfreundschaft. Um unser lebendiges Erbe in ein nahtloses Erlebnis für moderne Reisende zu verwandeln, erwarb ich meinen Abschluss in Hotel- und Tourismusmarketing am offiziellen Tourismusinstitut Marokkos.">That upbringing inspired my passion for hospitality. To turn our living legacy into a seamless experience for modern travelers, I earned my degree in Hotel and Tourism Marketing from Morocco's official tourism Institut.</span></p>
-      <p><span data-en="Let's Camel Tours was created to carry this deep-rooted knowledge forward, the secret routes, the trusted contacts, and the thoughtful details that only a family with decades in the desert could master. With my husband's roots and network spanning the Atlantic coast in Taghazout, we seamlessly connect the quiet majesty of the Sahara with the vibrant spirit of the ocean." data-fr="Let's Camel Tours a été créée pour transmettre ce savoir profondément enraciné, les itinéraires secrets, les contacts de confiance et les détails soignés que seule une famille avec des décennies dans le désert peut maîtriser. Grâce aux racines et au réseau de mon mari le long de la côte Atlantique à Taghazout, nous relions naturellement la majesté paisible du Sahara à l'esprit vibrant de l'océan." data-es="Let's Camel Tours se creó para llevar adelante este conocimiento profundamente arraigado, las rutas secretas, los contactos de confianza y los detalles cuidados que solo una familia con décadas en el desierto puede dominar. Con las raíces y la red de mi esposo a lo largo de la costa Atlántica en Taghazout, conectamos sin esfuerzo la tranquila majestuosidad del Sahara con el espíritu vibrante del océano." data-de="Let's Camel Tours wurde gegründet, um dieses tief verwurzelte Wissen weiterzutragen, die geheimen Routen, die vertrauenswürdigen Kontakte und die durchdachten Details, die nur eine Familie mit jahrzehntelanger Wüstenerfahrung beherrschen kann. Durch die Wurzeln und das Netzwerk meines Mannes entlang der Atlantikküste in Taghazout verbinden wir mühelos die stille Erhabenheit der Sahara mit dem lebendigen Geist des Ozeans.">Let's Camel Tours was created to carry this deep-rooted knowledge forward, the secret routes, the trusted contacts, and the thoughtful details that only a family with decades in the desert could master. With my husband's roots and network spanning the Atlantic coast in Taghazout, we seamlessly connect the quiet majesty of the Sahara with the vibrant spirit of the ocean.</span></p>
-      <p><span data-en="We created this agency for travelers who seek the real Morocco, guided by a local family who has lived it all along, and dedicated to passing this heritage down to the next generation." data-fr="Nous avons créé cette agence pour les voyageurs en quête du vrai Maroc, guidés par une famille locale qui l'a vécu depuis toujours, et déterminée à transmettre cet héritage à la génération suivante." data-es="Creamos esta agencia para los viajeros que buscan el verdadero Marruecos, guiados por una familia local que lo ha vivido siempre, y comprometida con transmitir este legado a la siguiente generación." data-de="Wir haben diese Agentur für Reisende gegründet, die das echte Marokko suchen, geführt von einer lokalen Familie, die es schon immer gelebt hat, und die entschlossen ist, dieses Erbe an die nächste Generation weiterzugeben.">We created this agency for travelers who seek the real Morocco, guided by a local family who has lived it all along, and dedicated to passing this heritage down to the next generation.</span></p>
-      <p><span data-en="We named it Let's Camel Tours on purpose. The camel has carried our family across these dunes for generations, patient and steady, and it felt right to put that animal, and everything it represents, at the heart of our name." data-fr="Nous l'avons appelée Let's Camel Tours pour une raison précise. Le chameau a porté notre famille à travers ces dunes pendant des générations, patient et fidèle, et il nous a semblé juste de placer cet animal, et tout ce qu'il représente, au cœur de notre nom." data-es="Le pusimos Let's Camel Tours a propósito. El camello ha llevado a nuestra familia por estas dunas durante generaciones, paciente y constante, y nos pareció justo poner a ese animal, y todo lo que representa, en el corazón de nuestro nombre." data-de="Wir haben sie absichtlich Let's Camel Tours genannt. Das Kamel hat unsere Familie seit Generationen geduldig und beständig durch diese Dünen getragen, und es fühlte sich richtig an, dieses Tier, und alles, wofür es steht, ins Herz unseres Namens zu setzen.">We named it Let's Camel Tours on purpose. The camel has carried our family across these dunes for generations, patient and steady, and it felt right to put that animal, and everything it represents, at the heart of our name.</span></p>
+      <h2 class="section-title"><span data-en="From Sahara Dunes to Atlantic Coast" data-fr="Des Dunes du Sahara à la Côte Atlantique" data-es="De las Dunas del Sahara a la Costa Atlántica" data-de="Von den Dünen der Sahara bis zur Atlantikküste">From Sahara Dunes to Atlantic Coast</span></h2>
     </div>
+
+    <div class="story-block">
+      <div class="story-block-media"><img src="about-02.jpg" alt="A saddled camel resting in the Sahara, part of the family's desert heritage" loading="lazy"></div>
+      <div class="story-block-content">
+        <p><span data-en="I'm Yassmina — a wife, a mother, and at heart, a proud Amazigh daughter of Merzouga. This golden corner of Morocco isn't just where I'm from; it's where my family's story has lived for generations, and it's the starting point of a journey that today stretches all the way to the Atlantic coast." data-fr="Je m'appelle Yassmina — épouse, maman et, avant tout, fière fille amazighe de Merzouga. Ce coin doré du Maroc n'est pas seulement mon lieu d'origine ; c'est là que vit l'histoire de ma famille depuis des générations, et c'est le point de départ d'un voyage qui s'étend aujourd'hui jusqu'à la côte Atlantique." data-es="Soy Yassmina — esposa, madre y, en el fondo, una orgullosa hija amazigh de Merzouga. Este rincón dorado de Marruecos no es solo de donde vengo; es donde ha vivido la historia de mi familia durante generaciones, y es el punto de partida de un viaje que hoy se extiende hasta la costa Atlántica." data-de="Ich bin Yassmina — Ehefrau, Mutter und im Herzen eine stolze amazighische Tochter Merzougas. Dieser goldene Winkel Marokkos ist nicht nur mein Herkunftsort; hier lebt seit Generationen die Geschichte meiner Familie, und hier beginnt eine Reise, die heute bis an die Atlantikküste reicht.">I'm Yassmina — a wife, a mother, and at heart, a proud Amazigh daughter of Merzouga. This golden corner of Morocco isn't just where I'm from; it's where my family's story has lived for generations, and it's the starting point of a journey that today stretches all the way to the Atlantic coast.</span></p>
+        <p><span data-en="That upbringing shaped my love of hospitality. To turn our family's living legacy into a seamless experience for modern travelers, I earned my degree in Hotel and Tourism Marketing from Morocco's official tourism institute, and set out to build something that felt genuinely ours: private, personal, and rooted in real local knowledge." data-fr="Cette enfance a nourri ma passion pour l'hospitalité. Pour transformer l'héritage vivant de ma famille en une expérience fluide pour les voyageurs modernes, j'ai obtenu mon diplôme en Marketing Hôtelier et Touristique à l'Institut officiel du tourisme du Maroc, avec l'ambition de créer quelque chose qui nous ressemble vraiment : privé, personnel, et ancré dans une véritable connaissance du terrain." data-es="Esa crianza alimentó mi pasión por la hospitalidad. Para convertir el legado vivo de mi familia en una experiencia fluida para los viajeros modernos, obtuve mi título en Marketing Hotelero y Turístico en el Instituto oficial de turismo de Marruecos, con la idea de crear algo que fuera realmente nuestro: privado, personal y arraigado en un conocimiento local auténtico." data-de="Diese Erziehung weckte meine Leidenschaft für Gastfreundschaft. Um das lebendige Erbe meiner Familie in ein nahtloses Erlebnis für moderne Reisende zu verwandeln, erwarb ich meinen Abschluss in Hotel- und Tourismusmarketing am offiziellen Tourismusinstitut Marokkos, mit dem Ziel, etwas wirklich Eigenes aufzubauen: privat, persönlich und in echtem lokalem Wissen verwurzelt.">That upbringing shaped my love of hospitality. To turn our family's living legacy into a seamless experience for modern travelers, I earned my degree in Hotel and Tourism Marketing from Morocco's official tourism institute, and set out to build something that felt genuinely ours: private, personal, and rooted in real local knowledge.</span></p>
+      </div>
+    </div>
+
+    <div class="story-block reverse">
+      <div class="story-block-media"><img src="about-01.jpg" alt="Golden Sahara sand poured through hands on the dunes near Merzouga" loading="lazy"></div>
+      <div class="story-block-content">
+        <p><span data-en="I grew up watching my father welcome international travelers into the dunes he has known since boyhood. Since the 1970s, with nearly 40 years of experience as a trusted local guide and driver, he has shared the soul of the Sahara with thousands of visitors." data-fr="J'ai grandi en regardant mon père accueillir des voyageurs internationaux dans les dunes qu'il connaît depuis son enfance. Depuis les années 1970, avec près de 40 ans d'expérience comme guide et chauffeur local de confiance, il a partagé l'âme du Sahara avec des milliers de visiteurs." data-es="Crecí viendo a mi padre dar la bienvenida a viajeros internacionales en las dunas que conoce desde niño. Desde los años 70, con casi 40 años de experiencia como guía y conductor local de confianza, ha compartido el alma del Sahara con miles de visitantes." data-de="Ich bin aufgewachsen und habe gesehen, wie mein Vater internationale Reisende in den Dünen willkommen hieß, die er seit seiner Kindheit kennt. Seit den 1970er Jahren teilt er mit fast 40 Jahren Erfahrung als vertrauenswürdiger lokaler Guide und Fahrer die Seele der Sahara mit Tausenden von Besuchern.">I grew up watching my father welcome international travelers into the dunes he has known since boyhood. Since the 1970s, with nearly 40 years of experience as a trusted local guide and driver, he has shared the soul of the Sahara with thousands of visitors.</span></p>
+        <p><span data-en="Today we're a family-run business based in Tamraght-Taghazout. We believe Morocco is best experienced at your own pace, with people who actually live here." data-fr="Aujourd'hui, nous sommes une entreprise familiale basée à Tamraght-Taghazout. Nous pensons que le Maroc se découvre mieux à son propre rythme, avec des gens qui y vivent réellement." data-es="Hoy somos una empresa familiar con base en Tamraght-Taghazout. Creemos que Marruecos se disfruta mejor a tu propio ritmo, con gente que realmente vive aquí." data-de="Heute sind wir ein familiengeführtes Unternehmen mit Sitz in Tamraght-Taghazout. Wir glauben, dass man Marokko am besten in seinem eigenen Tempo erlebt, mit Menschen, die wirklich hier leben.">Today we're a family-run business based in Tamraght-Taghazout. We believe Morocco is best experienced at your own pace, with people who actually live here.</span></p>
+      </div>
+    </div>
+
+    <div class="story-block">
+      <div class="story-block-media"><img src="about-03.jpg" alt="Silhouette on the Atlantic coast at sunset near Taghazout" loading="lazy"></div>
+      <div class="story-block-content">
+        <p><span data-en="Let's Camel Tours was created to carry that knowledge forward — the secret routes, the trusted contacts, and the thoughtful details that only a family with decades in the desert could master. My husband grew up on the coast in Tamraght-Taghazout, just north of Agadir, and it's his roots and his network of local Berber guides and drivers that let us connect the quiet majesty of the Sahara with the surf, sea air, and village life of Morocco's Atlantic coast." data-fr="Let's Camel Tours a été créée pour transmettre ce savoir, les itinéraires secrets, les contacts de confiance et les détails soignés que seule une famille avec des décennies dans le désert peut maîtriser. Mon mari a grandi sur la côte, à Tamraght-Taghazout, juste au nord d'Agadir, et ce sont ses racines et son réseau de guides et chauffeurs berbères locaux qui nous permettent de relier la majesté paisible du Sahara à l'esprit du surf, de l'air marin et de la vie de village sur la côte atlantique du Maroc." data-es="Let's Camel Tours se creó para llevar adelante ese conocimiento, las rutas secretas, los contactos de confianza y los detalles cuidados que solo una familia con décadas en el desierto puede dominar. Mi esposo creció en la costa, en Tamraght-Taghazout, justo al norte de Agadir, y son sus raíces y su red de guías y conductores bereberes locales los que nos permiten conectar la tranquila majestuosidad del Sahara con el surf, el aire marino y la vida de pueblo de la costa atlántica de Marruecos." data-de="Let's Camel Tours wurde gegründet, um dieses Wissen weiterzutragen, die geheimen Routen, die vertrauenswürdigen Kontakte und die durchdachten Details, die nur eine Familie mit jahrzehntelanger Wüstenerfahrung beherrschen kann. Mein Mann ist an der Küste in Tamraght-Taghazout aufgewachsen, direkt nördlich von Agadir, und es sind seine Wurzeln und sein Netzwerk aus lokalen Berber-Guides und Fahrern, die es uns ermöglichen, die stille Erhabenheit der Sahara mit dem Surf, der Meeresluft und dem Dorfleben an Marokkos Atlantikküste zu verbinden.">Let's Camel Tours was created to carry that knowledge forward — the secret routes, the trusted contacts, and the thoughtful details that only a family with decades in the desert could master. My husband grew up on the coast in Tamraght-Taghazout, just north of Agadir, and it's his roots and his network of local Berber guides and drivers that let us connect the quiet majesty of the Sahara with the surf, sea air, and village life of Morocco's Atlantic coast.</span></p>
+      </div>
+    </div>
+
+    <div class="story-closing">
+      <p><span data-en="Whether it's a multi-day journey into the Sahara or a morning by the ocean, every trip is planned by a local family who knows these roads personally." data-fr="Qu'il s'agisse d'un voyage de plusieurs jours dans le Sahara ou d'une matinée au bord de l'océan, chaque voyage est organisé par une famille locale qui connaît ces routes personnellement." data-es="Ya sea un viaje de varios días al Sahara o una mañana junto al océano, cada viaje lo organiza una familia local que conoce estas rutas personalmente." data-de="Ob eine mehrtägige Reise in die Sahara oder ein Vormittag am Meer, jede Reise wird von einer lokalen Familie geplant, die diese Wege persönlich kennt.">Whether it's a multi-day journey into the Sahara or a morning by the ocean, every trip is planned by a local family who knows these roads personally.</span></p>
+      <p><span data-en="We created this agency for travelers who want to see the real Morocco, guided by a family who has lived it all along. And we named it Let's Camel Tours on purpose: the camel has carried our family across these dunes for generations, patient and steady, and it felt right to put that animal, and everything it represents, at the heart of our name." data-fr="Nous avons créé cette agence pour les voyageurs en quête du vrai Maroc, guidés par une famille qui l'a vécu depuis toujours. Et nous l'avons appelée Let's Camel Tours pour une raison précise : le chameau a porté notre famille à travers ces dunes pendant des générations, patient et fidèle, et il nous a semblé juste de placer cet animal, et tout ce qu'il représente, au cœur de notre nom." data-es="Creamos esta agencia para los viajeros que buscan el verdadero Marruecos, guiados por una familia que lo ha vivido siempre. Y la llamamos Let's Camel Tours a propósito: el camello ha llevado a nuestra familia por estas dunas durante generaciones, paciente y constante, y nos pareció justo poner a ese animal, y todo lo que representa, en el corazón de nuestro nombre." data-de="Wir haben diese Agentur für Reisende gegründet, die das echte Marokko erleben möchten, geführt von einer Familie, die es schon immer gelebt hat. Und wir haben sie absichtlich Let's Camel Tours genannt: Das Kamel hat unsere Familie seit Generationen geduldig und beständig durch diese Dünen getragen, und es fühlte sich richtig an, dieses Tier, und alles, wofür es steht, ins Herz unseres Namens zu setzen.">We created this agency for travelers who want to see the real Morocco, guided by a family who has lived it all along. And we named it Let's Camel Tours on purpose: the camel has carried our family across these dunes for generations, patient and steady, and it felt right to put that animal, and everything it represents, at the heart of our name.</span></p>
+    </div>
+
   </div>
 </section>
 
@@ -742,11 +770,13 @@
 
 <section class="cta-section">
   <div class="container">
-    <h2><span data-en="Ready to Plan Your Trip?" data-fr="Prêt à Planifier Votre Voyage ?" data-es="¿Listo para Planear tu Viaje?" data-de="Bereit, Ihre Reise zu Planen?">Ready to Plan Your Trip?</span></h2>
-    <p><span data-en="Tell us what you're looking for and we'll put together an itinerary just for you." data-fr="Dites-nous ce que vous cherchez et nous vous préparerons un itinéraire sur mesure." data-es="Cuéntanos lo que buscas y prepararemos un itinerario solo para ti." data-de="Sagen Sie uns, was Sie suchen, und wir stellen eine Reiseroute nur für Sie zusammen.">Tell us what you're looking for and we'll put together an itinerary just for you.</span></p>
-    <div class="cta-actions">
-      <a href="contact.html" class="btn-gold"><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></a>
-      <a href="https://wa.me/212600000000" target="_blank" class="btn-outline-white"><span data-en="Chat on WhatsApp" data-fr="Discuter sur WhatsApp" data-es="Chatear por WhatsApp" data-de="Auf WhatsApp Chatten">Chat on WhatsApp</span></a>
+    <div class="cta-card">
+      <h2><span data-en="Ready to Plan Your Trip?" data-fr="Prêt à Planifier Votre Voyage ?" data-es="¿Listo para Planear tu Viaje?" data-de="Bereit, Ihre Reise zu Planen?">Ready to Plan Your Trip?</span></h2>
+      <p><span data-en="Tell us what you're looking for and we'll put together an itinerary just for you." data-fr="Dites-nous ce que vous cherchez et nous vous préparerons un itinéraire sur mesure." data-es="Cuéntanos lo que buscas y prepararemos un itinerario solo para ti." data-de="Sagen Sie uns, was Sie suchen, und wir stellen eine Reiseroute nur für Sie zusammen.">Tell us what you're looking for and we'll put together an itinerary just for you.</span></p>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn-gold"><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></a>
+        <a href="https://wa.me/212600000000" target="_blank" class="btn-outline-white"><span data-en="Chat on WhatsApp" data-fr="Discuter sur WhatsApp" data-es="Chatear por WhatsApp" data-de="Auf WhatsApp Chatten">Chat on WhatsApp</span></a>
+      </div>
     </div>
   </div>
 </section>
