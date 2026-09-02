@@ -298,10 +298,11 @@
 
   .tour-desc { color: var(--text-gray); font-size: 13.5px; line-height: 1.6; }
 
-  .help-cta { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%); color: #fff; padding: 70px 0; text-align: center; }
-  .help-cta h2 { font-size: clamp(24px, 3.2vw, 32px); font-weight: 800; margin-bottom: 14px; }
-  .help-cta p { color: #dbe2ee; font-size: 15px; max-width: 520px; margin: 0 auto 28px; }
-  .help-cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .cta-section { background: var(--white); padding: 80px 0; text-align: center; }
+  .cta-section .cta-card { background: linear-gradient(135deg, var(--navy), var(--navy-dark)); color: #fff; padding: 56px 30px; border-radius: 14px; }
+  .cta-section h2 { color: #fff; font-size: clamp(26px, 3.6vw, 38px); font-weight: 800; margin-bottom: 14px; }
+  .cta-section p { color: #d3d9ec; margin-bottom: 30px; font-size: 15.5px; max-width: 55ch; margin-left: auto; margin-right: auto; }
+  .cta-actions { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
 
   .btn-gold { display: inline-block; background: var(--gold); color: #fff; padding: 14px 30px; border-radius: 50px; font-weight: 700; font-size: 14.5px; letter-spacing: 0.02em; border: none; cursor: pointer; transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
   .btn-gold:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 26px rgba(224,122,62,0.4); }
@@ -392,6 +393,8 @@
     .nav-right .btn-book { display: none; }
     .burger { display: block; }
     .tours-grid { grid-template-columns: 1fr; }
+    .cta-section { padding: 56px 0; }
+    .cta-section .cta-card { padding: 40px 22px; border-radius: 12px; }
   }
   /* ===== Footer (redesigned) â€” navy ground, gold accents, text-only language pills =====
      Appended after the original footer rules so it overrides them wholesale; the older
@@ -588,13 +591,15 @@
   </div>
 </section>
 
-<section class="help-cta">
+<section class="cta-section">
   <div class="container">
-    <h2><span data-en="Not Sure Which Activity Fits You?" data-fr="Vous Ne Savez Pas Quelle Activité Vous Convient ?" data-es="¿No Sabes Qué Actividad te Conviene?" data-de="Nicht Sicher, Welche Aktivität zu Ihnen Passt?">Not Sure Which Activity Fits You?</span></h2>
-    <p><span data-en="Tell us your dates, group size, and interests — we'll help you pick the perfect activity." data-fr="Indiquez-nous vos dates, la taille de votre groupe et vos centres d'intérêt — nous vous aiderons à choisir l'activité parfaite." data-es="Cuéntanos tus fechas, el tamaño de tu grupo y tus intereses — te ayudaremos a elegir la actividad perfecta." data-de="Teilen Sie uns Ihre Reisedaten, Gruppengröße und Interessen mit — wir helfen Ihnen, die perfekte Aktivität auszuwählen.">Tell us your dates, group size, and interests — we'll help you pick the perfect activity.</span></p>
-    <div class="help-cta-actions">
-      <a href="contact.html" class="btn-outline-white"><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></a>
-      <a href="https://wa.me/212600000000" target="_blank" class="btn-gold"><span data-en="Chat on WhatsApp" data-fr="Discuter sur WhatsApp" data-es="Chatear por WhatsApp" data-de="Auf WhatsApp Chatten">Chat on WhatsApp</span></a>
+    <div class="cta-card">
+      <h2><span data-en="Not Sure Which Activity Fits You?" data-fr="Vous Ne Savez Pas Quelle Activité Vous Convient ?" data-es="¿No Sabes Qué Actividad te Conviene?" data-de="Nicht Sicher, Welche Aktivität zu Ihnen Passt?">Not Sure Which Activity Fits You?</span></h2>
+      <p><span data-en="Tell us your dates, group size, and interests — we'll help you pick the perfect activity." data-fr="Indiquez-nous vos dates, la taille de votre groupe et vos centres d'intérêt — nous vous aiderons à choisir l'activité parfaite." data-es="Cuéntanos tus fechas, el tamaño de tu grupo y tus intereses — te ayudaremos a elegir la actividad perfecta." data-de="Teilen Sie uns Ihre Reisedaten, Gruppengröße und Interessen mit — wir helfen Ihnen, die perfekte Aktivität auszuwählen.">Tell us your dates, group size, and interests — we'll help you pick the perfect activity.</span></p>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn-gold"><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></a>
+        <a href="https://wa.me/212600000000" target="_blank" class="btn-outline-white"><span data-en="Chat on WhatsApp" data-fr="Discuter sur WhatsApp" data-es="Chatear por WhatsApp" data-de="Auf WhatsApp Chatten">Chat on WhatsApp</span></a>
+      </div>
     </div>
   </div>
 </section>
