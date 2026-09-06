@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,8 +6,8 @@
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-<title>Essaouira Day Trip from Agadir & Taghazout: UNESCO-Listed Medina, Skala de la Ville & Souks | Let's Camel Tours</title>
-<meta name="description" content="Full-day Essaouira day trip from Agadir & Taghazout with free hotel pickup. Visit an argan oil cooperative, the UNESCO-listed medina, fish port and Skala de la Ville.">
+<title>Sandboarding, Canyon Visit & Sunset Tea Full-Day Trip from Agadir & Taghazout | Let's Camel Tours</title>
+<meta name="description" content="Full-day excursion from Agadir or Taghazout: sandboarding and a camel or horse ride through the Timlaline canyon dunes, a stop in Aghroud's painted village, sunset mint tea, and an outdoor Moroccan dinner in Tamri's banana valley.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -359,7 +359,7 @@
     .burger { display: block; }
   }
 
-  /* Hero image carousel — story-style: centered active card, peeking neighbors, segmented autoplay progress (Dribbble "Carousel experimentation" style) */
+  /* Hero image carousel — story-style: centered active card, peeking neighbors, segmented autoplay progress */
   .hero-carousel-wrap { background: var(--off-white); padding: 26px 0 8px; overflow: hidden; }
   .hero-carousel { position: relative; }
   .hc-track { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 0 20%; scrollbar-width: none; -ms-overflow-style: none; }
@@ -396,16 +396,6 @@
     .hc-controls { max-width: 90%; }
   }
 
-  /* Photo gallery section */
-  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .gallery-card { border-radius: 10px; overflow: hidden; background: var(--line); aspect-ratio: 4 / 3; position: relative; }
-  .gallery-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
-  .gallery-card:hover img { transform: scale(1.06); }
-  .gallery-card-caption { position: absolute; left: 0; right: 0; bottom: 0; padding: 10px 12px; background: linear-gradient(0deg, rgba(0,31,63,0.75), rgba(0,31,63,0)); color: #fff; font-size: 12.5px; font-weight: 600; }
-  @media (max-width: 700px) {
-    .gallery-grid { grid-template-columns: 1fr 1fr; }
-  }
-
   /* Breadcrumb */
   .breadcrumb { background: var(--off-white); padding: 12px 0; font-size: 13px; color: var(--text-gray); }
   .breadcrumb a { color: var(--navy); font-weight: 600; }
@@ -414,7 +404,7 @@
   /* Hero */
   .hero {
     position: relative;
-    background: linear-gradient(180deg, rgba(0,51,102,0.45) 0%, rgba(0,31,63,0.72) 100%), url('excursion-1.jpg');
+    background: linear-gradient(180deg, rgba(0,51,102,0.45) 0%, rgba(0,31,63,0.72) 100%), url('desert.jpg');
     background-size: cover; background-position: center;
     padding: 150px 30px 56px; color: #fff;
   }
@@ -425,10 +415,6 @@
   .hero-lead { font-size: 15.5px; color: #e8edf4; max-width: 640px; margin-bottom: 26px; }
 
   .hero-price-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 26px; }
-  .hero-price-badge { display: flex; flex-direction: column; background: rgba(255,255,255,0.12); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.3); border-radius: 12px; padding: 10px 20px; }
-  .hero-price-badge .hpb-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.75); font-weight: 700; }
-  .hero-price-badge .hpb-amount { font-size: 24px; font-weight: 800; color: var(--gold-light); }
-  .hero-price-badge .hpb-unit { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.8); }
   .hero-book-btn { animation: heroPulse 2.4s ease-in-out infinite; }
   @keyframes heroPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(224,122,62,0.45); } 50% { box-shadow: 0 0 0 10px rgba(224,122,62,0); } }
 
@@ -461,17 +447,6 @@
 
   .route-line { font-size: 13.5px; color: var(--gold); font-weight: 600; background: rgba(224,122,62,0.08); padding: 12px 16px; border-radius: 6px; margin-bottom: 6px; }
 
-  .map-embed-wrap { width: 100%; height: 480px; border-radius: 12px; border: 1px solid var(--line); overflow: hidden; margin-bottom: 14px; }
-  .map-embed-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
-  .map-view-link { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 13.5px; color: var(--navy); margin-bottom: 16px; transition: color 0.2s ease; }
-  .map-view-link:hover { color: var(--gold); }
-  .map-view-link svg { width: 15px; height: 15px; transition: transform 0.2s ease; }
-  .map-view-link:hover svg { transform: translateX(3px); }
-  @media (max-width: 600px) {
-    .map-embed-wrap { height: 340px; }
-  }
-
-
   /* Highlights grid */
   .highlight-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .highlight-card { display: flex; gap: 12px; align-items: flex-start; padding: 16px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
@@ -479,7 +454,18 @@
   .highlight-icon svg { width: 18px; height: 18px; color: var(--gold); }
   .highlight-card p { font-size: 13.5px; color: var(--navy); font-weight: 600; }
 
-  /* Smooth accordions — shared pattern for Highlights, Itinerary/Overview and FAQ */
+  /* Itinerary timeline */
+  .itin-list { position: relative; }
+  .itin-step { display: flex; gap: 16px; position: relative; padding-bottom: 26px; }
+  .itin-step:last-child { padding-bottom: 0; }
+  .itin-step::before { content: ""; position: absolute; left: 18px; top: 40px; bottom: -4px; width: 2px; background: var(--line); }
+  .itin-step:last-child::before { display: none; }
+  .itin-num { width: 38px; height: 38px; border-radius: 50%; background: var(--navy); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; z-index: 1; }
+  .itin-body { padding-top: 4px; }
+  .itin-body h4 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .itin-body p { font-size: 13.8px; color: var(--text-gray); }
+
+  /* Smooth accordions — shared pattern for Highlights, Itinerary and FAQ */
   .acc-item { border: 1px solid var(--line); border-radius: 10px; margin-bottom: 12px; overflow: hidden; background: #fff; transition: all 0.3s ease; }
   .acc-item.open { border-color: var(--gold); box-shadow: 0 6px 18px rgba(0,51,102,0.06); }
   .acc-header { list-style: none; cursor: pointer; padding: 16px 18px; display: flex; align-items: center; gap: 14px; width: 100%; background: none; border: none; font-family: 'Poppins', sans-serif; text-align: left; transition: all 0.3s ease; }
@@ -488,8 +474,6 @@
   .acc-item.open .acc-panel { max-height: 800px; opacity: 1; }
   .acc-chevron { width: 18px; height: 18px; color: var(--gold); transition: transform 0.3s ease; flex-shrink: 0; margin-left: auto; }
   .acc-item.open .acc-chevron { transform: rotate(180deg); }
-
-  /* Highlights accordion */
 
   /* Included / excluded */
   .incl-excl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -503,6 +487,7 @@
   .ie-card.yes li svg { color: var(--gold); }
   .ie-card.no li svg { color: #c94b4b; }
   .ie-card li strong { color: var(--navy); }
+  .ie-footnote { font-size: 12.5px; color: var(--text-gray); font-style: italic; margin-top: 14px; }
 
   /* Contact / CTA */
   .contact-cta-box { text-align: center; background: linear-gradient(135deg, var(--navy), var(--navy-dark)); color: #fff; padding: 46px 30px; border-radius: 14px; }
@@ -538,6 +523,15 @@
   .booking-form input[type="date"] { min-height: 40px; line-height: 1.2; }
   .booking-form input[type="date"]::-webkit-calendar-picker-indicator { cursor: pointer; opacity: 0.55; }
   .booking-form input[type="date"]::-webkit-calendar-picker-indicator:hover { opacity: 1; }
+
+  /* Ride choice — radio pills, either/or */
+  .ride-choice { display: flex; gap: 10px; flex-wrap: wrap; }
+  .ride-choice-option { position: relative; }
+  .ride-choice-option input[type="radio"] { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .ride-choice-label { display: flex; align-items: center; gap: 7px; padding: 9px 16px; border: 1.5px solid var(--line); border-radius: 50px; font-size: 13px; font-weight: 600; color: var(--navy); cursor: pointer; transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
+  .ride-choice-option input[type="radio"]:checked + .ride-choice-label { background: var(--gold); border-color: var(--gold); color: #fff; }
+  .ride-choice-option input[type="radio"]:focus-visible + .ride-choice-label { outline: 2px solid var(--gold-light); outline-offset: 2px; }
+
   /* Consent checkbox above the submit button */
   .booking-form-check { display: flex; align-items: flex-start; gap: 9px; margin-top: 16px; }
   .booking-form-check input[type="checkbox"] {
@@ -585,7 +579,6 @@
   .quick-fact-row svg { width: 16px; height: 16px; color: var(--gold); flex-shrink: 0; }
   .quick-fact-row strong { color: var(--navy); font-weight: 700; }
 
-
   .btn-cta-full { display: block; text-align: center; background: var(--gold); color: #fff; padding: 15px; border-radius: 50px; font-weight: 700; font-size: 15px; transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
   .btn-cta-full:hover { background: var(--gold-light); transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 24px rgba(224,122,62,0.35); }
   .btn-whatsapp-side { display: flex; align-items: center; justify-content: center; gap: 8px; text-align: center; background: #25D366; color: #fff; padding: 13px; border-radius: 50px; font-weight: 700; font-size: 14px; margin-top: 10px; transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
@@ -625,45 +618,9 @@
     .whatsapp-btn { bottom: 94px; }
   }
 
-  /* Footer — identical structure/styling to the current index.html */
-  .footer { background: var(--off-white); color: var(--text-gray); padding: 60px 0 24px; border-top: 1px solid var(--line); }
-  .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 36px; margin-bottom: 24px; border-bottom: 1px solid var(--line); }
-  .footer-logo img { height: 40px; margin-bottom: 18px; }
-  .footer-col-brand p { font-size: 13.5px; line-height: 1.7; color: var(--text-gray); max-width: 44ch; margin-bottom: 20px; }
-  .footer-col h4 { color: var(--navy); font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; font-weight: 700; }
-  .footer-col li { margin-bottom: 11px; }
-  .footer-col a { font-size: 14px; color: var(--text-gray); transition: color 0.25s ease; }
-  .footer-col a:hover { color: var(--gold); }
-  .footer-lang-row { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 18px; }
-  .footer-lang-btn { background: none; border: none; padding: 0; cursor: pointer; font-family: 'Poppins', sans-serif; font-size: 14px; color: var(--text-gray); transition: color 0.25s ease; text-align: left; display: flex; align-items: center; gap: 8px; }
-  .footer-lang-btn img { border-radius: 2px; flex-shrink: 0; }
-  .footer-lang-btn:hover, .footer-lang-btn.active { color: var(--gold); font-weight: 600; }
-  .socials { display: flex; gap: 12px; margin-top: 28px; }
-  .socials a { width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--navy); transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
-  .socials a:hover { background: var(--gold); border-color: var(--gold); color: var(--navy); }
-  .socials svg { width: 18px; height: 18px; flex-shrink: 0; }
-  .footer-bottom { padding-top: 6px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-size: 12.5px; color: var(--text-gray); }
-
-  @media (max-width: 900px) {
-    .content-grid { grid-template-columns: 1fr; grid-template-areas: "top" "side" "bottom"; row-gap: 50px; }
-    .content-grid > * { min-width: 0; }
-    .sidebar { position: static; }
-    .highlight-grid { grid-template-columns: 1fr; }
-    .incl-excl-grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-  }
-  @media (max-width: 700px) {
-    .footer-grid { grid-template-columns: 1fr; }
-  }
-  /* ===== Footer (redesigned) â€” navy ground, gold accents, text-only language pills =====
-     Appended after the original footer rules so it overrides them wholesale; the older
-     declarations above remain only as inert fallbacks. */
+  /* Footer — navy ground, gold accents, text-only language pills */
   .footer { background: var(--navy-dark); color: rgba(255,255,255,0.72); padding: 64px 0 26px; border-top: none; }
-  .footer-grid { grid-template-columns: 1.6fr 1fr 1fr 1.15fr; gap: 44px; padding-bottom: 38px; margin-bottom: 22px; border-bottom: 1px solid rgba(255,255,255,0.13); }
-  /* logo.png's navy wordmark vanishes on the navy footer, but the camel must keep its
-     colours. Measured from the 500px artwork: camel x12-225, transparent gutter x226-250,
-     wordmark x251-465. So a second copy is whitened and clipped to the right 52% (x240+),
-     landing on the wordmark alone and never touching the camel. */
+  .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.15fr; gap: 44px; padding-bottom: 38px; margin-bottom: 22px; border-bottom: 1px solid rgba(255,255,255,0.13); }
   .footer-logo { position: relative; display: inline-block; margin-bottom: 18px; line-height: 0; }
   .footer-logo img { height: 56px; width: auto; display: block; margin-bottom: 0; filter: none; }
   .footer-logo .footer-logo-word { position: absolute; top: 0; left: 0; filter: brightness(0) invert(1); clip-path: inset(0 0 0 44%); }
@@ -695,14 +652,21 @@
   .footer-lang-btn.active { background: var(--gold); border-color: var(--gold); color: #fff; font-weight: 700; }
   .footer-lang-btn:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 2px; }
 
-  .socials { display: flex; gap: 10px; margin-top: 24px; }
-  .socials a { width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.22); border-radius: 50%; color: rgba(255,255,255,0.85); transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease; }
+  /* Social icons kept intentionally compact in the footer */
+  .socials { display: flex; gap: 8px; margin-top: 24px; }
+  .socials a { width: 30px; height: 30px; border: 1px solid rgba(255,255,255,0.22); border-radius: 50%; color: rgba(255,255,255,0.85); transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease; }
   .socials a:hover { background: var(--gold); border-color: var(--gold); color: #fff; transform: translateY(-3px); }
+  .socials svg { width: 13px; height: 13px; }
 
   .footer-bottom { padding-top: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 12.5px; color: rgba(255,255,255,0.55); }
   .footer a:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; border-radius: 3px; }
 
   @media (max-width: 900px) {
+    .content-grid { grid-template-columns: 1fr; grid-template-areas: "top" "side" "bottom"; row-gap: 50px; }
+    .content-grid > * { min-width: 0; }
+    .sidebar { position: static; }
+    .highlight-grid { grid-template-columns: 1fr; }
+    .incl-excl-grid { grid-template-columns: 1fr; }
     .footer { padding: 52px 0 24px; }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 34px; }
   }
@@ -713,7 +677,6 @@
     .footer-col h4::after { left: 50%; transform: translateX(-50%); }
     .socials { justify-content: center; }
     .footer-bottom { justify-content: center; }
-    /* keep the language pills at a ~44px touch target on phones */
     .footer-lang-btn { padding: 13px 18px; }
   }
 </style>
@@ -747,7 +710,7 @@
             <a href="excursion-1.html"><span data-en="Day Trip to Essaouira" data-fr="Excursion à Essaouira" data-es="Excursión a Essaouira" data-de="Tagesausflug nach Essaouira">Day Trip to Essaouira</span></a>
             <a href="excursion-2.html"><span data-en="Day Trip to Marrakech" data-fr="Excursion à Marrakech" data-es="Excursión a Marrakech" data-de="Tagesausflug nach Marrakesch">Day Trip to Marrakech</span></a>
             <a href="excursion-3.html"><span data-en="Paradise Valley" data-fr="Paradise Valley" data-es="Paradise Valley" data-de="Paradise Valley">Paradise Valley</span></a>
-            <a href="excursion-4.html"><span data-en="Color Village & Timlaline" data-fr="Village Coloré & Timlaline" data-es="Pueblo de Colores y Timlaline" data-de="Buntes Dorf & Timlaline">Color Village & Timlaline</span></a>
+            <a href="excursion-4.html"><span data-en="Sandboarding, Canyon Visit & Sunset Tea" data-fr="Sandboard, Village du Canyon et Thé au Coucher du Soleil" data-es="Sandboard, Visita al Cañón y Té al Atardecer" data-de="Sandboarding, Canyon-Besuch & Tee bei Sonnenuntergang">Sandboarding, Canyon Visit & Sunset Tea</span></a>
             <a href="excursions.html" style="color:var(--gold) !important;font-weight:700;"><span data-en="View All Excursions →" data-fr="Voir Toutes les Excursions →" data-es="Ver Todas las Excursiones →" data-de="Alle Ausflüge Ansehen →">View All Excursions →</span></a>
           </div>
         </div>
@@ -817,9 +780,9 @@
 <section class="hero">
   <div class="hero-inner">
     <span class="hero-badge-top"><span data-en="Day Trip / Excursion" data-fr="Excursion / Journée" data-es="Excursión / Día" data-de="Tagesausflug / Ausflug">Day Trip / Excursion</span></span>
-    <h1><span data-en="Essaouira Day Trip from Agadir & Taghazout: UNESCO-Listed Medina of Mogador" data-fr="Excursion à Essaouira depuis Agadir & Taghazout : la Médina Classée UNESCO de Mogador" data-es="Excursión a Essaouira desde Agadir y Taghazout: la Medina de Mogador Declarada por la UNESCO" data-de="Essaouira-Tagesausflug ab Agadir & Taghazout: Die UNESCO-Gelistete Medina von Mogador">Essaouira Day Trip from Agadir & Taghazout: UNESCO-Listed Medina of Mogador</span></h1>
-    <p class="hero-tagline"><span data-en="Sea breeze, blue and white ramparts, and grilled fish at the old fish port" data-fr="Brise marine, remparts bleus et blancs, et poisson grillé au vieux port de pêche" data-es="Brisa marina, murallas azules y blancas, y pescado a la parrilla en el antiguo puerto pesquero" data-de="Meeresbrise, blau-weiße Stadtmauern und gegrillter Fisch am alten Fischereihafen">Sea breeze, blue and white ramparts, and grilled fish at the old fish port</span></p>
-    <p class="hero-lead"><span data-en="A full-day Essaouira excursion from Taghazout or Agadir to Morocco's coolest coastal town. Hotel pickup is included, followed by a scenic drive along the coastal road, a stop to watch tree-climbing goats and visit an argan oil cooperative, then free time in the UNESCO-listed medina of Mogador." data-fr="Une excursion d'une journée à Essaouira depuis Taghazout ou Agadir vers la ville côtière la plus décontractée du Maroc. La prise en charge à l'hôtel est incluse, suivie d'une route panoramique le long de la côte, d'un arrêt pour observer les chèvres grimpant aux arganiers et visiter une coopérative d'huile d'argan, puis de temps libre dans la médina classée UNESCO de Mogador." data-es="Una excursión de un día a Essaouira desde Taghazout o Agadir a la ciudad costera más fresca de Marruecos. La recogida en el hotel está incluida, seguida de una carretera panorámica junto a la costa, una parada para observar las cabras trepadoras de arganes y visitar una cooperativa de aceite de argán, y tiempo libre en la medina de Mogador declarada Patrimonio de la Humanidad." data-de="Ein Essaouira-Tagesausflug von Taghazout oder Agadir in Marokkos coolste Küstenstadt. Die Hotelabholung ist inbegriffen, gefolgt von einer malerischen Fahrt entlang der Küstenstraße, einem Stopp, um die baumkletternden Ziegen zu beobachten und eine Arganöl-Kooperative zu besuchen, danach Freizeit in der UNESCO-gelisteten Medina von Mogador.">A full-day Essaouira excursion from Taghazout or Agadir to Morocco's coolest coastal town. Hotel pickup is included, followed by a scenic drive along the coastal road, a stop to watch tree-climbing goats and visit an argan oil cooperative, then free time in the UNESCO-listed medina of Mogador.</span></p>
+    <h1><span data-en="Sandboarding, Canyon Visit & Sunset Tea" data-fr="Sandboard, Village du Canyon et Thé au Coucher du Soleil" data-es="Sandboard, Visita al Cañón y Té al Atardecer" data-de="Sandboarding, Canyon-Besuch & Tee bei Sonnenuntergang">Sandboarding, Canyon Visit & Sunset Tea</span></h1>
+    <p class="hero-tagline"><span data-en="A full-day adventure from Agadir and Taghazout through a painted village and the Timlaline canyon dunes, into a banana valley for dinner" data-fr="Une aventure d'une journée complète depuis Agadir et Taghazout, entre village peint et dunes du canyon de Timlaline, jusqu'à un dîner dans une vallée de bananiers" data-es="Una aventura de día completo desde Agadir y Taghazout entre un pueblo pintado y las dunas del cañón de Timlaline, hasta una cena en un valle de plataneros" data-de="Ein Ganztagesabenteuer ab Agadir und Taghazout durch ein bemaltes Dorf und die Canyon-Dünen von Timlaline, zu einem Abendessen im Bananental">A full-day adventure from Agadir and Taghazout through a painted village and the Timlaline canyon dunes, into a banana valley for dinner</span></p>
+    <p class="hero-lead"><span data-en="A full-day trip from Agadir or Taghazout: a stop in Aghroud's painted village, sandboarding and a camel or horse ride through the Timlaline canyon dunes, sunset mint tea, and an outdoor Moroccan dinner in Tamri's banana valley." data-fr="Une excursion d'une journée complète depuis Agadir ou Taghazout : un arrêt au village peint d'Aghroud, du sandboard et une balade à dos de chameau ou à cheval à travers les dunes du canyon de Timlaline, un thé à la menthe au coucher du soleil, et un dîner marocain en plein air dans la vallée de bananiers de Tamri." data-es="Una excursión de día completo desde Agadir o Taghazout: una parada en el pueblo pintado de Aghroud, sandboard y un paseo en camello o a caballo por las dunas del cañón de Timlaline, té de menta al atardecer, y una cena marroquí al aire libre en el valle de plataneros de Tamri." data-de="Ein Ganztagesausflug ab Agadir oder Taghazout: ein Halt im bemalten Dorf Aghroud, Sandboarding und ein Kamel- oder Pferderitt durch die Canyon-Dünen von Timlaline, Minztee bei Sonnenuntergang, und ein marokkanisches Abendessen im Freien im Bananental von Tamri.">A full-day trip from Agadir or Taghazout: a stop in Aghroud's painted village, sandboarding and a camel or horse ride through the Timlaline canyon dunes, sunset mint tea, and an outdoor Moroccan dinner in Tamri's banana valley.</span></p>
 
     <div class="hero-price-row">
       <a href="#booking-form" class="btn-gold hero-book-btn"><span data-en="Book Now" data-fr="Réserver Maintenant" data-es="Reservar Ahora" data-de="Jetzt Buchen">Book Now</span></a>
@@ -828,7 +791,7 @@
     <div class="hero-badges">
       <div class="hero-badge-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-        <span><span class="hb-label" data-en="Duration" data-fr="Durée" data-es="Duración" data-de="Dauer">Duration</span><span data-en="Full Day" data-fr="Journée Complète" data-es="Día Completo" data-de="Ganzer Tag">Full Day</span></span>
+        <span><span class="hb-label" data-en="Duration" data-fr="Durée" data-es="Duración" data-de="Dauer">Duration</span><span data-en="Full-Day" data-fr="Journée Complète" data-es="Día Completo" data-de="Ganzer Tag">Full-Day</span></span>
       </div>
       <div class="hero-badge-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21C7 17 3 13.5 3 9a5 5 0 019-3 5 5 0 019 3c0 4.5-4 8-9 12z"/></svg>
@@ -853,12 +816,14 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 6l-6 6 6 6"/></svg>
       </button>
       <div class="hc-track" id="hc-track">
-        <div class="hc-slide active"><img src="excursion-1-gallery-01.jpg" alt="Essaouira day trip from Agadir, blue and white medina lane in the UNESCO-listed old town" loading="lazy"><span class="hc-slide-badge">01 / 06</span></div>
-        <div class="hc-slide"><img src="excursion-1-gallery-02.jpg" alt="Skala de la Ville sea bastion and cannons on the Essaouira ramparts" loading="lazy"><span class="hc-slide-badge">02 / 06</span></div>
-        <div class="hc-slide"><img src="excursion-1-gallery-03.jpg" alt="Blue fishing boats at the historic Essaouira fish port" loading="lazy"><span class="hc-slide-badge">03 / 06</span></div>
-        <div class="hc-slide"><img src="excursion-1-gallery-04.jpg" alt="Essaouira excursion from Taghazout, souks and market stalls inside the walled medina" loading="lazy"><span class="hc-slide-badge">04 / 06</span></div>
-        <div class="hc-slide"><img src="excursion-1-gallery-05.jpg" alt="Argan oil cooperative stop on the coastal road to Essaouira" loading="lazy"><span class="hc-slide-badge">05 / 06</span></div>
-        <div class="hc-slide"><img src="excursion-1-gallery-06.jpg" alt="Sea view along the ramparts of Essaouira, Morocco's UNESCO World Heritage coastal town" loading="lazy"><span class="hc-slide-badge">06 / 06</span></div>
+        <div class="hc-slide active"><img src="desert.jpg" alt="Sand dunes near Agadir" loading="lazy" onerror="this.style.display='none'"><span class="hc-slide-badge">01 / 08</span></div>
+        <div class="hc-slide"><img src="activity-2-gallery-01.jpg" alt="Quad biking across Moroccan sand dunes" loading="lazy" onerror="this.style.display='none'"><span class="hc-slide-badge">02 / 08</span></div>
+        <div class="hc-slide"><img src="camel-bg.jpg" alt="Camel ride, one of the two ride options on this excursion" loading="lazy" onerror="this.style.display='none'"><span class="hc-slide-badge">03 / 08</span></div>
+        <div class="hc-slide"><img src="activity-1-gallery-02.jpg" alt="Horse riding, the other ride option on this excursion" loading="lazy" onerror="this.style.display='none'"><span class="hc-slide-badge">04 / 08</span></div>
+        <div class="hc-slide"><img src="images/blog/taghazout-village-from-above.jpg" alt="Taghazout village view along the Atlantic coast" loading="lazy" onerror="this.style.display='none'"><span class="hc-slide-badge">05 / 08</span></div>
+        <div class="hc-slide"><img src="aghroud-painted-village-houses.jpg" alt="Painted houses in the village of Aghroud" loading="lazy" onerror="this.style.display='none'"><span class="hc-slide-badge">06 / 08</span></div>
+        <div class="hc-slide"><img src="tea.jpg" alt="Traditional Moroccan mint tea" loading="lazy" onerror="this.style.display='none'"><span class="hc-slide-badge">07 / 08</span></div>
+        <div class="hc-slide"><img src="tamri-banana-valley-outdoor-dinner.jpg" alt="Outdoor Moroccan dinner in Tamri's banana valley" loading="lazy" onerror="this.style.display='none'"><span class="hc-slide-badge">08 / 08</span></div>
       </div>
       <button class="hc-arrow hc-next" id="hc-next" aria-label="Next slide">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg>
@@ -876,6 +841,8 @@
         <button class="hc-progress-seg" data-index="3" aria-label="Go to slide 4"><span class="hc-progress-fill"></span></button>
         <button class="hc-progress-seg" data-index="4" aria-label="Go to slide 5"><span class="hc-progress-fill"></span></button>
         <button class="hc-progress-seg" data-index="5" aria-label="Go to slide 6"><span class="hc-progress-fill"></span></button>
+        <button class="hc-progress-seg" data-index="6" aria-label="Go to slide 7"><span class="hc-progress-fill"></span></button>
+        <button class="hc-progress-seg" data-index="7" aria-label="Go to slide 8"><span class="hc-progress-fill"></span></button>
       </div>
     </div>
   </div>
@@ -885,15 +852,17 @@
   <div class="container">
     <a href="index.html"><span data-en="Home" data-fr="Accueil" data-es="Inicio" data-de="Startseite">Home</span></a> ›
     <a href="index.html#excursions"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></a> ›
-    <span data-en="Essaouira Excursion from Agadir & Taghazout" data-fr="Excursion à Essaouira depuis Agadir & Taghazout" data-es="Excursión a Essaouira desde Agadir y Taghazout" data-de="Essaouira-Ausflug ab Agadir & Taghazout">Essaouira Excursion from Agadir & Taghazout</span>
+    <span data-en="Sandboarding, Canyon Visit & Sunset Tea" data-fr="Sandboard, Village du Canyon et Thé au Coucher du Soleil" data-es="Sandboard, Visita al Cañón y Té al Atardecer" data-de="Sandboarding, Canyon-Besuch & Tee bei Sonnenuntergang">Sandboarding, Canyon Visit & Sunset Tea</span>
   </div>
 </div>
 
 <nav class="anchor-nav" id="anchor-nav">
   <div class="anchor-nav-inner">
     <a href="#overview" class="anchor-link"><span data-en="Overview" data-fr="Aperçu" data-es="Resumen" data-de="Überblick">Overview</span></a>
+    <a href="#itinerary" class="anchor-link"><span data-en="Itinerary" data-fr="Itinéraire" data-es="Itinerario" data-de="Ablauf">Itinerary</span></a>
     <a href="#highlights" class="anchor-link"><span data-en="Highlights" data-fr="Points Forts" data-es="Destacados" data-de="Highlights">Highlights</span></a>
     <a href="#included" class="anchor-link"><span data-en="Included / Excluded" data-fr="Inclus / Exclus" data-es="Incluido / Excluido" data-de="Inklusive / Exklusive">Included / Excluded</span></a>
+    <a href="#faq" class="anchor-link"><span data-en="FAQ" data-fr="FAQ" data-es="FAQ" data-de="FAQ">FAQ</span></a>
     <a href="#contact" class="anchor-link"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
   </div>
 </nav>
@@ -905,36 +874,110 @@
       <div class="content-section" id="overview">
         <h2 class="section-h"><span data-en="Overview" data-fr="Aperçu" data-es="Resumen" data-de="Überblick">Overview</span></h2>
         <div class="overview">
-          <p><span data-en="Essaouira, historically known as Mogador, is Morocco's laid-back Atlantic port town: a walled, UNESCO World Heritage medina of blue and white architecture, wood workshops, seagulls, and a constant sea breeze. It's an easy, scenic full-day tour from Agadir or Taghazout." data-fr="Essaouira, historiquement connue sous le nom de Mogador, est la décontractée ville portuaire atlantique du Maroc : une médina fortifiée, classée au patrimoine mondial de l'UNESCO, à l'architecture bleue et blanche, avec ateliers de menuiserie, mouettes et une brise marine constante. C'est une excursion d'une journée facile et panoramique depuis Agadir ou Taghazout." data-es="Essaouira, conocida históricamente como Mogador, es la relajada ciudad portuaria atlántica de Marruecos: una medina amurallada, Patrimonio de la Humanidad de la UNESCO, con arquitectura azul y blanca, talleres de madera, gaviotas y una brisa marina constante. Es una excursión de un día fácil y panorámica desde Agadir o Taghazout." data-de="Essaouira, historisch als Mogador bekannt, ist Marokkos entspannte Hafenstadt am Atlantik: eine ummauerte, zum UNESCO-Weltkulturerbe gehörende Medina mit blau-weißer Architektur, Holzwerkstätten, Möwen und einer ständigen Meeresbrise. Ein einfacher, malerischer Tagesausflug ab Agadir oder Taghazout.">Essaouira, historically known as Mogador, is Morocco's laid-back Atlantic port town: a walled, UNESCO World Heritage medina of blue and white architecture, wood workshops, seagulls, and a constant sea breeze. It's an easy, scenic full-day tour from Agadir or Taghazout.</span></p>
-          <p><span data-en="Your experienced driver picks you up from your hotel in Agadir or Taghazout in a private, air-conditioned vehicle, following the scenic coastal road with a stop to spot the tree-climbing goats and visit an argan oil cooperative. Once in Essaouira, you're free to explore the ramparts, the souks of the medina, the historic fish port, and the beach at your own pace before heading back in the evening." data-fr="Votre chauffeur expérimenté vient vous chercher à votre hôtel à Agadir ou Taghazout dans un véhicule privé climatisé, en empruntant la route côtière panoramique avec un arrêt pour observer les chèvres grimpant aux arganiers et visiter une coopérative d'huile d'argan. Une fois à Essaouira, vous êtes libre d'explorer les remparts, les souks de la médina, l'historique port de pêche et la plage à votre rythme avant de repartir en soirée." data-es="Tu conductor experimentado te recoge en tu hotel en Agadir o Taghazout en un vehículo privado con aire acondicionado, siguiendo la carretera costera panorámica con una parada para ver las cabras trepadoras de arganes y visitar una cooperativa de aceite de argán. Una vez en Essaouira, eres libre de explorar las murallas, los zocos de la medina, el histórico puerto pesquero y la playa a tu propio ritmo antes de regresar por la tarde." data-de="Ihr erfahrener Fahrer holt Sie an Ihrem Hotel in Agadir oder Taghazout in einem privaten, klimatisierten Fahrzeug ab und fährt die malerische Küstenstraße entlang, mit einem Stopp, um die baumkletternden Ziegen zu beobachten und eine Arganöl-Kooperative zu besuchen. In Essaouira angekommen, können Sie die Stadtmauern, die Souks der Medina, den historischen Fischereihafen und den Strand in Ihrem eigenen Tempo erkunden, bevor es am Abend zurückgeht.">Your experienced driver picks you up from your hotel in Agadir or Taghazout in a private, air-conditioned vehicle, following the scenic coastal road with a stop to spot the tree-climbing goats and visit an argan oil cooperative. Once in Essaouira, you're free to explore the ramparts, the souks of the medina, the historic fish port, and the beach at your own pace before heading back in the evening.</span></p>
-          <p><span data-en="Pickup is at 07:00 AM from Agadir hotels and 07:30 AM from Taghazout, with drop-off back at your hotel between 7:30 and 8:00 PM." data-fr="La prise en charge se fait à 07h00 depuis les hôtels d'Agadir et à 07h30 depuis Taghazout, avec un retour à votre hôtel entre 19h30 et 20h00." data-es="La recogida es a las 07:00 desde los hoteles de Agadir y a las 07:30 desde Taghazout, con regreso a tu hotel entre las 19:30 y las 20:00." data-de="Die Abholung erfolgt um 07:00 Uhr ab den Hotels in Agadir und um 07:30 Uhr ab Taghazout, mit Rückkehr zu Ihrem Hotel zwischen 19:30 und 20:00 Uhr.">Pickup is at 07:00 AM from Agadir hotels and 07:30 AM from Taghazout, with drop-off back at your hotel between 7:30 and 8:00 PM.</span></p>
+          <p><span data-en="Aghroud is a small village not far from Taghazout, where local artists have painted the houses in bright, bold colors, a fun and photogenic stop on the way to the Timlaline sand dunes, a canyon of dunes carved into the desert." data-fr="Aghroud est un petit village non loin de Taghazout, où des artistes locaux ont peint les maisons de couleurs vives et éclatantes, un arrêt amusant et très photogénique en chemin vers les dunes de Timlaline, un canyon de dunes creusé dans le désert." data-es="Aghroud es un pequeño pueblo no lejos de Taghazout, donde artistas locales han pintado las casas de colores vivos y llamativos, una parada divertida y muy fotogénica de camino a las dunas de Timlaline, un cañón de dunas excavado en el desierto." data-de="Aghroud ist ein kleines Dorf, nicht weit von Taghazout entfernt, wo lokale Künstler die Häuser in kräftigen, leuchtenden Farben bemalt haben, ein unterhaltsamer und äußerst fotogener Zwischenstopp auf dem Weg zu den Dünen von Timlaline, einem in die Wüste geschnittenen Dünen-Canyon.">Aghroud is a small village not far from Taghazout, where local artists have painted the houses in bright, bold colors, a fun and photogenic stop on the way to the Timlaline sand dunes, a canyon of dunes carved into the desert.</span></p>
+          <p><span data-en="Your driver picks you up from your hotel in Agadir or Taghazout and drives along the coast, passing through Taghazout's surf village, before heading inland to Aghroud. After some time exploring and photographing the painted village, you'll continue to the Timlaline canyon dunes for sandboarding and your choice of a camel ride or a horse ride." data-fr="Votre chauffeur vient vous chercher à votre hôtel à Agadir ou Taghazout et longe la côte en passant par le village de surf de Taghazout, avant de rejoindre l'intérieur des terres vers Aghroud. Après un moment à explorer et photographier le village peint, vous continuerez vers les dunes du canyon de Timlaline pour une session de sandboard et, au choix, une balade à dos de chameau ou à cheval." data-es="Tu conductor te recoge en tu hotel en Agadir o Taghazout y conduce por la costa, pasando por el pueblo de surf de Taghazout, antes de dirigirse tierra adentro hacia Aghroud. Después de un tiempo explorando y fotografiando el pueblo pintado, continuarás hacia las dunas del cañón de Timlaline para una sesión de sandboard y, a elegir, un paseo en camello o a caballo." data-de="Ihr Fahrer holt Sie an Ihrem Hotel in Agadir oder Taghazout ab und fährt an der Küste entlang durch das Surferdorf Taghazout, bevor es landeinwärts nach Aghroud geht. Nach etwas Zeit zum Erkunden und Fotografieren des bemalten Dorfes geht es weiter zu den Canyon-Dünen von Timlaline für eine Sandboarding-Session und, nach Wahl, einen Kamel- oder Pferderitt.">Your driver picks you up from your hotel in Agadir or Taghazout and drives along the coast, passing through Taghazout's surf village, before heading inland to Aghroud. After some time exploring and photographing the painted village, you'll continue to the Timlaline canyon dunes for sandboarding and your choice of a camel ride or a horse ride.</span></p>
+          <p><span data-en="As the sun starts to set, there's a stop for traditional Moroccan mint tea, before the day winds down with an outdoor Moroccan dinner in a banana valley in Tamri, a village known for growing bananas, with a live folklore show depending on group size and restaurant capacity. Pickup time: [TBD]. Drop-off is back at your hotel in the evening." data-fr="Au coucher du soleil, une halte est prévue pour un thé à la menthe traditionnel, avant que la journée ne se termine par un dîner marocain en plein air dans une vallée de bananiers à Tamri, un village connu pour la culture de la banane, avec un spectacle folklorique selon la taille du groupe et la capacité du restaurant. Heure de prise en charge : [à déterminer]. Le retour se fait à votre hôtel en soirée." data-es="Al atardecer, hay una parada para un té de menta tradicional, antes de que el día termine con una cena marroquí al aire libre en un valle de plataneros en Tamri, un pueblo conocido por el cultivo de plátanos, con un espectáculo folclórico según el tamaño del grupo y la capacidad del restaurante. Hora de recogida: [por confirmar]. El regreso es a tu hotel por la noche." data-de="Bei Sonnenuntergang gibt es einen Halt für traditionellen marokkanischen Minztee, bevor der Tag mit einem marokkanischen Abendessen im Freien in einem Bananental in Tamri ausklingt, einem für seinen Bananenanbau bekannten Dorf, mit einer Folkloreshow je nach Gruppengröße und Kapazität des Restaurants. Abholzeit: [TBD]. Die Rückkehr erfolgt am Abend zu Ihrem Hotel.">As the sun starts to set, there's a stop for traditional Moroccan mint tea, before the day winds down with an outdoor Moroccan dinner in a banana valley in Tamri, a village known for growing bananas, with a live folklore show depending on group size and restaurant capacity. Pickup time: [TBD]. Drop-off is back at your hotel in the evening.</span></p>
         </div>
 
-        <div class="route-line"><span data-en="Agadir & Taghazout → Argan Cooperative → Essaouira → Agadir & Taghazout" data-fr="Agadir & Taghazout → Coopérative d'Argan → Essaouira → Agadir & Taghazout" data-es="Agadir y Taghazout → Cooperativa de Argán → Essaouira → Agadir y Taghazout" data-de="Agadir & Taghazout → Argan-Kooperative → Essaouira → Agadir & Taghazout">Agadir & Taghazout → Argan Cooperative → Essaouira → Agadir & Taghazout</span></div>
+        <div class="route-line"><span data-en="Agadir & Taghazout → Taghazout Village → Painted Village (Aghroud) → Timlaline Canyon Dunes (Quad Biking, Sandboarding, Camel Ride or Horse Riding) → Sunset Mint Tea → Tamri Banana Valley Dinner & Show → Agadir & Taghazout" data-fr="Agadir & Taghazout → Village de Taghazout → Village Peint (Aghroud) → Dunes du Canyon de Timlaline (Quad, Sandboard, Chameau ou Cheval) → Thé au Coucher du Soleil → Dîner dans la Vallée de Bananiers de Tamri → Agadir & Taghazout" data-es="Agadir y Taghazout → Pueblo de Taghazout → Pueblo Pintado (Aghroud) → Dunas del Cañón de Timlaline (Quad, Sandboard, Camello o Caballo) → Té al Atardecer → Cena en el Valle de Plataneros de Tamri → Agadir y Taghazout" data-de="Agadir & Taghazout → Dorf Taghazout → Bemaltes Dorf (Aghroud) → Canyon-Dünen von Timlaline (Quad, Sandboarding, Kamel oder Pferd) → Minztee bei Sonnenuntergang → Abendessen im Bananental von Tamri → Agadir & Taghazout">Agadir & Taghazout → Taghazout Village → Painted Village (Aghroud) → Timlaline Canyon Dunes (Quad Biking, Sandboarding, Camel Ride or Horse Riding) → Sunset Mint Tea → Tamri Banana Valley Dinner & Show → Agadir & Taghazout</span></div>
+      </div>
+
+      <div class="content-section" id="itinerary">
+        <h2 class="section-h"><span data-en="Itinerary" data-fr="Itinéraire" data-es="Itinerario" data-de="Reiseverlauf">Itinerary</span></h2>
+        <p class="section-sub"><span data-en="How your day unfolds" data-fr="Le déroulement de votre journée" data-es="Cómo se desarrolla tu día" data-de="So läuft Ihr Tag ab">How your day unfolds</span></p>
+        <div class="itin-list">
+          <div class="itin-step">
+            <div class="itin-num">1</div>
+            <div class="itin-body">
+              <h4><span data-en="Hotel Pickup, Ready for Adventure" data-fr="Prise en Charge à l'Hôtel, Prêts pour l'Aventure" data-es="Recogida en el Hotel, Listos para la Aventura" data-de="Hotelabholung, Bereit für das Abenteuer">Hotel Pickup, Ready for Adventure</span></h4>
+              <p><span data-en="Pickup from your hotel in Agadir or Taghazout in a private, air-conditioned vehicle. Pickup time: [TBD]." data-fr="Prise en charge à votre hôtel à Agadir ou Taghazout dans un véhicule privé climatisé. Heure de prise en charge : [à déterminer]." data-es="Recogida en tu hotel en Agadir o Taghazout en un vehículo privado climatizado. Hora de recogida: [por confirmar]." data-de="Abholung an Ihrem Hotel in Agadir oder Taghazout in einem privaten, klimatisierten Fahrzeug. Abholzeit: [TBD].">Pickup from your hotel in Agadir or Taghazout in a private, air-conditioned vehicle. Pickup time: [TBD].</span></p>
+            </div>
+          </div>
+          <div class="itin-step">
+            <div class="itin-num">2</div>
+            <div class="itin-body">
+              <h4><span data-en="A Scenic Drive Through Taghazout" data-fr="Une Route Panoramique à Travers Taghazout" data-es="Un Trayecto Panorámico por Taghazout" data-de="Eine Malerische Fahrt durch Taghazout">A Scenic Drive Through Taghazout</span></h4>
+              <p><span data-en="A scenic drive along the coast, passing through Taghazout's fishing and surf village." data-fr="Une route panoramique le long de la côte, traversant le village de pêcheurs et de surf de Taghazout." data-es="Un trayecto panorámico junto a la costa, pasando por el pueblo pesquero y de surf de Taghazout." data-de="Eine malerische Fahrt entlang der Küste, vorbei am Fischer- und Surferdorf Taghazout.">A scenic drive along the coast, passing through Taghazout's fishing and surf village.</span></p>
+            </div>
+          </div>
+          <div class="itin-step">
+            <div class="itin-num">3</div>
+            <div class="itin-body">
+              <h4><span data-en="Aghroud's Painted Village" data-fr="Le Village Peint d'Aghroud" data-es="El Pueblo Pintado de Aghroud" data-de="Aghrouds Bemaltes Dorf">Aghroud's Painted Village</span></h4>
+              <p><span data-en="A stop to explore and photograph Aghroud, a small village where local artists have painted the houses in bright colors." data-fr="Un arrêt pour explorer et photographier Aghroud, un petit village où des artistes locaux ont peint les maisons de couleurs vives." data-es="Una parada para explorar y fotografiar Aghroud, un pequeño pueblo donde artistas locales han pintado las casas de colores vivos." data-de="Ein Stopp zum Erkunden und Fotografieren von Aghroud, einem kleinen Dorf, dessen Häuser von lokalen Künstlern in leuchtenden Farben bemalt wurden.">A stop to explore and photograph Aghroud, a small village where local artists have painted the houses in bright colors.</span></p>
+            </div>
+          </div>
+          <div class="itin-step">
+            <div class="itin-num">4</div>
+            <div class="itin-body">
+              <h4><span data-en="Quad Biking Through the Timlaline Canyon" data-fr="Quad à Travers le Canyon de Timlaline" data-es="Quad a Través del Cañón de Timlaline" data-de="Quad-Fahren durch den Canyon von Timlaline">Quad Biking Through the Timlaline Canyon</span></h4>
+              <p><span data-en="Arrive at Timlaline, a canyon of golden sand dunes, for a quad biking session across the terrain." data-fr="Arrivée à Timlaline, un canyon de dunes dorées, pour une session de quad à travers le terrain." data-es="Llegada a Timlaline, un cañón de dunas doradas, para una sesión de quad por el terreno." data-de="Ankunft in Timlaline, einem Canyon aus goldenen Sanddünen, für eine Quad-Tour durch das Gelände.">Arrive at Timlaline, a canyon of golden sand dunes, for a quad biking session across the terrain.</span></p>
+            </div>
+          </div>
+          <div class="itin-step">
+            <div class="itin-num">5</div>
+            <div class="itin-body">
+              <h4><span data-en="Camel or Horse, the Choice Is Yours" data-fr="Chameau ou Cheval, à Vous de Choisir" data-es="Camello o Caballo, la Elección Es Tuya" data-de="Kamel oder Pferd, die Wahl Liegt bei Ihnen">Camel or Horse, the Choice Is Yours</span></h4>
+              <p><span data-en="Choose either a camel ride or a horse ride across the dunes, included in the excursion. Let us know your preference when booking." data-fr="Choisissez une balade à dos de chameau ou à cheval sur les dunes, incluse dans l'excursion. Indiquez-nous votre préférence lors de la réservation." data-es="Elige un paseo en camello o a caballo por las dunas, incluido en la excursión. Indícanos tu preferencia al reservar." data-de="Wählen Sie einen Kamel- oder Pferderitt über die Dünen, im Ausflug inbegriffen. Teilen Sie uns Ihre Präferenz bei der Buchung mit.">Choose either a camel ride or a horse ride across the dunes, included in the excursion. Let us know your preference when booking.</span></p>
+            </div>
+          </div>
+          <div class="itin-step">
+            <div class="itin-num">6</div>
+            <div class="itin-body">
+              <h4><span data-en="Sandboarding Down the Dunes" data-fr="Sandboard sur les Dunes" data-es="Sandboard en las Dunas" data-de="Sandboarding auf den Dünen">Sandboarding Down the Dunes</span></h4>
+              <p><span data-en="Slide down the Timlaline dunes on a sandboard, included as part of the day's activities." data-fr="Dévalez les dunes de Timlaline en sandboard, inclus dans les activités de la journée." data-es="Desliza por las dunas de Timlaline en una tabla de sandboard, incluido en las actividades del día." data-de="Rutschen Sie mit einem Sandboard die Dünen von Timlaline hinunter, im Tagesprogramm inbegriffen.">Slide down the Timlaline dunes on a sandboard, included as part of the day's activities.</span></p>
+            </div>
+          </div>
+          <div class="itin-step">
+            <div class="itin-num">7</div>
+            <div class="itin-body">
+              <h4><span data-en="Sunset Mint Tea in the Desert" data-fr="Thé à la Menthe au Coucher du Soleil dans le Désert" data-es="Té de Menta al Atardecer en el Desierto" data-de="Minztee bei Sonnenuntergang in der Wüste">Sunset Mint Tea in the Desert</span></h4>
+              <p><span data-en="As the light turns golden, stop for a glass of traditional Moroccan mint tea while the sun sets over the dunes." data-fr="Alors que la lumière devient dorée, arrêtez-vous pour un verre de thé à la menthe traditionnel pendant que le soleil se couche sur les dunes." data-es="Mientras la luz se vuelve dorada, haz una parada para un vaso de té de menta tradicional mientras el sol se pone sobre las dunas." data-de="Während das Licht golden wird, halten Sie für ein Glas traditionellen Minztee an, während die Sonne über den Dünen untergeht.">As the light turns golden, stop for a glass of traditional Moroccan mint tea while the sun sets over the dunes.</span></p>
+            </div>
+          </div>
+          <div class="itin-step">
+            <div class="itin-num">8</div>
+            <div class="itin-body">
+              <h4><span data-en="An Outdoor Dinner in Tamri's Banana Valley" data-fr="Un Dîner en Plein Air dans la Vallée de Bananiers de Tamri" data-es="Una Cena al Aire Libre en el Valle de Plataneros de Tamri" data-de="Ein Abendessen im Freien im Bananental von Tamri">An Outdoor Dinner in Tamri's Banana Valley</span></h4>
+              <p><span data-en="End the day with an outdoor Moroccan dinner in a banana valley in Tamri, a village known for growing bananas, with a live folklore show depending on group size and restaurant capacity." data-fr="Terminez la journée par un dîner marocain en plein air dans une vallée de bananiers à Tamri, un village connu pour la culture de la banane, avec un spectacle folklorique selon la taille du groupe et la capacité du restaurant." data-es="Termina el día con una cena marroquí al aire libre en un valle de plataneros en Tamri, un pueblo conocido por el cultivo de plátanos, con un espectáculo folclórico según el tamaño del grupo y la capacidad del restaurante." data-de="Beenden Sie den Tag mit einem marokkanischen Abendessen im Freien in einem Bananental in Tamri, einem für seinen Bananenanbau bekannten Dorf, mit einer Folkloreshow je nach Gruppengröße und Restaurantkapazität.">End the day with an outdoor Moroccan dinner in a banana valley in Tamri, a village known for growing bananas, with a live folklore show depending on group size and restaurant capacity.</span></p>
+            </div>
+          </div>
+          <div class="itin-step">
+            <div class="itin-num">9</div>
+            <div class="itin-body">
+              <h4><span data-en="Drop-off at Your Hotel" data-fr="Retour à Votre Hôtel" data-es="Regreso a tu Hotel" data-de="Rückkehr zu Ihrem Hotel">Drop-off at Your Hotel</span></h4>
+              <p><span data-en="Return drive and drop-off at your hotel in Agadir or Taghazout." data-fr="Trajet retour et dépose à votre hôtel à Agadir ou Taghazout." data-es="Trayecto de vuelta y regreso a tu hotel en Agadir o Taghazout." data-de="Rückfahrt und Rückbringung zu Ihrem Hotel in Agadir oder Taghazout.">Return drive and drop-off at your hotel in Agadir or Taghazout.</span></p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="content-section" id="highlights">
         <h2 class="section-h"><span data-en="Trip Highlights" data-fr="Points Forts du Voyage" data-es="Puntos Destacados" data-de="Reise-Highlights">Trip Highlights</span></h2>
         <div class="highlight-grid">
           <div class="highlight-card">
-            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21l6-14 4 8 3-6 5 12"/></svg></div>
-            <p><span data-en="Scenic Atlantic Coastal Road" data-fr="Route Côtière Panoramique de l'Atlantique" data-es="Carretera Costera Panorámica del Atlántico" data-de="Malerische Atlantikküstenstraße">Scenic Atlantic Coastal Road</span></p>
+            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V10l8-6 8 6v11M9 21v-6h6v6"/></svg></div>
+            <p><span data-en="Aghroud's Rainbow-Painted Houses" data-fr="Les Maisons aux Couleurs de l'Arc-en-Ciel d'Aghroud" data-es="Las Casas de Colores de Aghroud" data-de="Aghrouds Bunt Bemalte Häuser">Aghroud's Rainbow-Painted Houses</span></p>
           </div>
           <div class="highlight-card">
-            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 18l4-4 4 3 5-8 5 6"/></svg></div>
-            <p><span data-en="Tree-Climbing Goats & Argan Oil Cooperative" data-fr="Chèvres Grimpant aux Arganiers et Coopérative d'Huile d'Argan" data-es="Cabras Trepadoras de Arganes y Cooperativa de Aceite de Argán" data-de="Baumkletternde Ziegen & Arganöl-Kooperative">Tree-Climbing Goats & Argan Oil Cooperative</span></p>
+            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="7" cy="17" r="3"/><circle cx="17" cy="17" r="3"/><path d="M7 17l4-10h4l3 10M11 7h5"/></svg></div>
+            <p><span data-en="Quad Biking Through the Timlaline Canyon" data-fr="Quad à Travers le Canyon de Timlaline" data-es="Quad a Través del Cañón de Timlaline" data-de="Quad-Fahren durch den Canyon von Timlaline">Quad Biking Through the Timlaline Canyon</span></p>
           </div>
           <div class="highlight-card">
-            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="10" rx="1"/><path d="M8 10V7a4 4 0 018 0v3"/></svg></div>
-            <p><span data-en="UNESCO World Heritage Medina" data-fr="Médina Classée au Patrimoine Mondial de l'UNESCO" data-es="Medina Patrimonio de la Humanidad de la UNESCO" data-de="UNESCO-Weltkulturerbe-Medina">UNESCO World Heritage Medina</span></p>
+            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+            <p><span data-en="Camel Ride or Horse Riding, Your Choice" data-fr="Chameau ou Cheval, au Choix" data-es="Camello o Caballo, a tu Elección" data-de="Kamel- oder Pferderitt, nach Wahl">Camel Ride or Horse Riding, Your Choice</span></p>
           </div>
           <div class="highlight-card">
-            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></div>
-            <p><span data-en="Skala de la Ville & Ramparts" data-fr="Skala de la Ville et Remparts" data-es="Skala de la Ville y Murallas" data-de="Skala de la Ville & Stadtmauern">Skala de la Ville & Ramparts</span></p>
+            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21l7-14 4 8 3-6 4 12"/></svg></div>
+            <p><span data-en="Sandboarding Down the Dunes" data-fr="Sandboard sur les Dunes" data-es="Sandboard en las Dunas" data-de="Sandboarding auf den Dünen">Sandboarding Down the Dunes</span></p>
           </div>
           <div class="highlight-card">
-            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V9l8-6 8 6v12M9 21v-6h6v6"/></svg></div>
-            <p><span data-en="Historic Fish Port" data-fr="Port de Pêche Historique" data-es="Puerto Pesquero Histórico" data-de="Historischer Fischereihafen">Historic Fish Port</span></p>
+            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8h13v4a5 5 0 01-5 5H9a5 5 0 01-5-5V8z"/><path d="M18 9h1.5a2 2 0 010 4H18"/><path d="M8 3c0 1 1 1 1 2s-1 1-1 2M12 3c0 1 1 1 1 2s-1 1-1 2"/></svg></div>
+            <p><span data-en="Sunset Mint Tea in the Desert" data-fr="Thé à la Menthe au Coucher du Soleil" data-es="Té de Menta al Atardecer" data-de="Minztee bei Sonnenuntergang">Sunset Mint Tea in the Desert</span></p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21h16M6 21V10l6-6 6 6v11M10 21v-5h4v5"/></svg></div>
+            <p><span data-en="Dinner in Tamri's Banana Valley, with Live Show" data-fr="Dîner dans la Vallée de Bananiers de Tamri, avec Spectacle" data-es="Cena en el Valle de Plataneros de Tamri, con Espectáculo" data-de="Abendessen im Bananental von Tamri, mit Live-Show">Dinner in Tamri's Banana Valley, with Live Show</span></p>
           </div>
           <div class="highlight-card">
             <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg></div>
@@ -949,21 +992,27 @@
           <div class="ie-card yes">
             <h3><span data-en="Included" data-fr="Inclus" data-es="Incluido" data-de="Inklusive">Included</span></h3>
             <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> <span data-en="Private air-conditioned vehicle with an experienced driver" data-fr="Véhicule privé climatisé avec chauffeur expérimenté" data-es="Vehículo privado con aire acondicionado y conductor experimentado" data-de="Privates klimatisiertes Fahrzeug mit erfahrenem Fahrer">Private air-conditioned vehicle with an experienced driver</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> <span data-en="Round-trip hotel pickup and drop-off in Agadir & Taghazout" data-fr="Transfert aller-retour à l'hôtel à Agadir et Taghazout" data-es="Traslado de ida y vuelta al hotel en Agadir y Taghazout" data-de="Hoteltransfer hin und zurück in Agadir & Taghazout">Round-trip hotel pickup and drop-off in Agadir & Taghazout</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> <span data-en="Stop at an argan oil cooperative" data-fr="Arrêt dans une coopérative d'huile d'argan" data-es="Parada en una cooperativa de aceite de argán" data-de="Stopp bei einer Arganöl-Kooperative">Stop at an argan oil cooperative</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> <span data-en="Free time to explore Essaouira medina and port" data-fr="Temps libre pour explorer la médina et le port d'Essaouira" data-es="Tiempo libre para explorar la medina y el puerto de Essaouira" data-de="Freizeit zur Erkundung der Medina und des Hafens von Essaouira">Free time to explore Essaouira medina and port</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> <span data-en="Private, round-trip air-conditioned transport with an experienced driver" data-fr="Transport privé aller-retour climatisé avec chauffeur expérimenté" data-es="Transporte privado de ida y vuelta con aire acondicionado y conductor experimentado" data-de="Privater, klimatisierter Hin- und Rücktransport mit erfahrenem Fahrer">Private, round-trip air-conditioned transport with an experienced driver</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> <span data-en="Hotel pickup and drop-off in Agadir & Taghazout" data-fr="Prise en charge et retour à l'hôtel à Agadir et Taghazout" data-es="Recogida y regreso al hotel en Agadir y Taghazout" data-de="Hotelabholung und Rückbringung in Agadir & Taghazout">Hotel pickup and drop-off in Agadir & Taghazout</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> <span data-en="Quad biking session at the Timlaline dunes" data-fr="Session de quad sur les dunes de Timlaline" data-es="Sesión de quad en las dunas de Timlaline" data-de="Quad-Session auf den Timlaline-Dünen">Quad biking session at the Timlaline dunes</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> <span data-en="Sandboarding session at the Timlaline dunes" data-fr="Session de sandboard sur les dunes de Timlaline" data-es="Sesión de sandboard en las dunas de Timlaline" data-de="Sandboarding-Session auf den Timlaline-Dünen">Sandboarding session at the Timlaline dunes</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> <span data-en="Camel ride or horse riding at Timlaline (your choice)" data-fr="Balade à dos de chameau ou à cheval à Timlaline (au choix)" data-es="Paseo en camello o a caballo en Timlaline (a elegir)" data-de="Kamel- oder Pferderitt in Timlaline (nach Wahl)">Camel ride or horse riding at Timlaline (your choice)</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> <span data-en="Traditional mint tea at sunset" data-fr="Thé à la menthe traditionnel au coucher du soleil" data-es="Té de menta tradicional al atardecer" data-de="Traditioneller Minztee bei Sonnenuntergang">Traditional mint tea at sunset</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> <span data-en="Outdoor Moroccan dinner in Tamri's banana valley" data-fr="Dîner marocain en plein air dans la vallée de bananiers de Tamri" data-es="Cena marroquí al aire libre en el valle de plataneros de Tamri" data-de="Marokkanisches Abendessen im Freien im Bananental von Tamri">Outdoor Moroccan dinner in Tamri's banana valley</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> <span data-en="Bottled water throughout the day" data-fr="Eau en bouteille tout au long de la journée" data-es="Agua embotellada durante todo el día" data-de="Wasserflaschen den ganzen Tag über">Bottled water throughout the day</span></li>
             </ul>
           </div>
           <div class="ie-card no">
             <h3><span data-en="Not Included" data-fr="Non Inclus" data-es="No Incluido" data-de="Nicht Inklusive">Not Included</span></h3>
             <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6l12 12M18 6L6 18"/></svg> <span data-en="Lunch and personal expenses" data-fr="Déjeuner et dépenses personnelles" data-es="Almuerzo y gastos personales" data-de="Mittagessen und persönliche Ausgaben">Lunch and personal expenses</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6l12 12M18 6L6 18"/></svg> <span data-en="Entrance fees to monuments" data-fr="Frais d'entrée aux monuments" data-es="Entradas a monumentos" data-de="Eintrittsgebühren für Denkmäler">Entrance fees to monuments</span></li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6l12 12M18 6L6 18"/></svg> <span data-en="Tips and gratuities" data-fr="Pourboires" data-es="Propinas" data-de="Trinkgelder">Tips and gratuities</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6l12 12M18 6L6 18"/></svg> <span data-en="Travel insurance" data-fr="Assurance voyage" data-es="Seguro de viaje" data-de="Reiseversicherung">Travel insurance</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6l12 12M18 6L6 18"/></svg> <span data-en="Personal expenses" data-fr="Dépenses personnelles" data-es="Gastos personales" data-de="Persönliche Ausgaben">Personal expenses</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6l12 12M18 6L6 18"/></svg> <span data-en="Alcoholic drinks" data-fr="Boissons alcoolisées" data-es="Bebidas alcohólicas" data-de="Alkoholische Getränke">Alcoholic drinks</span></li>
             </ul>
           </div>
         </div>
+        <p class="ie-footnote"><span data-en="The evening's live folklore show at the Tamri dinner depends on group size and restaurant capacity." data-fr="Le spectacle folklorique en soirée lors du dîner à Tamri dépend de la taille du groupe et de la capacité du restaurant." data-es="El espectáculo folclórico de la noche durante la cena en Tamri depende del tamaño del grupo y la capacidad del restaurante." data-de="Die abendliche Folkloreshow beim Abendessen in Tamri hängt von der Gruppengröße und der Kapazität des Restaurants ab.">The evening's live folklore show at the Tamri dinner depends on group size and restaurant capacity.</span></p>
       </div>
 
     </div>
@@ -974,7 +1023,7 @@
         <h2 class="section-h"><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></h2>
         <div class="contact-cta-box">
           <h3><span data-en="Contact Us for Custom Rates & Availability" data-fr="Contactez-Nous pour les Tarifs et Disponibilités" data-es="Contáctanos para Tarifas y Disponibilidad" data-de="Kontaktieren Sie Uns für Preise & Verfügbarkeit">Contact Us for Custom Rates & Availability</span></h3>
-          <p><span data-en="Free hotel pickup in Agadir and Taghazout. Tell us your date and pickup hotel and we'll confirm availability within 24 hours." data-fr="Prise en charge gratuite à l'hôtel à Agadir et à Taghazout. Indiquez-nous votre date et votre hôtel de départ et nous confirmerons la disponibilité sous 24 heures." data-es="Recogida gratuita en el hotel en Agadir y Taghazout. Cuéntanos tu fecha y hotel de recogida y confirmaremos la disponibilidad en 24 horas." data-de="Kostenlose Hotelabholung in Agadir und Taghazout. Teilen Sie uns Ihr Datum und Ihr Abholhotel mit, und wir bestätigen die Verfügbarkeit innerhalb von 24 Stunden.">Free hotel pickup in Agadir and Taghazout. Tell us your date and pickup hotel and we'll confirm availability within 24 hours.</span></p>
+          <p><span data-en="Free hotel pickup in Agadir and Taghazout. Tell us your date, pickup hotel, and ride preference, and we'll confirm availability and pricing within 24 hours." data-fr="Prise en charge gratuite à l'hôtel à Agadir et à Taghazout. Indiquez-nous votre date, votre hôtel de départ et votre préférence de balade, et nous confirmerons la disponibilité et les tarifs sous 24 heures." data-es="Recogida gratuita en el hotel en Agadir y Taghazout. Cuéntanos tu fecha, hotel de recogida y preferencia de paseo, y confirmaremos la disponibilidad y los precios en 24 horas." data-de="Kostenlose Hotelabholung in Agadir und Taghazout. Teilen Sie uns Ihr Datum, Ihr Abholhotel und Ihre Ritt-Präferenz mit, und wir bestätigen Verfügbarkeit und Preise innerhalb von 24 Stunden.">Free hotel pickup in Agadir and Taghazout. Tell us your date, pickup hotel, and ride preference, and we'll confirm availability and pricing within 24 hours.</span></p>
           <div class="contact-cta-actions">
             <a href="index.html#contact" class="btn-gold"><span data-en="Contact Us for Custom Rates" data-fr="Contactez-Nous pour les Tarifs" data-es="Contáctanos para Tarifas" data-de="Kontaktieren Sie Uns für Preise">Contact Us for Custom Rates</span></a>
             <a href="https://wa.me/212600000000" target="_blank" class="btn-outline-white"><span data-en="Chat on WhatsApp" data-fr="Discuter sur WhatsApp" data-es="Chatear por WhatsApp" data-de="Auf WhatsApp Chatten">Chat on WhatsApp</span></a>
@@ -987,47 +1036,56 @@
         <div class="faq-list">
           <div class="acc-item faq-item open">
             <button type="button" class="acc-header" aria-expanded="true">
+              <span data-en="What time is pickup?" data-fr="À quelle heure est la prise en charge ?" data-es="¿A qué hora es la recogida?" data-de="Wann ist die Abholung?">What time is pickup?</span>
+              <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="acc-panel">
+              <p><span data-en="Pickup time is [TBD]. We'll confirm the exact time for your date and hotel when you book." data-fr="L'heure de prise en charge est [à déterminer]. Nous confirmerons l'heure exacte pour votre date et votre hôtel lors de la réservation." data-es="La hora de recogida es [por confirmar]. Confirmaremos la hora exacta para tu fecha y hotel al reservar." data-de="Die Abholzeit ist [TBD]. Wir bestätigen die genaue Uhrzeit für Ihr Datum und Hotel bei der Buchung.">Pickup time is [TBD]. We'll confirm the exact time for your date and hotel when you book.</span></p>
+            </div>
+          </div>
+          <div class="acc-item faq-item">
+            <button type="button" class="acc-header" aria-expanded="false">
+              <span data-en="Do I choose between the camel ride and horse riding in advance?" data-fr="Dois-je choisir entre le chameau et le cheval à l'avance ?" data-es="¿Debo elegir entre el camello y el caballo con antelación?" data-de="Muss ich mich vorab zwischen Kamel- und Pferderitt entscheiden?">Do I choose between the camel ride and horse riding in advance?</span>
+              <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="acc-panel">
+              <p><span data-en="Yes, let us know your preference, camel ride or horse riding, when you book. Both are included in the base price." data-fr="Oui, indiquez-nous votre préférence, chameau ou cheval, lors de la réservation. Les deux sont inclus dans le prix de base." data-es="Sí, indícanos tu preferencia, camello o caballo, al reservar. Ambos están incluidos en el precio base." data-de="Ja, teilen Sie uns bei der Buchung Ihre Präferenz mit, Kamel oder Pferd. Beides ist im Grundpreis inbegriffen.">Yes, let us know your preference, camel ride or horse riding, when you book. Both are included in the base price.</span></p>
+            </div>
+          </div>
+          <div class="acc-item faq-item">
+            <button type="button" class="acc-header" aria-expanded="false">
+              <span data-en="Is sandboarding included in this excursion?" data-fr="Le sandboard est-il inclus dans cette excursion ?" data-es="¿El sandboard está incluido en esta excursión?" data-de="Ist Sandboarding in diesem Ausflug inbegriffen?">Is sandboarding included in this excursion?</span>
+              <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="acc-panel">
+              <p><span data-en="Yes, sandboarding at the Timlaline dunes is included in the day's activities, along with quad biking and your choice of camel ride or horse riding." data-fr="Oui, le sandboard sur les dunes de Timlaline est inclus dans les activités de la journée, ainsi que le quad et, au choix, une balade à dos de chameau ou à cheval." data-es="Sí, el sandboard en las dunas de Timlaline está incluido en las actividades del día, junto con el quad y, a elegir, un paseo en camello o a caballo." data-de="Ja, Sandboarding auf den Timlaline-Dünen ist im Tagesprogramm inbegriffen, zusammen mit Quad-Fahren und, nach Wahl, einem Kamel- oder Pferderitt.">Yes, sandboarding at the Timlaline dunes is included in the day's activities, along with quad biking and your choice of camel ride or horse riding.</span></p>
+            </div>
+          </div>
+          <div class="acc-item faq-item">
+            <button type="button" class="acc-header" aria-expanded="false">
+              <span data-en="Is the dinner show guaranteed?" data-fr="Le spectacle du dîner est-il garanti ?" data-es="¿Está garantizado el espectáculo de la cena?" data-de="Ist die Dinner-Show garantiert?">Is the dinner show guaranteed?</span>
+              <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="acc-panel">
+              <p><span data-en="The outdoor Moroccan dinner in Tamri's banana valley is always included, but the live folklore show depends on group size and the restaurant's capacity on the day." data-fr="Le dîner marocain en plein air dans la vallée de bananiers de Tamri est toujours inclus, mais le spectacle folklorique en direct dépend de la taille du groupe et de la capacité du restaurant ce jour-là." data-es="La cena marroquí al aire libre en el valle de plataneros de Tamri siempre está incluida, pero el espectáculo folclórico en vivo depende del tamaño del grupo y de la capacidad del restaurante ese día." data-de="Das marokkanische Abendessen im Freien im Bananental von Tamri ist immer inbegriffen, aber die Live-Folkloreshow hängt von der Gruppengröße und der Kapazität des Restaurants an diesem Tag ab.">The outdoor Moroccan dinner in Tamri's banana valley is always included, but the live folklore show depends on group size and the restaurant's capacity on the day.</span></p>
+            </div>
+          </div>
+          <div class="acc-item faq-item">
+            <button type="button" class="acc-header" aria-expanded="false">
               <span data-en="Do you pick up from both Agadir and Taghazout?" data-fr="Prenez-vous en charge à la fois à Agadir et à Taghazout ?" data-es="¿Recogen tanto en Agadir como en Taghazout?" data-de="Holen Sie sowohl in Agadir als auch in Taghazout ab?">Do you pick up from both Agadir and Taghazout?</span>
               <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
             </button>
             <div class="acc-panel">
-              <p><span data-en="Yes, hotel and accommodation pickup is included from both Agadir and Taghazout, at no extra cost." data-fr="Oui, la prise en charge à l'hôtel ou à l'hébergement est incluse à la fois à Agadir et à Taghazout, sans frais supplémentaires." data-es="Sí, la recogida en el hotel o alojamiento está incluida tanto en Agadir como en Taghazout, sin coste adicional." data-de="Ja, die Abholung an Hotel oder Unterkunft ist sowohl in Agadir als auch in Taghazout ohne Aufpreis inbegriffen.">Yes, hotel and accommodation pickup is included from both Agadir and Taghazout, at no extra cost.</span></p>
+              <p><span data-en="Yes, hotel pickup and drop-off is included from both Agadir and Taghazout, at no extra cost." data-fr="Oui, la prise en charge et le retour à l'hôtel sont inclus à la fois à Agadir et à Taghazout, sans frais supplémentaires." data-es="Sí, la recogida y el regreso al hotel están incluidos tanto en Agadir como en Taghazout, sin coste adicional." data-de="Ja, Hotelabholung und Rückbringung sind sowohl in Agadir als auch in Taghazout ohne Aufpreis inbegriffen.">Yes, hotel pickup and drop-off is included from both Agadir and Taghazout, at no extra cost.</span></p>
             </div>
           </div>
           <div class="acc-item faq-item">
             <button type="button" class="acc-header" aria-expanded="false">
-              <span data-en="Is this excursion private?" data-fr="Cette excursion est-elle privée ?" data-es="¿Esta excursión es privada?" data-de="Ist dieser Ausflug privat?">Is this excursion private?</span>
+              <span data-en="What should I bring?" data-fr="Que dois-je apporter ?" data-es="¿Qué debo llevar?" data-de="Was sollte ich mitbringen?">What should I bring?</span>
               <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
             </button>
             <div class="acc-panel">
-              <p><span data-en="Yes, you'll have your own private vehicle and experienced driver for the full day, with no other travelers joining your group." data-fr="Oui, vous disposerez de votre propre véhicule privé et de votre chauffeur expérimenté pour toute la journée, sans autres voyageurs rejoignant votre groupe." data-es="Sí, tendrás tu propio vehículo privado y conductor experimentado durante todo el día, sin otros viajeros uniéndose a tu grupo." data-de="Ja, Sie haben den ganzen Tag Ihr eigenes privates Fahrzeug und einen erfahrenen Fahrer, ohne dass andere Reisende sich Ihrer Gruppe anschließen.">Yes, you'll have your own private vehicle and experienced driver for the full day, with no other travelers joining your group.</span></p>
-            </div>
-          </div>
-          <div class="acc-item faq-item">
-            <button type="button" class="acc-header" aria-expanded="false">
-              <span data-en="Is lunch included?" data-fr="Le déjeuner est-il inclus ?" data-es="¿Está incluido el almuerzo?" data-de="Ist das Mittagessen inbegriffen?">Is lunch included?</span>
-              <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
-            </button>
-            <div class="acc-panel">
-              <p><span data-en="No, lunch is not included so you can choose your own fish at the port grill stalls, paid directly on the spot. Your driver can recommend a stall." data-fr="Non, le déjeuner n'est pas inclus afin que vous puissiez choisir vous-même votre poisson aux étals de grillades du port, payé directement sur place. Votre chauffeur peut vous recommander un étal." data-es="No, el almuerzo no está incluido para que puedas elegir tu propio pescado en los puestos de parrilla del puerto, pagado directamente en el lugar. Tu conductor puede recomendarte un puesto." data-de="Nein, das Mittagessen ist nicht inbegriffen, damit Sie Ihren eigenen Fisch an den Grillständen des Hafens wählen können, direkt vor Ort bezahlt. Ihr Fahrer kann Ihnen einen Stand empfehlen.">No, lunch is not included so you can choose your own fish at the port grill stalls, paid directly on the spot. Your driver can recommend a stall.</span></p>
-            </div>
-          </div>
-          <div class="acc-item faq-item">
-            <button type="button" class="acc-header" aria-expanded="false">
-              <span data-en="How long is the drive?" data-fr="Combien de temps dure le trajet ?" data-es="¿Cuánto dura el trayecto?" data-de="Wie lange dauert die Fahrt?">How long is the drive?</span>
-              <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
-            </button>
-            <div class="acc-panel">
-              <p><span data-en="About 2h30–3h each way from Agadir, slightly less from Taghazout, with a short stop at an argan oil cooperative along the route." data-fr="Environ 2h30 à 3h dans chaque sens depuis Agadir, un peu moins depuis Taghazout, avec un court arrêt à une coopérative d'huile d'argan sur la route." data-es="Aproximadamente 2h30–3h en cada sentido desde Agadir, algo menos desde Taghazout, con una breve parada en una cooperativa de aceite de argán en la ruta." data-de="Etwa 2:30–3 Std. pro Strecke ab Agadir, etwas weniger ab Taghazout, mit einem kurzen Stopp bei einer Arganöl-Kooperative unterwegs.">About 2h30–3h each way from Agadir, slightly less from Taghazout, with a short stop at an argan oil cooperative along the route.</span></p>
-            </div>
-          </div>
-          <div class="acc-item faq-item">
-            <button type="button" class="acc-header" aria-expanded="false">
-              <span data-en="Is a local guide included, or can I add extra stops?" data-fr="Un guide local est-il inclus, ou puis-je ajouter des arrêts supplémentaires ?" data-es="¿Se incluye un guía local, o puedo añadir paradas extra?" data-de="Ist ein örtlicher Guide inbegriffen, oder kann ich zusätzliche Stopps hinzufügen?">Is a local guide included, or can I add extra stops?</span>
-              <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
-            </button>
-            <div class="acc-panel">
-              <p><span data-en="An experienced driver is included for the full day, but no local guide, so you're free to explore the medina at your own pace. Let us know when you inquire if you'd like extra stops or to adjust the schedule to fit your interests." data-fr="Un chauffeur expérimenté est inclus pour toute la journée, mais sans guide local, vous êtes donc libre d'explorer la médina à votre rythme. Indiquez-nous lors de votre demande si vous souhaitez des arrêts supplémentaires ou ajuster le programme selon vos envies." data-es="Se incluye un conductor experimentado durante todo el día, pero sin guía local, por lo que eres libre de explorar la medina a tu propio ritmo. Indícanoslo al consultar si deseas paradas adicionales o ajustar el programa según tus intereses." data-de="Ein erfahrener Fahrer ist den ganzen Tag inbegriffen, jedoch kein örtlicher Guide, sodass Sie die Medina in Ihrem eigenen Tempo erkunden können. Teilen Sie uns bei Ihrer Anfrage mit, wenn Sie zusätzliche Stopps wünschen oder den Zeitplan anpassen möchten.">An experienced driver is included for the full day, but no local guide, so you're free to explore the medina at your own pace. Let us know when you inquire if you'd like extra stops or to adjust the schedule to fit your interests.</span></p>
+              <p><span data-en="Comfortable closed shoes and clothes you don't mind getting sandy for the quad biking, sandboarding, and ride, sunscreen, and a light jacket for the evening." data-fr="Des chaussures fermées confortables et des vêtements que vous ne craignez pas de salir de sable pour le quad, le sandboard et la balade, de la crème solaire, et une veste légère pour la soirée." data-es="Calzado cerrado cómodo y ropa que no te importe que se llene de arena para el quad, el sandboard y el paseo, protector solar y una chaqueta ligera para la noche." data-de="Bequeme geschlossene Schuhe und Kleidung, die ruhig sandig werden darf, für Quad, Sandboarding und Ritt, Sonnencreme und eine leichte Jacke für den Abend.">Comfortable closed shoes and clothes you don't mind getting sandy for the quad biking, sandboarding, and ride, sunscreen, and a light jacket for the evening.</span></p>
             </div>
           </div>
         </div>
@@ -1036,11 +1094,11 @@
     </div>
 
     <div class="sidebar">
-      <h3><span data-en="Essaouira Excursion" data-fr="Excursion à Essaouira" data-es="Excursión a Essaouira" data-de="Essaouira-Ausflug">Essaouira Excursion</span></h3>
+      <h3><span data-en="Sandboarding, Canyon Visit & Sunset Tea" data-fr="Sandboard, Village du Canyon et Thé au Coucher du Soleil" data-es="Sandboard, Visita al Cañón y Té al Atardecer" data-de="Sandboarding, Canyon-Besuch & Tee bei Sonnenuntergang">Sandboarding, Canyon Visit & Sunset Tea</span></h3>
       <div class="quick-facts">
-        <div class="quick-fact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> <span><strong><span data-en="Duration:" data-fr="Durée :" data-es="Duración:" data-de="Dauer:">Duration:</span></strong> <span data-en="Full Day" data-fr="Journée Complète" data-es="Día Completo" data-de="Ganzer Tag">Full Day</span></span></div>
-        <div class="quick-fact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21C7 17 3 13.5 3 9a5 5 0 019-3 5 5 0 019 3c0 4.5-4 8-9 12z"/></svg> <span><strong><span data-en="Pickup:" data-fr="Départ :" data-es="Recogida:" data-de="Abholung:">Pickup:</span></strong> <span data-en="07:00 AM (Agadir) / 07:30 AM (Taghazout)" data-fr="07h00 (Agadir) / 07h30 (Taghazout)" data-es="07:00 (Agadir) / 07:30 (Taghazout)" data-de="07:00 Uhr (Agadir) / 07:30 Uhr (Taghazout)">07:00 AM (Agadir) / 07:30 AM (Taghazout)</span></span></div>
-        <div class="quick-fact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> <span><strong><span data-en="Drop-off:" data-fr="Retour :" data-es="Regreso:" data-de="Rückkehr:">Drop-off:</span></strong> <span data-en="~7:30 – 8:00 PM" data-fr="~19h30 – 20h00" data-es="~19:30 – 20:00" data-de="~19:30 – 20:00 Uhr">~7:30 – 8:00 PM</span></span></div>
+        <div class="quick-fact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> <span><strong><span data-en="Duration:" data-fr="Durée :" data-es="Duración:" data-de="Dauer:">Duration:</span></strong> <span data-en="Full-Day" data-fr="Journée Complète" data-es="Día Completo" data-de="Ganzer Tag">Full-Day</span></span></div>
+        <div class="quick-fact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21C7 17 3 13.5 3 9a5 5 0 019-3 5 5 0 019 3c0 4.5-4 8-9 12z"/></svg> <span><strong><span data-en="Pickup:" data-fr="Départ :" data-es="Recogida:" data-de="Abholung:">Pickup:</span></strong> <span data-en="[TBD] (Agadir & Taghazout)" data-fr="[À déterminer] (Agadir & Taghazout)" data-es="[Por confirmar] (Agadir y Taghazout)" data-de="[TBD] (Agadir & Taghazout)">[TBD] (Agadir & Taghazout)</span></span></div>
+        <div class="quick-fact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> <span><strong><span data-en="Drop-off:" data-fr="Retour :" data-es="Regreso:" data-de="Rückkehr:">Drop-off:</span></strong> <span data-en="Evening" data-fr="Soirée" data-es="Noche" data-de="Abend">Evening</span></span></div>
         <div class="quick-fact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg> <span><strong><span data-en="Group:" data-fr="Groupe :" data-es="Grupo:" data-de="Gruppe:">Group:</span></strong> <span data-en="Private" data-fr="Privé" data-es="Privado" data-de="Privat">Private</span></span></div>
         <div class="quick-fact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/></svg> <span><strong><span data-en="Season:" data-fr="Saison :" data-es="Temporada:" data-de="Saison:">Season:</span></strong> <span data-en="Year-round" data-fr="Toute l'année" data-es="Todo el año" data-de="Ganzjährig">Year-round</span></span></div>
       </div>
@@ -1079,6 +1137,19 @@
               <input type="number" id="bf-children" name="children" min="0" max="30" data-en-ph="e.g. 0" data-fr-ph="ex. 0" data-es-ph="ej. 0" data-de-ph="z.B. 0" placeholder="e.g. 0">
             </div>
           </div>
+          <div class="full">
+            <label><span data-en="Camel Ride or Horse Riding" data-fr="Chameau ou Cheval" data-es="Camello o Caballo" data-de="Kamel oder Pferd">Camel Ride or Horse Riding</span></label>
+            <div class="ride-choice">
+              <div class="ride-choice-option">
+                <input type="radio" id="bf-ride-camel" name="ride" value="camel" required>
+                <label for="bf-ride-camel" class="ride-choice-label"><span data-en="Camel Ride" data-fr="Chameau" data-es="Camello" data-de="Kamel">Camel Ride</span></label>
+              </div>
+              <div class="ride-choice-option">
+                <input type="radio" id="bf-ride-horse" name="ride" value="horse" required>
+                <label for="bf-ride-horse" class="ride-choice-label"><span data-en="Horse Riding" data-fr="Cheval" data-es="Caballo" data-de="Pferd">Horse Riding</span></label>
+              </div>
+            </div>
+          </div>
           <div>
             <label for="bf-message"><span data-en="Special Requests" data-fr="Demandes Spéciales" data-es="Solicitudes Especiales" data-de="Besondere Wünsche">Special Requests</span></label>
             <textarea id="bf-message" name="message" data-en-ph="Pickup hotel name (Agadir or Taghazout), dietary needs..." data-fr-ph="Nom de l'hôtel de départ (Agadir ou Taghazout), besoins alimentaires..." data-es-ph="Nombre del hotel de recogida (Agadir o Taghazout), necesidades dietéticas..." data-de-ph="Name des Abholhotels (Agadir oder Taghazout), Ernährungsbedürfnisse..." placeholder="Pickup hotel name (Agadir or Taghazout), dietary needs..."></textarea>
@@ -1096,7 +1167,7 @@
 </div>
 
 <a href="https://wa.me/212600000000" class="whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
-  <svg viewBox="0 0 32 32"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.7 4.61 1.905 6.48L4 29l7.72-1.858A11.94 11.94 0 0016.001 27C22.63 27 28 21.627 28 15S22.63 3 16.001 3zm6.997 16.63c-.29.816-1.68 1.56-2.32 1.646-.593.08-1.34.114-2.16-.135-.498-.15-1.137-.362-1.958-.71-3.447-1.488-5.699-4.94-5.874-5.17-.174-.23-1.41-1.874-1.41-3.575 0-1.7.89-2.535 1.207-2.883.318-.348.694-.435.926-.435.232 0 .464.002.667.012.213.01.5-.081.782.596.29.696.986 2.4 1.073 2.574.087.174.145.377.03.608-.116.232-.174.377-.348.58-.174.203-.365.453-.522.608-.174.174-.355.363-.153.71.203.348.902 1.487 1.936 2.408 1.33 1.186 2.452 1.554 2.8 1.728.348.174.55.145.754-.087.203-.232.87-1.015 1.102-1.363.232-.348.464-.29.783-.174.319.116 2.02.952 2.367 1.125.348.174.58.26.667.406.087.145.087.841-.203 1.657z"/></svg>
+  <svg viewBox="0 0 32 32"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.7 4.61 1.905 6.48L4 29l7.72-1.858A11.94 11.94 0 0016.001 27C22.63 27 28 21.627 28 15S22.63 3 16.001 3zm6.997 16.63c-.29.816-1.68 1.56-2.32 1.646-.593.08-1.34.114-2.16-.135-.498-.15-1.137-.362-1.958-.71-3.447-1.488-5.699-4.94-5.874-5.17-.174-.23-1.41-1.874-1.41-3.575 0-1.7.89-2.535 1.207-2.883.318-.348.694-.435.926-.435.232 0 .464.002.667.012.213.01.5-.081.782.596.29.696.986 2.4 1.073 2.574.087.174.145.377.03.608-.116.232-.174.377-.348.58-.174.203-.365.453-.522.608-.174.174-.355.363-.153.61.203.348.902 1.487 1.936 2.408 1.33 1.186 2.452 1.554 2.8 1.728.348.174.55.145.754-.087.203-.232.87-1.015 1.102-1.363.232-.348.464-.29.783-.174.319.116 2.02.952 2.367 1.125.348.174.58.26.667.406.087.145.087.841-.203 1.657z"/></svg>
   <span class="whatsapp-label"><span data-en="Chat with us now!" data-fr="Discutez avec nous !" data-es="¡Chatea con nosotros!" data-de="Jetzt Chatten!">Chat with us now!</span></span>
 </a>
 
@@ -1269,10 +1340,6 @@
 
   // Drag-to-close: the panel follows the finger in real time on a
   // predominantly-horizontal, leftward drag starting on the panel itself.
-  // Releasing past ~35% of the panel's width completes the close; releasing
-  // short of that snaps it back open. Vertical scrolling inside the panel is
-  // left completely alone (direction is only decided once movement is
-  // clearly more horizontal than vertical).
   (function() {
     var startX = 0, startY = 0, dragX = 0, dragging = false, directionLocked = false, panelWidth = 0;
 
@@ -1362,24 +1429,25 @@
     var date = document.getElementById('bf-date').value;
     var adults = document.getElementById('bf-adults').value;
     var children = document.getElementById('bf-children').value;
-    var consent = document.getElementById('bf-consent').checked;
+    var rideChoice = document.querySelector('input[name="ride"]:checked');
+    var ride = rideChoice ? rideChoice.value : '';
     var message = document.getElementById('bf-message').value;
 
-    var subject = 'Booking Request: Essaouira Excursion from Agadir & Taghazout';
+    var subject = 'Booking Request: Sandboarding, Canyon Visit & Sunset Tea';
     var body = 'Name: ' + name + '\n' +
       'Email: ' + email + '\n' +
       'Phone / WhatsApp: ' + phone + '\n' +
       'Travel Date: ' + date + '\n' +
       'Adults: ' + adults + '\n' +
       'Children: ' + children + '\n' +
-      'Consent to be contacted: ' + (consent ? 'Yes' : 'No') + '\n\n' +
+      'Ride Choice: ' + ride + '\n\n' +
       'Special Requests:\n' + message;
 
     window.location.href = 'mailto:info.letscameltours@gmail.com?subject=' +
       encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
   });
 
-  // Hero image carousel — story-style: centered slide + segmented autoplay progress (Dribbble "Carousel experimentation" style)
+  // Hero image carousel — story-style: centered slide + segmented autoplay progress
   (function() {
     var track = document.getElementById('hc-track');
     if (!track) return;
