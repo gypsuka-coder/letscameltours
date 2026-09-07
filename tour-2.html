@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -1410,7 +1410,21 @@
     mobileMenu.addEventListener('touchcancel', onRelease);
   })();
   document.querySelectorAll('.mobile-menu a').forEach(function(link) {
-    link.addEventListener('click', closeMobileMenu);
+    link.addEventListener('click', function(e) {
+      var href = link.getAttribute('href') || '';
+      if (href.charAt(0) === '#' && href.length > 1) {
+        var targetEl = document.getElementById(href.slice(1));
+        if (targetEl) {
+          e.preventDefault();
+          closeMobileMenu();
+          setTimeout(function() {
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 10);
+          return;
+        }
+      }
+      closeMobileMenu();
+    });
   });
 
   // Booking / inquiry form — no backend on this static site, so we hand off to the visitor's email client
