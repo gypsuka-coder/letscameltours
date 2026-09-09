@@ -12,6 +12,12 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["-y", "serve", "-l", "8902", "."],
       "port": 8902
+    },
+    {
+      "name": "letscameltours-session",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["-y", "serve", "."],
+      "autoPort": true
     }
   ]
 }
