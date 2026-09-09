@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -23,6 +23,7 @@
   html { overflow-x: hidden; }
   body { font-family: 'Poppins', sans-serif; color: #1a1a1a; line-height: 1.7; overflow-x: hidden; }
   a { text-decoration: none; color: inherit; }
+  ul { list-style: none; }
   img { max-width: 100%; display: block; }
   .container { max-width: 760px; margin: 0 auto; padding: 0 30px; }
 
@@ -845,7 +846,23 @@
     mobileMenu.addEventListener('touchend', onRelease);
     mobileMenu.addEventListener('touchcancel', onRelease);
   })();
-  document.querySelectorAll('.mobile-menu a').forEach(function(link) { link.addEventListener('click', closeMobileMenu); });
+  document.querySelectorAll('.mobile-menu a').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      var href = link.getAttribute('href') || '';
+      if (href.charAt(0) === '#' && href.length > 1) {
+        var targetEl = document.getElementById(href.slice(1));
+        if (targetEl) {
+          e.preventDefault();
+          closeMobileMenu();
+          setTimeout(function() {
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 10);
+          return;
+        }
+      }
+      closeMobileMenu();
+    });
+  });
 
   var currentLang = 'en';
   function applyLang(lang) {
