@@ -6,8 +6,8 @@
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-<title>Color Village & Timlaline Full-Day Trip from Agadir & Taghazout: Quad Biking, Camel or Horse Ride & Moroccan Dinner | Let's Camel Tours</title>
-<meta name="description" content="Full-day excursion from Agadir or Taghazout to the Color Village of Aghroud and the Timlaline sand dunes: quad biking, your choice of camel ride or horse riding, optional sandboarding and buggy, and an outdoor Moroccan dinner with show.">
+<title>Timlaline Dunes Day Trip & Outdoor Dinner in a Banana Valley from Agadir & Taghazout | Let's Camel Tours</title>
+<meta name="description" content="Full-day trip to Timlaline from Agadir or Taghazout: a canyon visit, then quad biking, sandboarding, and a camel or horse ride on the sand dunes, plus a stop in Aghroud's painted village, sunset mint tea, and an outdoor Moroccan dinner in Tamri's banana valley.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -405,7 +405,7 @@
   /* Hero */
   .hero {
     position: relative;
-    background: linear-gradient(180deg, rgba(0,51,102,0.45) 0%, rgba(0,31,63,0.72) 100%), url('desert.jpg');
+    background: linear-gradient(180deg, rgba(0,51,102,0.45) 0%, rgba(0,31,63,0.72) 100%), url('excursion-4-gallery-02.jpg');
     background-size: cover; background-position: center;
     padding: 150px 30px 56px; color: #fff;
   }
@@ -476,15 +476,6 @@
   .acc-chevron { width: 18px; height: 18px; color: var(--gold); transition: transform 0.3s ease; flex-shrink: 0; margin-left: auto; }
   .acc-item.open .acc-chevron { transform: rotate(180deg); }
 
-  /* Optional add-ons */
-  .addon-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  .addon-card { border: 1px solid var(--line); border-radius: 10px; padding: 20px; background: #fff; display: flex; flex-direction: column; gap: 8px; }
-  .addon-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
-  .addon-card h4 { font-size: 15.5px; font-weight: 700; color: var(--navy); }
-  .addon-price-tag { background: rgba(224,122,62,0.1); color: var(--gold); font-size: 12.5px; font-weight: 800; padding: 5px 12px; border-radius: 50px; white-space: nowrap; flex-shrink: 0; }
-  .addon-card p { font-size: 13.5px; color: var(--text-gray); }
-  .addon-footnote { font-size: 12.5px; color: var(--text-gray); font-style: italic; margin-top: 14px; }
-
   /* Included / excluded */
   .incl-excl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .ie-card { border: 1px solid var(--line); border-radius: 10px; padding: 22px; background: #fff; }
@@ -497,6 +488,7 @@
   .ie-card.yes li svg { color: var(--gold); }
   .ie-card.no li svg { color: #c94b4b; }
   .ie-card li strong { color: var(--navy); }
+  .ie-footnote { font-size: 12.5px; color: var(--text-gray); font-style: italic; margin-top: 14px; }
 
   /* Contact / CTA */
   .contact-cta-box { text-align: center; background: linear-gradient(135deg, var(--navy), var(--navy-dark)); color: #fff; padding: 46px 30px; border-radius: 14px; }
@@ -540,13 +532,6 @@
   .ride-choice-label { display: flex; align-items: center; gap: 7px; padding: 9px 16px; border: 1.5px solid var(--line); border-radius: 50px; font-size: 13px; font-weight: 600; color: var(--navy); cursor: pointer; transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
   .ride-choice-option input[type="radio"]:checked + .ride-choice-label { background: var(--gold); border-color: var(--gold); color: #fff; }
   .ride-choice-option input[type="radio"]:focus-visible + .ride-choice-label { outline: 2px solid var(--gold-light); outline-offset: 2px; }
-
-  /* Optional add-on checkboxes inside the booking form */
-  .addon-check-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; margin-bottom: 8px; }
-  .addon-check-row:last-child { margin-bottom: 0; }
-  .addon-check-row .addon-check-label { display: flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 600; color: var(--navy); text-transform: none; letter-spacing: 0; cursor: pointer; margin-bottom: 0; }
-  .addon-check-row input[type="checkbox"] { width: 16px; height: 16px; min-width: 16px; margin: 0; padding: 0; accent-color: var(--gold); cursor: pointer; }
-  .addon-check-price { font-size: 12px; font-weight: 700; color: var(--gold); white-space: nowrap; }
 
   /* Consent checkbox above the submit button */
   .booking-form-check { display: flex; align-items: flex-start; gap: 9px; margin-top: 16px; }
@@ -668,9 +653,11 @@
   .footer-lang-btn.active { background: var(--gold); border-color: var(--gold); color: #fff; font-weight: 700; }
   .footer-lang-btn:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 2px; }
 
-  .socials { display: flex; gap: 10px; margin-top: 24px; }
-  .socials a { width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.22); border-radius: 50%; color: rgba(255,255,255,0.85); transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease; }
+  /* Social icons kept intentionally compact in the footer */
+  .socials { display: flex; gap: 8px; margin-top: 24px; }
+  .socials a { width: 30px; height: 30px; border: 1px solid rgba(255,255,255,0.22); border-radius: 50%; color: rgba(255,255,255,0.85); transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease; }
   .socials a:hover { background: var(--gold); border-color: var(--gold); color: #fff; transform: translateY(-3px); }
+  .socials svg { width: 13px; height: 13px; }
 
   .footer-bottom { padding-top: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 12.5px; color: rgba(255,255,255,0.55); }
   .footer a:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; border-radius: 3px; }
@@ -681,7 +668,6 @@
     .sidebar { position: static; }
     .highlight-grid { grid-template-columns: 1fr; }
     .incl-excl-grid { grid-template-columns: 1fr; }
-    .addon-grid { grid-template-columns: 1fr; }
     .footer { padding: 52px 0 24px; }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 34px; }
   }
@@ -725,7 +711,7 @@
             <a href="excursion-1.html"><span data-en="Day Trip to Essaouira" data-fr="Excursion à Essaouira" data-es="Excursión a Essaouira" data-de="Tagesausflug nach Essaouira">Day Trip to Essaouira</span></a>
             <a href="excursion-2.html"><span data-en="Day Trip to Marrakech" data-fr="Excursion à Marrakech" data-es="Excursión a Marrakech" data-de="Tagesausflug nach Marrakesch">Day Trip to Marrakech</span></a>
             <a href="excursion-3.html"><span data-en="Paradise Valley" data-fr="Paradise Valley" data-es="Paradise Valley" data-de="Paradise Valley">Paradise Valley</span></a>
-            <a href="excursion-4.html"><span data-en="Color Village & Timlaline" data-fr="Village Coloré & Timlaline" data-es="Pueblo de Colores y Timlaline" data-de="Buntes Dorf & Timlaline">Color Village & Timlaline</span></a>
+            <a href="excursion-4.html"><span data-en="Timlaline Day Trip" data-fr="Excursion à Timlaline" data-es="Excursión a Timlaline" data-de="Tagesausflug nach Timlaline">Timlaline Day Trip</span></a>
             <a href="excursions.html" style="color:var(--gold) !important;font-weight:700;"><span data-en="View All Excursions →" data-fr="Voir Toutes les Excursions →" data-es="Ver Todas las Excursiones →" data-de="Alle Ausflüge Ansehen →">View All Excursions →</span></a>
           </div>
         </div>
@@ -736,7 +722,7 @@
           <div class="nav-dropdown-menu-inner">
             <a href="activity-1.html"><span data-en="Beach Horse Riding" data-fr="Équitation sur la Plage" data-es="Paseo a Caballo en la Playa" data-de="Strandreiten">Beach Horse Riding</span></a>
             <a href="activity-2.html"><span data-en="Quad Biking" data-fr="Quad" data-es="Quad" data-de="Quad-Fahren">Quad Biking</span></a>
-            <a href="activity-3.html"><span data-en="Private Surf Lesson" data-fr="Cours de Surf Privé" data-es="Clase de Surf Privada" data-de="Privater Surfkurs">Private Surf Lesson</span></a>
+            <a href="activity-3.html"><span data-en="Surf Lesson" data-fr="Cours de Surf" data-es="Clase de Surf" data-de="Surfkurs">Surf Lesson</span></a>
             <a href="activities.html" style="color:var(--gold) !important;font-weight:700;"><span data-en="View All Activities →" data-fr="Voir Toutes les Activités →" data-es="Ver Todas las Actividades →" data-de="Alle Aktivitäten Ansehen →">View All Activities →</span></a>
           </div>
         </div>
@@ -795,9 +781,9 @@
 <section class="hero">
   <div class="hero-inner">
     <span class="hero-badge-top"><span data-en="Day Trip / Excursion" data-fr="Excursion / Journée" data-es="Excursión / Día" data-de="Tagesausflug / Ausflug">Day Trip / Excursion</span></span>
-    <h1><span data-en="Color Village & Timlaline Dunes Full-Day Trip from Agadir & Taghazout" data-fr="Village Coloré et Dunes de Timlaline : Excursion d'une Journée Complète depuis Agadir et Taghazout" data-es="Pueblo de Colores y Dunas de Timlaline: Excursión de Día Completo desde Agadir y Taghazout" data-de="Buntes Dorf und Timlaline-Dünen: Ganztagesausflug ab Agadir und Taghazout">Color Village & Timlaline Dunes Full-Day Trip from Agadir & Taghazout</span></h1>
-    <p class="hero-tagline"><span data-en="Quad biking and a camel or horse ride across the Timlaline dunes, plus a colorful village stop and a Moroccan dinner show" data-fr="Quad et balade à dos de chameau ou à cheval sur les dunes de Timlaline, avec un arrêt au village coloré et un dîner-spectacle marocain" data-es="Quad y paseo en camello o a caballo por las dunas de Timlaline, con parada en el pueblo de colores y una cena-espectáculo marroquí" data-de="Quad-Fahren und ein Kamel- oder Pferderitt über die Dünen von Timlaline, mit einem Halt im bunten Dorf und einem marokkanischen Dinner mit Show">Quad biking and a camel or horse ride across the Timlaline dunes, plus a colorful village stop and a Moroccan dinner show</span></p>
-    <p class="hero-lead"><span data-en="A full-day trip from Agadir or Taghazout, driving past Taghazout's fishing village to the painted rocks of the Color Village in Aghroud, then on to the Timlaline sand dunes for quad biking and your choice of camel ride or horse riding. The day ends with an outdoor Moroccan dinner and show at a local restaurant before drop-off at your hotel." data-fr="Une excursion d'une journée complète depuis Agadir ou Taghazout, en passant par le village de pêcheurs de Taghazout jusqu'aux rochers peints du Village Coloré d'Aghroud, puis vers les dunes de sable de Timlaline pour une session de quad et, au choix, une balade à dos de chameau ou à cheval. La journée se termine par un dîner marocain en plein air avec spectacle dans un restaurant local, avant le retour à votre hôtel." data-es="Una excursión de día completo desde Agadir o Taghazout, pasando por el pueblo pesquero de Taghazout hasta las rocas pintadas del Pueblo de Colores de Aghroud, y luego hacia las dunas de arena de Timlaline para una sesión de quad y, a elegir, un paseo en camello o a caballo. El día termina con una cena marroquí al aire libre con espectáculo en un restaurante local, antes de regresar a tu hotel." data-de="Ein Ganztagesausflug ab Agadir oder Taghazout, vorbei am Fischerdorf Taghazout zu den bemalten Felsen des bunten Dorfes Aghroud, weiter zu den Sanddünen von Timlaline für eine Quad-Tour und, nach Wahl, einen Kamel- oder Pferderitt. Der Tag endet mit einem marokkanischen Abendessen im Freien mit Show in einem lokalen Restaurant, bevor es zurück zu Ihrem Hotel geht.">A full-day trip from Agadir or Taghazout, driving past Taghazout's fishing village to the painted rocks of the Color Village in Aghroud, then on to the Timlaline sand dunes for quad biking and your choice of camel ride or horse riding. The day ends with an outdoor Moroccan dinner and show at a local restaurant before drop-off at your hotel.</span></p>
+    <h1><span data-en="Timlaline Dunes Day Trip & Outdoor Dinner in a Banana Valley from Agadir & Taghazout" data-fr="Excursion d'une Journée aux Dunes de Timlaline et Dîner en Plein Air dans une Vallée de Bananiers depuis Agadir et Taghazout" data-es="Excursión de un Día a las Dunas de Timlaline y Cena al Aire Libre en un Valle de Plataneros desde Agadir y Taghazout" data-de="Tagesausflug zu den Dünen von Timlaline und Abendessen im Freien im Bananental ab Agadir und Taghazout">Timlaline Dunes Day Trip & Outdoor Dinner in a Banana Valley from Agadir & Taghazout</span></h1>
+    <p class="hero-tagline"><span data-en="A full-day adventure from Agadir and Taghazout through a painted village, a canyon, and the sand dunes of Timlaline, into a banana valley for dinner" data-fr="Une aventure d'une journée complète depuis Agadir et Taghazout, entre village peint, canyon et dunes de sable de Timlaline, jusqu'à un dîner dans une vallée de bananiers" data-es="Una aventura de día completo desde Agadir y Taghazout entre un pueblo pintado, un cañón y las dunas de arena de Timlaline, hasta una cena en un valle de plataneros" data-de="Ein Ganztagesabenteuer ab Agadir und Taghazout durch ein bemaltes Dorf, einen Canyon und die Sanddünen von Timlaline, zu einem Abendessen im Bananental">A full-day adventure from Agadir and Taghazout through a painted village, a canyon, and the sand dunes of Timlaline, into a banana valley for dinner</span></p>
+    <p class="hero-lead"><span data-en="A full-day trip from Agadir or Taghazout: a stop in Aghroud's painted village, a canyon visit, then sandboarding and a camel or horse ride on the Timlaline sand dunes, sunset mint tea, and an outdoor Moroccan dinner in Tamri's banana valley." data-fr="Une excursion d'une journée complète depuis Agadir ou Taghazout : un arrêt au village peint d'Aghroud, la visite d'un canyon, puis du sandboard et une balade à dos de chameau ou à cheval sur les dunes de sable de Timlaline, un thé à la menthe au coucher du soleil, et un dîner marocain en plein air dans la vallée de bananiers de Tamri." data-es="Una excursión de día completo desde Agadir o Taghazout: una parada en el pueblo pintado de Aghroud, la visita a un cañón, luego sandboard y un paseo en camello o a caballo por las dunas de arena de Timlaline, té de menta al atardecer, y una cena marroquí al aire libre en el valle de plataneros de Tamri." data-de="Ein Ganztagesausflug ab Agadir oder Taghazout: ein Halt im bemalten Dorf Aghroud, ein Canyon-Besuch, dann Sandboarding und ein Kamel- oder Pferderitt auf den Sanddünen von Timlaline, Minztee bei Sonnenuntergang, und ein marokkanisches Abendessen im Freien im Bananental von Tamri.">A full-day trip from Agadir or Taghazout: a stop in Aghroud's painted village, a canyon visit, then sandboarding and a camel or horse ride on the Timlaline sand dunes, sunset mint tea, and an outdoor Moroccan dinner in Tamri's banana valley.</span></p>
 
     <div class="hero-price-row">
       <a href="#booking-form" class="btn-gold hero-book-btn"><span data-en="Book Now" data-fr="Réserver Maintenant" data-es="Reservar Ahora" data-de="Jetzt Buchen">Book Now</span></a>
@@ -831,12 +817,12 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 6l-6 6 6 6"/></svg>
       </button>
       <div class="hc-track" id="hc-track">
-        <div class="hc-slide active"><img src="desert.jpg" alt="Camel caravan crossing Moroccan sand dunes" loading="lazy" onerror="this.style.display='none'"><span class="hc-slide-badge">01 / 06</span></div>
-        <div class="hc-slide"><img src="activity-2-gallery-01.jpg" alt="Quad biking across Moroccan sand dunes" loading="lazy" onerror="this.style.display='none'"><span class="hc-slide-badge">02 / 06</span></div>
-        <div class="hc-slide"><img src="camel-bg.jpg" alt="Camel ride, one of the two ride options on this excursion" loading="lazy" onerror="this.style.display='none'"><span class="hc-slide-badge">03 / 06</span></div>
-        <div class="hc-slide"><img src="activity-1-gallery-02.jpg" alt="Horse riding, the other ride option on this excursion" loading="lazy" onerror="this.style.display='none'"><span class="hc-slide-badge">04 / 06</span></div>
-        <div class="hc-slide"><img src="images/blog/taghazout-village-from-above.jpg" alt="Taghazout village view along the Atlantic coast" loading="lazy" onerror="this.style.display='none'"><span class="hc-slide-badge">05 / 06</span></div>
-        <div class="hc-slide"><img src="camp.jpg" alt="Outdoor Moroccan evening ambience with traditional lanterns and seating" loading="lazy" onerror="this.style.display='none'"><span class="hc-slide-badge">06 / 06</span></div>
+        <div class="hc-slide active"><img src="excursion-4-gallery-01.jpg" alt="Painted houses in the village of Aghroud" loading="lazy" onerror="this.style.display='none'"><span class="hc-slide-badge">01 / 06</span></div>
+        <div class="hc-slide"><img src="excursion-4-gallery-02.jpg" alt="The canyon at Timlaline" loading="lazy" onerror="this.style.display='none'"><span class="hc-slide-badge">02 / 06</span></div>
+        <div class="hc-slide"><img src="excursion-4-gallery-03.jpg" alt="Camel ride or horse riding at Timlaline" loading="lazy" onerror="this.style.display='none'"><span class="hc-slide-badge">03 / 06</span></div>
+        <div class="hc-slide"><img src="excursion-4-gallery-04.jpg" alt="Sandboarding down the Timlaline dunes" loading="lazy" onerror="this.style.display='none'"><span class="hc-slide-badge">04 / 06</span></div>
+        <div class="hc-slide"><img src="excursion-4-gallery-05.jpg" alt="Sunset mint tea in the desert" loading="lazy" onerror="this.style.display='none'"><span class="hc-slide-badge">05 / 06</span></div>
+        <div class="hc-slide"><img src="excursion-4-gallery-06.jpg" alt="Outdoor Moroccan dinner in Tamri's banana valley" loading="lazy" onerror="this.style.display='none'"><span class="hc-slide-badge">06 / 06</span></div>
       </div>
       <button class="hc-arrow hc-next" id="hc-next" aria-label="Next slide">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg>
@@ -863,7 +849,7 @@
   <div class="container">
     <a href="index.html"><span data-en="Home" data-fr="Accueil" data-es="Inicio" data-de="Startseite">Home</span></a> ›
     <a href="index.html#excursions"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></a> ›
-    <span data-en="Color Village & Timlaline Full-Day Trip" data-fr="Village Coloré et Dunes de Timlaline" data-es="Pueblo de Colores y Dunas de Timlaline" data-de="Buntes Dorf und Timlaline-Dünen">Color Village & Timlaline Full-Day Trip</span>
+    <span data-en="Timlaline Dunes Day Trip & Outdoor Dinner in a Banana Valley" data-fr="Excursion d'une Journée aux Dunes de Timlaline et Dîner en Plein Air dans une Vallée de Bananiers" data-es="Excursión de un Día a las Dunas de Timlaline y Cena al Aire Libre en un Valle de Plataneros" data-de="Tagesausflug zu den Dünen von Timlaline und Abendessen im Freien im Bananental">Timlaline Dunes Day Trip & Outdoor Dinner in a Banana Valley</span>
   </div>
 </div>
 
@@ -872,7 +858,6 @@
     <a href="#overview" class="anchor-link"><span data-en="Overview" data-fr="Aperçu" data-es="Resumen" data-de="Überblick">Overview</span></a>
     <a href="#itinerary" class="anchor-link"><span data-en="Itinerary" data-fr="Itinéraire" data-es="Itinerario" data-de="Ablauf">Itinerary</span></a>
     <a href="#highlights" class="anchor-link"><span data-en="Highlights" data-fr="Points Forts" data-es="Destacados" data-de="Highlights">Highlights</span></a>
-    <a href="#addons" class="anchor-link"><span data-en="Add-Ons" data-fr="Extras" data-es="Extras" data-de="Extras">Add-Ons</span></a>
     <a href="#included" class="anchor-link"><span data-en="Included / Excluded" data-fr="Inclus / Exclus" data-es="Incluido / Excluido" data-de="Inklusive / Exklusive">Included / Excluded</span></a>
     <a href="#faq" class="anchor-link"><span data-en="FAQ" data-fr="FAQ" data-es="FAQ" data-de="FAQ">FAQ</span></a>
     <a href="#contact" class="anchor-link"><span data-en="Contact" data-fr="Contact" data-es="Contacto" data-de="Kontakt">Contact</span></a>
@@ -886,12 +871,12 @@
       <div class="content-section" id="overview">
         <h2 class="section-h"><span data-en="Overview" data-fr="Aperçu" data-es="Resumen" data-de="Überblick">Overview</span></h2>
         <div class="overview">
-          <p><span data-en="The Color Village of Aghroud is a small hillside village not far from Taghazout, where local artists have painted the rocks and boulders in bright, bold colors, a fun and photogenic stop on the way to the Timlaline sand dunes. Timlaline itself is a stretch of golden dunes close to Agadir, popular for quad biking, camel rides, and horse riding without the long drive out to the Sahara." data-fr="Le Village Coloré d'Aghroud est un petit village niché sur les collines non loin de Taghazout, où des artistes locaux ont peint les rochers dans des couleurs vives et éclatantes, un arrêt amusant et très photogénique en chemin vers les dunes de Timlaline. Timlaline est quant à elle une étendue de dunes dorées proche d'Agadir, appréciée pour le quad, les balades à dos de chameau et l'équitation, sans le long trajet jusqu'au Sahara." data-es="El Pueblo de Colores de Aghroud es un pequeño pueblo en la ladera de una colina no lejos de Taghazout, donde artistas locales han pintado las rocas con colores vivos y llamativos, una parada divertida y muy fotogénica de camino a las dunas de Timlaline. Timlaline, por su parte, es una franja de dunas doradas cerca de Agadir, popular para el quad, los paseos en camello y la equitación, sin el largo trayecto hasta el Sahara." data-de="Das bunte Dorf Aghroud ist ein kleines Dorf an einem Hügel nicht weit von Taghazout entfernt, wo lokale Künstler die Felsen in kräftigen, leuchtenden Farben bemalt haben – ein unterhaltsamer und äußerst fotogener Zwischenstopp auf dem Weg zu den Dünen von Timlaline. Timlaline selbst ist ein Streifen goldener Dünen in der Nähe von Agadir, beliebt für Quad-Fahren, Kamelritte und Reiten, ohne die lange Fahrt bis in die Sahara.">The Color Village of Aghroud is a small hillside village not far from Taghazout, where local artists have painted the rocks and boulders in bright, bold colors, a fun and photogenic stop on the way to the Timlaline sand dunes. Timlaline itself is a stretch of golden dunes close to Agadir, popular for quad biking, camel rides, and horse riding without the long drive out to the Sahara.</span></p>
-          <p><span data-en="Your driver picks you up from your hotel in Agadir or Taghazout and drives along the coast, passing through Taghazout's surf village, before heading inland to Aghroud. After some time exploring and photographing the Color Village, you'll continue to Timlaline, where quad biking and your choice of a camel ride or a horse ride are included. Sandboarding and a buggy session are available as optional paid add-ons if you'd like more time on the dunes." data-fr="Votre chauffeur vient vous chercher à votre hôtel à Agadir ou Taghazout et longe la côte en passant par le village de surf de Taghazout, avant de rejoindre l'intérieur des terres vers Aghroud. Après un moment à explorer et photographier le Village Coloré, vous continuerez vers Timlaline, où une session de quad et, au choix, une balade à dos de chameau ou à cheval sont incluses. Le sandboard et une session de buggy sont disponibles en option, moyennant un supplément, si vous souhaitez passer plus de temps sur les dunes." data-es="Tu conductor te recoge en tu hotel en Agadir o Taghazout y conduce por la costa, pasando por el pueblo de surf de Taghazout, antes de dirigirse tierra adentro hacia Aghroud. Después de un tiempo explorando y fotografiando el Pueblo de Colores, continuarás hacia Timlaline, donde están incluidos el quad y, a elegir, un paseo en camello o a caballo. El sandboard y una sesión de buggy están disponibles como extras opcionales de pago si quieres pasar más tiempo en las dunas." data-de="Ihr Fahrer holt Sie an Ihrem Hotel in Agadir oder Taghazout ab und fährt an der Küste entlang durch das Surferdorf Taghazout, bevor es landeinwärts nach Aghroud geht. Nach etwas Zeit zum Erkunden und Fotografieren des bunten Dorfes geht es weiter nach Timlaline, wo eine Quad-Tour und, nach Wahl, ein Kamel- oder Pferderitt inbegriffen sind. Sandboarding und eine Buggy-Session sind als optionale, kostenpflichtige Zusatzleistungen buchbar, wenn Sie mehr Zeit auf den Dünen verbringen möchten.">Your driver picks you up from your hotel in Agadir or Taghazout and drives along the coast, passing through Taghazout's surf village, before heading inland to Aghroud. After some time exploring and photographing the Color Village, you'll continue to Timlaline, where quad biking and your choice of a camel ride or a horse ride are included. Sandboarding and a buggy session are available as optional paid add-ons if you'd like more time on the dunes.</span></p>
-          <p><span data-en="The day winds down with an outdoor Moroccan dinner at a local restaurant, with a live folklore show included depending on group size and restaurant capacity. Pickup time: [TBD], with drop-off back at your hotel in the evening." data-fr="La journée se termine par un dîner marocain en plein air dans un restaurant local, avec un spectacle folklorique en direct selon la taille du groupe et la capacité du restaurant. Heure de prise en charge : [À déterminer], avec retour à votre hôtel en soirée." data-es="La jornada concluye con una cena marroquí al aire libre en un restaurante local, con un espectáculo folclórico en vivo según el tamaño del grupo y la capacidad del restaurante. Hora de recogida: [Por confirmar], con regreso a tu hotel por la noche." data-de="Der Tag klingt mit einem marokkanischen Abendessen im Freien in einem lokalen Restaurant aus, mit einer Live-Folkloreshow je nach Gruppengröße und Kapazität des Restaurants. Abholzeit: [TBD], mit Rückkehr zu Ihrem Hotel am Abend.">The day winds down with an outdoor Moroccan dinner at a local restaurant, with a live folklore show included depending on group size and restaurant capacity. Pickup time: [TBD], with drop-off back at your hotel in the evening.</span></p>
+          <p><span data-en="Aghroud is a small village not far from Taghazout, where local artists have painted the houses in bright, bold colors, a fun and photogenic stop on the way to Timlaline, home to both a scenic canyon and a stretch of sand dunes." data-fr="Aghroud est un petit village non loin de Taghazout, où des artistes locaux ont peint les maisons de couleurs vives et éclatantes, un arrêt amusant et très photogénique en chemin vers Timlaline, qui abrite à la fois un canyon pittoresque et une étendue de dunes de sable." data-es="Aghroud es un pequeño pueblo no lejos de Taghazout, donde artistas locales han pintado las casas de colores vivos y llamativos, una parada divertida y muy fotogénica de camino a Timlaline, que alberga tanto un cañón pintoresco como una franja de dunas de arena." data-de="Aghroud ist ein kleines Dorf, nicht weit von Taghazout entfernt, wo lokale Künstler die Häuser in kräftigen, leuchtenden Farben bemalt haben, ein unterhaltsamer und äußerst fotogener Zwischenstopp auf dem Weg nach Timlaline, das sowohl einen malerischen Canyon als auch einen Streifen Sanddünen zu bieten hat.">Aghroud is a small village not far from Taghazout, where local artists have painted the houses in bright, bold colors, a fun and photogenic stop on the way to Timlaline, home to both a scenic canyon and a stretch of sand dunes.</span></p>
+          <p><span data-en="Your driver picks you up from your hotel in Agadir or Taghazout and drives along the coast, passing through Taghazout's surf village, before heading inland to Aghroud. After some time exploring and photographing the painted village, you'll continue to Timlaline: first a stop to visit the canyon, then on to the sand dunes for quad biking, sandboarding, and your choice of a camel ride or a horse ride." data-fr="Votre chauffeur vient vous chercher à votre hôtel à Agadir ou Taghazout et longe la côte en passant par le village de surf de Taghazout, avant de rejoindre l'intérieur des terres vers Aghroud. Après un moment à explorer et photographier le village peint, vous continuerez vers Timlaline : d'abord un arrêt pour visiter le canyon, puis vers les dunes de sable pour du quad, du sandboard et, au choix, une balade à dos de chameau ou à cheval." data-es="Tu conductor te recoge en tu hotel en Agadir o Taghazout y conduce por la costa, pasando por el pueblo de surf de Taghazout, antes de dirigirse tierra adentro hacia Aghroud. Después de un tiempo explorando y fotografiando el pueblo pintado, continuarás hacia Timlaline: primero una parada para visitar el cañón, y luego hacia las dunas de arena para quad, sandboard y, a elegir, un paseo en camello o a caballo." data-de="Ihr Fahrer holt Sie an Ihrem Hotel in Agadir oder Taghazout ab und fährt an der Küste entlang durch das Surferdorf Taghazout, bevor es landeinwärts nach Aghroud geht. Nach etwas Zeit zum Erkunden und Fotografieren des bemalten Dorfes geht es weiter nach Timlaline: zunächst ein Halt zur Besichtigung des Canyons, dann weiter zu den Sanddünen für Quad-Fahren, Sandboarding und, nach Wahl, einen Kamel- oder Pferderitt.">Your driver picks you up from your hotel in Agadir or Taghazout and drives along the coast, passing through Taghazout's surf village, before heading inland to Aghroud. After some time exploring and photographing the painted village, you'll continue to Timlaline: first a stop to visit the canyon, then on to the sand dunes for quad biking, sandboarding, and your choice of a camel ride or a horse ride.</span></p>
+          <p><span data-en="As the sun starts to set, there's a stop for traditional Moroccan mint tea, before the day winds down with an outdoor Moroccan dinner in a banana valley in Tamri, a village known for growing bananas, with a live folklore show depending on group size and restaurant capacity. Pickup time: 1:00 PM to 2:00 PM. Drop-off is back at your hotel in the evening." data-fr="Au coucher du soleil, une halte est prévue pour un thé à la menthe traditionnel, avant que la journée ne se termine par un dîner marocain en plein air dans une vallée de bananiers à Tamri, un village connu pour la culture de la banane, avec un spectacle folklorique selon la taille du groupe et la capacité du restaurant. Heure de prise en charge : 13h00 à 14h00. Le retour se fait à votre hôtel en soirée." data-es="Al atardecer, hay una parada para un té de menta tradicional, antes de que el día termine con una cena marroquí al aire libre en un valle de plataneros en Tamri, un pueblo conocido por el cultivo de plátanos, con un espectáculo folclórico según el tamaño del grupo y la capacidad del restaurante. Hora de recogida: 13:00 a 14:00. El regreso es a tu hotel por la noche." data-de="Bei Sonnenuntergang gibt es einen Halt für traditionellen marokkanischen Minztee, bevor der Tag mit einem marokkanischen Abendessen im Freien in einem Bananental in Tamri ausklingt, einem für seinen Bananenanbau bekannten Dorf, mit einer Folkloreshow je nach Gruppengröße und Kapazität des Restaurants. Abholzeit: 13:00 bis 14:00 Uhr. Die Rückkehr erfolgt am Abend zu Ihrem Hotel.">As the sun starts to set, there's a stop for traditional Moroccan mint tea, before the day winds down with an outdoor Moroccan dinner in a banana valley in Tamri, a village known for growing bananas, with a live folklore show depending on group size and restaurant capacity. Pickup time: 1:00 PM to 2:00 PM. Drop-off is back at your hotel in the evening.</span></p>
         </div>
 
-        <div class="route-line"><span data-en="Agadir & Taghazout → Taghazout Village → Color Village (Aghroud) → Timlaline Sand Dunes (Quad Biking, Camel Ride or Horse Riding) → Outdoor Moroccan Dinner & Show → Agadir & Taghazout" data-fr="Agadir & Taghazout → Village de Taghazout → Village Coloré (Aghroud) → Dunes de Timlaline (Quad, Chameau ou Cheval) → Dîner Marocain en Plein Air & Spectacle → Agadir & Taghazout" data-es="Agadir y Taghazout → Pueblo de Taghazout → Pueblo de Colores (Aghroud) → Dunas de Timlaline (Quad, Camello o Caballo) → Cena Marroquí al Aire Libre y Espectáculo → Agadir y Taghazout" data-de="Agadir & Taghazout → Dorf Taghazout → Buntes Dorf (Aghroud) → Timlaline-Dünen (Quad, Kamel oder Pferd) → Marokkanisches Abendessen im Freien & Show → Agadir & Taghazout">Agadir & Taghazout → Taghazout Village → Color Village (Aghroud) → Timlaline Sand Dunes (Quad Biking, Camel Ride or Horse Riding) → Outdoor Moroccan Dinner & Show → Agadir & Taghazout</span></div>
+        <div class="route-line"><span data-en="Agadir & Taghazout → Taghazout Village → Painted Village (Aghroud) → Timlaline Canyon → Timlaline Sand Dunes (Quad Biking, Sandboarding, Camel Ride or Horse Riding) → Sunset Mint Tea → Tamri Banana Valley Dinner & Show → Agadir & Taghazout" data-fr="Agadir & Taghazout → Village de Taghazout → Village Peint (Aghroud) → Canyon de Timlaline → Dunes de Sable de Timlaline (Quad, Sandboard, Chameau ou Cheval) → Thé au Coucher du Soleil → Dîner dans la Vallée de Bananiers de Tamri → Agadir & Taghazout" data-es="Agadir y Taghazout → Pueblo de Taghazout → Pueblo Pintado (Aghroud) → Cañón de Timlaline → Dunas de Arena de Timlaline (Quad, Sandboard, Camello o Caballo) → Té al Atardecer → Cena en el Valle de Plataneros de Tamri → Agadir y Taghazout" data-de="Agadir & Taghazout → Dorf Taghazout → Bemaltes Dorf (Aghroud) → Canyon von Timlaline → Sanddünen von Timlaline (Quad, Sandboarding, Kamel oder Pferd) → Minztee bei Sonnenuntergang → Abendessen im Bananental von Tamri → Agadir & Taghazout">Agadir & Taghazout → Taghazout Village → Painted Village (Aghroud) → Timlaline Canyon → Timlaline Sand Dunes (Quad Biking, Sandboarding, Camel Ride or Horse Riding) → Sunset Mint Tea → Tamri Banana Valley Dinner & Show → Agadir & Taghazout</span></div>
       </div>
 
       <div class="content-section" id="itinerary">
@@ -901,54 +886,68 @@
           <div class="itin-step">
             <div class="itin-num">1</div>
             <div class="itin-body">
-              <h4><span data-en="Hotel Pickup" data-fr="Prise en Charge à l'Hôtel" data-es="Recogida en el Hotel" data-de="Hotelabholung">Hotel Pickup</span></h4>
-              <p><span data-en="Pickup from your hotel in Agadir or Taghazout in a private, air-conditioned vehicle. Pickup time: [TBD]." data-fr="Prise en charge à votre hôtel à Agadir ou Taghazout dans un véhicule privé climatisé. Heure de prise en charge : [À déterminer]." data-es="Recogida en tu hotel en Agadir o Taghazout en un vehículo privado climatizado. Hora de recogida: [Por confirmar]." data-de="Abholung an Ihrem Hotel in Agadir oder Taghazout in einem privaten, klimatisierten Fahrzeug. Abholzeit: [TBD].">Pickup from your hotel in Agadir or Taghazout in a private, air-conditioned vehicle. Pickup time: [TBD].</span></p>
+              <h4><span data-en="Hotel Pickup, Ready for Adventure" data-fr="Prise en Charge à l'Hôtel, Prêts pour l'Aventure" data-es="Recogida en el Hotel, Listos para la Aventura" data-de="Hotelabholung, Bereit für das Abenteuer">Hotel Pickup, Ready for Adventure</span></h4>
+              <p><span data-en="Pickup from your hotel in Agadir or Taghazout in a private, air-conditioned vehicle. Pickup time: 1:00 PM to 2:00 PM." data-fr="Prise en charge à votre hôtel à Agadir ou Taghazout dans un véhicule privé climatisé. Heure de prise en charge : 13h00 à 14h00." data-es="Recogida en tu hotel en Agadir o Taghazout en un vehículo privado climatizado. Hora de recogida: 13:00 a 14:00." data-de="Abholung an Ihrem Hotel in Agadir oder Taghazout in einem privaten, klimatisierten Fahrzeug. Abholzeit: 13:00 bis 14:00 Uhr.">Pickup from your hotel in Agadir or Taghazout in a private, air-conditioned vehicle. Pickup time: 1:00 PM to 2:00 PM.</span></p>
             </div>
           </div>
           <div class="itin-step">
             <div class="itin-num">2</div>
             <div class="itin-body">
-              <h4><span data-en="Drive Through Taghazout Village" data-fr="Traversée du Village de Taghazout" data-es="Paso por el Pueblo de Taghazout" data-de="Durchfahrt durch das Dorf Taghazout">Drive Through Taghazout Village</span></h4>
+              <h4><span data-en="A Scenic Drive Through Taghazout" data-fr="Une Route Panoramique à Travers Taghazout" data-es="Un Trayecto Panorámico por Taghazout" data-de="Eine Malerische Fahrt durch Taghazout">A Scenic Drive Through Taghazout</span></h4>
               <p><span data-en="A scenic drive along the coast, passing through Taghazout's fishing and surf village." data-fr="Une route panoramique le long de la côte, traversant le village de pêcheurs et de surf de Taghazout." data-es="Un trayecto panorámico junto a la costa, pasando por el pueblo pesquero y de surf de Taghazout." data-de="Eine malerische Fahrt entlang der Küste, vorbei am Fischer- und Surferdorf Taghazout.">A scenic drive along the coast, passing through Taghazout's fishing and surf village.</span></p>
             </div>
           </div>
           <div class="itin-step">
             <div class="itin-num">3</div>
             <div class="itin-body">
-              <h4><span data-en="Color Village (Aghroud)" data-fr="Village Coloré (Aghroud)" data-es="Pueblo de Colores (Aghroud)" data-de="Buntes Dorf (Aghroud)">Color Village (Aghroud)</span></h4>
-              <p><span data-en="A stop to explore and photograph Aghroud's Color Village, its rocks and boulders painted in bright colors by local artists." data-fr="Un arrêt pour explorer et photographier le Village Coloré d'Aghroud, ses rochers peints de couleurs vives par des artistes locaux." data-es="Una parada para explorar y fotografiar el Pueblo de Colores de Aghroud, sus rocas pintadas de colores vivos por artistas locales." data-de="Ein Stopp zum Erkunden und Fotografieren des bunten Dorfes Aghroud, dessen Felsen von lokalen Künstlern in leuchtenden Farben bemalt wurden.">A stop to explore and photograph Aghroud's Color Village, its rocks and boulders painted in bright colors by local artists.</span></p>
+              <h4><span data-en="Aghroud's Painted Village" data-fr="Le Village Peint d'Aghroud" data-es="El Pueblo Pintado de Aghroud" data-de="Aghrouds Bemaltes Dorf">Aghroud's Painted Village</span></h4>
+              <p><span data-en="A stop to explore and photograph Aghroud, a small village where local artists have painted the houses in bright colors." data-fr="Un arrêt pour explorer et photographier Aghroud, un petit village où des artistes locaux ont peint les maisons de couleurs vives." data-es="Una parada para explorar y fotografiar Aghroud, un pequeño pueblo donde artistas locales han pintado las casas de colores vivos." data-de="Ein Stopp zum Erkunden und Fotografieren von Aghroud, einem kleinen Dorf, dessen Häuser von lokalen Künstlern in leuchtenden Farben bemalt wurden.">A stop to explore and photograph Aghroud, a small village where local artists have painted the houses in bright colors.</span></p>
             </div>
           </div>
           <div class="itin-step">
             <div class="itin-num">4</div>
             <div class="itin-body">
-              <h4><span data-en="Timlaline Dunes: Quad Biking" data-fr="Dunes de Timlaline : Quad" data-es="Dunas de Timlaline: Quad" data-de="Timlaline-Dünen: Quad-Fahren">Timlaline Dunes: Quad Biking</span></h4>
-              <p><span data-en="Arrive at the Timlaline sand dunes for a quad biking session across the dunes." data-fr="Arrivée aux dunes de Timlaline pour une session de quad sur les dunes." data-es="Llegada a las dunas de Timlaline para una sesión de quad por las dunas." data-de="Ankunft an den Dünen von Timlaline für eine Quad-Tour über die Dünen.">Arrive at the Timlaline sand dunes for a quad biking session across the dunes.</span></p>
+              <h4><span data-en="Canyon Visit at Timlaline" data-fr="Visite du Canyon de Timlaline" data-es="Visita al Cañón de Timlaline" data-de="Canyon-Besuch in Timlaline">Canyon Visit at Timlaline</span></h4>
+              <p><span data-en="A stop to explore Timlaline's canyon, carved into the desert landscape, before continuing to the sand dunes." data-fr="Un arrêt pour explorer le canyon de Timlaline, creusé dans le paysage désertique, avant de continuer vers les dunes de sable." data-es="Una parada para explorar el cañón de Timlaline, excavado en el paisaje desértico, antes de continuar hacia las dunas de arena." data-de="Ein Stopp zur Erkundung des Canyons von Timlaline, geschnitten in die Wüstenlandschaft, bevor es weiter zu den Sanddünen geht.">A stop to explore Timlaline's canyon, carved into the desert landscape, before continuing to the sand dunes.</span></p>
             </div>
           </div>
           <div class="itin-step">
             <div class="itin-num">5</div>
             <div class="itin-body">
-              <h4><span data-en="Camel Ride or Horse Riding (Your Choice)" data-fr="Chameau ou Cheval (Au Choix)" data-es="Camello o Caballo (A Elegir)" data-de="Kamel oder Pferd (Nach Wahl)">Camel Ride or Horse Riding (Your Choice)</span></h4>
-              <p><span data-en="Choose either a camel ride or a horse ride across the dunes, included in the excursion. Let us know your preference when booking." data-fr="Choisissez une balade à dos de chameau ou à cheval sur les dunes, incluse dans l'excursion. Indiquez-nous votre préférence lors de la réservation." data-es="Elige un paseo en camello o a caballo por las dunas, incluido en la excursión. Indícanos tu preferencia al reservar." data-de="Wählen Sie einen Kamel- oder Pferderitt über die Dünen, im Ausflug inbegriffen. Teilen Sie uns Ihre Präferenz bei der Buchung mit.">Choose either a camel ride or a horse ride across the dunes, included in the excursion. Let us know your preference when booking.</span></p>
+              <h4><span data-en="Quad Biking on the Sand Dunes" data-fr="Quad sur les Dunes de Sable" data-es="Quad en las Dunas de Arena" data-de="Quad-Fahren auf den Sanddünen">Quad Biking on the Sand Dunes</span></h4>
+              <p><span data-en="Arrive at Timlaline's sand dunes for a quad biking session across the terrain." data-fr="Arrivée aux dunes de sable de Timlaline pour une session de quad à travers le terrain." data-es="Llegada a las dunas de arena de Timlaline para una sesión de quad por el terreno." data-de="Ankunft an den Sanddünen von Timlaline für eine Quad-Tour durch das Gelände.">Arrive at Timlaline's sand dunes for a quad biking session across the terrain.</span></p>
             </div>
           </div>
           <div class="itin-step">
             <div class="itin-num">6</div>
             <div class="itin-body">
-              <h4><span data-en="Optional Extras: Sandboarding & Buggy" data-fr="Extras Optionnels : Sandboard & Buggy" data-es="Extras Opcionales: Sandboard y Buggy" data-de="Optionale Extras: Sandboarding & Buggy">Optional Extras: Sandboarding & Buggy</span></h4>
-              <p><span data-en="Add sandboarding or a buggy session on the dunes for an extra cost, selectable when booking." data-fr="Ajoutez une session de sandboard ou de buggy sur les dunes moyennant un supplément, sélectionnable lors de la réservation." data-es="Añade una sesión de sandboard o de buggy en las dunas por un coste adicional, seleccionable al reservar." data-de="Fügen Sie gegen Aufpreis eine Sandboarding- oder Buggy-Session auf den Dünen hinzu, wählbar bei der Buchung.">Add sandboarding or a buggy session on the dunes for an extra cost, selectable when booking.</span></p>
+              <h4><span data-en="Camel or Horse, the Choice Is Yours" data-fr="Chameau ou Cheval, à Vous de Choisir" data-es="Camello o Caballo, la Elección Es Tuya" data-de="Kamel oder Pferd, die Wahl Liegt bei Ihnen">Camel or Horse, the Choice Is Yours</span></h4>
+              <p><span data-en="Choose either a camel ride or a horse ride across the sand dunes, included in the excursion. Let us know your preference when booking." data-fr="Choisissez une balade à dos de chameau ou à cheval sur les dunes de sable, incluse dans l'excursion. Indiquez-nous votre préférence lors de la réservation." data-es="Elige un paseo en camello o a caballo por las dunas de arena, incluido en la excursión. Indícanos tu preferencia al reservar." data-de="Wählen Sie einen Kamel- oder Pferderitt über die Sanddünen, im Ausflug inbegriffen. Teilen Sie uns Ihre Präferenz bei der Buchung mit.">Choose either a camel ride or a horse ride across the sand dunes, included in the excursion. Let us know your preference when booking.</span></p>
             </div>
           </div>
           <div class="itin-step">
             <div class="itin-num">7</div>
             <div class="itin-body">
-              <h4><span data-en="Outdoor Moroccan Dinner & Show" data-fr="Dîner Marocain en Plein Air & Spectacle" data-es="Cena Marroquí al Aire Libre y Espectáculo" data-de="Marokkanisches Abendessen im Freien & Show">Outdoor Moroccan Dinner & Show</span></h4>
-              <p><span data-en="End the day with an outdoor Moroccan dinner at a local restaurant, with a live folklore show depending on group size and restaurant capacity." data-fr="Terminez la journée par un dîner marocain en plein air dans un restaurant local, avec un spectacle folklorique en direct selon la taille du groupe et la capacité du restaurant." data-es="Termina el día con una cena marroquí al aire libre en un restaurante local, con un espectáculo folclórico en vivo según el tamaño del grupo y la capacidad del restaurante." data-de="Beenden Sie den Tag mit einem marokkanischen Abendessen im Freien in einem lokalen Restaurant, mit einer Live-Folkloreshow je nach Gruppengröße und Restaurantkapazität.">End the day with an outdoor Moroccan dinner at a local restaurant, with a live folklore show depending on group size and restaurant capacity.</span></p>
+              <h4><span data-en="Sandboarding Down the Dunes" data-fr="Sandboard sur les Dunes" data-es="Sandboard en las Dunas" data-de="Sandboarding auf den Dünen">Sandboarding Down the Dunes</span></h4>
+              <p><span data-en="Slide down Timlaline's sand dunes on a sandboard, included as part of the day's activities." data-fr="Dévalez les dunes de sable de Timlaline en sandboard, inclus dans les activités de la journée." data-es="Desliza por las dunas de arena de Timlaline en una tabla de sandboard, incluido en las actividades del día." data-de="Rutschen Sie mit einem Sandboard die Sanddünen von Timlaline hinunter, im Tagesprogramm inbegriffen.">Slide down Timlaline's sand dunes on a sandboard, included as part of the day's activities.</span></p>
             </div>
           </div>
           <div class="itin-step">
             <div class="itin-num">8</div>
+            <div class="itin-body">
+              <h4><span data-en="Sunset Mint Tea in the Desert" data-fr="Thé à la Menthe au Coucher du Soleil dans le Désert" data-es="Té de Menta al Atardecer en el Desierto" data-de="Minztee bei Sonnenuntergang in der Wüste">Sunset Mint Tea in the Desert</span></h4>
+              <p><span data-en="As the light turns golden, stop for a glass of traditional Moroccan mint tea while the sun sets over the dunes." data-fr="Alors que la lumière devient dorée, arrêtez-vous pour un verre de thé à la menthe traditionnel pendant que le soleil se couche sur les dunes." data-es="Mientras la luz se vuelve dorada, haz una parada para un vaso de té de menta tradicional mientras el sol se pone sobre las dunas." data-de="Während das Licht golden wird, halten Sie für ein Glas traditionellen Minztee an, während die Sonne über den Dünen untergeht.">As the light turns golden, stop for a glass of traditional Moroccan mint tea while the sun sets over the dunes.</span></p>
+            </div>
+          </div>
+          <div class="itin-step">
+            <div class="itin-num">9</div>
+            <div class="itin-body">
+              <h4><span data-en="An Outdoor Dinner in Tamri's Banana Valley" data-fr="Un Dîner en Plein Air dans la Vallée de Bananiers de Tamri" data-es="Una Cena al Aire Libre en el Valle de Plataneros de Tamri" data-de="Ein Abendessen im Freien im Bananental von Tamri">An Outdoor Dinner in Tamri's Banana Valley</span></h4>
+              <p><span data-en="End the day with an outdoor Moroccan dinner in a banana valley in Tamri, a village known for growing bananas, with a live folklore show depending on group size and restaurant capacity." data-fr="Terminez la journée par un dîner marocain en plein air dans une vallée de bananiers à Tamri, un village connu pour la culture de la banane, avec un spectacle folklorique selon la taille du groupe et la capacité du restaurant." data-es="Termina el día con una cena marroquí al aire libre en un valle de plataneros en Tamri, un pueblo conocido por el cultivo de plátanos, con un espectáculo folclórico según el tamaño del grupo y la capacidad del restaurante." data-de="Beenden Sie den Tag mit einem marokkanischen Abendessen im Freien in einem Bananental in Tamri, einem für seinen Bananenanbau bekannten Dorf, mit einer Folkloreshow je nach Gruppengröße und Restaurantkapazität.">End the day with an outdoor Moroccan dinner in a banana valley in Tamri, a village known for growing bananas, with a live folklore show depending on group size and restaurant capacity.</span></p>
+            </div>
+          </div>
+          <div class="itin-step">
+            <div class="itin-num">10</div>
             <div class="itin-body">
               <h4><span data-en="Drop-off at Your Hotel" data-fr="Retour à Votre Hôtel" data-es="Regreso a tu Hotel" data-de="Rückkehr zu Ihrem Hotel">Drop-off at Your Hotel</span></h4>
               <p><span data-en="Return drive and drop-off at your hotel in Agadir or Taghazout." data-fr="Trajet retour et dépose à votre hôtel à Agadir ou Taghazout." data-es="Trayecto de vuelta y regreso a tu hotel en Agadir o Taghazout." data-de="Rückfahrt und Rückbringung zu Ihrem Hotel in Agadir oder Taghazout.">Return drive and drop-off at your hotel in Agadir or Taghazout.</span></p>
@@ -961,12 +960,16 @@
         <h2 class="section-h"><span data-en="Trip Highlights" data-fr="Points Forts du Voyage" data-es="Puntos Destacados" data-de="Reise-Highlights">Trip Highlights</span></h2>
         <div class="highlight-grid">
           <div class="highlight-card">
-            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="7" cy="8" r="2"/><circle cx="17" cy="7" r="2"/><path d="M3 20l6-9 4 5 3-4 5 8z"/></svg></div>
-            <p><span data-en="Colorful Painted Rocks in Aghroud" data-fr="Rochers Peints Colorés à Aghroud" data-es="Rocas Pintadas de Colores en Aghroud" data-de="Bunt Bemalte Felsen in Aghroud">Colorful Painted Rocks in Aghroud</span></p>
+            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V10l8-6 8 6v11M9 21v-6h6v6"/></svg></div>
+            <p><span data-en="Aghroud's Rainbow-Painted Houses" data-fr="Les Maisons aux Couleurs de l'Arc-en-Ciel d'Aghroud" data-es="Las Casas de Colores de Aghroud" data-de="Aghrouds Bunt Bemalte Häuser">Aghroud's Rainbow-Painted Houses</span></p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21l7-14 4 8 3-6 4 12"/><path d="M2 21h20"/></svg></div>
+            <p><span data-en="Canyon Visit at Timlaline" data-fr="Visite du Canyon de Timlaline" data-es="Visita al Cañón de Timlaline" data-de="Canyon-Besuch in Timlaline">Canyon Visit at Timlaline</span></p>
           </div>
           <div class="highlight-card">
             <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="7" cy="17" r="3"/><circle cx="17" cy="17" r="3"/><path d="M7 17l4-10h4l3 10M11 7h5"/></svg></div>
-            <p><span data-en="Quad Biking on the Timlaline Dunes" data-fr="Quad sur les Dunes de Timlaline" data-es="Quad en las Dunas de Timlaline" data-de="Quad-Fahren auf den Timlaline-Dünen">Quad Biking on the Timlaline Dunes</span></p>
+            <p><span data-en="Quad Biking on the Timlaline Sand Dunes" data-fr="Quad sur les Dunes de Sable de Timlaline" data-es="Quad en las Dunas de Arena de Timlaline" data-de="Quad-Fahren auf den Sanddünen von Timlaline">Quad Biking on the Timlaline Sand Dunes</span></p>
           </div>
           <div class="highlight-card">
             <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
@@ -974,36 +977,19 @@
           </div>
           <div class="highlight-card">
             <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21l7-14 4 8 3-6 4 12"/></svg></div>
-            <p><span data-en="Optional Sandboarding & Buggy" data-fr="Sandboard et Buggy en Option" data-es="Sandboard y Buggy Opcionales" data-de="Optionales Sandboarding & Buggy">Optional Sandboarding & Buggy</span></p>
+            <p><span data-en="Sandboarding Down the Dunes" data-fr="Sandboard sur les Dunes" data-es="Sandboard en las Dunas" data-de="Sandboarding auf den Dünen">Sandboarding Down the Dunes</span></p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8h13v4a5 5 0 01-5 5H9a5 5 0 01-5-5V8z"/><path d="M18 9h1.5a2 2 0 010 4H18"/><path d="M8 3c0 1 1 1 1 2s-1 1-1 2M12 3c0 1 1 1 1 2s-1 1-1 2"/></svg></div>
+            <p><span data-en="Sunset Mint Tea in the Desert" data-fr="Thé à la Menthe au Coucher du Soleil" data-es="Té de Menta al Atardecer" data-de="Minztee bei Sonnenuntergang">Sunset Mint Tea in the Desert</span></p>
           </div>
           <div class="highlight-card">
             <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21h16M6 21V10l6-6 6 6v11M10 21v-5h4v5"/></svg></div>
-            <p><span data-en="Outdoor Moroccan Dinner with Live Show" data-fr="Dîner Marocain en Plein Air avec Spectacle" data-es="Cena Marroquí al Aire Libre con Espectáculo" data-de="Marokkanisches Abendessen im Freien mit Live-Show">Outdoor Moroccan Dinner with Live Show</span></p>
+            <p><span data-en="Dinner in Tamri's Banana Valley, with Live Show" data-fr="Dîner dans la Vallée de Bananiers de Tamri, avec Spectacle" data-es="Cena en el Valle de Plataneros de Tamri, con Espectáculo" data-de="Abendessen im Bananental von Tamri, mit Live-Show">Dinner in Tamri's Banana Valley, with Live Show</span></p>
           </div>
           <div class="highlight-card">
             <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg></div>
             <p><span data-en="Free Hotel Pickup in Agadir & Taghazout" data-fr="Transfert Hôtel Gratuit à Agadir et Taghazout" data-es="Recogida Gratuita en el Hotel en Agadir y Taghazout" data-de="Kostenlose Hotelabholung in Agadir & Taghazout">Free Hotel Pickup in Agadir & Taghazout</span></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="content-section" id="addons">
-        <h2 class="section-h"><span data-en="Optional Add-Ons" data-fr="Extras en Option" data-es="Extras Opcionales" data-de="Optionale Extras">Optional Add-Ons</span></h2>
-        <p class="section-sub"><span data-en="Make the most of the dunes with these paid extras, selectable when booking" data-fr="Profitez au maximum des dunes avec ces extras payants, sélectionnables lors de la réservation" data-es="Aprovecha al máximo las dunas con estos extras de pago, seleccionables al reservar" data-de="Holen Sie mit diesen kostenpflichtigen Extras mehr aus den Dünen heraus, wählbar bei der Buchung">Make the most of the dunes with these paid extras, selectable when booking</span></p>
-        <div class="addon-grid">
-          <div class="addon-card">
-            <div class="addon-card-top">
-              <h4><span data-en="Sandboarding" data-fr="Sandboard" data-es="Sandboard" data-de="Sandboarding">Sandboarding</span></h4>
-              <span class="addon-price-tag"><span data-en="[Price TBD]" data-fr="[À déterminer]" data-es="[Por confirmar]" data-de="[TBD]">[Price TBD]</span></span>
-            </div>
-            <p><span data-en="Slide down the Timlaline dunes on a sandboard for an extra adrenaline rush." data-fr="Dévalez les dunes de Timlaline en sandboard pour une dose supplémentaire d'adrénaline." data-es="Desliza por las dunas de Timlaline en una tabla de sandboard para una dosis extra de adrenalina." data-de="Rutschen Sie mit einem Sandboard die Dünen von Timlaline hinunter für einen zusätzlichen Adrenalinschub.">Slide down the Timlaline dunes on a sandboard for an extra adrenaline rush.</span></p>
-          </div>
-          <div class="addon-card">
-            <div class="addon-card-top">
-              <h4><span data-en="Buggy" data-fr="Buggy" data-es="Buggy" data-de="Buggy">Buggy</span></h4>
-              <span class="addon-price-tag"><span data-en="[Price TBD]" data-fr="[À déterminer]" data-es="[Por confirmar]" data-de="[TBD]">[Price TBD]</span></span>
-            </div>
-            <p><span data-en="Take an off-road buggy session across the dunes for even more time exploring Timlaline." data-fr="Profitez d'une session de buggy tout-terrain sur les dunes pour explorer Timlaline encore plus longtemps." data-es="Disfruta de una sesión de buggy todoterreno por las dunas para explorar Timlaline aún más tiempo." data-de="Erleben Sie eine Offroad-Buggy-Session über die Dünen, um Timlaline noch länger zu erkunden.">Take an off-road buggy session across the dunes for even more time exploring Timlaline.</span></p>
           </div>
         </div>
       </div>
@@ -1016,16 +1002,18 @@
             <ul>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> <span data-en="Private, round-trip air-conditioned transport with an experienced driver" data-fr="Transport privé aller-retour climatisé avec chauffeur expérimenté" data-es="Transporte privado de ida y vuelta con aire acondicionado y conductor experimentado" data-de="Privater, klimatisierter Hin- und Rücktransport mit erfahrenem Fahrer">Private, round-trip air-conditioned transport with an experienced driver</span></li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> <span data-en="Hotel pickup and drop-off in Agadir & Taghazout" data-fr="Prise en charge et retour à l'hôtel à Agadir et Taghazout" data-es="Recogida y regreso al hotel en Agadir y Taghazout" data-de="Hotelabholung und Rückbringung in Agadir & Taghazout">Hotel pickup and drop-off in Agadir & Taghazout</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> <span data-en="Quad biking session at the Timlaline dunes" data-fr="Session de quad sur les dunes de Timlaline" data-es="Sesión de quad en las dunas de Timlaline" data-de="Quad-Session auf den Timlaline-Dünen">Quad biking session at the Timlaline dunes</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> <span data-en="Canyon visit at Timlaline" data-fr="Visite du canyon de Timlaline" data-es="Visita al cañón de Timlaline" data-de="Canyon-Besuch in Timlaline">Canyon visit at Timlaline</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> <span data-en="Quad biking session on the Timlaline sand dunes" data-fr="Session de quad sur les dunes de sable de Timlaline" data-es="Sesión de quad en las dunas de arena de Timlaline" data-de="Quad-Session auf den Sanddünen von Timlaline">Quad biking session on the Timlaline sand dunes</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> <span data-en="Sandboarding session at the Timlaline dunes" data-fr="Session de sandboard sur les dunes de Timlaline" data-es="Sesión de sandboard en las dunas de Timlaline" data-de="Sandboarding-Session auf den Timlaline-Dünen">Sandboarding session at the Timlaline dunes</span></li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> <span data-en="Camel ride or horse riding at Timlaline (your choice)" data-fr="Balade à dos de chameau ou à cheval à Timlaline (au choix)" data-es="Paseo en camello o a caballo en Timlaline (a elegir)" data-de="Kamel- oder Pferderitt in Timlaline (nach Wahl)">Camel ride or horse riding at Timlaline (your choice)</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> <span data-en="Outdoor Moroccan dinner at a local restaurant" data-fr="Dîner marocain en plein air dans un restaurant local" data-es="Cena marroquí al aire libre en un restaurante local" data-de="Marokkanisches Abendessen im Freien in einem lokalen Restaurant">Outdoor Moroccan dinner at a local restaurant</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> <span data-en="Traditional mint tea at sunset" data-fr="Thé à la menthe traditionnel au coucher du soleil" data-es="Té de menta tradicional al atardecer" data-de="Traditioneller Minztee bei Sonnenuntergang">Traditional mint tea at sunset</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> <span data-en="Outdoor Moroccan dinner in Tamri's banana valley" data-fr="Dîner marocain en plein air dans la vallée de bananiers de Tamri" data-es="Cena marroquí al aire libre en el valle de plataneros de Tamri" data-de="Marokkanisches Abendessen im Freien im Bananental von Tamri">Outdoor Moroccan dinner in Tamri's banana valley</span></li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg> <span data-en="Bottled water throughout the day" data-fr="Eau en bouteille tout au long de la journée" data-es="Agua embotellada durante todo el día" data-de="Wasserflaschen den ganzen Tag über">Bottled water throughout the day</span></li>
             </ul>
           </div>
           <div class="ie-card no">
             <h3><span data-en="Not Included" data-fr="Non Inclus" data-es="No Incluido" data-de="Nicht Inklusive">Not Included</span></h3>
             <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6l12 12M18 6L6 18"/></svg> <span data-en="Sandboarding and buggy (optional paid add-ons)" data-fr="Sandboard et buggy (extras payants en option)" data-es="Sandboard y buggy (extras opcionales de pago)" data-de="Sandboarding und Buggy (optionale, kostenpflichtige Extras)">Sandboarding and buggy (optional paid add-ons)</span></li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6l12 12M18 6L6 18"/></svg> <span data-en="Tips and gratuities" data-fr="Pourboires" data-es="Propinas" data-de="Trinkgelder">Tips and gratuities</span></li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6l12 12M18 6L6 18"/></svg> <span data-en="Travel insurance" data-fr="Assurance voyage" data-es="Seguro de viaje" data-de="Reiseversicherung">Travel insurance</span></li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6l12 12M18 6L6 18"/></svg> <span data-en="Personal expenses" data-fr="Dépenses personnelles" data-es="Gastos personales" data-de="Persönliche Ausgaben">Personal expenses</span></li>
@@ -1033,7 +1021,7 @@
             </ul>
           </div>
         </div>
-        <p class="addon-footnote"><span data-en="* The evening's live folklore show depends on group size and restaurant capacity." data-fr="* Le spectacle folklorique en soirée dépend de la taille du groupe et de la capacité du restaurant." data-es="* El espectáculo folclórico de la noche depende del tamaño del grupo y la capacidad del restaurante." data-de="* Die abendliche Folkloreshow hängt von der Gruppengröße und der Kapazität des Restaurants ab.">* The evening's live folklore show depends on group size and restaurant capacity.</span></p>
+        <p class="ie-footnote"><span data-en="The evening's live folklore show at the Tamri dinner depends on group size and restaurant capacity." data-fr="Le spectacle folklorique en soirée lors du dîner à Tamri dépend de la taille du groupe et de la capacité du restaurant." data-es="El espectáculo folclórico de la noche durante la cena en Tamri depende del tamaño del grupo y la capacidad del restaurante." data-de="Die abendliche Folkloreshow beim Abendessen in Tamri hängt von der Gruppengröße und der Kapazität des Restaurants ab.">The evening's live folklore show at the Tamri dinner depends on group size and restaurant capacity.</span></p>
       </div>
 
     </div>
@@ -1044,7 +1032,7 @@
         <h2 class="section-h"><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></h2>
         <div class="contact-cta-box">
           <h3><span data-en="Contact Us for Custom Rates & Availability" data-fr="Contactez-Nous pour les Tarifs et Disponibilités" data-es="Contáctanos para Tarifas y Disponibilidad" data-de="Kontaktieren Sie Uns für Preise & Verfügbarkeit">Contact Us for Custom Rates & Availability</span></h3>
-          <p><span data-en="Free hotel pickup in Agadir and Taghazout. Tell us your date, pickup hotel, ride preference, and any add-ons and we'll confirm availability and pricing within 24 hours." data-fr="Prise en charge gratuite à l'hôtel à Agadir et à Taghazout. Indiquez-nous votre date, votre hôtel de départ, votre préférence de balade et vos extras éventuels, et nous confirmerons la disponibilité et les tarifs sous 24 heures." data-es="Recogida gratuita en el hotel en Agadir y Taghazout. Cuéntanos tu fecha, hotel de recogida, preferencia de paseo y extras, y confirmaremos la disponibilidad y los precios en 24 horas." data-de="Kostenlose Hotelabholung in Agadir und Taghazout. Teilen Sie uns Ihr Datum, Ihr Abholhotel, Ihre Ritt-Präferenz und gewünschte Extras mit, und wir bestätigen Verfügbarkeit und Preise innerhalb von 24 Stunden.">Free hotel pickup in Agadir and Taghazout. Tell us your date, pickup hotel, ride preference, and any add-ons and we'll confirm availability and pricing within 24 hours.</span></p>
+          <p><span data-en="Free hotel pickup in Agadir and Taghazout. Tell us your date, pickup hotel, and ride preference, and we'll confirm availability and pricing within 24 hours." data-fr="Prise en charge gratuite à l'hôtel à Agadir et à Taghazout. Indiquez-nous votre date, votre hôtel de départ et votre préférence de balade, et nous confirmerons la disponibilité et les tarifs sous 24 heures." data-es="Recogida gratuita en el hotel en Agadir y Taghazout. Cuéntanos tu fecha, hotel de recogida y preferencia de paseo, y confirmaremos la disponibilidad y los precios en 24 horas." data-de="Kostenlose Hotelabholung in Agadir und Taghazout. Teilen Sie uns Ihr Datum, Ihr Abholhotel und Ihre Ritt-Präferenz mit, und wir bestätigen Verfügbarkeit und Preise innerhalb von 24 Stunden.">Free hotel pickup in Agadir and Taghazout. Tell us your date, pickup hotel, and ride preference, and we'll confirm availability and pricing within 24 hours.</span></p>
           <div class="contact-cta-actions">
             <a href="index.html#contact" class="btn-gold"><span data-en="Contact Us for Custom Rates" data-fr="Contactez-Nous pour les Tarifs" data-es="Contáctanos para Tarifas" data-de="Kontaktieren Sie Uns für Preise">Contact Us for Custom Rates</span></a>
             <a href="https://wa.me/212600000000" target="_blank" class="btn-outline-white"><span data-en="Chat on WhatsApp" data-fr="Discuter sur WhatsApp" data-es="Chatear por WhatsApp" data-de="Auf WhatsApp Chatten">Chat on WhatsApp</span></a>
@@ -1061,7 +1049,7 @@
               <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
             </button>
             <div class="acc-panel">
-              <p><span data-en="Pickup time is [TBD] — we'll confirm the exact time for your date and hotel when you book." data-fr="L'heure de prise en charge est [à déterminer] — nous confirmerons l'heure exacte pour votre date et votre hôtel lors de la réservation." data-es="La hora de recogida es [por confirmar]: confirmaremos la hora exacta para tu fecha y hotel al reservar." data-de="Die Abholzeit ist [TBD] — wir bestätigen die genaue Uhrzeit für Ihr Datum und Hotel bei der Buchung.">Pickup time is [TBD] — we'll confirm the exact time for your date and hotel when you book.</span></p>
+              <p><span data-en="Pickup is between 1:00 PM and 2:00 PM. We'll confirm the exact time for your date and hotel when you book." data-fr="La prise en charge se fait entre 13h00 et 14h00. Nous confirmerons l'heure exacte pour votre date et votre hôtel lors de la réservation." data-es="La recogida es entre las 13:00 y las 14:00. Confirmaremos la hora exacta para tu fecha y hotel al reservar." data-de="Die Abholung erfolgt zwischen 13:00 und 14:00 Uhr. Wir bestätigen die genaue Uhrzeit für Ihr Datum und Hotel bei der Buchung.">Pickup is between 1:00 PM and 2:00 PM. We'll confirm the exact time for your date and hotel when you book.</span></p>
             </div>
           </div>
           <div class="acc-item faq-item">
@@ -1075,11 +1063,11 @@
           </div>
           <div class="acc-item faq-item">
             <button type="button" class="acc-header" aria-expanded="false">
-              <span data-en="Are sandboarding and the buggy included?" data-fr="Le sandboard et le buggy sont-ils inclus ?" data-es="¿Están incluidos el sandboard y el buggy?" data-de="Sind Sandboarding und der Buggy inbegriffen?">Are sandboarding and the buggy included?</span>
+              <span data-en="Is sandboarding included in this excursion?" data-fr="Le sandboard est-il inclus dans cette excursion ?" data-es="¿El sandboard está incluido en esta excursión?" data-de="Ist Sandboarding in diesem Ausflug inbegriffen?">Is sandboarding included in this excursion?</span>
               <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
             </button>
             <div class="acc-panel">
-              <p><span data-en="No, sandboarding and the buggy are optional paid add-ons that you can select when booking." data-fr="Non, le sandboard et le buggy sont des extras payants en option, sélectionnables lors de la réservation." data-es="No, el sandboard y el buggy son extras opcionales de pago que puedes seleccionar al reservar." data-de="Nein, Sandboarding und der Buggy sind optionale, kostenpflichtige Extras, die Sie bei der Buchung auswählen können.">No, sandboarding and the buggy are optional paid add-ons that you can select when booking.</span></p>
+              <p><span data-en="Yes, sandboarding at the Timlaline dunes is included in the day's activities, along with quad biking and your choice of camel ride or horse riding." data-fr="Oui, le sandboard sur les dunes de Timlaline est inclus dans les activités de la journée, ainsi que le quad et, au choix, une balade à dos de chameau ou à cheval." data-es="Sí, el sandboard en las dunas de Timlaline está incluido en las actividades del día, junto con el quad y, a elegir, un paseo en camello o a caballo." data-de="Ja, Sandboarding auf den Timlaline-Dünen ist im Tagesprogramm inbegriffen, zusammen mit Quad-Fahren und, nach Wahl, einem Kamel- oder Pferderitt.">Yes, sandboarding at the Timlaline dunes is included in the day's activities, along with quad biking and your choice of camel ride or horse riding.</span></p>
             </div>
           </div>
           <div class="acc-item faq-item">
@@ -1088,7 +1076,7 @@
               <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
             </button>
             <div class="acc-panel">
-              <p><span data-en="The outdoor Moroccan dinner is always included, but the live folklore show depends on group size and the restaurant's capacity on the day." data-fr="Le dîner marocain en plein air est toujours inclus, mais le spectacle folklorique en direct dépend de la taille du groupe et de la capacité du restaurant ce jour-là." data-es="La cena marroquí al aire libre siempre está incluida, pero el espectáculo folclórico en vivo depende del tamaño del grupo y de la capacidad del restaurante ese día." data-de="Das marokkanische Abendessen im Freien ist immer inbegriffen, aber die Live-Folkloreshow hängt von der Gruppengröße und der Kapazität des Restaurants an diesem Tag ab.">The outdoor Moroccan dinner is always included, but the live folklore show depends on group size and the restaurant's capacity on the day.</span></p>
+              <p><span data-en="The outdoor Moroccan dinner in Tamri's banana valley is always included, but the live folklore show depends on group size and the restaurant's capacity on the day." data-fr="Le dîner marocain en plein air dans la vallée de bananiers de Tamri est toujours inclus, mais le spectacle folklorique en direct dépend de la taille du groupe et de la capacité du restaurant ce jour-là." data-es="La cena marroquí al aire libre en el valle de plataneros de Tamri siempre está incluida, pero el espectáculo folclórico en vivo depende del tamaño del grupo y de la capacidad del restaurante ese día." data-de="Das marokkanische Abendessen im Freien im Bananental von Tamri ist immer inbegriffen, aber die Live-Folkloreshow hängt von der Gruppengröße und der Kapazität des Restaurants an diesem Tag ab.">The outdoor Moroccan dinner in Tamri's banana valley is always included, but the live folklore show depends on group size and the restaurant's capacity on the day.</span></p>
             </div>
           </div>
           <div class="acc-item faq-item">
@@ -1106,7 +1094,7 @@
               <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
             </button>
             <div class="acc-panel">
-              <p><span data-en="Comfortable closed shoes and clothes you don't mind getting sandy for the quad biking and ride, sunscreen, and a light jacket for the evening." data-fr="Des chaussures fermées confortables et des vêtements que vous ne craignez pas de salir de sable pour le quad et la balade, de la crème solaire, et une veste légère pour la soirée." data-es="Calzado cerrado cómodo y ropa que no te importe que se llene de arena para el quad y el paseo, protector solar y una chaqueta ligera para la noche." data-de="Bequeme geschlossene Schuhe und Kleidung, die ruhig sandig werden darf, für Quad und Ritt, Sonnencreme und eine leichte Jacke für den Abend.">Comfortable closed shoes and clothes you don't mind getting sandy for the quad biking and ride, sunscreen, and a light jacket for the evening.</span></p>
+              <p><span data-en="Comfortable closed shoes and clothes you don't mind getting sandy for the quad biking, sandboarding, and ride, sunscreen, and a light jacket for the evening." data-fr="Des chaussures fermées confortables et des vêtements que vous ne craignez pas de salir de sable pour le quad, le sandboard et la balade, de la crème solaire, et une veste légère pour la soirée." data-es="Calzado cerrado cómodo y ropa que no te importe que se llene de arena para el quad, el sandboard y el paseo, protector solar y una chaqueta ligera para la noche." data-de="Bequeme geschlossene Schuhe und Kleidung, die ruhig sandig werden darf, für Quad, Sandboarding und Ritt, Sonnencreme und eine leichte Jacke für den Abend.">Comfortable closed shoes and clothes you don't mind getting sandy for the quad biking, sandboarding, and ride, sunscreen, and a light jacket for the evening.</span></p>
             </div>
           </div>
         </div>
@@ -1115,10 +1103,10 @@
     </div>
 
     <div class="sidebar">
-      <h3><span data-en="Color Village & Timlaline Trip" data-fr="Village Coloré & Timlaline" data-es="Pueblo de Colores y Timlaline" data-de="Buntes Dorf & Timlaline">Color Village & Timlaline Trip</span></h3>
+      <h3><span data-en="Timlaline Dunes Day Trip & Outdoor Dinner in a Banana Valley" data-fr="Excursion d'une Journée aux Dunes de Timlaline et Dîner en Plein Air dans une Vallée de Bananiers" data-es="Excursión de un Día a las Dunas de Timlaline y Cena al Aire Libre en un Valle de Plataneros" data-de="Tagesausflug zu den Dünen von Timlaline und Abendessen im Freien im Bananental">Timlaline Dunes Day Trip & Outdoor Dinner in a Banana Valley</span></h3>
       <div class="quick-facts">
         <div class="quick-fact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> <span><strong><span data-en="Duration:" data-fr="Durée :" data-es="Duración:" data-de="Dauer:">Duration:</span></strong> <span data-en="Full-Day" data-fr="Journée Complète" data-es="Día Completo" data-de="Ganzer Tag">Full-Day</span></span></div>
-        <div class="quick-fact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21C7 17 3 13.5 3 9a5 5 0 019-3 5 5 0 019 3c0 4.5-4 8-9 12z"/></svg> <span><strong><span data-en="Pickup:" data-fr="Départ :" data-es="Recogida:" data-de="Abholung:">Pickup:</span></strong> <span data-en="[TBD] (Agadir & Taghazout)" data-fr="[À déterminer] (Agadir & Taghazout)" data-es="[Por confirmar] (Agadir y Taghazout)" data-de="[TBD] (Agadir & Taghazout)">[TBD] (Agadir & Taghazout)</span></span></div>
+        <div class="quick-fact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21C7 17 3 13.5 3 9a5 5 0 019-3 5 5 0 019 3c0 4.5-4 8-9 12z"/></svg> <span><strong><span data-en="Pickup:" data-fr="Départ :" data-es="Recogida:" data-de="Abholung:">Pickup:</span></strong> <span data-en="1:00 PM to 2:00 PM (Agadir & Taghazout)" data-fr="13h00 à 14h00 (Agadir & Taghazout)" data-es="13:00 a 14:00 (Agadir y Taghazout)" data-de="13:00 bis 14:00 Uhr (Agadir & Taghazout)">1:00 PM to 2:00 PM (Agadir & Taghazout)</span></span></div>
         <div class="quick-fact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> <span><strong><span data-en="Drop-off:" data-fr="Retour :" data-es="Regreso:" data-de="Rückkehr:">Drop-off:</span></strong> <span data-en="Evening" data-fr="Soirée" data-es="Noche" data-de="Abend">Evening</span></span></div>
         <div class="quick-fact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg> <span><strong><span data-en="Group:" data-fr="Groupe :" data-es="Grupo:" data-de="Gruppe:">Group:</span></strong> <span data-en="Private" data-fr="Privé" data-es="Privado" data-de="Privat">Private</span></span></div>
         <div class="quick-fact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/></svg> <span><strong><span data-en="Season:" data-fr="Saison :" data-es="Temporada:" data-de="Saison:">Season:</span></strong> <span data-en="Year-round" data-fr="Toute l'année" data-es="Todo el año" data-de="Ganzjährig">Year-round</span></span></div>
@@ -1171,17 +1159,6 @@
               </div>
             </div>
           </div>
-          <div class="full">
-            <label><span data-en="Optional Add-Ons" data-fr="Extras en Option" data-es="Extras Opcionales" data-de="Optionale Extras">Optional Add-Ons</span></label>
-            <div class="addon-check-row">
-              <label class="addon-check-label" for="bf-addon-sandboard"><input type="checkbox" id="bf-addon-sandboard" name="addon-sandboard" value="sandboarding"> <span data-en="Sandboarding" data-fr="Sandboard" data-es="Sandboard" data-de="Sandboarding">Sandboarding</span></label>
-              <span class="addon-check-price"><span data-en="+[Price TBD]" data-fr="+[À déterminer]" data-es="+[Por confirmar]" data-de="+[TBD]">+[Price TBD]</span></span>
-            </div>
-            <div class="addon-check-row">
-              <label class="addon-check-label" for="bf-addon-buggy"><input type="checkbox" id="bf-addon-buggy" name="addon-buggy" value="buggy"> <span data-en="Buggy" data-fr="Buggy" data-es="Buggy" data-de="Buggy">Buggy</span></label>
-              <span class="addon-check-price"><span data-en="+[Price TBD]" data-fr="+[À déterminer]" data-es="+[Por confirmar]" data-de="+[TBD]">+[Price TBD]</span></span>
-            </div>
-          </div>
           <div>
             <label for="bf-message"><span data-en="Special Requests" data-fr="Demandes Spéciales" data-es="Solicitudes Especiales" data-de="Besondere Wünsche">Special Requests</span></label>
             <textarea id="bf-message" name="message" data-en-ph="Pickup hotel name (Agadir or Taghazout), dietary needs..." data-fr-ph="Nom de l'hôtel de départ (Agadir ou Taghazout), besoins alimentaires..." data-es-ph="Nombre del hotel de recogida (Agadir o Taghazout), necesidades dietéticas..." data-de-ph="Name des Abholhotels (Agadir oder Taghazout), Ernährungsbedürfnisse..." placeholder="Pickup hotel name (Agadir or Taghazout), dietary needs..."></textarea>
@@ -1199,7 +1176,7 @@
 </div>
 
 <a href="https://wa.me/212600000000" class="whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
-  <svg viewBox="0 0 32 32"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.7 4.61 1.905 6.48L4 29l7.72-1.858A11.94 11.94 0 0016.001 27C22.63 27 28 21.627 28 15S22.63 3 16.001 3zm6.997 16.63c-.29.816-1.68 1.56-2.32 1.646-.593.08-1.34.114-2.16-.135-.498-.15-1.137-.362-1.958-.71-3.447-1.488-5.699-4.94-5.874-5.17-.174-.23-1.41-1.874-1.41-3.575 0-1.7.89-2.535 1.207-2.883.318-.348.694-.435.926-.435.232 0 .464.002.667.012.213.01.5-.081.782.596.29.696.986 2.4 1.073 2.574.087.174.145.377.03.608-.116.232-.174.377-.348.58-.174.203-.365.453-.522.608-.174.174-.355.363-.153.71.203.348.902 1.487 1.936 2.408 1.33 1.186 2.452 1.554 2.8 1.728.348.174.55.145.754-.087.203-.232.87-1.015 1.102-1.363.232-.348.464-.29.783-.174.319.116 2.02.952 2.367 1.125.348.174.58.26.667.406.087.145.087.841-.203 1.657z"/></svg>
+  <svg viewBox="0 0 32 32"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.7 4.61 1.905 6.48L4 29l7.72-1.858A11.94 11.94 0 0016.001 27C22.63 27 28 21.627 28 15S22.63 3 16.001 3zm6.997 16.63c-.29.816-1.68 1.56-2.32 1.646-.593.08-1.34.114-2.16-.135-.498-.15-1.137-.362-1.958-.71-3.447-1.488-5.699-4.94-5.874-5.17-.174-.23-1.41-1.874-1.41-3.575 0-1.7.89-2.535 1.207-2.883.318-.348.694-.435.926-.435.232 0 .464.002.667.012.213.01.5-.081.782.596.29.696.986 2.4 1.073 2.574.087.174.145.377.03.608-.116.232-.174.377-.348.58-.174.203-.365.453-.522.608-.174.174-.355.363-.153.61.203.348.902 1.487 1.936 2.408 1.33 1.186 2.452 1.554 2.8 1.728.348.174.55.145.754-.087.203-.232.87-1.015 1.102-1.363.232-.348.464-.29.783-.174.319.116 2.02.952 2.367 1.125.348.174.58.26.667.406.087.145.087.841-.203 1.657z"/></svg>
   <span class="whatsapp-label"><span data-en="Chat with us now!" data-fr="Discutez avec nous !" data-es="¡Chatea con nosotros!" data-de="Jetzt Chatten!">Chat with us now!</span></span>
 </a>
 
@@ -1448,21 +1425,7 @@
     mobileMenu.addEventListener('touchcancel', onRelease);
   })();
   document.querySelectorAll('.mobile-menu a').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      var href = link.getAttribute('href') || '';
-      if (href.charAt(0) === '#' && href.length > 1) {
-        var targetEl = document.getElementById(href.slice(1));
-        if (targetEl) {
-          e.preventDefault();
-          closeMobileMenu();
-          setTimeout(function() {
-            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }, 10);
-          return;
-        }
-      }
-      closeMobileMenu();
-    });
+    link.addEventListener('click', closeMobileMenu);
   });
 
   // Booking / inquiry form — no backend on this static site, so we hand off to the visitor's email client
@@ -1477,20 +1440,16 @@
     var children = document.getElementById('bf-children').value;
     var rideChoice = document.querySelector('input[name="ride"]:checked');
     var ride = rideChoice ? rideChoice.value : '';
-    var addons = [];
-    if (document.getElementById('bf-addon-sandboard').checked) addons.push('Sandboarding');
-    if (document.getElementById('bf-addon-buggy').checked) addons.push('Buggy');
     var message = document.getElementById('bf-message').value;
 
-    var subject = 'Booking Request: Color Village & Timlaline Full-Day Trip';
+    var subject = 'Booking Request: Timlaline Dunes Day Trip & Outdoor Dinner in a Banana Valley';
     var body = 'Name: ' + name + '\n' +
       'Email: ' + email + '\n' +
       'Phone / WhatsApp: ' + phone + '\n' +
       'Travel Date: ' + date + '\n' +
       'Adults: ' + adults + '\n' +
       'Children: ' + children + '\n' +
-      'Ride Choice: ' + ride + '\n' +
-      'Optional Add-Ons: ' + (addons.length ? addons.join(', ') : 'None') + '\n\n' +
+      'Ride Choice: ' + ride + '\n\n' +
       'Special Requests:\n' + message;
 
     window.location.href = 'mailto:info.letscameltours@gmail.com?subject=' +
