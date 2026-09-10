@@ -4,8 +4,20 @@
     {
       "name": "letscameltours-static",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["-y", "serve", "-l", "8901", "."],
+      "runtimeArgs": ["-y", "serve", "-l", "8901", "C:\\Users\\HTC\\Documents\\GitHub\\letscameltours"],
       "port": 8901
+    },
+    {
+      "name": "letscameltours-static-alt",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["-y", "serve", "-l", "8902", "."],
+      "port": 8902
+    },
+    {
+      "name": "letscameltours-session",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["-y", "serve", "."],
+      "autoPort": true
     }
   ]
 }
