@@ -375,7 +375,9 @@
 
   /* Content layout */
   .content { padding: 56px 0 100px; }
-  .content-grid { display: grid; grid-template-columns: 1.4fr 0.9fr; gap: 50px; }
+  .content-grid { display: grid; grid-template-columns: 1.4fr 0.9fr; grid-template-areas: "top side" "bottom side"; column-gap: 50px; row-gap: 0; align-items: start; }
+  .main-col-top { grid-area: top; }
+  .main-col-bottom { grid-area: bottom; }
 
   h2.section-h { font-size: 24px; font-weight: 800; color: var(--navy); margin-bottom: 6px; }
   .section-sub { font-size: 14px; color: var(--text-gray); margin-bottom: 22px; }
@@ -469,7 +471,7 @@
   .accom-body ul li::before { content: ""; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
 
   /* Sidebar */
-  .sidebar { background: var(--off-white); border: 1px solid var(--line); border-radius: 12px; padding: 26px 24px; height: fit-content; }
+  .sidebar { grid-area: side; background: var(--off-white); border: 1px solid var(--line); border-radius: 12px; padding: 26px 24px; height: fit-content; }
   .sidebar h3 { font-size: 16.5px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
   .sidebar-agent { display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
   .sidebar-agent-avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 3px solid #fff; box-shadow: 0 4px 14px rgba(0,0,0,0.12); margin-bottom: 10px; }
@@ -601,7 +603,7 @@
   .footer-bottom { padding-top: 6px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-size: 12.5px; color: var(--text-gray); }
 
   @media (max-width: 900px) {
-    .content-grid { grid-template-columns: 1fr; }
+    .content-grid { grid-template-columns: 1fr; grid-template-areas: "top" "side" "bottom"; row-gap: 50px; }
     .content-grid > * { min-width: 0; }
     .sidebar { position: static; }
     .highlight-grid { grid-template-columns: 1fr; }
@@ -822,7 +824,7 @@
 
 <div class="container content">
   <div class="content-grid">
-    <div class="main-col">
+    <div class="main-col main-col-top">
 
       <div class="content-section" id="overview">
         <h2 class="section-h"><span data-en="Overview" data-fr="Aperçu" data-es="Resumen" data-de="Überblick">Overview</span></h2>
@@ -1133,7 +1135,9 @@
           </div>
         </div>
       </div>
+    </div>
 
+    <div class="main-col main-col-bottom">
       <div class="content-section" id="contact">
         <h2 class="section-h"><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></h2>
         <div class="contact-cta-box">
@@ -1267,7 +1271,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-col footer-col-brand">
-        <div class="footer-logo"><img src="logo.png" alt="Let's Camel Tours"><img src="logo.png" alt="" aria-hidden="true" class="footer-logo-word"></div>
+        <a href="index.html" class="footer-logo"><img src="logo.png" alt="Let's Camel Tours"><img src="logo.png" alt="" aria-hidden="true" class="footer-logo-word"></a>
         <p><span data-en="A family-run travel agency between the dunes of Merzouga and the waves of Taghazout, guiding travelers through real Morocco since day one." data-fr="Une agence de voyage familiale entre les dunes de Merzouga et les vagues de Taghazout, guidant les voyageurs à travers le vrai Maroc depuis le premier jour." data-es="Una agencia de viajes familiar entre las dunas de Merzouga y las olas de Taghazout, guiando a los viajeros por el verdadero Marruecos desde el primer día." data-de="Eine familiengeführte Reiseagentur zwischen den Dünen Merzougas und den Wellen Taghazouts, die Reisende von Anfang an durch das echte Marokko führt.">A family-run travel agency between the dunes of Merzouga and the waves of Taghazout, guiding travelers through real Morocco since day one.</span></p>
         <span class="footer-lang-label" data-en="Language" data-fr="Langue" data-es="Idioma" data-de="Sprache">Language</span>
         <div class="footer-lang-row">

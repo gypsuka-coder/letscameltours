@@ -244,7 +244,7 @@
   .listing { padding: 80px 0; }
   .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
 
-  .blog-card { background: var(--white); border-radius: 10px; overflow: hidden; border: 1px solid var(--line); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+  .blog-card { display: block; background: var(--white); border-radius: 10px; overflow: hidden; border: 1px solid var(--line); transition: transform 0.25s ease, box-shadow 0.25s ease; cursor: pointer; }
   .blog-card:hover { transform: translateY(-6px); box-shadow: 0 20px 44px rgba(0,51,102,0.16); }
   .blog-image { height: 190px; position: relative; overflow: hidden; }
   .blog-image-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.45s ease; }
@@ -514,7 +514,7 @@
 <section class="listing">
   <div class="container">
     <div class="blog-grid">
-      <div class="blog-card">
+      <a href="blog-1.html" class="blog-card">
         <div class="blog-image">
           <div class="blog-image-bg" style="background-image:url('blog-1.jpg');"></div><span class="blog-tag"><span data-en="Desert Travel" data-fr="Voyage Désert" data-es="Viaje al Desierto" data-de="Wüstenreise">Desert Travel</span></span>
         </div>
@@ -522,10 +522,10 @@
           <div class="blog-meta"><span>August 2026</span></div>
           <h3><span data-en="Merzouga Desert Tour: The Complete Guide" data-fr="Circuit Désert Merzouga : Le Guide Complet" data-es="Tour al Desierto de Merzouga: La Guía Completa" data-de="Merzouga-Wüstentour: Der Komplette Guide">Merzouga Desert Tour: The Complete Guide</span></h3>
           <p><span data-en="Camel treks, Erg Chebbi dunes, desert camps, and the best route from Marrakech, everything you need to plan your Sahara trip." data-fr="Treks à dos de chameau, dunes de l'Erg Chebbi, camps désert et meilleur itinéraire depuis Marrakech, tout pour préparer votre voyage au Sahara." data-es="Paseos en camello, dunas de Erg Chebbi, campamentos y la mejor ruta desde Marrakech, todo para planear tu viaje al Sahara." data-de="Kamelritte, Erg-Chebbi-Dünen, Wüstencamps und die beste Route ab Marrakesch, alles für Ihre Sahara-Reise.">Camel treks, Erg Chebbi dunes, desert camps, and the best route from Marrakech, everything you need to plan your Sahara trip.</span></p>
-          <a href="blog-1.html" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <span class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </div>
-      </div>
-      <div class="blog-card">
+      </a>
+      <a href="blog-2.html" class="blog-card">
         <div class="blog-image">
           <div class="blog-image-bg" style="background-image:url('blog-2.jpg'); background-position: center 75%;"></div><span class="blog-tag"><span data-en="Excursions" data-fr="Excursions" data-es="Excursiones" data-de="Ausflüge">Excursions</span></span>
         </div>
@@ -533,10 +533,10 @@
           <div class="blog-meta"><span>August 2026</span></div>
           <h3><span data-en="Marrakech Day Trip from Agadir: Everything You Need to Know" data-fr="Excursion à Marrakech depuis Agadir : Tout Savoir" data-es="Excursión a Marrakech desde Agadir: Todo lo que Necesitas Saber" data-de="Marrakesch-Tagesausflug ab Agadir: Alles Was Sie Wissen Müssen">Marrakech Day Trip from Agadir: Everything You Need to Know</span></h3>
           <p><span data-en="From the souks of the Medina to Jemaa el-Fnaa square, here's how to make the most of a day trip to the Red City." data-fr="Des souks de la médina à la place Jemaa el-Fnaa, voici comment profiter au maximum d'une excursion à la Ville Rouge." data-es="Desde los zocos de la medina hasta la plaza Jemaa el-Fnaa, aquí te contamos cómo aprovechar al máximo una excursión a la Ciudad Roja." data-de="Von den Souks der Medina bis zum Jemaa-el-Fnaa-Platz, so machen Sie das Beste aus einem Tagesausflug in die Rote Stadt.">From the souks of the Medina to Jemaa el-Fnaa square, here's how to make the most of a day trip to the Red City.</span></p>
-          <a href="blog-2.html" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <span class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </div>
-      </div>
-      <div class="blog-card">
+      </a>
+      <a href="blog-3.html" class="blog-card">
         <div class="blog-image">
           <div class="blog-image-bg" style="background-image:url('blog-3.jpg');"></div><span class="blog-tag"><span data-en="Activities" data-fr="Activités" data-es="Actividades" data-de="Aktivitäten">Activities</span></span>
         </div>
@@ -544,9 +544,9 @@
           <div class="blog-meta"><span>August 2026</span></div>
           <h3><span data-en="Things to Do in Taghazout: Surfing, Camel Rides & Quad Tours" data-fr="Choses à Faire à Taghazout : Surf, Chameaux & Quad" data-es="Cosas que Hacer en Taghazout: Surf, Camellos y Quads" data-de="Dinge zu Tun in Taghazout: Surfen, Kamelritte & Quad-Touren">Things to Do in Taghazout: Surfing, Camel Rides & Quad Tours</span></h3>
           <p><span data-en="From beginner surf lessons to sunset camel rides, here are the best ways to fill your days in Taghazout." data-fr="Des cours de surf pour débutants aux balades à dos de chameau au coucher du soleil, voici les meilleures façons d'occuper vos journées à Taghazout." data-es="Desde clases de surf para principiantes hasta paseos en camello al atardecer, estas son las mejores formas de llenar tus días en Taghazout." data-de="Von Surfkursen für Anfänger bis zu Kamelritten bei Sonnenuntergang, so füllen Sie Ihre Tage in Taghazout am besten.">From beginner surf lessons to sunset camel rides, here are the best ways to fill your days in Taghazout.</span></p>
-          <a href="blog-3.html" class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <span class="btn-arrow"><span data-en="Read More" data-fr="Lire la Suite" data-es="Leer Más" data-de="Weiterlesen">Read More</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -564,7 +564,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-col footer-col-brand">
-        <div class="footer-logo"><img src="logo.png" alt="Let's Camel Tours"><img src="logo.png" alt="" aria-hidden="true" class="footer-logo-word"></div>
+        <a href="index.html" class="footer-logo"><img src="logo.png" alt="Let's Camel Tours"><img src="logo.png" alt="" aria-hidden="true" class="footer-logo-word"></a>
         <p><span data-en="A family-run travel agency between the dunes of Merzouga and the waves of Taghazout, guiding travelers through real Morocco since day one." data-fr="Une agence de voyage familiale entre les dunes de Merzouga et les vagues de Taghazout, guidant les voyageurs à travers le vrai Maroc depuis le premier jour." data-es="Una agencia de viajes familiar entre las dunas de Merzouga y las olas de Taghazout, guiando a los viajeros por el verdadero Marruecos desde el primer día." data-de="Eine familiengeführte Reiseagentur zwischen den Dünen Merzougas und den Wellen Taghazouts, die Reisende von Anfang an durch das echte Marokko führt.">A family-run travel agency between the dunes of Merzouga and the waves of Taghazout, guiding travelers through real Morocco since day one.</span></p>
         <span class="footer-lang-label" data-en="Language" data-fr="Langue" data-es="Idioma" data-de="Sprache">Language</span>
         <div class="footer-lang-row">
