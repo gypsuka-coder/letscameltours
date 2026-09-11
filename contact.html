@@ -528,6 +528,34 @@
   .ride-choice-option input[type="radio"]:checked + .ride-choice-label { background: var(--gold); border-color: var(--gold); color: #fff; }
   .ride-choice-option input[type="radio"]:focus-visible + .ride-choice-label { outline: 2px solid var(--gold-light); outline-offset: 2px; }
 
+  .lesson-choice { display: flex; flex-direction: column; gap: 7px; }
+  .lesson-choice-option { position: relative; }
+  .lesson-choice-option input[type="radio"] { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .lesson-choice-card {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 11px;
+    border: 1.5px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+  }
+  .lesson-choice-card:hover { border-color: var(--gold-light); transform: translateY(-1px); }
+  .lc-radio-dot { display: inline-block; position: relative; flex-shrink: 0; width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid var(--line); transition: border-color 0.2s ease; }
+  .lc-info { flex: 1; min-width: 0; display: flex; align-items: baseline; gap: 6px; }
+  .lc-name { font-size: 12px; font-weight: 700; color: var(--navy); }
+  .lc-sub { font-size: 10px; color: var(--text-gray); }
+  .lc-price { flex-shrink: 0; display: flex; align-items: baseline; gap: 3px; }
+  .lc-amount { font-size: 13px; font-weight: 800; color: var(--navy); }
+  .lc-unit { font-size: 9px; color: var(--text-gray); text-transform: uppercase; letter-spacing: 0.03em; }
+  .lesson-choice-option input[type="radio"]:checked + .lesson-choice-card { border-color: var(--gold); background: rgba(224,122,62,0.06); box-shadow: 0 4px 10px rgba(224,122,62,0.14); }
+  .lesson-choice-option input[type="radio"]:checked + .lesson-choice-card .lc-radio-dot { border-color: var(--gold); }
+  .lesson-choice-option input[type="radio"]:checked + .lesson-choice-card .lc-radio-dot::after { content: ''; position: absolute; inset: 2px; border-radius: 50%; background: var(--gold); }
+  .lesson-choice-option input[type="radio"]:checked + .lesson-choice-card .lc-amount { color: var(--gold); }
+  .lesson-choice-option input[type="radio"]:focus-visible + .lesson-choice-card { outline: 2px solid var(--gold-light); outline-offset: 2px; }
+
   .contact-form .btn-gold { width: 100%; margin-top: 6px; }
 
   .form-result { display: none; margin-top: 14px; padding: 13px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; text-align: center; }
@@ -948,6 +976,53 @@
             </div>
           </div>
         </div>
+        <div class="form-group" id="lesson-type-group">
+          <label data-en="Lesson Type" data-fr="Type de Cours" data-es="Tipo de Clase" data-de="Kursart">Lesson Type</label>
+          <div class="lesson-choice">
+            <div class="lesson-choice-option">
+              <input type="radio" id="lesson-shared" name="lesson_type" value="shared">
+              <label for="lesson-shared" class="lesson-choice-card">
+                <span class="lc-radio-dot"></span>
+                <span class="lc-info">
+                  <span class="lc-name" data-en="Shared" data-fr="Partagé" data-es="Compartida" data-de="Geteilt">Shared</span>
+                  <span class="lc-sub" data-en="Small Group" data-fr="Petit Groupe" data-es="Grupo Pequeño" data-de="Kleingruppe">Small Group</span>
+                </span>
+                <span class="lc-price">
+                  <span class="lc-amount">€35</span>
+                  <span class="lc-unit" data-en="/ person" data-fr="/ personne" data-es="/ persona" data-de="/ Person">/ person</span>
+                </span>
+              </label>
+            </div>
+            <div class="lesson-choice-option">
+              <input type="radio" id="lesson-semi-private" name="lesson_type" value="semi-private">
+              <label for="lesson-semi-private" class="lesson-choice-card">
+                <span class="lc-radio-dot"></span>
+                <span class="lc-info">
+                  <span class="lc-name" data-en="Semi-Private" data-fr="Semi-Privé" data-es="Semi-Privada" data-de="Semi-Privat">Semi-Private</span>
+                  <span class="lc-sub" data-en="2 People" data-fr="2 Personnes" data-es="2 Personas" data-de="2 Personen">2 People</span>
+                </span>
+                <span class="lc-price">
+                  <span class="lc-amount">€40</span>
+                  <span class="lc-unit" data-en="/ person" data-fr="/ personne" data-es="/ persona" data-de="/ Person">/ person</span>
+                </span>
+              </label>
+            </div>
+            <div class="lesson-choice-option">
+              <input type="radio" id="lesson-private" name="lesson_type" value="private">
+              <label for="lesson-private" class="lesson-choice-card">
+                <span class="lc-radio-dot"></span>
+                <span class="lc-info">
+                  <span class="lc-name" data-en="Private" data-fr="Privé" data-es="Privada" data-de="Privat">Private</span>
+                  <span class="lc-sub" data-en="1-on-1" data-fr="1 à 1" data-es="1 a 1" data-de="1-zu-1">1-on-1</span>
+                </span>
+                <span class="lc-price">
+                  <span class="lc-amount">€50</span>
+                  <span class="lc-unit" data-en="/ person" data-fr="/ personne" data-es="/ persona" data-de="/ Person">/ person</span>
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
         <div class="form-group" id="trip-type-group">
           <label data-en="Trip Type" data-fr="Type de Trajet" data-es="Tipo de Viaje" data-de="Fahrtart">Trip Type</label>
           <div class="ride-choice">
@@ -1322,6 +1397,20 @@
   }
   tourSelect.addEventListener('change', toggleRide);
   toggleRide();
+
+  var lessonTypeGroup = document.getElementById('lesson-type-group');
+  var lessonTypeInputs = lessonTypeGroup.querySelectorAll('input[name="lesson_type"]');
+
+  function toggleLessonType() {
+    var isSurfLesson = tourSelect.value === 'activity-3';
+    lessonTypeGroup.style.display = isSurfLesson ? '' : 'none';
+    lessonTypeInputs.forEach(function(input) {
+      input.required = isSurfLesson;
+      if (!isSurfLesson) input.checked = false;
+    });
+  }
+  tourSelect.addEventListener('change', toggleLessonType);
+  toggleLessonType();
 
   var TRANSFER_VALUES = ['airport-transfer', 'city-transfer'];
   var tripTypeGroup = document.getElementById('trip-type-group');
