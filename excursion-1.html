@@ -360,51 +360,30 @@
     .burger { display: block; }
   }
 
-  /* Hero image carousel — story-style: centered active card, peeking neighbors, segmented autoplay progress (Dribbble "Carousel experimentation" style) */
-  .hero-carousel-wrap { background: var(--off-white); padding: 26px 0 8px; overflow: hidden; }
-  .hero-carousel { position: relative; }
-  .hc-track { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 0 20%; scrollbar-width: none; -ms-overflow-style: none; }
-  .hc-track::-webkit-scrollbar { display: none; }
-  .hc-slide { position: relative; flex: 0 0 60%; height: 340px; scroll-snap-align: center; border-radius: 18px; overflow: hidden; background: var(--line); opacity: 0.45; transform: scale(0.9); transition: opacity 0.35s ease, transform 0.35s ease; box-shadow: 0 14px 34px rgba(0,31,63,0.16); }
-  .hc-slide.active { opacity: 1; transform: scale(1); }
-  .hc-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .hc-slide-badge { position: absolute; top: 14px; left: 14px; background: rgba(0,31,63,0.55); backdrop-filter: blur(4px); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; padding: 5px 11px; border-radius: 50px; }
-  .hc-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 20; width: 44px; height: 44px; border-radius: 50%; background: #fff; border: none; box-shadow: 0 6px 18px rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--navy); transition: background 0.2s ease, transform 0.2s ease; }
-  .hc-arrow:hover { background: var(--gold); color: #fff; transform: translateY(-50%) scale(1.08); }
-  .hc-arrow svg { width: 20px; height: 20px; }
-  .hc-prev { left: 10px; }
-  .hc-next { right: 10px; }
-
-  .hc-controls { display: flex; align-items: center; gap: 12px; max-width: 60%; margin: 16px auto 4px; }
-  .hc-playpause { flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--navy); color: #fff; border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s ease; }
-  .hc-playpause:hover { background: var(--gold); }
-  .hc-playpause svg { width: 13px; height: 13px; }
-  .hc-playpause .hc-icon-play { display: none; }
-  .hc-playpause.paused .hc-icon-pause { display: none; }
-  .hc-playpause.paused .hc-icon-play { display: block; }
-  .hc-progress { flex: 1; display: flex; gap: 6px; }
-  .hc-progress-seg { flex: 1; height: 4px; border-radius: 2px; background: var(--line); border: none; padding: 0; cursor: pointer; overflow: hidden; }
-  .hc-progress-fill { display: block; height: 100%; width: 0%; background: var(--gold); border-radius: 2px; }
-  .hc-progress-seg.done .hc-progress-fill { width: 100%; }
-  .hc-progress-seg.active .hc-progress-fill { animation: hcFill 3.5s linear forwards; }
-  .hc-progress.paused .hc-progress-seg.active .hc-progress-fill { animation-play-state: paused; }
-  @keyframes hcFill { from { width: 0%; } to { width: 100%; } }
-
+  /* Photo gallery section: simple automatic 3-up carousel, active slide centered */
+  .gallery-section { background: var(--off-white); padding: 30px 0 40px; }
+  .gallery-section .section-h { text-align: center; margin-bottom: 20px; }
+  .auto-carousel { position: relative; display: flex; align-items: center; justify-content: center; gap: 14px; width: 100%; height: 360px; }
+  .ac-slide { display: none; border-radius: 14px; overflow: hidden; box-shadow: 0 14px 34px rgba(0,31,63,0.16); transition: opacity 0.4s ease; }
+  .ac-slide img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+  .ac-slide-prev, .ac-slide-next { display: block; flex: 0 0 24%; height: 78%; opacity: 0.55; }
+  .ac-slide-prev { order: 1; }
+  .ac-slide-active { display: block; order: 2; flex: 0 0 46%; height: 100%; opacity: 1; z-index: 2; }
+  .ac-slide-next { order: 3; }
+  .ac-dots { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
+  .ac-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--line); border: none; padding: 0; cursor: pointer; }
+  .ac-dot.active { background: var(--gold); }
+  .ac-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 5; width: 40px; height: 40px; border-radius: 50%; background: #fff; border: none; box-shadow: 0 6px 18px rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--navy); transition: background 0.2s ease, transform 0.2s ease; }
+  .ac-arrow:hover { background: var(--gold); color: #fff; transform: translateY(-50%) scale(1.08); }
+  .ac-arrow svg { width: 18px; height: 18px; }
+  .ac-prev { left: 14px; }
+  .ac-next { right: 14px; }
   @media (max-width: 700px) {
-    .hc-track { padding: 0 12%; }
-    .hc-slide { flex: 0 0 78%; height: 220px; }
-    .hc-arrow { width: 36px; height: 36px; }
-    .hc-controls { max-width: 90%; }
-  }
-
-  /* Photo gallery section */
-  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .gallery-card { border-radius: 10px; overflow: hidden; background: var(--line); aspect-ratio: 4 / 3; position: relative; }
-  .gallery-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
-  .gallery-card:hover img { transform: scale(1.06); }
-  .gallery-card-caption { position: absolute; left: 0; right: 0; bottom: 0; padding: 10px 12px; background: linear-gradient(0deg, rgba(0,31,63,0.75), rgba(0,31,63,0)); color: #fff; font-size: 12.5px; font-weight: 600; }
-  @media (max-width: 700px) {
-    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .auto-carousel { height: 220px; gap: 8px; }
+    .ac-slide-prev, .ac-slide-next { flex: 0 0 18%; }
+    .ac-slide-active { flex: 0 0 60%; }
+    .ac-arrow { width: 32px; height: 32px; }
+    .ac-arrow svg { width: 15px; height: 15px; }
   }
 
   /* Breadcrumb */
@@ -847,37 +826,30 @@
   </div>
 </section>
 
-<div class="hero-carousel-wrap">
+<div class="gallery-section">
   <div class="container">
-    <div class="hero-carousel">
-      <button class="hc-arrow hc-prev" id="hc-prev" aria-label="Previous slide">
+    <h2 class="section-h"><span data-en="Photo Gallery" data-fr="Galerie Photos" data-es="Galería de Fotos" data-de="Fotogalerie">Photo Gallery</span></h2>
+    <div class="auto-carousel" id="ac-carousel">
+      <div class="ac-slide"><img src="excursion-1-gallery-01.jpg" alt="Essaouira day trip from Agadir, blue and white medina lane in the UNESCO-listed old town" loading="lazy"></div>
+      <div class="ac-slide"><img src="excursion-1-gallery-02.jpg" alt="Skala de la Ville sea bastion and cannons on the Essaouira ramparts" loading="lazy"></div>
+      <div class="ac-slide"><img src="excursion-1-gallery-03.jpg" alt="Blue fishing boats at the historic Essaouira fish port" loading="lazy"></div>
+      <div class="ac-slide"><img src="excursion-1-gallery-04.jpg" alt="Essaouira excursion from Taghazout, souks and market stalls inside the walled medina" loading="lazy"></div>
+      <div class="ac-slide"><img src="excursion-1-gallery-05.jpg" alt="Argan oil cooperative stop on the coastal road to Essaouira" loading="lazy"></div>
+      <div class="ac-slide"><img src="excursion-1-gallery-06.jpg" alt="Sea view along the ramparts of Essaouira, Morocco's UNESCO World Heritage coastal town" loading="lazy"></div>
+      <button class="ac-arrow ac-prev" id="ac-prev" aria-label="Previous slide">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 6l-6 6 6 6"/></svg>
       </button>
-      <div class="hc-track" id="hc-track">
-        <div class="hc-slide active"><img src="excursion-1-gallery-01.jpg" alt="Essaouira day trip from Agadir, blue and white medina lane in the UNESCO-listed old town" loading="lazy"><span class="hc-slide-badge">01 / 06</span></div>
-        <div class="hc-slide"><img src="excursion-1-gallery-02.jpg" alt="Skala de la Ville sea bastion and cannons on the Essaouira ramparts" loading="lazy"><span class="hc-slide-badge">02 / 06</span></div>
-        <div class="hc-slide"><img src="excursion-1-gallery-03.jpg" alt="Blue fishing boats at the historic Essaouira fish port" loading="lazy"><span class="hc-slide-badge">03 / 06</span></div>
-        <div class="hc-slide"><img src="excursion-1-gallery-04.jpg" alt="Essaouira excursion from Taghazout, souks and market stalls inside the walled medina" loading="lazy"><span class="hc-slide-badge">04 / 06</span></div>
-        <div class="hc-slide"><img src="excursion-1-gallery-05.jpg" alt="Argan oil cooperative stop on the coastal road to Essaouira" loading="lazy"><span class="hc-slide-badge">05 / 06</span></div>
-        <div class="hc-slide"><img src="excursion-1-gallery-06.jpg" alt="Sea view along the ramparts of Essaouira, Morocco's UNESCO World Heritage coastal town" loading="lazy"><span class="hc-slide-badge">06 / 06</span></div>
-      </div>
-      <button class="hc-arrow hc-next" id="hc-next" aria-label="Next slide">
+      <button class="ac-arrow ac-next" id="ac-next" aria-label="Next slide">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg>
       </button>
     </div>
-    <div class="hc-controls">
-      <button class="hc-playpause" id="hc-playpause" aria-label="Pause slideshow">
-        <svg class="hc-icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
-        <svg class="hc-icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M7 5l12 7-12 7V5z"/></svg>
-      </button>
-      <div class="hc-progress" id="hc-progress">
-        <button class="hc-progress-seg active" data-index="0" aria-label="Go to slide 1"><span class="hc-progress-fill"></span></button>
-        <button class="hc-progress-seg" data-index="1" aria-label="Go to slide 2"><span class="hc-progress-fill"></span></button>
-        <button class="hc-progress-seg" data-index="2" aria-label="Go to slide 3"><span class="hc-progress-fill"></span></button>
-        <button class="hc-progress-seg" data-index="3" aria-label="Go to slide 4"><span class="hc-progress-fill"></span></button>
-        <button class="hc-progress-seg" data-index="4" aria-label="Go to slide 5"><span class="hc-progress-fill"></span></button>
-        <button class="hc-progress-seg" data-index="5" aria-label="Go to slide 6"><span class="hc-progress-fill"></span></button>
-      </div>
+    <div class="ac-dots" id="ac-dots">
+      <button class="ac-dot active" data-index="0" aria-label="Go to slide 1"></button>
+      <button class="ac-dot" data-index="1" aria-label="Go to slide 2"></button>
+      <button class="ac-dot" data-index="2" aria-label="Go to slide 3"></button>
+      <button class="ac-dot" data-index="3" aria-label="Go to slide 4"></button>
+      <button class="ac-dot" data-index="4" aria-label="Go to slide 5"></button>
+      <button class="ac-dot" data-index="5" aria-label="Go to slide 6"></button>
     </div>
   </div>
 </div>
@@ -1394,81 +1366,34 @@
       encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
   });
 
-  // Hero image carousel — story-style: centered slide + segmented autoplay progress (Dribbble "Carousel experimentation" style)
+  // Simple automatic photo carousel
   (function() {
-    var track = document.getElementById('hc-track');
-    if (!track) return;
-    var slides = Array.prototype.slice.call(track.querySelectorAll('.hc-slide'));
-    var segs = Array.prototype.slice.call(document.querySelectorAll('.hc-progress-seg'));
-    var progress = document.getElementById('hc-progress');
-    var playBtn = document.getElementById('hc-playpause');
+    var slides = document.querySelectorAll('#ac-carousel .ac-slide');
+    var dots = document.querySelectorAll('#ac-dots .ac-dot');
+    if (!slides.length) return;
     var current = 0;
-    var playing = true;
-
-    function setActive(i) {
-      current = i;
-      slides.forEach(function(s, idx) { s.classList.toggle('active', idx === i); });
-      segs.forEach(function(seg, idx) {
-        seg.classList.remove('active', 'done');
-        var fill = seg.querySelector('.hc-progress-fill');
-        fill.style.animation = 'none';
-        if (idx < i) {
-          seg.classList.add('done');
-        } else if (idx === i) {
-          seg.classList.add('active');
-          void fill.offsetWidth;
-          fill.style.animation = '';
-        }
-      });
-    }
 
     function goTo(i) {
-      i = (i + slides.length) % slides.length;
-      var slide = slides[i];
-      var target = slide.offsetLeft - (track.clientWidth - slide.clientWidth) / 2;
-      track.scrollTo({ left: target, behavior: 'smooth' });
-      setActive(i);
+      current = (i + slides.length) % slides.length;
+      var prevIdx = (current - 1 + slides.length) % slides.length;
+      var nextIdx = (current + 1) % slides.length;
+      slides.forEach(function(s) { s.classList.remove('ac-slide-prev', 'ac-slide-active', 'ac-slide-next'); });
+      slides[prevIdx].classList.add('ac-slide-prev');
+      slides[current].classList.add('ac-slide-active');
+      slides[nextIdx].classList.add('ac-slide-next');
+      dots.forEach(function(d, idx) { d.classList.toggle('active', idx === current); });
     }
 
-    segs.forEach(function(seg) {
-      seg.querySelector('.hc-progress-fill').addEventListener('animationend', function() {
-        if (seg.classList.contains('active') && playing) goTo(current + 1);
-      });
+    goTo(0);
+
+    dots.forEach(function(dot, idx) {
+      dot.addEventListener('click', function() { goTo(idx); });
     });
 
-    document.getElementById('hc-prev').addEventListener('click', function(e) { e.preventDefault(); goTo(current - 1); });
-    document.getElementById('hc-next').addEventListener('click', function(e) { e.preventDefault(); goTo(current + 1); });
-    segs.forEach(function(seg, idx) { seg.addEventListener('click', function(e) { e.preventDefault(); goTo(idx); }); });
+    document.getElementById('ac-prev').addEventListener('click', function() { goTo(current - 1); });
+    document.getElementById('ac-next').addEventListener('click', function() { goTo(current + 1); });
 
-    playBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      playing = !playing;
-      playBtn.classList.toggle('paused', !playing);
-      playBtn.setAttribute('aria-label', playing ? 'Pause slideshow' : 'Play slideshow');
-      progress.classList.toggle('paused', !playing);
-    });
-
-    var hcContainer = document.querySelector('.hero-carousel');
-    hcContainer.addEventListener('mouseenter', function() { progress.classList.add('paused'); });
-    hcContainer.addEventListener('mouseleave', function() { if (playing) progress.classList.remove('paused'); });
-
-    var scrollTimeout;
-    track.addEventListener('scroll', function() {
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(function() {
-        var trackRect = track.getBoundingClientRect();
-        var center = trackRect.left + trackRect.width / 2;
-        var closest = 0, closestDist = Infinity;
-        slides.forEach(function(s, idx) {
-          var r = s.getBoundingClientRect();
-          var dist = Math.abs((r.left + r.width / 2) - center);
-          if (dist < closestDist) { closestDist = dist; closest = idx; }
-        });
-        if (closest !== current) setActive(closest);
-      }, 100);
-    });
-
-    setActive(0);
+    setInterval(function() { goTo(current + 1); }, 4000);
   })();
 
   // Smooth accordions — Highlights, Itinerary and FAQ
