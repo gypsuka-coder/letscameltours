@@ -1503,6 +1503,11 @@
         if (data.success) {
           formResult.textContent = "Thank you! Your message has been sent successfully.";
           formResult.className = 'form-result show success';
+          gtag('event', 'conversion', {
+              'send_to': 'AW-18468814926/9HSWCODA6YEdEM6Az-ZE',
+              'value': 1.0,
+              'currency': 'MAD'
+          });
           contactForm.reset();
         } else {
           formResult.textContent = "Something went wrong. Please try again.";
