@@ -994,5 +994,23 @@
   });
 </script>
 
+<script>
+  // Google Ads secondary conversion: WhatsApp click-to-chat (measured in parallel, never blocks navigation)
+  (function() {
+    var links = document.querySelectorAll('a[href^="https://wa.me/212766972771"], a[href*="api.whatsapp.com/send"][href*="212766972771"]');
+    links.forEach(function(link) {
+      link.addEventListener('click', function() {
+        if (typeof window.gtag !== 'function') return;
+        try {
+          window.gtag('event', 'conversion', {
+            'send_to': 'AW-18468814926/Vwf-CJm82oUdEM6Az-ZE',
+            'value': 1.0,
+            'currency': 'MAD'
+          });
+        } catch (e) {}
+      });
+    });
+  })();
+</script>
 </body>
 </html>
