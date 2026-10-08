@@ -1526,7 +1526,6 @@
     var accommodation = accommodationEl ? accommodationEl.nextElementSibling.textContent.trim() : '';
     var adults = document.getElementById('bf-adults').value;
     var children = document.getElementById('bf-children').value;
-    var consent = document.getElementById('bf-consent').checked;
     var message = document.getElementById('bf-message').value;
 
     var subject = 'Tour Inquiry: 5-Day Marrakech to Merzouga Desert Tour';
@@ -1538,8 +1537,19 @@
       'Accommodation: ' + accommodation + '\n' +
       'Adults: ' + adults + '\n' +
       'Children: ' + children + '\n' +
-      'Consent to be contacted: ' + (consent ? 'Yes' : 'No') + '\n\n' +
+      '\n' +
       'Special Requests:\n' + message;
+
+    // Google Ads conversion: booking form submitted (opens the visitor's email app)
+    if (typeof window.gtag === 'function') {
+      try {
+        window.gtag('event', 'conversion', {
+          'send_to': 'AW-18468814926/9HSWCODA6YEdEM6Az-ZE',
+          'value': 1.0,
+          'currency': 'MAD'
+        });
+      } catch (err) {}
+    }
 
     window.location.href = 'mailto:info.letscameltours@gmail.com?subject=' +
       encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);

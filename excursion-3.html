@@ -1431,6 +1431,17 @@
       'Children: ' + children + '\n\n' +
       'Special Requests:\n' + message;
 
+    // Google Ads conversion: booking form submitted (opens the visitor's email app)
+    if (typeof window.gtag === 'function') {
+      try {
+        window.gtag('event', 'conversion', {
+          'send_to': 'AW-18468814926/9HSWCODA6YEdEM6Az-ZE',
+          'value': 1.0,
+          'currency': 'MAD'
+        });
+      } catch (err) {}
+    }
+
     window.location.href = 'mailto:info.letscameltours@gmail.com?subject=' +
       encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
   });
