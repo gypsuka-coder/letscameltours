@@ -1610,7 +1610,7 @@
     });
   });
 
-  // Booking / inquiry form — no backend on this static site, so we hand off to the visitor's email client
+  // Booking / inquiry form — sent via Web3Forms (same as the contact page), with the visitor's email app as fallback
   var bookingForm = document.getElementById('booking-form');
   bookingForm.addEventListener('submit', function(e) {
     e.preventDefault();
@@ -1637,19 +1637,63 @@
       '\n' +
       'Special Requests:\n' + message;
 
-    // Google Ads conversion: booking form submitted (opens the visitor's email app)
-    if (typeof window.gtag === 'function') {
-      try {
-        window.gtag('event', 'conversion', {
-          'send_to': 'AW-18468814926/9HSWCODA6YEdEM6Az-ZE',
-          'value': 1.0,
-          'currency': 'MAD'
-        });
-      } catch (err) {}
+    var mailtoHref = 'mailto:info.letscameltours@gmail.com?subject=' +
+      encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    var submitBtn = bookingForm.querySelector('button[type="submit"]');
+    var result = document.getElementById('bf-result');
+    if (!result) {
+      result = document.createElement('div');
+      result.id = 'bf-result';
+      result.setAttribute('role', 'status');
+      result.style.cssText = 'display:none;margin-top:14px;padding:13px 16px;border-radius:6px;font-size:14px;font-weight:600;text-align:center;';
+      submitBtn.insertAdjacentElement('afterend', result);
+    }
+    function showResult(ok, text) {
+      result.textContent = text;
+      result.style.display = 'block';
+      result.style.background = ok ? '#e6f7ec' : '#fdeaea';
+      result.style.color = ok ? '#1a7f3c' : '#c0392b';
+      result.style.border = '1px solid ' + (ok ? '#b8e6c8' : '#f5c2c0');
     }
 
-    window.location.href = 'mailto:info.letscameltours@gmail.com?subject=' +
-      encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    // Send the request straight to our inbox (same Web3Forms endpoint as the contact page),
+    // so visitors without a configured email app don't lose their booking
+    var data = new FormData();
+    data.append('access_key', '29460a97-9e17-42cd-9949-924a21efc332');
+    data.append('subject', subject);
+    data.append('from_name', "Let's Camel Tours website");
+    data.append('name', name);
+    data.append('email', email);
+    data.append('message', body);
+    submitBtn.disabled = true;
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: data
+    })
+      .then(function(res) { return res.json(); })
+      .then(function(res) {
+        if (!res.success) throw new Error('send failed');
+        submitBtn.disabled = false;
+        showResult(true, "Thank you! Your request has been sent. We'll get back to you shortly by email or WhatsApp.");
+        // Google Ads conversion: booking request actually delivered
+        if (typeof window.gtag === 'function') {
+          try {
+            window.gtag('event', 'conversion', {
+              'send_to': 'AW-18468814926/9HSWCODA6YEdEM6Az-ZE',
+              'value': 1.0,
+              'currency': 'MAD'
+            });
+          } catch (err) {}
+        }
+        bookingForm.reset();
+      })
+      .catch(function() {
+        // Fall back to the visitor's email app so the request is never lost
+        submitBtn.disabled = false;
+        showResult(false, "We couldn't send your request automatically, so we're opening your email app instead. You can also message us on WhatsApp.");
+        window.location.href = mailtoHref;
+      });
   });
 
   // Accommodation tabs
