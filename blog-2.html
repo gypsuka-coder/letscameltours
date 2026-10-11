@@ -941,6 +941,8 @@
   }
   var savedLang = null;
   try { savedLang = localStorage.getItem("lct-lang"); } catch (e) {}
+  // A ?lang=xx link (e.g. from a Spanish-language ad) takes priority over the saved choice
+  try { var urlLang = new URLSearchParams(location.search).get("lang"); if (urlLang) savedLang = urlLang; } catch (e) {}
   if (savedLang && ["en", "fr", "es", "de"].indexOf(savedLang) !== -1) applyLang(savedLang);
 
   var langToggle = document.getElementById("lang-toggle");
