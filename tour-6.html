@@ -738,6 +738,13 @@
     /* keep the language pills at a ~44px touch target on phones */
     .footer-lang-btn { padding: 13px 18px; }
   }
+  /* "From" price: hero badge (first on mobile) and booking sidebar box */
+  .hero-badge-item.hero-badge-price .hb-price { color: var(--gold-light); font-weight: 800; }
+  @media (max-width: 768px) { .hero-badge-item.hero-badge-price { order: -1; } }
+  .price-from { margin: 22px 0 4px; padding: 14px 16px; border-radius: 10px; background: #fdf2ea; border: 1px solid #f3cfb4; text-align: center; }
+  .price-from-label { display: block; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-gray); }
+  .price-from-amount { display: block; font-size: 30px; font-weight: 800; color: var(--gold); line-height: 1.2; }
+  .price-from-note { display: block; font-size: 12.5px; color: var(--navy); }
 </style>
 </head>
 <body>
@@ -882,6 +889,10 @@
       <div class="hero-badge-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
         <span><span class="hb-label" data-en="Best Season" data-fr="Meilleure Saison" data-es="Mejor Temporada" data-de="Beste Reisezeit">Best Season</span><span data-en="Mar–May & Sep–Nov" data-fr="Mars–Mai & Sep–Nov" data-es="Mar–May y Sep–Nov" data-de="Mär–Mai & Sep–Nov">Mar–May & Sep–Nov</span></span>
+      </div>
+      <div class="hero-badge-item hero-badge-price">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.6 13.4l-7.2 7.2a2 2 0 01-2.8 0L3 13V3h10l7.6 7.6a2 2 0 010 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>
+        <span><span class="hb-label" data-en="From" data-fr="À partir de" data-es="Desde" data-de="Ab">From</span><span class="hb-price"><span data-en="€970 per person" data-fr="970 € par personne" data-es="970 € por persona" data-de="970 € pro Person">€970 per person</span></span></span>
       </div>
     </div>
   </div>
@@ -1193,7 +1204,7 @@
       <div class="content-section" id="contact">
         <h2 class="section-h"><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></h2>
         <div class="contact-cta-box">
-          <h3><span data-en="From €970 per person" data-fr="À partir de 970 € par personne" data-es="Desde 970 € por persona" data-de="Ab 970 € pro Person">From €970 per person</span></h3>
+          <h3><span data-en="From €970 per person" data-fr="À partir de 970 € par personne" data-es="Desde 970 € por persona" data-de="Ab 970 € pro Person">From €970 per person</span></h3>
           <p><span data-en="100% private tour: your own vehicle, your own driver and your own pace. The final price depends on group size, season and accommodation level. Tell us your dates and we'll confirm your exact price within 24 hours." data-fr="Circuit 100 % privé : votre véhicule, votre chauffeur et votre rythme. Le prix final dépend de la taille du groupe, de la saison et du niveau d'hébergement. Indiquez-nous vos dates et nous vous confirmons votre prix exact sous 24 heures." data-es="Tour 100 % privado: tu propio vehículo, tu propio conductor y tu propio ritmo. El precio final depende del tamaño del grupo, la temporada y el nivel de alojamiento. Indícanos tus fechas y te confirmamos el precio exacto en 24 horas." data-de="100 % private Tour: eigenes Fahrzeug, eigener Fahrer und Ihr eigenes Tempo. Der Endpreis hängt von Gruppengröße, Saison und Unterkunftsniveau ab. Nennen Sie uns Ihre Daten, und wir bestätigen Ihren genauen Preis innerhalb von 24 Stunden.">100% private tour: your own vehicle, your own driver and your own pace. The final price depends on group size, season and accommodation level. Tell us your dates and we'll confirm your exact price within 24 hours.</span></p>
           <div class="contact-cta-actions">
             <a href="index.html#contact" class="btn-gold"><span data-en="Contact Us for Custom Rates" data-fr="Contactez-Nous pour les Tarifs" data-es="Contáctanos para Tarifas" data-de="Kontaktieren Sie Uns für Preise">Contact Us for Custom Rates</span></a>
@@ -1240,10 +1251,10 @@
         <p class="sidebar-agent-greeting"><span data-en="Hi, I'm Yassmina!" data-fr="Bonjour, je suis Yassmina !" data-es="¡Hola, soy Yassmina!" data-de="Hallo, ich bin Yassmina!">Hi, I'm Yassmina!</span></p>
         <p class="sidebar-agent-role"><span data-en="Happy to help plan your trip" data-fr="Ravie de vous aider à organiser votre voyage" data-es="Encantada de ayudarte a planear tu viaje" data-de="Ich helfe Ihnen gerne, Ihre Reise zu planen">Happy to help plan your trip</span></p>
       </div>
-      <div class="price-from" style="margin:22px 0 4px;padding:14px 16px;border-radius:10px;background:#fdf2ea;border:1px solid #f3cfb4;text-align:center;">
-        <span style="display:block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-gray);"><span data-en="From" data-fr="À partir de" data-es="Desde" data-de="Ab">From</span></span>
-        <span style="display:block;font-size:30px;font-weight:800;color:var(--gold);line-height:1.2;">970 €</span>
-        <span style="display:block;font-size:12.5px;color:var(--navy);"><span data-en="per person · 100% private tour" data-fr="par personne · circuit 100 % privé" data-es="por persona · tour 100 % privado" data-de="pro Person · 100 % private Tour">per person · 100% private tour</span></span>
+      <div class="price-from">
+        <span class="price-from-label"><span data-en="From" data-fr="À partir de" data-es="Desde" data-de="Ab">From</span></span>
+        <span class="price-from-amount">970 €</span>
+        <span class="price-from-note"><span data-en="per person · 100% private tour" data-fr="par personne · circuit 100 % privé" data-es="por persona · tour 100 % privado" data-de="pro Person · 100 % private Tour">per person · 100% private tour</span></span>
       </div>
       <h3><span data-en="Book This Tour" data-fr="Réservez ce Circuit" data-es="Reserva este Tour" data-de="Diese Tour Buchen">Book This Tour</span></h3>
       <p class="sub"><span data-en="7 Days / 6 Nights · Private Tour" data-fr="7 Jours / 6 Nuits · Circuit Privé" data-es="7 Días / 6 Noches · Tour Privado" data-de="7 Tage / 6 Nächte · Private Tour">7 Days / 6 Nights · Private Tour</span></p>
