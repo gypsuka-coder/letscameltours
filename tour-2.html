@@ -864,6 +864,10 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.6 13.4l-7.2 7.2a2 2 0 01-2.8 0L3 13V3h10l7.6 7.6a2 2 0 010 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>
         <span><span class="hb-label" data-en="From" data-fr="À partir de" data-es="Desde" data-de="Ab">From</span><span class="hb-price"><span data-en="€655 per person" data-fr="655 € par personne" data-es="655 € por persona" data-de="655 € pro Person">€655 per person</span></span></span>
       </div>
+      <div class="hero-badge-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.5-7 10-7 10z"/></svg>
+        <span><span class="hb-label" data-en="Family-run" data-fr="Entreprise familiale" data-es="Empresa familiar" data-de="Familienbetrieb">Family-run</span><span data-en="40+ years of experience" data-fr="Plus de 40 ans d'expérience" data-es="Más de 40 años de experiencia" data-de="Über 40 Jahre Erfahrung">40+ years of experience</span></span>
+      </div>
     </div>
   </div>
 </section>
@@ -1193,15 +1197,9 @@
             <label for="bf-phone"><span data-en="Phone / WhatsApp" data-fr="Téléphone / WhatsApp" data-es="Teléfono / WhatsApp" data-de="Telefon / WhatsApp">Phone / WhatsApp</span></label>
             <input type="tel" id="bf-phone" name="phone" required data-en-ph="+1 234 567 8900" data-fr-ph="+33 6 12 34 56 78" data-es-ph="+34 612 34 56 78" data-de-ph="+49 151 23456789" placeholder="+1 234 567 8900">
           </div>
-          <div class="booking-form-row">
-            <div>
-              <label for="bf-start-date"><span data-en="Start Date" data-fr="Date de Début" data-es="Fecha de Inicio" data-de="Startdatum">Start Date</span></label>
+          <div>
+            <label for="bf-start-date"><span data-en="Start Date" data-fr="Date de Début" data-es="Fecha de Inicio" data-de="Startdatum">Start Date</span></label>
               <input type="date" id="bf-start-date" name="start_date">
-            </div>
-            <div>
-              <label for="bf-end-date"><span data-en="End Date" data-fr="Date de Fin" data-es="Fecha de Fin" data-de="Enddatum">End Date</span></label>
-              <input type="date" id="bf-end-date" name="end_date">
-            </div>
           </div>
           <div>
             <label><span data-en="Accommodation" data-fr="Hébergement" data-es="Alojamiento" data-de="Unterkunft">Accommodation</span></label>
@@ -1220,15 +1218,9 @@
               </div>
             </div>
           </div>
-          <div class="booking-form-row">
-            <div>
-              <label for="bf-adults"><span data-en="Adults" data-fr="Adultes" data-es="Adultos" data-de="Erwachsene">Adults</span></label>
+          <div>
+            <label for="bf-adults"><span data-en="Adults" data-fr="Adultes" data-es="Adultos" data-de="Erwachsene">Adults</span></label>
               <input type="number" id="bf-adults" name="adults" min="1" max="30" data-en-ph="e.g. 2" data-fr-ph="ex. 2" data-es-ph="ej. 2" data-de-ph="z.B. 2" placeholder="e.g. 2">
-            </div>
-            <div>
-              <label for="bf-children"><span data-en="Children" data-fr="Enfants" data-es="Niños" data-de="Kinder">Children</span></label>
-              <input type="number" id="bf-children" name="children" min="0" max="30" data-en-ph="e.g. 0" data-fr-ph="ex. 0" data-es-ph="ej. 0" data-de-ph="z.B. 0" placeholder="e.g. 0">
-            </div>
           </div>
           <div>
             <label for="bf-message"><span data-en="Special Requests" data-fr="Demandes Spéciales" data-es="Solicitudes Especiales" data-de="Besondere Wünsche">Special Requests</span></label>
@@ -1539,11 +1531,9 @@
     var email = document.getElementById('bf-email').value;
     var phone = document.getElementById('bf-phone').value;
     var startDate = document.getElementById('bf-start-date').value;
-    var endDate = document.getElementById('bf-end-date').value;
     var accommodationEl = document.querySelector('input[name="accommodation"]:checked');
     var accommodation = accommodationEl ? accommodationEl.nextElementSibling.textContent.trim() : '';
     var adults = document.getElementById('bf-adults').value;
-    var children = document.getElementById('bf-children').value;
     var message = document.getElementById('bf-message').value;
 
     var subject = 'Tour Inquiry: 5-Day Marrakech to Merzouga Desert Tour';
@@ -1551,10 +1541,8 @@
       'Email: ' + email + '\n' +
       'Phone / WhatsApp: ' + phone + '\n' +
       'Start Date: ' + startDate + '\n' +
-      'End Date: ' + endDate + '\n' +
       'Accommodation: ' + accommodation + '\n' +
       'Adults: ' + adults + '\n' +
-      'Children: ' + children + '\n' +
       '\n' +
       'Special Requests:\n' + message;
 
