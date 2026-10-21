@@ -530,8 +530,6 @@
   .booking-form textarea { min-height: 80px; resize: vertical; }
   .booking-form-submit { margin-top: 18px; width: 100%; text-align: center; }
   .booking-form-note { font-size: 11.5px; color: var(--text-gray); margin-top: 10px; text-align: center; }
-  /* Two fields side by side (adults / children) */
-  .booking-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
   /* Keep date fields the same height as text inputs across browsers */
   .booking-form input[type="date"] { min-height: 40px; line-height: 1.2; }
   .booking-form input[type="date"]::-webkit-calendar-picker-indicator { cursor: pointer; opacity: 0.55; }
@@ -1171,15 +1169,9 @@
             <label for="bf-date"><span data-en="Travel Date" data-fr="Date de Voyage" data-es="Fecha de Viaje" data-de="Reisedatum">Travel Date</span></label>
             <input type="date" id="bf-date" name="date">
           </div>
-          <div class="booking-form-row">
-            <div>
-              <label for="bf-adults"><span data-en="Adults" data-fr="Adultes" data-es="Adultos" data-de="Erwachsene">Adults</span></label>
-              <input type="number" id="bf-adults" name="adults" min="1" max="30" data-en-ph="e.g. 2" data-fr-ph="ex. 2" data-es-ph="ej. 2" data-de-ph="z.B. 2" placeholder="e.g. 2">
-            </div>
-            <div>
-              <label for="bf-children"><span data-en="Children" data-fr="Enfants" data-es="Niños" data-de="Kinder">Children</span></label>
-              <input type="number" id="bf-children" name="children" min="0" max="30" data-en-ph="e.g. 0" data-fr-ph="ex. 0" data-es-ph="ej. 0" data-de-ph="z.B. 0" placeholder="e.g. 0">
-            </div>
+          <div>
+            <label for="bf-adults"><span data-en="Adults" data-fr="Adultes" data-es="Adultos" data-de="Erwachsene">Adults</span></label>
+            <input type="number" id="bf-adults" name="adults" min="1" max="30" data-en-ph="e.g. 2" data-fr-ph="ex. 2" data-es-ph="ej. 2" data-de-ph="z.B. 2" placeholder="e.g. 2">
           </div>
           <div class="full">
             <label><span data-en="Camel Ride or Horse Riding" data-fr="Chameau ou Cheval" data-es="Camello o Caballo" data-de="Kamel oder Pferd">Camel Ride or Horse Riding</span></label>
@@ -1486,7 +1478,6 @@
     var phone = document.getElementById('bf-phone').value;
     var date = document.getElementById('bf-date').value;
     var adults = document.getElementById('bf-adults').value;
-    var children = document.getElementById('bf-children').value;
     var rideChoice = document.querySelector('input[name="ride"]:checked');
     var ride = rideChoice ? rideChoice.value : '';
     var message = document.getElementById('bf-message').value;
@@ -1497,7 +1488,6 @@
       'Phone / WhatsApp: ' + phone + '\n' +
       'Travel Date: ' + date + '\n' +
       'Adults: ' + adults + '\n' +
-      'Children: ' + children + '\n' +
       'Ride Choice: ' + ride + '\n\n' +
       'Special Requests:\n' + message;
 

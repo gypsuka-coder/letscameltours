@@ -439,7 +439,7 @@
 
   .route-line { font-size: 13.5px; color: var(--gold); font-weight: 600; background: rgba(224,122,62,0.08); padding: 12px 16px; border-radius: 6px; margin-bottom: 6px; }
 
-  .map-embed-wrap { width: 100%; height: 480px; border-radius: 12px; border: 1px solid var(--line); overflow: hidden; margin-bottom: 14px; }
+  .map-embed-wrap { width: 100%; height: 300px; border-radius: 12px; border: 1px solid var(--line); overflow: hidden; margin-bottom: 14px; }
   .map-embed-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
   .map-embed-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .map-view-link { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 13.5px; color: var(--navy); margin-bottom: 16px; transition: color 0.2s ease; }
@@ -447,7 +447,7 @@
   .map-view-link svg { width: 15px; height: 15px; transition: transform 0.2s ease; }
   .map-view-link:hover svg { transform: translateX(3px); }
   @media (max-width: 600px) {
-    .map-embed-wrap { height: 340px; }
+    .map-embed-wrap { height: 220px; }
   }
 
 
@@ -532,8 +532,6 @@
   }
   .booking-form input:focus, .booking-form select:focus, .booking-form textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(224,122,62,0.15); }
   .booking-form textarea { min-height: 80px; resize: vertical; }
-  /* Two fields side by side (start/end date, adults/children) */
-  .booking-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
   /* Native select, restyled to match the inputs */
   .booking-form select {
     appearance: none;
@@ -1258,15 +1256,9 @@
             <label for="bf-phone"><span data-en="Phone / WhatsApp" data-fr="Téléphone / WhatsApp" data-es="Teléfono / WhatsApp" data-de="Telefon / WhatsApp">Phone / WhatsApp</span></label>
             <input type="tel" id="bf-phone" name="phone" required data-en-ph="+1 234 567 8900" data-fr-ph="+33 6 12 34 56 78" data-es-ph="+34 612 34 56 78" data-de-ph="+49 151 23456789" placeholder="+1 234 567 8900">
           </div>
-          <div class="booking-form-row">
-            <div>
-              <label for="bf-start-date"><span data-en="Start Date" data-fr="Date de Début" data-es="Fecha de Inicio" data-de="Startdatum">Start Date</span></label>
-              <input type="date" id="bf-start-date" name="start_date">
-            </div>
-            <div>
-              <label for="bf-end-date"><span data-en="End Date" data-fr="Date de Fin" data-es="Fecha de Fin" data-de="Enddatum">End Date</span></label>
-              <input type="date" id="bf-end-date" name="end_date">
-            </div>
+          <div>
+            <label for="bf-start-date"><span data-en="Start Date" data-fr="Date de Début" data-es="Fecha de Inicio" data-de="Startdatum">Start Date</span></label>
+            <input type="date" id="bf-start-date" name="start_date">
           </div>
           <div>
             <label><span data-en="Accommodation" data-fr="Hébergement" data-es="Alojamiento" data-de="Unterkunft">Accommodation</span></label>
@@ -1285,15 +1277,9 @@
               </div>
             </div>
           </div>
-          <div class="booking-form-row">
-            <div>
-              <label for="bf-adults"><span data-en="Adults" data-fr="Adultes" data-es="Adultos" data-de="Erwachsene">Adults</span></label>
-              <input type="number" id="bf-adults" name="adults" min="1" max="30" data-en-ph="e.g. 2" data-fr-ph="ex. 2" data-es-ph="ej. 2" data-de-ph="z.B. 2" placeholder="e.g. 2">
-            </div>
-            <div>
-              <label for="bf-children"><span data-en="Children" data-fr="Enfants" data-es="Niños" data-de="Kinder">Children</span></label>
-              <input type="number" id="bf-children" name="children" min="0" max="30" data-en-ph="e.g. 0" data-fr-ph="ex. 0" data-es-ph="ej. 0" data-de-ph="z.B. 0" placeholder="e.g. 0">
-            </div>
+          <div>
+            <label for="bf-adults"><span data-en="Adults" data-fr="Adultes" data-es="Adultos" data-de="Erwachsene">Adults</span></label>
+            <input type="number" id="bf-adults" name="adults" min="1" max="30" data-en-ph="e.g. 2" data-fr-ph="ex. 2" data-es-ph="ej. 2" data-de-ph="z.B. 2" placeholder="e.g. 2">
           </div>
           <div>
             <label for="bf-message"><span data-en="Special Requests" data-fr="Demandes Spéciales" data-es="Solicitudes Especiales" data-de="Besondere Wünsche">Special Requests</span></label>
@@ -1604,11 +1590,9 @@
     var email = document.getElementById('bf-email').value;
     var phone = document.getElementById('bf-phone').value;
     var startDate = document.getElementById('bf-start-date').value;
-    var endDate = document.getElementById('bf-end-date').value;
     var accommodationEl = document.querySelector('input[name="accommodation"]:checked');
     var accommodation = accommodationEl ? accommodationEl.nextElementSibling.textContent.trim() : '';
     var adults = document.getElementById('bf-adults').value;
-    var children = document.getElementById('bf-children').value;
     var message = document.getElementById('bf-message').value;
 
     var subject = 'Tour Inquiry: 6-Day Morocco Tour (Marrakech to Chefchaouen)';
@@ -1616,10 +1600,8 @@
       'Email: ' + email + '\n' +
       'Phone / WhatsApp: ' + phone + '\n' +
       'Start Date: ' + startDate + '\n' +
-      'End Date: ' + endDate + '\n' +
       'Accommodation: ' + accommodation + '\n' +
       'Adults: ' + adults + '\n' +
-      'Children: ' + children + '\n' +
       '\n' +
       'Special Requests:\n' + message;
 
