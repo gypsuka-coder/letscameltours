@@ -720,6 +720,9 @@
   .price-grid td { text-align: right; font-weight: 700; color: var(--navy); white-space: nowrap; }
   .price-grid tr.is-from td { color: var(--gold); }
   .price-grid-note { padding: 8px 14px; border-top: 1px solid var(--line); font-size: 12px; color: var(--text-gray); }
+  .price-grid tr.is-popular { background: var(--off-white); }
+  .price-grid tr.is-popular th { font-weight: 700; color: var(--navy); }
+  .price-grid-badge { display: inline-block; margin-left: 6px; padding: 1px 7px; border-radius: 20px; background: var(--navy); color: #fff; font-size: 10.5px; font-weight: 600; vertical-align: 1px; }
 </style>
 </head>
 <body>
@@ -1270,7 +1273,7 @@
         <div class="price-grid-title"><span data-en="Price per person by group size" data-fr="Prix par personne selon le groupe" data-es="Precio por persona según el grupo" data-de="Preis pro Person nach Gruppengröße">Price per person by group size</span></div>
         <table>
           <tr><th scope="row"><span data-en="1 traveller" data-fr="1 personne" data-es="1 persona" data-de="1 Person">1 traveller</span></th><td>2 770 €</td></tr>
-          <tr><th scope="row"><span data-en="2 travellers" data-fr="2 personnes" data-es="2 personas" data-de="2 Personen">2 travellers</span></th><td>1 770 €</td></tr>
+          <tr class="is-popular"><th scope="row"><span data-en="2 travellers" data-fr="2 personnes" data-es="2 personas" data-de="2 Personen">2 travellers</span> <span class="price-grid-badge"><span data-en="Most common" data-fr="Le plus courant" data-es="El más habitual" data-de="Am häufigsten">Most common</span></span></th><td>1 770 €</td></tr>
           <tr><th scope="row"><span data-en="3 travellers" data-fr="3 personnes" data-es="3 personas" data-de="3 Personen">3 travellers</span></th><td>1 435 €</td></tr>
           <tr><th scope="row"><span data-en="4 travellers" data-fr="4 personnes" data-es="4 personas" data-de="4 Personen">4 travellers</span></th><td>1 270 €</td></tr>
           <tr><th scope="row"><span data-en="5 travellers" data-fr="5 personnes" data-es="5 personas" data-de="5 Personen">5 travellers</span></th><td>1 270 €</td></tr>
