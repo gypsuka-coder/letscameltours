@@ -751,6 +751,11 @@
     /* keep the language pills at a ~44px touch target on phones */
     .footer-lang-btn { padding: 13px 18px; }
   }
+  /* "From" price box above the booking form */
+  .price-from { margin: 22px 0 18px; padding: 14px 16px; border-radius: 10px; background: #fdf2ea; border: 1px solid #f3cfb4; text-align: center; }
+  .price-from-label { display: block; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-gray); }
+  .price-from-amount { display: block; font-size: 30px; font-weight: 800; color: var(--gold); line-height: 1.2; }
+  .price-from-note { display: block; font-size: 12.5px; color: var(--navy); }
 </style>
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -1028,7 +1033,7 @@
       <div class="content-section" id="contact">
         <h2 class="section-h"><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></h2>
         <div class="contact-cta-box">
-          <h3><span data-en="Contact Us for Custom Rates & Availability" data-fr="Contactez-Nous pour les Tarifs et Disponibilités" data-es="Contáctanos para Tarifas y Disponibilidad" data-de="Kontaktieren Sie Uns für Preise & Verfügbarkeit">Contact Us for Custom Rates & Availability</span></h3>
+          <h3><span data-en="From €35 per person" data-fr="À partir de 35 € par personne" data-es="Desde 35 € por persona" data-de="Ab 35 € pro Person">From €35 per person</span></h3>
           <p><span data-en="From €35 per person, with free hotel pickup and drop-off. Tell us your date, pickup hotel, and surfing level and we'll confirm availability within 24 hours." data-fr="À partir de 35 € par personne, avec prise en charge et retour à l'hôtel gratuits. Indiquez-nous votre date, votre hôtel de départ et votre niveau de surf et nous confirmerons la disponibilité sous 24 heures." data-es="Desde 35 € por persona, con recogida y regreso al hotel gratuitos. Cuéntanos tu fecha, hotel de recogida y nivel de surf y confirmaremos la disponibilidad en 24 horas." data-de="Ab 35 € pro Person, mit kostenloser Hotelabholung und Rückbringung. Teilen Sie uns Ihr Datum, Ihr Abholhotel und Ihr Surfniveau mit, und wir bestätigen die Verfügbarkeit innerhalb von 24 Stunden.">From €35 per person, with free hotel pickup and drop-off. Tell us your date, pickup hotel, and surfing level and we'll confirm availability within 24 hours.</span></p>
           <div class="contact-cta-actions">
             <a href="index.html#contact" class="btn-gold"><span data-en="Contact Us for Custom Rates" data-fr="Contactez-Nous pour les Tarifs" data-es="Contáctanos para Tarifas" data-de="Kontaktieren Sie Uns für Preise">Contact Us for Custom Rates</span></a>
@@ -1106,6 +1111,11 @@
         <p class="sidebar-agent-role"><span data-en="Happy to help you book this activity" data-fr="Ravie de vous aider à réserver cette activité" data-es="Encantada de ayudarte a reservar esta actividad" data-de="Ich helfe Ihnen gerne, diese Aktivität zu buchen">Happy to help you book this activity</span></p>
       </div>
 
+      <div class="price-from">
+        <span class="price-from-label"><span data-en="From" data-fr="À partir de" data-es="Desde" data-de="Ab">From</span></span>
+        <span class="price-from-amount">35 €</span>
+        <span class="price-from-note"><span data-en="per person · free hotel pickup" data-fr="par personne · prise en charge gratuite à l’hôtel" data-es="por persona · recogida gratuita en el hotel" data-de="pro Person · kostenlose Hotelabholung">per person · free hotel pickup</span></span>
+      </div>
       <form class="booking-form" id="booking-form">
         <div class="booking-form-grid">
           <div>
