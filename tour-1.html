@@ -738,7 +738,9 @@
     .footer-lang-btn { padding: 13px 18px; }
   }
   /* "From" price: hero badge (first on mobile) and booking sidebar box */
-  .hero-badge-item.hero-badge-price .hb-price { color: var(--gold-light); font-weight: 800; }
+  .hero-badge-item.hero-badge-price { background: rgba(0,31,63,0.85); border-color: var(--gold); backdrop-filter: none; }
+  .hero-badge-item.hero-badge-price .hb-label { color: rgba(255,255,255,0.8); }
+  .hero-badge-item.hero-badge-price .hb-price { display: block; color: #f6a56e; font-size: 15px; font-weight: 800; }
   @media (max-width: 768px) { .hero-badge-item.hero-badge-price { order: -1; } }
   .price-from { margin: 22px 0 4px; padding: 14px 16px; border-radius: 10px; background: #fdf2ea; border: 1px solid #f3cfb4; text-align: center; }
   .price-from-label { display: block; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-gray); }
