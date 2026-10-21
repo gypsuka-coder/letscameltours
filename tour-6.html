@@ -737,11 +737,15 @@
     /* keep the language pills at a ~44px touch target on phones */
     .footer-lang-btn { padding: 13px 18px; }
   }
-  /* "From" price: hero badge (first on mobile) and booking sidebar box */
-  .hero-badge-item.hero-badge-price { background: rgba(0,31,63,0.85); border-color: var(--gold); backdrop-filter: none; }
-  .hero-badge-item.hero-badge-price .hb-label { color: rgba(255,255,255,0.8); }
-  .hero-badge-item.hero-badge-price .hb-price { display: block; color: #f6a56e; font-size: 15px; font-weight: 800; }
-  @media (max-width: 768px) { .hero-badge-item.hero-badge-price { order: -1; } }
+  /* Hero "from" price card + Book Now button (same as the activity pages) */
+  .hero-price-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 26px; }
+  .hero-price-badge { display: flex; flex-direction: column; background: rgba(255,255,255,0.12); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.3); border-radius: 12px; padding: 10px 20px; }
+  .hero-price-badge .hpb-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.75); font-weight: 700; }
+  .hero-price-badge .hpb-amount { font-size: 24px; font-weight: 800; color: var(--gold-light); }
+  .hero-price-badge .hpb-unit { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.8); }
+  .hero-book-btn { animation: heroPulse 2.4s ease-in-out infinite; }
+  @keyframes heroPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(224,122,62,0.45); } 50% { box-shadow: 0 0 0 10px rgba(224,122,62,0); } }
+  /* "From" price box in the booking sidebar */
   .price-from { margin: 22px 0 4px; padding: 14px 16px; border-radius: 10px; background: #fdf2ea; border: 1px solid #f3cfb4; text-align: center; }
   .price-from-label { display: block; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-gray); }
   .price-from-amount { display: block; font-size: 30px; font-weight: 800; color: var(--gold); line-height: 1.2; }
@@ -885,6 +889,14 @@
     <p class="hero-tagline"><span data-en="Kasbahs, the Draa Valley and a Night Under the Sahara Stars" data-fr="Kasbahs, la Vallée du Drâa et une Nuit Sous les Étoiles du Sahara" data-es="Kasbahs, el Valle del Draa y una Noche Bajo las Estrellas del Sahara" data-de="Kasbahs, das Draa-Tal und eine Nacht Unter dem Sternenhimmel der Sahara">Kasbahs, the Draa Valley and a Night Under the Sahara Stars</span></p>
     <p class="hero-lead"><span data-en="A private, tailor-made 7-day round trip from Marrakech, crossing the High Atlas to the kasbahs of Zagora and the Draa Valley, camel trekking into the Erg Chebbi dunes, Todra Gorge and the Dades Valley, and a guided day back in Marrakech." data-fr="Un circuit privé et sur mesure de 7 jours au départ de Marrakech, traversant le Haut Atlas jusqu'aux kasbahs de Zagora et à la vallée du Drâa, un trek à dos de chameau dans les dunes de l'Erg Chebbi, les gorges du Todra et la vallée du Dadès, avec une journée guidée de retour à Marrakech." data-es="Un circuito privado y a medida de 7 días con salida desde Marrakech, cruzando el Alto Atlas hasta las kasbahs de Zagora y el valle del Draa, un paseo en camello por las dunas de Erg Chebbi, la Garganta del Todra y el valle del Dadés, con un día guiado de regreso en Marrakech." data-de="Eine private, maßgeschneiderte 7-tägige Rundreise ab Marrakesch, über den Hohen Atlas zu den Kasbahs von Zagora und dem Draa-Tal, mit Kameltrekking in den Dünen von Erg Chebbi, der Todra-Schlucht und dem Dades-Tal, sowie einem geführten Tag zurück in Marrakesch.">A private, tailor-made 7-day round trip from Marrakech, crossing the High Atlas to the kasbahs of Zagora and the Draa Valley, camel trekking into the Erg Chebbi dunes, Todra Gorge and the Dades Valley, and a guided day back in Marrakech.</span></p>
 
+    <div class="hero-price-row">
+      <div class="hero-price-badge">
+        <span class="hpb-label" data-en="Starting From" data-fr="À Partir De" data-es="Desde" data-de="Ab">Starting From</span>
+        <span class="hpb-amount">€650 <span class="hpb-unit" data-en="/ person" data-fr="/ personne" data-es="/ persona" data-de="/ Person">/ person</span></span>
+      </div>
+      <a href="#booking-form" class="btn-gold hero-book-btn"><span data-en="Book Now" data-fr="Réserver Maintenant" data-es="Reservar Ahora" data-de="Jetzt Buchen">Book Now</span></a>
+    </div>
+
     <div class="hero-badges">
       <div class="hero-badge-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
@@ -901,10 +913,6 @@
       <div class="hero-badge-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
         <span><span class="hb-label" data-en="Best Season" data-fr="Meilleure Saison" data-es="Mejor Temporada" data-de="Beste Reisezeit">Best Season</span><span data-en="Mar–May & Sep–Nov" data-fr="Mars–Mai & Sep–Nov" data-es="Mar–May y Sep–Nov" data-de="Mär–Mai & Sep–Nov">Mar–May & Sep–Nov</span></span>
-      </div>
-      <div class="hero-badge-item hero-badge-price">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.6 13.4l-7.2 7.2a2 2 0 01-2.8 0L3 13V3h10l7.6 7.6a2 2 0 010 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>
-        <span><span class="hb-label" data-en="From" data-fr="À partir de" data-es="Desde" data-de="Ab">From</span><span class="hb-price"><span data-en="€650 per person" data-fr="650 € par personne" data-es="650 € por persona" data-de="650 € pro Person">€650 per person</span></span></span>
       </div>
     </div>
   </div>

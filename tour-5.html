@@ -737,11 +737,15 @@
     /* keep the language pills at a ~44px touch target on phones */
     .footer-lang-btn { padding: 13px 18px; }
   }
-  /* "From" price: hero badge (first on mobile) and booking sidebar box */
-  .hero-badge-item.hero-badge-price { background: rgba(0,31,63,0.85); border-color: var(--gold); backdrop-filter: none; }
-  .hero-badge-item.hero-badge-price .hb-label { color: rgba(255,255,255,0.8); }
-  .hero-badge-item.hero-badge-price .hb-price { display: block; color: #f6a56e; font-size: 15px; font-weight: 800; }
-  @media (max-width: 768px) { .hero-badge-item.hero-badge-price { order: -1; } }
+  /* Hero "from" price card + Book Now button (same as the activity pages) */
+  .hero-price-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 26px; }
+  .hero-price-badge { display: flex; flex-direction: column; background: rgba(255,255,255,0.12); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.3); border-radius: 12px; padding: 10px 20px; }
+  .hero-price-badge .hpb-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.75); font-weight: 700; }
+  .hero-price-badge .hpb-amount { font-size: 24px; font-weight: 800; color: var(--gold-light); }
+  .hero-price-badge .hpb-unit { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.8); }
+  .hero-book-btn { animation: heroPulse 2.4s ease-in-out infinite; }
+  @keyframes heroPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(224,122,62,0.45); } 50% { box-shadow: 0 0 0 10px rgba(224,122,62,0); } }
+  /* "From" price box in the booking sidebar */
   .price-from { margin: 22px 0 4px; padding: 14px 16px; border-radius: 10px; background: #fdf2ea; border: 1px solid #f3cfb4; text-align: center; }
   .price-from-label { display: block; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-gray); }
   .price-from-amount { display: block; font-size: 30px; font-weight: 800; color: var(--gold); line-height: 1.2; }
@@ -885,6 +889,14 @@
     <p class="hero-tagline"><span data-en="From the Kasbahs of the South to the Blue Pearl of the North" data-fr="Des Kasbahs du Sud à la Perle Bleue du Nord" data-es="De las Kasbahs del Sur a la Perla Azul del Norte" data-de="Von den Kasbahs des Südens zur Blauen Perle des Nordens">From the Kasbahs of the South to the Blue Pearl of the North</span></p>
     <p class="hero-lead"><span data-en="A private, tailor-made 6-day journey from Marrakech through the High Atlas to the golden dunes of the Sahara, the imperial city of Fes, and the Roman ruins of Volubilis, reaching Morocco's Blue Pearl before your driver returns you to Marrakech or Casablanca." data-fr="Un voyage privé et sur mesure de 6 jours, au départ de Marrakech, à travers le Haut Atlas jusqu'aux dunes dorées du Sahara, la ville impériale de Fès et les ruines romaines de Volubilis, jusqu'à la Perle Bleue du Maroc, avant que votre chauffeur ne vous ramène à Marrakech ou à Casablanca." data-es="Un viaje privado y a medida de 6 días, con salida desde Marrakech, cruzando el Alto Atlas hasta las doradas dunas del Sahara, la ciudad imperial de Fez y las ruinas romanas de Volubilis, hasta la Perla Azul de Marruecos, antes de que tu conductor te lleve de vuelta a Marrakech o Casablanca." data-de="Eine private, maßgeschneiderte 6-tägige Reise ab Marrakesch, über den Hohen Atlas zu den goldenen Dünen der Sahara, der Kaiserstadt Fès und den römischen Ruinen von Volubilis, bis zu Marokkos Blauer Perle, bevor Sie Ihr Fahrer zurück nach Marrakesch oder Casablanca bringt.">A private, tailor-made 6-day journey from Marrakech through the High Atlas to the golden dunes of the Sahara, the imperial city of Fes, and the Roman ruins of Volubilis, reaching Morocco's Blue Pearl before your driver returns you to Marrakech or Casablanca.</span></p>
 
+    <div class="hero-price-row">
+      <div class="hero-price-badge">
+        <span class="hpb-label" data-en="Starting From" data-fr="À Partir De" data-es="Desde" data-de="Ab">Starting From</span>
+        <span class="hpb-amount">€550 <span class="hpb-unit" data-en="/ person" data-fr="/ personne" data-es="/ persona" data-de="/ Person">/ person</span></span>
+      </div>
+      <a href="#booking-form" class="btn-gold hero-book-btn"><span data-en="Book Now" data-fr="Réserver Maintenant" data-es="Reservar Ahora" data-de="Jetzt Buchen">Book Now</span></a>
+    </div>
+
     <div class="hero-badges">
       <div class="hero-badge-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
@@ -901,10 +913,6 @@
       <div class="hero-badge-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
         <span><span class="hb-label" data-en="Best Season" data-fr="Meilleure Saison" data-es="Mejor Temporada" data-de="Beste Reisezeit">Best Season</span><span data-en="Mar–May & Sep–Nov" data-fr="Mars–Mai & Sep–Nov" data-es="Mar–May y Sep–Nov" data-de="Mär–Mai & Sep–Nov">Mar–May & Sep–Nov</span></span>
-      </div>
-      <div class="hero-badge-item hero-badge-price">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.6 13.4l-7.2 7.2a2 2 0 01-2.8 0L3 13V3h10l7.6 7.6a2 2 0 010 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>
-        <span><span class="hb-label" data-en="From" data-fr="À partir de" data-es="Desde" data-de="Ab">From</span><span class="hb-price"><span data-en="€550 per person" data-fr="550 € par personne" data-es="550 € por persona" data-de="550 € pro Person">€550 per person</span></span></span>
       </div>
     </div>
   </div>

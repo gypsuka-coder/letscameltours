@@ -704,11 +704,15 @@
     /* keep the language pills at a ~44px touch target on phones */
     .footer-lang-btn { padding: 13px 18px; }
   }
-  /* "From" price: hero badge (first on mobile) and booking sidebar box */
-  .hero-badge-item.hero-badge-price { background: rgba(0,31,63,0.85); border-color: var(--gold); backdrop-filter: none; }
-  .hero-badge-item.hero-badge-price .hb-label { color: rgba(255,255,255,0.8); }
-  .hero-badge-item.hero-badge-price .hb-price { display: block; color: #f6a56e; font-size: 15px; font-weight: 800; }
-  @media (max-width: 768px) { .hero-badge-item.hero-badge-price { order: -1; } }
+  /* Hero "from" price card + Book Now button (same as the activity pages) */
+  .hero-price-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 26px; }
+  .hero-price-badge { display: flex; flex-direction: column; background: rgba(255,255,255,0.12); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.3); border-radius: 12px; padding: 10px 20px; }
+  .hero-price-badge .hpb-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.75); font-weight: 700; }
+  .hero-price-badge .hpb-amount { font-size: 24px; font-weight: 800; color: var(--gold-light); }
+  .hero-price-badge .hpb-unit { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.8); }
+  .hero-book-btn { animation: heroPulse 2.4s ease-in-out infinite; }
+  @keyframes heroPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(224,122,62,0.45); } 50% { box-shadow: 0 0 0 10px rgba(224,122,62,0); } }
+  /* "From" price box in the booking sidebar */
   .price-from { margin: 22px 0 4px; padding: 14px 16px; border-radius: 10px; background: #fdf2ea; border: 1px solid #f3cfb4; text-align: center; }
   .price-from-label { display: block; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-gray); }
   .price-from-amount { display: block; font-size: 30px; font-weight: 800; color: var(--gold); line-height: 1.2; }
@@ -852,6 +856,14 @@
     <p class="hero-tagline"><span data-en="9 Days / 8 Nights: High Atlas Kasbahs, Sahara Dunes & the Atlantic Pearl of Essaouira" data-fr="9 Jours / 8 Nuits : Kasbahs du Haut Atlas, Dunes du Sahara et la Perle Atlantique d'Essaouira" data-es="9 Días / 8 Noches: Kasbahs del Alto Atlas, Dunas del Sahara y la Perla Atlántica de Essaouira" data-de="9 Tage / 8 Nächte: Kasbahs im Hohen Atlas, Sahara-Dünen & die Atlantikperle Essaouira">9 Days / 8 Nights: High Atlas Kasbahs, Sahara Dunes & the Atlantic Pearl of Essaouira</span></p>
     <p class="hero-lead"><span data-en="A private round trip from Marrakech through the High Atlas, the Dades Valley and the dunes of Merzouga, then west through the kasbah town of Ouarzazate and the walled city of Taroudant to the Atlantic coast at Essaouira, before looping back to Marrakech." data-fr="Un circuit privé aller-retour depuis Marrakech à travers le Haut Atlas, la vallée du Dadès et les dunes de Merzouga, puis vers l'ouest par la ville-kasbah d'Ouarzazate et la cité fortifiée de Taroudant jusqu'à la côte atlantique d'Essaouira, avant de revenir à Marrakech." data-es="Un circuito privado de ida y vuelta desde Marrakech a través del Alto Atlas, el Valle del Dadés y las dunas de Merzouga, y luego hacia el oeste por la ciudad-kasbah de Ouarzazate y la ciudad amurallada de Taroudant hasta la costa atlántica de Essaouira, antes de regresar a Marrakech." data-de="Eine private Rundreise ab Marrakesch durch den Hohen Atlas, das Dades-Tal und die Dünen von Merzouga, weiter westwärts über die Kasbah-Stadt Ouarzazate und die ummauerte Stadt Taroudant bis zur Atlantikküste in Essaouira, bevor es zurück nach Marrakesch geht.">A private round trip from Marrakech through the High Atlas, the Dades Valley and the dunes of Merzouga, then west through the kasbah town of Ouarzazate and the walled city of Taroudant to the Atlantic coast at Essaouira, before looping back to Marrakech.</span></p>
 
+    <div class="hero-price-row">
+      <div class="hero-price-badge">
+        <span class="hpb-label" data-en="Starting From" data-fr="À Partir De" data-es="Desde" data-de="Ab">Starting From</span>
+        <span class="hpb-amount">€845 <span class="hpb-unit" data-en="/ person" data-fr="/ personne" data-es="/ persona" data-de="/ Person">/ person</span></span>
+      </div>
+      <a href="#booking-form" class="btn-gold hero-book-btn"><span data-en="Book Now" data-fr="Réserver Maintenant" data-es="Reservar Ahora" data-de="Jetzt Buchen">Book Now</span></a>
+    </div>
+
     <div class="hero-badges">
       <div class="hero-badge-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
@@ -868,10 +880,6 @@
       <div class="hero-badge-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M7 7V5a2 2 0 012-2h6a2 2 0 012 2v2"/></svg>
         <span><span class="hb-label" data-en="Transport" data-fr="Transport" data-es="Transporte" data-de="Transport">Transport</span><span data-en="Private Vehicle & Driver" data-fr="Véhicule Privé et Chauffeur" data-es="Vehículo Privado y Conductor" data-de="Privates Fahrzeug & Fahrer">Private Vehicle & Driver</span></span>
-      </div>
-      <div class="hero-badge-item hero-badge-price">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.6 13.4l-7.2 7.2a2 2 0 01-2.8 0L3 13V3h10l7.6 7.6a2 2 0 010 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>
-        <span><span class="hb-label" data-en="From" data-fr="À partir de" data-es="Desde" data-de="Ab">From</span><span class="hb-price"><span data-en="€845 per person" data-fr="845 € par personne" data-es="845 € por persona" data-de="845 € pro Person">€845 per person</span></span></span>
       </div>
     </div>
   </div>
