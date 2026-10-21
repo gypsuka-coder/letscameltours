@@ -712,6 +712,14 @@
   .price-from-label { display: block; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-gray); }
   .price-from-amount { display: block; font-size: 30px; font-weight: 800; color: var(--gold); line-height: 1.2; }
   .price-from-note { display: block; font-size: 12.5px; color: var(--navy); }
+  /* Price per person by group size (booking sidebar) */
+  .price-grid { margin: 10px 0 18px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; font-size: 13px; }
+  .price-grid-title { padding: 9px 14px; background: var(--off-white); font-weight: 700; color: var(--navy); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .price-grid table { width: 100%; border-collapse: collapse; }
+  .price-grid th, .price-grid td { padding: 7px 14px; border-top: 1px solid var(--line); text-align: left; font-weight: 500; }
+  .price-grid td { text-align: right; font-weight: 700; color: var(--navy); white-space: nowrap; }
+  .price-grid tr.is-from td { color: var(--gold); }
+  .price-grid-note { padding: 8px 14px; border-top: 1px solid var(--line); font-size: 12px; color: var(--text-gray); }
 </style>
 </head>
 <body>
@@ -859,7 +867,7 @@
       </div>
       <div class="hero-badge-item hero-badge-price">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.6 13.4l-7.2 7.2a2 2 0 01-2.8 0L3 13V3h10l7.6 7.6a2 2 0 010 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>
-        <span><span class="hb-label" data-en="From" data-fr="À partir de" data-es="Desde" data-de="Ab">From</span><span class="hb-price"><span data-en="€1,770 per person" data-fr="1 770 € par personne" data-es="1.770 € por persona" data-de="1.770 € pro Person">€1,770 per person</span></span></span>
+        <span><span class="hb-label" data-en="From" data-fr="À partir de" data-es="Desde" data-de="Ab">From</span><span class="hb-price"><span data-en="€1,190 per person" data-fr="1 190 € par personne" data-es="1.190 € por persona" data-de="1.190 € pro Person">€1,190 per person</span></span></span>
       </div>
     </div>
   </div>
@@ -1255,8 +1263,20 @@
       </div>
       <div class="price-from">
         <span class="price-from-label"><span data-en="From" data-fr="À partir de" data-es="Desde" data-de="Ab">From</span></span>
-        <span class="price-from-amount">1 770 €</span>
+        <span class="price-from-amount">1 190 €</span>
         <span class="price-from-note"><span data-en="per person · 100% private tour" data-fr="par personne · circuit 100 % privé" data-es="por persona · tour 100 % privado" data-de="pro Person · 100 % private Tour">per person · 100% private tour</span></span>
+      </div>
+      <div class="price-grid">
+        <div class="price-grid-title"><span data-en="Price per person by group size" data-fr="Prix par personne selon le groupe" data-es="Precio por persona según el grupo" data-de="Preis pro Person nach Gruppengröße">Price per person by group size</span></div>
+        <table>
+          <tr><th scope="row"><span data-en="1 traveller" data-fr="1 personne" data-es="1 persona" data-de="1 Person">1 traveller</span></th><td>2 770 €</td></tr>
+          <tr><th scope="row"><span data-en="2 travellers" data-fr="2 personnes" data-es="2 personas" data-de="2 Personen">2 travellers</span></th><td>1 770 €</td></tr>
+          <tr><th scope="row"><span data-en="3 travellers" data-fr="3 personnes" data-es="3 personas" data-de="3 Personen">3 travellers</span></th><td>1 435 €</td></tr>
+          <tr><th scope="row"><span data-en="4 travellers" data-fr="4 personnes" data-es="4 personas" data-de="4 Personen">4 travellers</span></th><td>1 270 €</td></tr>
+          <tr><th scope="row"><span data-en="5 travellers" data-fr="5 personnes" data-es="5 personas" data-de="5 Personen">5 travellers</span></th><td>1 270 €</td></tr>
+          <tr class="is-from"><th scope="row"><span data-en="6 travellers" data-fr="6 personnes" data-es="6 personas" data-de="6 Personen">6 travellers</span></th><td>1 190 €</td></tr>
+        </table>
+        <div class="price-grid-note"><span data-en="More than 6 travellers? Contact us for a group price." data-fr="Plus de 6 personnes ? Contactez-nous pour un prix de groupe." data-es="¿Más de 6 personas? Contáctanos para un precio de grupo." data-de="Mehr als 6 Reisende? Kontaktieren Sie uns für einen Gruppenpreis.">More than 6 travellers? Contact us for a group price.</span></div>
       </div>
       <h3><span data-en="Book This Tour" data-fr="Réservez ce Circuit" data-es="Reserva este Tour" data-de="Diese Tour Buchen">Book This Tour</span></h3>
       <p class="sub"><span data-en="12 Days / 11 Nights · Casablanca to Marrakech & Sahara" data-fr="12 Jours / 11 Nuits · Casablanca à Marrakech et au Sahara" data-es="12 Días / 11 Noches · Casablanca a Marrakech y el Sahara" data-de="12 Tage / 11 Nächte · Casablanca nach Marrakesch & Sahara">12 Days / 11 Nights · Casablanca to Marrakech & Sahara</span></p>
@@ -1326,7 +1346,7 @@
       <div class="content-section" id="contact-cta">
         <h2 class="section-h"><span data-en="Contact Us" data-fr="Contactez-Nous" data-es="Contáctanos" data-de="Kontaktieren Sie Uns">Contact Us</span></h2>
         <div class="contact-cta-box">
-          <h3><span data-en="From €1,770 per person" data-fr="À partir de 1 770 € par personne" data-es="Desde 1.770 € por persona" data-de="Ab 1.770 € pro Person">From €1,770 per person</span></h3>
+          <h3><span data-en="From €1,190 per person" data-fr="À partir de 1 190 € par personne" data-es="Desde 1.190 € por persona" data-de="Ab 1.190 € pro Person">From €1,190 per person</span></h3>
           <p><span data-en="100% private tour: your own vehicle, your own driver and your own pace. The final price depends on group size, season and accommodation level. Tell us your dates and we'll confirm your exact price within 24 hours." data-fr="Circuit 100 % privé : votre véhicule, votre chauffeur et votre rythme. Le prix final dépend de la taille du groupe, de la saison et du niveau d'hébergement. Indiquez-nous vos dates et nous vous confirmons votre prix exact sous 24 heures." data-es="Tour 100 % privado: tu propio vehículo, tu propio conductor y tu propio ritmo. El precio final depende del tamaño del grupo, la temporada y el nivel de alojamiento. Indícanos tus fechas y te confirmamos el precio exacto en 24 horas." data-de="100 % private Tour: eigenes Fahrzeug, eigener Fahrer und Ihr eigenes Tempo. Der Endpreis hängt von Gruppengröße, Saison und Unterkunftsniveau ab. Nennen Sie uns Ihre Daten, und wir bestätigen Ihren genauen Preis innerhalb von 24 Stunden.">100% private tour: your own vehicle, your own driver and your own pace. The final price depends on group size, season and accommodation level. Tell us your dates and we'll confirm your exact price within 24 hours.</span></p>
           <div class="contact-cta-actions">
             <a href="index.html#contact" class="btn-gold"><span data-en="Contact Us for Custom Rates" data-fr="Contactez-Nous pour les Tarifs" data-es="Contáctanos para Tarifas" data-de="Kontaktieren Sie Uns für Preise">Contact Us for Custom Rates</span></a>
