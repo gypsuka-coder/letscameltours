@@ -185,7 +185,7 @@
 
   /* Mobile menu dropdowns, mirroring the desktop nav's Tours/Excursions/Activities submenus */
   .mobile-menu a.mobile-nav-dropdown-toggle { display: flex; align-items: center; justify-content: space-between; }
-  .mobile-nav-dropdown-caret { width: 14px; height: 14px; flex-shrink: 0; transition: transform 0.25s ease; }
+  .mobile-nav-dropdown-caret { width: 14px; height: 14px; flex-shrink: 0; transition: transform 0.25s ease; box-sizing: content-box; padding: 14px; margin: -14px; }
   .mobile-nav-dropdown-toggle.open .mobile-nav-dropdown-caret { transform: rotate(180deg); }
   .mobile-nav-submenu { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; display: flex; flex-direction: column; flex-shrink: 0; padding-left: 14px; }
   .mobile-nav-submenu.open { max-height: 500px; }
@@ -1362,6 +1362,8 @@
   // the desktop nav's hover submenus since mobile has no hover state.
   document.querySelectorAll('.mobile-nav-dropdown-toggle').forEach(function(toggle) {
     toggle.addEventListener('click', function(e) {
+      // Tapping the label goes to the section page; only the arrow opens the list.
+      if (!e.target.closest('.mobile-nav-dropdown-caret')) return;
       e.preventDefault();
       e.stopImmediatePropagation();
       var submenu = toggle.nextElementSibling;
