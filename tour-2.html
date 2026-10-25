@@ -28,7 +28,10 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon/favicon-180x180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="tour-2-mobile.jpg" media="(max-width: 700px)" fetchpriority="high">
+<link rel="preload" as="image" href="tour-2.jpg" media="(min-width: 701px)" fetchpriority="high">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 <style>
   :root {
     --navy: #003366;
@@ -374,6 +377,7 @@
     background-size: cover; background-position: center;
     padding: 150px 30px 56px; color: #fff;
   }
+  @media (max-width: 700px) { .hero { background-image: linear-gradient(180deg, rgba(0,51,102,0.45) 0%, rgba(0,31,63,0.72) 100%), url('tour-2-mobile.jpg'); } }
   .hero-inner { max-width: 1140px; margin: 0 auto; }
   .hero-badge-top { display: inline-block; background: var(--gold); color: #fff; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 6px 14px; border-radius: 50px; margin-bottom: 16px; }
   .hero h1 { font-size: clamp(28px, 4.2vw, 44px); font-weight: 800; margin-bottom: 10px; max-width: 800px; }
@@ -738,7 +742,7 @@
 <header class="navbar">
   <div class="nav-container">
     <a href="index.html" class="logo">
-      <img src="logo.png" alt="Let's Camel Tours">
+      <img src="logo.png" alt="Let's Camel Tours" width="600" height="224">
     </a>
     <nav class="nav-menu">
       <a href="index.html#home"><span data-en="Home" data-fr="Accueil" data-es="Inicio" data-de="Startseite">Home</span></a>
@@ -1191,7 +1195,7 @@
       </div>
 
       <div class="sidebar-agent">
-        <img src="images-yassmina-profile.jpg" alt="Yassmina, Let's Camel Tours travel expert" class="sidebar-agent-avatar">
+        <img src="images-yassmina-profile.jpg" alt="Yassmina, Let's Camel Tours travel expert" class="sidebar-agent-avatar" width="414" height="407" loading="lazy">
         <p class="sidebar-agent-greeting"><span data-en="Hi, I'm Yassmina!" data-fr="Bonjour, je suis Yassmina !" data-es="¡Hola, soy Yassmina!" data-de="Hallo, ich bin Yassmina!">Hi, I'm Yassmina!</span></p>
         <p class="sidebar-agent-role"><span data-en="Happy to help plan your Sahara trip" data-fr="Ravie de vous aider à organiser votre voyage au Sahara" data-es="Encantada de ayudarte a planear tu viaje al Sahara" data-de="Ich helfe Ihnen gerne, Ihre Sahara-Reise zu planen">Happy to help plan your Sahara trip</span></p>
       </div>
@@ -1283,7 +1287,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-col footer-col-brand">
-        <a href="index.html" class="footer-logo"><img src="logo-footer.png" alt="Let's Camel Tours"></a>
+        <a href="index.html" class="footer-logo"><img src="logo-footer.png" alt="Let's Camel Tours" width="600" height="224" loading="lazy"></a>
         <p><span data-en="A family-run travel agency between the dunes of Merzouga and the waves of Taghazout, guiding travelers through real Morocco since day one." data-fr="Une agence de voyage familiale entre les dunes de Merzouga et les vagues de Taghazout, guidant les voyageurs à travers le vrai Maroc depuis le premier jour." data-es="Una agencia de viajes familiar entre las dunas de Merzouga y las olas de Taghazout, guiando a los viajeros por el verdadero Marruecos desde el primer día." data-de="Eine familiengeführte Reiseagentur zwischen den Dünen Merzougas und den Wellen Taghazouts, die Reisende von Anfang an durch das echte Marokko führt.">A family-run travel agency between the dunes of Merzouga and the waves of Taghazout, guiding travelers through real Morocco since day one.</span></p>
         <span class="footer-lang-label" data-en="Language" data-fr="Langue" data-es="Idioma" data-de="Sprache">Language</span>
         <div class="footer-lang-row">
